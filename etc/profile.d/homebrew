@@ -1,0 +1,14 @@
+#!/bin/bash -exs
+
+add_homebrew_sbin_to_path() {
+  export PATH="/usr/local/sbin:$PATH"
+}
+
+enable_homebrew_packages_bash_autocompletion() {
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+}
+
+add_homebrew_sbin_to_path
+enable_homebrew_packages_bash_autocompletion

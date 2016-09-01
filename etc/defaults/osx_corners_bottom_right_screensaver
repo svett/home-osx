@@ -1,0 +1,3 @@
+# Set the Apple Dock corners
+defaults write com.apple.dock wvous-br-corner -int 5
+defaults write com.apple.dock wvous-br-modifier -int 0

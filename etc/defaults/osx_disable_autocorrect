@@ -1,0 +1,2 @@
+# Disable Auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false

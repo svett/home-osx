@@ -1,0 +1,28 @@
+#!/bin/bash
+
+response_time() {
+  local url
+  url="$1"
+
+  while :
+  do
+    curl -sL -o /dev/null \
+    -w '%{http_code} dns:%{time_namelookup} tcp:%{time_connect} tls:%{time_appconnect} total:%{time_total}\n' \
+    "$url"
+  done
+}
+
+response_headers() {
+  local url
+  url="$1"
+  shift
+
+  curl -svL -o /dev/null "$url" "$@"
+}
+
+fast_dl() {
+  local url
+  url="$1"
+
+  aria2c -x 10 -j 10 -s 10 "$url"
+}

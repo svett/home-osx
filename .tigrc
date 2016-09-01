@@ -1,0 +1,34 @@
+# Show git SHAs in main view
+set main-view-id-display = yes
+
+# Refresh views when a modification is detected
+set refresh-mode = auto
+
+# Use UTF-8 characters for graphical elements
+set line-graphics = utf-8
+
+bind main f !git fetch
+bind main u !git pull
+bind main t !git revert %(commit)
+bind main i !git rebase -i %(commit)
+bind main B !git checkout -b %(prompt)
+bind main c !git checkout %(commit)
+
+bind main B !git checkout -b "%(prompt New branch name: )"
+bind refs B !git checkout -b "%(prompt New branch name: )" %(ref)
+
+bind main p !git push -u
+bind main P !git push -f
+bind status p !git push -u
+bind status P !git push -f
+
+bind main { !git stash
+bind status { !git stash
+
+bind main } !git stash pop
+bind status } !git stash pop
+
+bind status c !git commit
+bind status C !git duet-commit
+bind status a !git commit --amend
+bind status x !git clean -fd

@@ -1,0 +1,4 @@
+# Do not show warning when you clean up the trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+RELOAD_SERVICES+=(Finder)

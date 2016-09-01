@@ -1,0 +1,4 @@
+# Search current directory by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+RELOAD_SERVICES+=(Finder)

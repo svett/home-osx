@@ -1,0 +1,2 @@
+# Fast window resizing
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001

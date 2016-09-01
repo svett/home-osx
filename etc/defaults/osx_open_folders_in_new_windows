@@ -1,0 +1,4 @@
+# Do not open folders in new windows
+defaults write com.apple.finder FinderSpawnTab -bool false
+
+RELOAD_SERVICES+=(Finder)

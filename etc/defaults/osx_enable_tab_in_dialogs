@@ -1,0 +1,2 @@
+# Enable tab in dialogs
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3

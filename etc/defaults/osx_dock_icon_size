@@ -1,0 +1,4 @@
+# Set the icon size in dock
+defaults write com.apple.dock tilesize -int 64
+
+RELOAD_SERVICES+=(Dock)

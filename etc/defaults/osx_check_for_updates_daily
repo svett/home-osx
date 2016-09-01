@@ -1,0 +1,2 @@
+# Set to check daily instead of weekly.
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1

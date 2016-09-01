@@ -1,0 +1,10 @@
+#!/bin/bash
+
+alias bx="bundle exec"
+alias bl="bundle list"
+alias bi="bundle install"
+alias bu="bundle update"
+alias bout="bundle outdated"
+
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh

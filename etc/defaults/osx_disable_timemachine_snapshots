@@ -1,0 +1,2 @@
+# Disable time machine local backups
+sudo tmutil disablelocal

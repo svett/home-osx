@@ -1,0 +1,8 @@
+*un~
+.DS_Store
+.bundle
+.vagrant
+workspace
+go
+tmp
+tags

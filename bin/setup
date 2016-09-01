@@ -1,0 +1,98 @@
+#!/usr/bin/env sh -e
+
+[ -z "$DEBUG" ] || set -x
+
+export MY_HOSTNAME="$1"
+RELOAD_SERVICES=()
+
+main() {
+  osx_software_update
+
+  install_brew_if_not_exists
+  install_brew_update
+  install_ruby
+
+  osx_configure
+  osx_appstore_update
+  reload_modified_services
+
+  update_tmux_plugins
+  update_vim
+}
+
+install_brew_if_not_exists() {
+  if [[ ! -x /usr/local/bin/brew ]] ; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+}
+
+install_brew_update() {
+  pushd "${HOME}/etc"
+    brew tap Homebrew/bundle
+    brew update
+    brew bundle
+    brew bundle cleanup
+  popd
+}
+
+install_ruby() {
+  echo "Setting up ruby..."
+  # chruby contains unbound variables
+  set +u
+  source /usr/local/share/chruby/chruby.sh
+
+  if chruby $(cat "${HOME}/.ruby-version") > /dev/null 2>&1; then
+    echo "$(cat "${HOME}/.ruby-version") already installed..."
+  else
+    echo "will install $(cat "${HOME}/.ruby-version")..."
+    ruby-install $(cat ~/.ruby-version)
+  fi
+  set -u
+}
+
+osx_software_update() {
+  softwareupdate --install --all
+}
+
+osx_configure() {
+  local config
+
+  pushd "${HOME}/etc/defaults" >&-
+    for config in *
+    do
+      # shellcheck source=/dev/null
+      . "$config"
+    done
+  popd >&-
+}
+
+osx_appstore_update() {
+  if which mas >&-
+  then
+    mas outdated | while read -r app_id_and_name
+    do
+      echo "Updating ${app_id_and_name##* }..."
+      mas install "${app_id_and_name%% *}"
+    done
+  fi
+}
+
+reload_modified_services() {
+  local modified_services=(${RELOAD_SERVICES[@]:?must be defined})
+  local modified_services_uniq=(
+    $(printf "%s\n" "${modified_services[@]}" | sort -u)
+  )
+
+  killall "${modified_services_uniq[@]}"
+}
+
+update_vim() {
+  . "${HOME}/.vim/update"
+}
+
+update_tmux_plugins() {
+  . "${HOME}/.tmux/plugins/tpm/bin/install_plugins" || true
+  . "${HOME}/.tmux/plugins/tpm/bin/update_plugins" all || true
+}
+
+main

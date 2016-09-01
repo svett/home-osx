@@ -1,0 +1,4 @@
+# Enable Dock spring opening and Stacks item finder
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+
+RELOAD_SERVICES+=(Dock)

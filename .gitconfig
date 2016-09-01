@@ -1,0 +1,72 @@
+#/* vim: set ft=cfg : */
+[alias]
+	poh = push origin HEAD
+	pom = push origin master
+	st = status
+	di = diff
+	co = checkout
+	ci = duet-commit --verbose
+	br = branch
+	sta = stash
+	llog = log --date=local
+	flog = log --pretty=fuller --decorate
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lol = log --graph --decorate --oneline
+	lola = log --graph --decorate --oneline --all
+	blog = log origin/master... --left-right
+	ds = diff --staged
+	fixup = commit --fixup
+	squash = commit --squash
+	unstage = reset HEAD
+	rum = rebase master@{u}
+[apply]
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[user]
+  name = Svet Ralchev
+  email = svet@ralch.com
+[github]
+  user = svett
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[pack]
+  threads = 0
+[pull]
+  rebase = true
+[push]
+  default = current
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[mergetool]
+  prompt = false
+[diff]
+  tool = vimdiff
+  conflictstyle = diff3
+[difftool]
+  prompt = false
+[core]
+  excludesfile = ~/.gitignore
+[commit]
+  template = ~/.gitcommit
+  verbose = true
+[help]
+  autocorrect = 1
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/

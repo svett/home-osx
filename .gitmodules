@@ -1,0 +1,6 @@
+[submodule ".vim"]
+	path = .vim
+	url = https://github.com/luan/vimfiles
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

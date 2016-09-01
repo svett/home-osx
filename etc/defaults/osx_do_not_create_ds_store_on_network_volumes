@@ -1,0 +1,2 @@
+# Disable writing file on network devices
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true

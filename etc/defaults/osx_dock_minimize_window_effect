@@ -1,0 +1,4 @@
+# Minimize the window effects to scale
+defaults write com.apple.dock mineffect -string "scale"
+
+RELOAD_SERVICES+=(Dock)
