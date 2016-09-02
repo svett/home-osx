@@ -51,7 +51,6 @@ brew 'youtube-dl'
 brew 'bash-completion'
 
 cask 'atom'
-cask 'flycut'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'screenhero'
