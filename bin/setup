@@ -19,6 +19,8 @@ main() {
   update_golang_packages
   update_tmux_plugins
   update_vim
+
+  symlink_ssl
 }
 
 install_brew_if_not_exists() {
@@ -65,6 +67,11 @@ osx_configure() {
       . "$config"
     done
   popd >&-
+}
+
+symlink_ssl() {
+  ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+  ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 }
 
 osx_appstore_update() {
