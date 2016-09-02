@@ -4,6 +4,3 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule ".atom/.atom"]
-	path = .atom/.atom
-	url = https://github.com/luan/atom-config
