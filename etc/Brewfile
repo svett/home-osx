@@ -35,8 +35,7 @@ brew 's3cmd'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
-brew 'vim', args: ['with-lua']
-brew 'neovim/neovim/neovim'
+brew 'vim', args: ['with-lua','with-python']
 brew 'watch'
 brew 'wget'
 brew 'pstree'
