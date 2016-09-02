@@ -5,7 +5,7 @@ enable_stack_bash_autocompletion() {
 }
 
 add_stack_to_path() {
-  export PATH="$HOME/.local/bin:$PATH"
+  export PATH="$PATH:$HOME/.local/bin"
 }
 
 if which stack >&-
