@@ -16,6 +16,7 @@ main() {
   osx_appstore_update
   reload_modified_services
 
+  update_golang_packages
   update_tmux_plugins
   update_vim
 }
@@ -93,6 +94,17 @@ update_vim() {
 update_tmux_plugins() {
   . "${HOME}/.tmux/plugins/tpm/bin/install_plugins" || true
   . "${HOME}/.tmux/plugins/tpm/bin/update_plugins" all || true
+}
+
+update_golang_packages() {
+export GOPATH="${GOPATH:-"${HOME}/go"}"
+
+pushd "${HOME}/go/packages" >&-
+ for pkg in *
+ do
+  go get "${pkg//\~//}"
+ done
+popd >&-
 }
 
 main

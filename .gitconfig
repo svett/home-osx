@@ -63,9 +63,6 @@
   prompt = false
 [core]
   excludesfile = ~/.gitignore
-[commit]
-  template = ~/.gitcommit
-  verbose = true
 [help]
   autocorrect = 1
 [url "ssh://git@github.com/"]
