@@ -50,6 +50,7 @@ brew 'the_silver_searcher'
 brew 'universal-ctags', args: ['HEAD']
 brew 'youtube-dl'
 brew 'bash-completion'
+brew 'ansible'
 
 cask 'atom'
 cask 'google-chrome'
