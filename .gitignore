@@ -21,6 +21,7 @@
 .zshrc
 .wget-hsts
 .Trash
+.gitconfig
 workspace
 go
 tmp
