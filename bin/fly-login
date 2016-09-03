@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eu
+
+ci_name="$1"
+concourse_lpass_credentials="concourse-$ci_name"
+concourse_url=$(lpass show $concourse_lpass_credentials --url)
+concourse_username=$(lpass show $concourse_lpass_credentials --username)
+concourse_password=$(lpass show $concourse_lpass_credentials --password)
+
+fly -t $ci_name login -c "${concourse_url}" -u "${concourse_username}" -p "${concourse_password}"
+fly -t $ci_name sync
