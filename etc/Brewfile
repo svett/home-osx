@@ -7,7 +7,6 @@ tap 'homebrew/completions'
 tap 'git-duet/tap'
 tap 'universal-ctags/universal-ctags'
 tap 'cloudfoundry/tap'
-tap 'concourse/tap'
 
 brew 'ack'
 brew 'awscli'
@@ -48,10 +47,9 @@ brew 'haskell-stack'
 brew 'ipcalc'
 brew 'shellcheck'
 brew 'the_silver_searcher'
-brew 'universal-ctags', args: ['head']
+brew 'universal-ctags', args: ['HEAD']
 brew 'youtube-dl'
 brew 'bash-completion'
-brew 'fly'
 
 cask 'atom'
 cask 'google-chrome'

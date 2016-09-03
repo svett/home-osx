@@ -14,6 +14,7 @@ main() {
 
   osx_configure
   osx_appstore_update
+  git_configure
   reload_modified_services
 
   update_golang_packages
@@ -67,6 +68,27 @@ osx_configure() {
       . "$config"
     done
   popd >&-
+}
+
+git_configure() {
+  echo "Ensuring git configs are set up..."
+  local gitconfig
+
+  if [[ ! -f "${HOME}/.gitconfig" ]] ; then
+    write_git_config
+  fi
+
+  if [[ $(head -n2 "${HOME}/.gitconfig") != "[include]
+  path = ${HOME}/.gitconfig_00_base" ]] ; then
+    gitconfig=$(cat "${HOME}/.gitconfig")
+    write_git_config
+    echo "${gitconfig}" >> "${HOME}/.gitconfig"
+  fi
+}
+
+write_git_config() {
+    echo "[include]" > "${HOME}/.gitconfig"
+    echo "  path = ${HOME}/.gitconfig_00_base" >> "${HOME}/.gitconfig"
 }
 
 symlink_ssl() {
