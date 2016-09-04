@@ -1,5 +1,9 @@
 # home-osx
-OSX home directory
+Automates setup of OSX workstation and home directory
+
+Hardly inspired by work at [Pivotal](http://www.pivotal.io) and [Gerhard
+Lazu](https://github.com/gerhard), [Phd Gareth Smith](http://github.com/totherme) &
+[Scott Muc](https://github.com/scottmuc).
 
 ## Boostrapping a new workstation
 
@@ -13,3 +17,8 @@ $ git reset --hard origin/master
 $ git submodule update --init --recursive
 $ bin/setup
 ```
+
+### TO DO
+- Configure iTerm2 appereance
+- Download and install [fly](https://github.com/concourse/fly)
+- Apply SizeUp and 1Password licenses
