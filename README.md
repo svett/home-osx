@@ -1,7 +1,7 @@
 # home-osx
-Automates setup of OSX workstation and home directory
+Automates setup of OSX workstation and home directory.
 
-Hardly inspired by work at [Pivotal](http://www.pivotal.io) and [Gerhard
+Hardly inspired by my work at [Pivotal](http://www.pivotal.io) and [Gerhard
 Lazu](https://github.com/gerhard), [Phd Gareth Smith](http://github.com/totherme) &
 [Scott Muc](https://github.com/scottmuc).
 
