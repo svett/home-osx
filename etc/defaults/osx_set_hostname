@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ -n "$MY_HOSTNAME" ]
+if [ -n "$MACHINE_NAME" ]
 then
-  sudo scutil --set HostName "$MY_HOSTNAME"
-  sudo scutil --set LocalHostName "$MY_HOSTNAME"
-  sudo scutil --set ComputerName "$MY_HOSTNAME"
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$MY_HOSTNAME"
+  sudo scutil --set HostName "$MACHINE_NAME"
+  sudo scutil --set LocalHostName "$MACHINE_NAME"
+  sudo scutil --set ComputerName "$MACHINE_NAME"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$MACHINE_NAME"
   dscacheutil -flushcache
 fi

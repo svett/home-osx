@@ -2,7 +2,6 @@
 
 [ -z "$DEBUG" ] || set -x
 
-export MY_HOSTNAME="$1"
 RELOAD_SERVICES=()
 
 main() {
