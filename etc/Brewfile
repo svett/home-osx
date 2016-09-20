@@ -51,6 +51,7 @@ brew 'universal-ctags', args: ['HEAD']
 brew 'youtube-dl'
 brew 'bash-completion'
 brew 'ansible'
+brew 'vnstat'
 
 cask 'atom'
 cask 'google-chrome'
@@ -73,3 +74,4 @@ cask 'font-fira-mono-for-powerline'
 cask 'font-meslo-lg-for-powerline'
 cask 'slack'
 cask 'spotify'
+cask 'flux'
