@@ -1,0 +1,6 @@
+#!/bin/bash
+
+local fqdn
+fqdn="$1"
+
+openssl s_client -showcerts -servername "$fqdn" -connect "$fqdn:443"
