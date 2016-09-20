@@ -1,0 +1,6 @@
+#!/bin/bash
+
+local url
+url="$1"
+
+aria2c -x 10 -j 10 -s 10 "$url"
