@@ -1,0 +1,7 @@
+#!/bin/bash
+
+local url
+url="$1"
+shift
+
+curl -svL -o /dev/null "$url" "$@"
