@@ -1,0 +1,11 @@
+#!/bin/bash
+
+local url
+url="$1"
+
+while :
+do
+  curl -sL -o /dev/null \
+  -w '%{http_code} dns:%{time_namelookup} tcp:%{time_connect} tls:%{time_appconnect} total:%{time_total}\n' \
+  "$url"
+done
