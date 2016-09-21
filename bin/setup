@@ -18,7 +18,7 @@ main() {
 
   update_golang_packages
   update_tmux_plugins
-  update_vim
+  install_vim
 
   symlink_ssl
 }
@@ -115,8 +115,8 @@ reload_modified_services() {
   killall "${modified_services_uniq[@]}"
 }
 
-update_vim() {
-  . "${HOME}/.vim/update"
+install_vim() {
+  . "${HOME}/.vim/install"
 }
 
 update_tmux_plugins() {
