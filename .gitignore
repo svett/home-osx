@@ -22,6 +22,7 @@
 .wget-hsts
 .Trash
 .gitconfig
+.bash_sessions
 workspace
 go
 tmp
