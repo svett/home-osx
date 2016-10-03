@@ -65,5 +65,3 @@
   excludesfile = ~/.gitignore
 [help]
   autocorrect = 1
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
