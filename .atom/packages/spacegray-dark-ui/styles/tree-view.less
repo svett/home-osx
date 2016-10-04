@@ -1,0 +1,37 @@
+@import "ui-variables";
+
+.tree-view {
+  font-size: @font-size;
+  background-color: @tree-background-color;
+}
+
+.focusable-panel {
+  opacity: 1;
+
+  &:focus {
+    .selected > .name,
+    .selected > .name:before,
+    .selected > .list-item > .name,
+    .selected > .list-item > .name:before {
+      color: #fff !important;
+    }
+  }
+}
+
+.tree-view-resizer, atom-text-editor {
+  /deep/ ::-webkit-scrollbar {
+    width: 1em;
+    height: 1em;
+  }
+  /deep/ ::-webkit-scrollbar-track {
+    background-color: #2B303B;
+  }
+
+  /deep/ ::-webkit-scrollbar-thumb {
+    background-color: #232830;
+  }
+
+  /deep/ ::-webkit-scrollbar-corner {
+    background-color: #1C1F25; 
+  }
+}

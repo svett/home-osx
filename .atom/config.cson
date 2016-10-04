@@ -1,0 +1,51 @@
+"*":
+  "autocomplete-plus":
+    autoActivationDelay: 0
+    navigateCompletions: "ctrl-p,ctrl-n"
+  core:
+    disabledPackages: [
+      "file-icons"
+      "autocomplete"
+      "minimap"
+      "vim-mode"
+    ]
+    themes: [
+      "nucleus-dark-ui"
+      "monokai-shade"
+    ]
+  editor:
+    autoIndentOnPaste: false
+    invisibles: {}
+    scrollPastEnd: true
+    scrollSensitivity: 20
+    showIndentGuide: true
+    softWrap: true
+  "exception-reporting":
+    userId: "2ea2c470-8b70-1c35-89f6-8813faaa465a"
+  "go-plus":
+    environmentOverridesConfiguration: false
+    goInstallation: "~/goroot/bin/go"
+    goPath: "~/workspace/concourse:~/go"
+    lintOnSave: false
+    vetOnSave: false
+  gocode:
+    includeCompletionsFromAllBuffers: false
+  hidpi:
+    cutoffHeight: 1539
+    cutoffWidth: 2560
+  linter: {}
+  metrics:
+    userId: "52da33fcb06c65312f0480376129b839bdd3774a"
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "highlight-selected": true
+  react: {}
+  "tree-view": {}
+  "vim-mode":
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  "wrap-lines": {}

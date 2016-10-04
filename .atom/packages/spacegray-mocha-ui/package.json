@@ -1,0 +1,34 @@
+{
+  "name": "spacegray-mocha-ui",
+  "theme": "ui",
+  "version": "1.0.0",
+  "description": "Port of the Spacegray Sublime Text theme to Atom. UI Theme to match base16 Mocha Syntax (http://chriskempson.github.io/base16/#mocha)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emilyemorehouse/spacegray-mocha-ui"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Spacegray Mocha UI theme\n\nPort of the [Spacegray](http://kkga.github.io/spacegray) Sublime Text theme to Atom.\nUI Theme to match base16 Mocha Syntax (http://chriskempson.github.io/base16/#mocha). \n\nIf these colors aren't to your liking, [check out my other packages!](https://atom.io/users/emilyemorehouse)\nOr make a request.\n\n\nCredit to  [cannikin's original port](https://github.com/cannikin/spacegray-dark-ui).\n\n![screenshot](https://s3-us-west-2.amazonaws.com/emilyemorehouse/spacegraymocha)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/emilyemorehouse/spacegray-mocha-ui/issues"
+  },
+  "homepage": "https://github.com/emilyemorehouse/spacegray-mocha-ui",
+  "_id": "spacegray-mocha-ui@1.0.0",
+  "_shasum": "821499903dddd7f4939caf9aa44c9f6077571085",
+  "_resolved": "file:../d-11571-36404-1rrxqi6/package.tgz",
+  "_from": "../d-11571-36404-1rrxqi6/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

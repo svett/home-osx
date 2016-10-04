@@ -1,0 +1,44 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+
+'.source.go':
+  "It":
+    "prefix": "it"
+    "body": "It(\"$1\", func() {\n\t$2\n})"
+
+  "Context":
+    "prefix": "con"
+    "body": "Context(\"$1\", func() {\n\t$2\n})"
+
+  "Describe":
+    "prefix": "des"
+    "body": "Describe(\"$1\", func() {\n\t$2\n})"
+
+  "BeforeEach":
+    "prefix": "bef"
+    "body": "BeforeEach(func() {\n\t$1\n})"
+
+  "AfterEach":
+    "prefix": "aft"
+    "body": "AfterEach(func() {\n\t$1\n})"
+
+  "JustBeforeEach":
+    "prefix": "just"
+    "body": "JustBeforeEach(func() {\n\t$1\n})"
+
+  "Ω(err).ShouldNot(HaveOccurred())":
+    "prefix": "Ωerr"
+    "body": "Ω(${1:err}).ShouldNot(HaveOccurred())"

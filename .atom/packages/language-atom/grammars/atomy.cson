@@ -1,0 +1,244 @@
+fileTypes: [
+  "ay"
+]
+foldingStartMarker: "^\\s*[_A-z0-9]+@.+$"
+foldingStopMarker: "^.*(\\])[A-z ]*\\.$"
+name: "Atomy"
+patterns: [
+  {
+    match: "(?<![\\p{L}\\-_])(do|if|then|else|while|until|loop|when|unless|restart|with-restarts|bind|return|break|next|labels|super|yield|raise|rescue|ensuring|match|condition|otherwise|catch|throw|exit)(?![\\p{L}\\-_])"
+    name: "keyword.control.atomy"
+  }
+  {
+    match: "(?<![\\p{L}\\-_])(error|warning|signal)(?![\\p{L}\\-_])"
+    name: "support.function.kernel.atomy"
+  }
+  {
+    match: "(?<![\\p{L}\\-_])(require|use)(?![\\p{L}\\-_])"
+    name: "keyword.other.special-method.atomy"
+  }
+  {
+    match: "(?<![\\p{L}\\-_])(macro|infix)(?![\\p{L}\\-_])"
+    name: "keyword.other.reserved.atomy"
+  }
+  {
+    match: "(?<![\\p{L}\\-_])(data|open|dynamic)(?![\\p{L}\\-_])"
+    name: "keyword.other.data.atomy"
+  }
+  {
+    match: "(?<![\\p{L}\\-_])(self)(?![\\p{L}\\-_])"
+    name: "variable.language.atomy"
+  }
+  {
+    match: "(?<![\\p{L}\\-_])(and|or|not)(?![\\p{L}\\-_])"
+    name: "keyword.operator.logical.atomy"
+  }
+  {
+    match: "['`][\\p{Ll}_][\\p{L}\\d\\-_]*"
+    name: "string.quoted.other.expression.atomy"
+  }
+  {
+    match: "~[\\p{Ll}_][\\p{L}\\d\\-_]*"
+    name: "string.interpolated.expression.atomy"
+  }
+  {
+    match: "~\\*[\\p{Ll}_][\\p{L}\\d\\-_]*"
+    name: "string.interpolated.expression.atomy"
+  }
+  {
+    begin: "['`]\\("
+    end: "\\)"
+    name: "string.quoted.other.expression.atomy"
+    patterns: [
+      {
+        include: "#nest_parens"
+      }
+      {
+        include: "$self"
+      }
+    ]
+  }
+  {
+    begin: "~\\("
+    end: "\\)"
+    name: "string.interpolated.expression.atomy"
+    patterns: [
+      {
+        include: "#nest_parens"
+      }
+      {
+        include: "$self"
+      }
+    ]
+  }
+  {
+    begin: "~\\*\\("
+    end: "\\)"
+    name: "string.interpolated.expression.atomy"
+    patterns: [
+      {
+        include: "#nest_parens"
+      }
+      {
+        include: "$self"
+      }
+    ]
+  }
+  {
+    include: "#string"
+  }
+  {
+    include: "#line_comment"
+  }
+  {
+    include: "#block_comment"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])(:=)(?![!@#%&*\\-./\\?\\p{S}])"
+    name: "keyword.other.define.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])(&&|\\|\\||!)(?![!@#%&*\\-./\\?\\p{S}])"
+    name: "keyword.operator.logical.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])(true|false|nil)(?![!@#%&*\\-./\\?\\p{S}])"
+    name: "constant.language.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])[\\-\\+]?(?i:(0x\\h*))"
+    name: "constant.numeric.integer.hexadecimal.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])[\\-\\+]?(?i:(0o[0-7]*))"
+    name: "constant.numeric.integer.octal.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])[\\-\\+]?(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))(?![a-zA-Z_])"
+    name: "constant.numeric.float.atomy"
+  }
+  {
+    match: "(?<=[^0-9a-zA-Z_])(?i:(\\.\\d+(e[\\-\\+]?\\d+)?))"
+    name: "constant.numeric.float.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])(?i:(\\d+e[\\-\\+]?\\d+))"
+    name: "constant.numeric.float.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])([\\-\\+]?\\d+/[\\-\\+]?\\d+)"
+    name: "constant.numeric.rational.atomy"
+  }
+  {
+    match: "(?<![!@#%&*\\-./\\?\\p{S}])([\\-\\+]?\\d+)"
+    name: "constant.numeric.integer.decimal.atomy"
+  }
+  {
+    captures:
+      "1":
+        name: "punctuation.definition.constant.atomy"
+    match: "(\\.)[\\p{Ll}_][\\p{L}\\d\\-_]*"
+    name: "constant.other.symbol.atomy"
+  }
+  {
+    captures:
+      "1":
+        name: "punctuation.definition.variable.atomy"
+    match: "(@)[\\p{Ll}_][\\p{L}\\d\\-_]*"
+    name: "variable.other.readwrite.instance.atomy"
+  }
+  {
+    captures:
+      "1":
+        name: "punctuation.definition.variable.atomy"
+    match: "(@@)[\\p{Ll}_][\\p{L}\\d\\-_]*"
+    name: "variable.other.readwrite.class.atomy"
+  }
+  {
+    captures:
+      "1":
+        name: "punctuation.definition.variable.atomy"
+    match: "(\\$)(\\d+|[\\p{Ll}_][\\p{L}\\d\\-_]*|[A-Z][[:alnum:]]*)"
+    name: "variable.other.readwrite.global.atomy"
+  }
+  {
+    match: "(?<![\\p{L}\\d!@#%&*\\-./\\?\\p{S}])(?!--|`|~)([\\p{S}!@#%&*\\-\\\\:.\\/\\?]+)"
+    name: "keyword.operator.atomy"
+  }
+  {
+    match: "[A-Z_][[:alnum:]_]*"
+    name: "variable.other.atomy, entity.name.class"
+  }
+  {
+    match: ","
+    name: "punctuation.separator.object.atomy"
+  }
+  {
+    match: "\\{|\\}"
+    name: "punctuation.section.scope.atomy"
+  }
+  {
+    match: "\\[|\\]"
+    name: "punctuation.section.array.atomy"
+  }
+  {
+    match: "\\(|\\)"
+    name: "punctuation.section.function.atomy"
+  }
+]
+repository:
+  block_comment:
+    applyEndPatternLast: 1
+    begin: "\\{-"
+    captures:
+      "0":
+        name: "punctuation.definition.comment.atomy"
+    end: "-\\}"
+    name: "comment.block.atomy"
+    patterns: [
+      {
+        include: "#block_comment"
+      }
+    ]
+  line_comment:
+    captures:
+      "1":
+        name: "punctuation.definition.comment.atomy"
+    match: "(--).*$\\n?"
+    name: "comment.line.double-dash.atomy"
+  nest_parens:
+    begin: "\\("
+    end: "\\)"
+    patterns: [
+      {
+        include: "#nest_parens"
+      }
+      {
+        include: "$self"
+      }
+    ]
+  string:
+    begin: "\""
+    beginCaptures:
+      "0":
+        name: "punctuation.definition.string.begin.atomy"
+    end: "\""
+    endCaptures:
+      "0":
+        name: "punctuation.definition.string.end.atomy"
+    name: "string.quoted.double.atomy"
+    patterns: [
+      {
+        match: "\\\\(NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL|[abfnrtv\\\\\\\"'\\&])"
+        name: "constant.character.escape.atomy"
+      }
+      {
+        match: "\\\\o[0-7]+|\\\\x[0-9A-Fa-f]+|\\\\[0-9]+"
+        name: "constant.character.escape.octal.atomy"
+      }
+      {
+        match: "\\^[A-Z@\\[\\]\\\\\\^_]"
+        name: "constant.character.escape.control.atomy"
+      }
+    ]
+scopeName: "source.atomy"

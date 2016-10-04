@@ -1,0 +1,3 @@
+[submodule "packages/language-racket"]
+	path = packages/language-racket
+	url = https://github.com/vito/language-racket

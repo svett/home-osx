@@ -1,0 +1,63 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Pain Split'
+      'submenu': [
+        'label': 'Split Left and Create Empty Pane'
+        'command': 'pane:split-left-creating-empty-pane'
+      ,
+        'label': 'Split Left and Move Current Tab'
+        'command': 'pane:split-left-moving-current-tab'
+      ,
+        'label': 'Split Left and Duplicate Current Tab'
+        'command': 'pane:split-left'
+      ,
+        'label': 'Split Left and Open New File'
+        'command': 'pane:split-left-creating-new-file'
+      ,
+        'type': 'separator'
+      ,
+        'label': 'Split Right and Create Empty Pane'
+        'command': 'pane:split-right-creating-empty-pane'
+      ,
+        'label': 'Split Right and Move Current Tab'
+        'command': 'pane:split-right-moving-current-tab'
+      ,
+        'label': 'Split Right and Duplicate Current Tab'
+        'command': 'pane:split-right'
+      ,
+        'label': 'Split Right and Open New File'
+        'command': 'pane:split-right-creating-new-file'
+      ,
+        'type': 'separator'
+      ,
+        'label': 'Split Up and Create Empty Pane'
+        'command': 'pane:split-up-creating-empty-pane'
+      ,
+        'label': 'Split Up and Move Current Tab'
+        'command': 'pane:split-up-moving-current-tab'
+      ,
+        'label': 'Split Up and Duplicate Current Tab'
+        'command': 'pane:split-up'
+      ,
+        'label': 'Split Up and Open New File'
+        'command': 'pane:split-up-creating-new-file'
+      ,
+        'type': 'separator'
+      ,
+        'label': 'Split Down and Create Empty Pane'
+        'command': 'pane:split-down-creating-empty-pane'
+      ,
+        'label': 'Split Down and Moving Current Tab'
+        'command': 'pane:split-down-moving-current-tab'
+      ,
+        'label': 'Split Down and Duplicate Current Tab'
+        'command': 'pane:split-down'
+      ,
+        'label': 'Split Down and Open New File'
+        'command': 'pane:split-down-creating-new-file'
+      ]
+    ]
+  }
+]

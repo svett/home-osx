@@ -1,0 +1,45 @@
+{
+  "name": "atom-material-ui",
+  "theme": "ui",
+  "version": "0.5.9",
+  "description": "A dark UI theme for Atom that follows Google's Material Design Guidelines",
+  "keywords": [
+    "ui",
+    "theme",
+    "material",
+    "material design"
+  ],
+  "license": "MIT",
+  "main": "lib/settings",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silvestreh/atom-material-ui"
+  },
+  "engines": {
+    "atom": ">0.40.0"
+  },
+  "readme": "![](http://i.imgur.com/7C2H2mw.png)\n---\n\nA dark UI theme for Atom that (kinda) follows Google's Material Design Guidelines. Best with [Atom Material Syntax](https://github.com/silvestreh/atom-material-syntax). (Mostly) works with other dark syntax themes as it uses syntax colors for the UI. Light themes work too, but doesn't look as nice.\n\nInspired by Mattia Astorino's [SublimeText theme](https://github.com/equinusocio/material-theme).\n\n## Installation\n\nFire up a console and type:\n\n`$ apm install atom-material-ui atom-material-syntax`\n\nOr, inside Atom's settings select Install and then search for this package.\n\n## Buy me some coffee\n\n<a href='https://pledgie.com/campaigns/29552'><img alt='Click here to lend your support to: Atom Material Design Theme and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/29552.png?skin_name=chrome' border='0' ></a>\n\n## Configuration\n\nAtom Material UI supports different accent colors. To change it, go to Settings > Themes and click the cog icon next to the theme selector.\n\n![](http://i.imgur.com/JB2iA5m.png)\n\nYou'll find the color dropdown there.\n\n## Screenshot\n\nHere's the obligatory screenshot. The toolbar on the left side is a package named [Tool-bar-main](https://atom.io/packages/tool-bar-main).\n\n![](http://i.imgur.com/2jNgkR9.png)\n\nAnimated tabs! (these animations can be disabled from the theme's settings)\n\n![](http://i.imgur.com/lUR3uRv.gif)\n\n## Extra\n\n![](http://i.imgur.com/0tHORB1.png)\n\nYou can download the redesigned icon from [dropbox](https://dl.dropboxusercontent.com/u/115930/Atom-MD-Icon.zip). It's a ZIP file containing multiple resolution PNGs, ICNS and ICO formats. Windows ICO converted by Akshit Tripathi.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/silvestreh/atom-material-ui/issues"
+  },
+  "homepage": "https://github.com/silvestreh/atom-material-ui",
+  "_id": "atom-material-ui@0.5.9",
+  "_shasum": "5b5e8df273ae84723dc8d8b466eaa5832ef0d016",
+  "_resolved": "file:../d-11571-36538-dptjoy/package.tgz",
+  "_from": "../d-11571-36538-dptjoy/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/config.coffee",
+        "lib/settings.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}
