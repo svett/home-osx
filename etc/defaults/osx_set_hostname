@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set +u
+
 if [ -n "$MACHINE_NAME" ]
 then
   sudo scutil --set HostName "$MACHINE_NAME"
@@ -8,3 +10,5 @@ then
   sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$MACHINE_NAME"
   dscacheutil -flushcache
 fi
+
+set -u
