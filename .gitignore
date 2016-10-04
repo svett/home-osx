@@ -23,6 +23,7 @@
 .Trash
 .gitconfig
 .bash_sessions
+.atom/blob-store
 workspace
 go
 tmp
