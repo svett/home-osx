@@ -10,6 +10,7 @@ main() {
   install_brew_if_not_exists
   install_brew_update
   install_ruby
+  install_ruby_gems
 
   osx_configure
   osx_appstore_update
@@ -51,6 +52,11 @@ install_ruby() {
     ruby-install $(cat ~/.ruby-version)
   fi
   set -u
+
+}
+
+install_ruby_gems() {
+  gem install 'bundler'
 }
 
 osx_software_update() {
