@@ -78,7 +78,7 @@ git_configure() {
   fi
 
   if [[ $(head -n2 "${HOME}/.gitconfig") != "[include]
-  path = ${HOME}/.gitconfig_00_base" ]] ; then
+  path = ${HOME}/.gitconfigrc" ]] ; then
     gitconfig=$(cat "${HOME}/.gitconfig")
     write_git_config
     echo "${gitconfig}" >> "${HOME}/.gitconfig"
@@ -87,7 +87,7 @@ git_configure() {
 
 write_git_config() {
     echo "[include]" > "${HOME}/.gitconfig"
-    echo "  path = ${HOME}/.gitconfig_00_base" >> "${HOME}/.gitconfig"
+    echo "  path = ${HOME}/.gitconfigrc" >> "${HOME}/.gitconfig"
 }
 
 symlink_ssl() {
