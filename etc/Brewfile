@@ -52,7 +52,7 @@ brew 'youtube-dl'
 brew 'bash-completion'
 brew 'ansible'
 brew 'vnstat'
-brew 'kubectl'
+brew 'kubernetes-cli'
 
 cask 'atom'
 cask 'google-chrome'
