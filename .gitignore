@@ -24,6 +24,16 @@
 .gitconfig
 .bash_sessions
 .atom/blob-store
+.lpass
+.docker
+.kube
+.minikube
+.pia_manager
+.oracle_jre_usage
+.flyrc
+.bosh_config
+.NERDTreeBookmarks
+.CFUserTextEncoding
 workspace
 go
 tmp
