@@ -34,6 +34,9 @@
 .bosh_config
 .NERDTreeBookmarks
 .CFUserTextEncoding
+.dotnet
+.nuget
+iCloud Drive (Archive)
 workspace
 go
 tmp
