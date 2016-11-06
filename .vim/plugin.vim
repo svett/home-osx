@@ -31,6 +31,7 @@ Plugin 'tpope/rbenv-ctags'
 Plugin 'tpope/vim-rake',              { 'for': ['ruby', 'rake'] }
 Plugin 'tpope/vim-bundler',           { 'for': ['ruby', 'rake'] }
 Plugin 'ecomba/vim-ruby-refactoring', { 'for': ['ruby', 'rake'] }
+Plugin 'thoughtbot/vim-rspec',        { 'for': ['ruby', 'rake'] }
 
 " Vim sugar for the UNIX shell commands that need it the most; e.g. :Find, :Wall
 Plugin 'tpope/vim-eunuch'
