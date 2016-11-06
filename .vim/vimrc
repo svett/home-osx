@@ -26,6 +26,7 @@ runtime! config/plugin/tagbar.vim
 runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/concourse.vim
+runtime! config/plugin/dash.vim
 
 "
 " --------------------
