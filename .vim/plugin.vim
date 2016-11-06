@@ -102,7 +102,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'ervandew/supertab'
 
 " Develop Golang
-Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Develop Rust
 Plugin 'rust-lang/rust.vim'
