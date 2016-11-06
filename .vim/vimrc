@@ -1,0 +1,29 @@
+set nocompatible
+filetype off
+
+" --------------------
+" Install Plugin
+" --------------------
+runtime! plugin.vim
+
+" --------------------
+" Editor Configuration
+" --------------------
+runtime! config/config.vim
+runtime! config/binding.vim
+
+" --------------------
+" Plugin Configuration
+" --------------------
+runtime! config/plugin/colors.vim
+runtime! config/plugin/ack.vim
+runtime! config/plugin/airline.vim
+runtime! config/plugin/commentary.vim
+runtime! config/plugin/echodoc.vim
+runtime! config/plugin/fugitive.vim
+runtime! config/plugin/livedown.vim
+runtime! config/plugin/tagbar.vim
+runtime! config/plugin/nerdtree.vim
+runtime! config/plugin/golang.vim
+runtime! config/plugin/node.vim
+runtime! config/plugin/ctrlp.vim

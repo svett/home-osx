@@ -19,7 +19,8 @@ main() {
 
   update_golang_packages
   update_tmux_plugins
-  install_vim
+  update_npm_packages
+  update_vim_plugins
 
   symlink_ssl
 }
@@ -122,8 +123,9 @@ reload_modified_services() {
   killall "${modified_services_uniq[@]}"
 }
 
-install_vim() {
-  . "${HOME}/.vim/install"
+update_vim_plugins() {
+  vim +PluginInstall +qall
+  vim +GoUpdateBinaries +qall
 }
 
 update_tmux_plugins() {
@@ -140,6 +142,12 @@ pushd "${HOME}/go/packages" >&-
   go get "${pkg//\~//}"
  done
 popd >&-
+}
+
+update_npm_packages() {
+  npm install -g eslint
+  npm install -g babel-eslint
+  npm install -g eslint-plugin-react
 }
 
 main

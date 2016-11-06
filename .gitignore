@@ -36,6 +36,7 @@
 .CFUserTextEncoding
 .dotnet
 .nuget
+.vim/bundle
 iCloud Drive (Archive)
 workspace
 go
