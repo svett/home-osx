@@ -31,6 +31,9 @@ nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
+" Git ncurses
+nnoremap <Leader>g :!tig --all<CR>
+
 " ### Other ###
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
