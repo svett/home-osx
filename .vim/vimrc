@@ -24,6 +24,11 @@ runtime! config/plugin/fugitive.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/nerdtree.vim
-runtime! config/plugin/golang.vim
-runtime! config/plugin/node.vim
 runtime! config/plugin/ctrlp.vim
+"
+" --------------------
+" Plugin Configuration
+" --------------------
+runtime! config/lang/node.vim
+runtime! config/lang/golang.vim
+runtime! config/lang/ruby.vim
