@@ -25,6 +25,8 @@ runtime! config/plugin/livedown.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/ctrlp.vim
+runtime! config/plugin/concourse.vim
+
 "
 " --------------------
 " Plugin Configuration
