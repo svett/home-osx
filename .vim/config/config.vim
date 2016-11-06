@@ -79,15 +79,8 @@ set smartcase
 set hlsearch
 set wildignore+=.final_builds/*,*/node_modules/*,*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class,*.scssc,*/Godeps/*
 
-if executable('ack')
-  set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
-  set grepformat=%f:%l:%c:%m
-endif
-
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
-  set grepformat=%f:%l:%c:%m
-endif
+set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+set grepformat=%f:%l:%c:%m
 
 " ### Sounds ###
 set noerrorbells
