@@ -73,6 +73,8 @@ nmap <silent> <leader>sf :QuickSpellingFix<CR>
 nmap <silent> <leader>w= :wincmd =<CR>
 " Swap Windows
 nmap <silent> <leader>wx :wincmd x<CR>
+" Maximise split
+nnoremap <Leader>z <C-W>\|<C-W>_
 
 " Window Splitting
 nmap <silent> <leader>hs :split<CR>

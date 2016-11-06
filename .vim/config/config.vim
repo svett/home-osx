@@ -48,6 +48,9 @@ if !has('nvim')
 end
 
 " ### Behavior ###
+" equlize split windows
+set equalalways
+set splitright
 " Automatically detect file types. (must turn on after Vundle)
 filetype plugin indent on
 " use emacs-style tab completion when selecting files, etc
@@ -62,7 +65,6 @@ set formatoptions=crql
 " Add extra characters that are valid parts of variables
 set iskeyword+=$,@,-
 set tags=./tags;/,tags;/
-set splitright
 set completeopt=menu,noinsert,noselect
 
 " ### Formatting ###
