@@ -118,6 +118,6 @@ Plugin 'luan/vim-concourse'
 Plugin 'luan/vim-bosh'
 
 " Color themes
-Plugin 'morhetz/gruvbox'
+Plugin 'fatih/molokai'
 
 call vundle#end()
