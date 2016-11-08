@@ -58,6 +58,8 @@ brew 'kubernetes-cli'
 brew 'ffmpeg'
 brew 'atomicparsley'
 brew 'unrar'
+brew 'redis'
+brew 'mongodb'
 
 cask 'atom'
 cask 'google-chrome'
