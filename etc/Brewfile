@@ -10,6 +10,7 @@ tap 'universal-ctags/universal-ctags'
 tap 'cloudfoundry/tap'
 tap 'neovim/neovim'
 
+brew 'hugo'
 brew 'ack'
 brew 'awscli'
 brew 'bash'
