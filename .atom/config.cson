@@ -9,6 +9,7 @@
       "minimap"
       "vim-mode"
     ]
+    telemetryConsent: "no"
     themes: [
       "nucleus-dark-ui"
       "monokai-shade"
