@@ -38,6 +38,7 @@ brew 's3cmd'
 brew 'npm'
 brew 'tig'
 brew 'tmux'
+brew 'reattach-to-user-namespace'
 brew 'tree'
 brew 'vim', args: ['with-lua','with-python']
 brew 'neovim/neovim/neovim'
