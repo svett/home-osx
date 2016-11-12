@@ -37,6 +37,7 @@
 .dotnet
 .nuget
 .vim/bundle
+.aws/credentials
 iCloud Drive (Archive)
 workspace
 go
