@@ -38,6 +38,7 @@
 .nuget
 .vim/bundle
 .aws/credentials
+.lesshst
 iCloud Drive (Archive)
 workspace
 go
