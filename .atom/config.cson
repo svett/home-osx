@@ -9,7 +9,7 @@
       "minimap"
       "vim-mode"
     ]
-    telemetryConsent: "no"
+    telemetryConsent: "limited"
     themes: [
       "nucleus-dark-ui"
       "monokai-shade"
@@ -24,9 +24,9 @@
   "exception-reporting":
     userId: "2ea2c470-8b70-1c35-89f6-8813faaa465a"
   "go-plus":
-    environmentOverridesConfiguration: false
-    goInstallation: "~/goroot/bin/go"
-    goPath: "~/workspace/concourse:~/go"
+    environmentOverridesConfiguration: true
+    goInstallation: "/usr/local/Cellar/go/1.7.1/bin/go"
+    goPath: "~/go"
     lintOnSave: false
     vetOnSave: false
   gocode:

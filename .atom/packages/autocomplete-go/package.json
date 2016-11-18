@@ -1,0 +1,194 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34426-zkh3o7/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34426-zkh3o7/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34426-zkh3o7/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34426-1d319u5"
+    ]
+  ],
+  "_from": "../d-1161016-34426-zkh3o7/package.tgz",
+  "_id": "autocomplete-go@1.3.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/autocomplete-go",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34426-zkh3o7/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34426-zkh3o7/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34426-zkh3o7/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-34426-zkh3o7/package.tgz",
+  "_shasum": "b6ad81e1b1148a7e2bddf8b2a4dd95e654ef1e4a",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34426-zkh3o7/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34426-1d319u5",
+  "author": {
+    "name": "Joe Fitzgerald",
+    "email": "jfitzgerald@pivotal.io",
+    "url": "http://github.com/joefitzgerald"
+  },
+  "bugs": {
+    "url": "https://github.com/joefitzgerald/autocomplete-go/issues"
+  },
+  "configSchema": {
+    "scopeBlacklist": {
+      "title": "Scope Blacklist",
+      "description": "Suggestions will not be shown when the cursor is inside the following comma-delimited scope(s).",
+      "type": "string",
+      "default": ".source.go .comment, .source.go .constant.numeric, .source.go .string.quoted",
+      "order": 1
+    },
+    "suppressBuiltinAutocompleteProvider": {
+      "title": "Suppress The Provider Built-In To autocomplete-plus",
+      "description": "Suppress the provider built-in to the autocomplete-plus package when editing .go files.",
+      "type": "boolean",
+      "default": true,
+      "order": 2
+    },
+    "suppressActivationForCharacters": {
+      "title": "Suppress Activation For Characters",
+      "description": "Suggestions will not be provided when you type one of these characters.",
+      "type": "array",
+      "default": [
+        "comma",
+        "newline",
+        "space",
+        "tab",
+        "/",
+        "\\",
+        "(",
+        ")",
+        "\"",
+        "'",
+        ":",
+        ";",
+        "<",
+        ">",
+        "~",
+        "!",
+        "@",
+        "#",
+        "$",
+        "%",
+        "^",
+        "&",
+        "*",
+        "|",
+        "+",
+        "=",
+        "[",
+        "]",
+        "{",
+        "}",
+        "`",
+        "~",
+        "?",
+        "-"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "order": 3
+    },
+    "snippetMode": {
+      "title": "Snippet Mode",
+      "description": "When inserting suggestions for funcs, generate a snippet that includes parenthesis only (none), argument name (name), or argument name and type (nameAndType).",
+      "type": "string",
+      "default": "name",
+      "enum": [
+        "name",
+        "nameAndType",
+        "none"
+      ],
+      "order": 4
+    },
+    "proposeBuiltins": {
+      "title": "Propose Builtins",
+      "description": "Add built-in types, functions and constants to an autocompletion proposals. Default: true.",
+      "type": "boolean",
+      "default": true,
+      "order": 5
+    },
+    "unimportedPackages": {
+      "title": "Unimported Packages",
+      "description": "Provide suggestions for unimported packages. Default: true.",
+      "type": "boolean",
+      "default": true,
+      "order": 6
+    }
+  },
+  "consumedServices": {
+    "go-config": {
+      "versions": {
+        "1.0.0": "consumeGoconfig"
+      }
+    },
+    "go-get": {
+      "versions": {
+        "2.0.0": "consumeGoget"
+      }
+    }
+  },
+  "dependencies": {
+    "atom-package-deps": "4.2.0",
+    "lodash": "^4.16.2"
+  },
+  "description": "An autocomplete-plus provider for the Go language that uses gocode to provide suggestions.",
+  "devDependencies": {
+    "standard": "^8.3.0"
+  },
+  "engines": {
+    "atom": ">=1.5.3 <2.0.0"
+  },
+  "homepage": "https://atom.io/packages/autocomplete-go",
+  "keywords": [
+    "go",
+    "golang",
+    "gocode",
+    "autocomplete",
+    "autocomplete-plus"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib/main",
+  "name": "autocomplete-go",
+  "optionalDependencies": {},
+  "package-deps": [
+    "go-config",
+    "go-get"
+  ],
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    }
+  },
+  "readme": "# `autocomplete-go` [![Build Status](https://travis-ci.org/joefitzgerald/autocomplete-go.svg?branch=master)](https://travis-ci.org/joefitzgerald/autocomplete-go) [![Build status](https://ci.appveyor.com/api/projects/status/8oveg440vyy4oofq/branch/master?svg=true)](https://ci.appveyor.com/project/joefitzgerald/autocomplete-go/branch/master)\n\n\nAn [`autocomplete-plus`](https://github.com/atom/autocomplete-plus) provider for\nthe [`go`](https://golang.org) language that uses [`gocode`](https://github.com/nsf/gocode) to provide suggestions.\n\n### Prerequisites\n\nThis package requires the following packages to be installed:\n\n* [`environment`](https://atom.io/packages/environment)\n* [`go-config`](https://atom.io/packages/go-config)\n\nAdditionally, you should have [`gocode`](https://github.com/nsf/gocode) installed and available on your path:\n\n> `go get -u github.com/nsf/gocode`\n\nIf you have the [`go-get`](https://atom.io/packages/go-get) package installed, this package will prompt you to get gocode (if it is missing) or update gocode (if it is out of date).\n\n### FAQ\n\n> I am not getting suggestions I expect!\n\n`gocode` uses the output from `go install` to provide its suggestions. You have a few options to ensure you always get up-to-date suggestions:\n\n* Always run `go install ./...` in your package when you make a change\n* Run `gocode set autobuild true` to have `gocode` attempt to run `go install ./...` for you\n* Configure a package (like [build](https://atom.io/packages/build)) to run your build command on every save\n\n### Configuration\n\n* `scopeBlacklist`: Suggestions will not be shown when the cursor is inside the specified comma-delimited scope(s) (default: `.source.go .comment`)\n* `suppressBuiltinAutocompleteProvider`: Suppress the provider built-in to the autocomplete-plus package when editing .go files (default: `true`)\n* `suppressActivationForCharacters`: Suggestions will not be provided when you type one of the specified characters (default: ``comma, newline, space, tab, /, \\, (, ), \", ', :,\n;, <, >, ~, !, @, #, $, %, ^, &, *, |, +,\n=, [, ], {, }, `, ~, ?, -``)\n* `snippetMode`: Snippets can be generated when inserting the suggestion for a `func`; this option allows you to control what is generated (default: `name`)\n  * `name`: E.g.: `fmt.Println(a)` with `a` selected such that it will be replaced on the first keystroke\n  * `nameAndType`: E.g.: `fmt.Println(a ...interface{})`, with `a ...interface{}` selected such that it will be replaced on the first keystroke\n  * `none`: E.g.: `fmt.Println()`, with the cursor placed between the parenthesis\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joefitzgerald/autocomplete-go.git"
+  },
+  "standard": {
+    "globals": [
+      "advanceClock",
+      "atom",
+      "waitsForPromise"
+    ]
+  },
+  "version": "1.3.0"
+}

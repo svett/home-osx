@@ -1,7 +1,6 @@
 {$, $$} = require 'atom-space-pen-views'
 
 git = require '../git'
-OutputView = require './output-view'
 notifier = require '../notifier'
 SelectListMultipleView = require './select-list-multiple-view'
 
@@ -14,15 +13,14 @@ class SelectStageFilesView extends SelectListMultipleView
     @setItems items
     @focusFilterEditor()
 
-  getFilterKey: ->
-    'path'
+  getFilterKey: -> 'path'
 
   addButtons: ->
     viewButton = $$ ->
-      @div class: 'buttons', =>
-        @span class: 'pull-left', =>
+      @div class: 'select-list-buttons', =>
+        @div =>
           @button class: 'btn btn-error inline-block-tight btn-cancel-button', 'Cancel'
-        @span class: 'pull-right', =>
+        @div =>
           @button class: 'btn btn-success inline-block-tight btn-stage-button', 'Stage'
     viewButton.appendTo(this)
 
@@ -33,13 +31,11 @@ class SelectStageFilesView extends SelectListMultipleView
   show: ->
     @panel ?= atom.workspace.addModalPanel(item: this)
     @panel.show()
-
     @storeFocusedElement()
 
   cancelled: -> @hide()
 
-  hide: ->
-    @panel?.destroy()
+  hide: -> @panel?.destroy()
 
   viewForItem: (item, matchedStr) ->
     $$ ->
@@ -51,9 +47,9 @@ class SelectStageFilesView extends SelectListMultipleView
   completed: (items) ->
     files = (item.path for item in items)
     @cancel()
-
-    git.cmd
-      args: ['add', '-f'].concat(files)
-      cwd: @repo.getWorkingDirectory()
-      stdout: (data) =>
+    git.cmd(['add', '-f'].concat(files), cwd: @repo.getWorkingDirectory())
+    .then (data) ->
+      if data is ''
+        notifier.addSuccess 'File(s) staged successfully'
+      else
         notifier.addSuccess data

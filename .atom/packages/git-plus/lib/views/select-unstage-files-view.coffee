@@ -1,7 +1,6 @@
 {$, $$} = require 'atom-space-pen-views'
 
 git = require '../git'
-OutputView = require './output-view'
 notifier = require '../notifier'
 SelectListMultipleView = require './select-list-multiple-view'
 
@@ -19,10 +18,10 @@ class SelectStageFilesView extends SelectListMultipleView
 
   addButtons: ->
     viewButton = $$ ->
-      @div class: 'buttons', =>
-        @span class: 'pull-left', =>
+      @div class: 'select-list-buttons', =>
+        @div =>
           @button class: 'btn btn-error inline-block-tight btn-cancel-button', 'Cancel'
-        @span class: 'pull-right', =>
+        @div =>
           @button class: 'btn btn-success inline-block-tight btn-unstage-button', 'Unstage'
     viewButton.appendTo(this)
 
@@ -52,8 +51,6 @@ class SelectStageFilesView extends SelectListMultipleView
     files = (item.path for item in items)
     @cancel()
 
-    git.cmd
-      args: ['reset', 'HEAD', '--'].concat(files)
-      cwd: @repo.getWorkingDirectory()
-      stdout: (data) =>
-        notifier.addSuccess(data)
+    git.cmd(['reset', 'HEAD', '--'].concat(files), cwd: @repo.getWorkingDirectory())
+    .then (msg) -> notifier.addSuccess msg
+    .catch (msg) -> notifier.addError msg

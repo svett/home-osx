@@ -66,7 +66,7 @@ function canAddAfter(token, node) {
 
   if (nextToken.type === "Punctuator") {
     return true;
-  } else if (nextToken.type === "JSXText") {
+  } else if (nextToken.type === "XJSText") {
     var value = nextToken.value;
     if (textOnlyContainsWhiteSpacesAndNewLines(value)) {
       return true;
@@ -95,7 +95,7 @@ function canAddBefore(token, node) {
 
   if (prevToken.type === "Punctuator") {
     return true;
-  } else if (prevToken.type === "JSXText") {
+  } else if (prevToken.type === "XJSText") {
     var value = prevToken.value;
     if (textOnlyContainsWhiteSpacesAndNewLines(value)) {
       return true;
@@ -120,7 +120,7 @@ function before(token, tokenToAdd) {
   if (token &&
     token.prev &&
     token.prev.type !== "LineBreak") {
-    if (token.prev.type === "JSXText") {
+    if (token.prev.type === "XJSText") {
       if (!_s.endsWith(removeSpaces(token.prev.value), '\n')) {
         token.prev.value = removeTrailingWhiteSpaces(token.prev.value) + "\n";
       }
@@ -138,7 +138,7 @@ function after(token, tokenToAdd) {
   if (token &&
     token.next &&
     token.next.type !== "LineBreak") {
-      if (token.next.type === "JSXText") {
+      if (token.next.type === "XJSText") {
         if (!_s.startsWith(removeSpaces(token.next.value), '\n')) {
           token.next.value = "\n" + token.next.value;
         }
@@ -168,18 +168,18 @@ function surroundedByText(node) {
   var closingElement = node.closingElement || node.openingElement;
 
   var textBefore = openingElement.startToken.prev
-  && openingElement.startToken.prev.type === "JSXText"
+  && openingElement.startToken.prev.type === "XJSText"
   && !endsWithNewLine(openingElement.startToken.prev.value);
   var textAfter = closingElement.endToken.next
-  && closingElement.endToken.next.type === "JSXText"
+  && closingElement.endToken.next.type === "XJSText"
   && !startWithNewLine(closingElement.endToken.next.value);
 
-  return (textBefore && textAfter) || (node.parent && node.parent.type === 'JSXElement' && surroundedByText(node.parent));
+  return (textBefore && textAfter) || (node.parent && node.parent.type === 'XJSElement' && surroundedByText(node.parent));
 }
 
 function textAsSibling(node) {
   return _.find(node.parent.children, function (node) {
-    return node.type === "JSXText";
+    return node.type === "XJSText";
   });
 }
 
@@ -215,7 +215,7 @@ module.exports = {
     _opts = opts;
   },
   nodeAfter: function(node) {
-    if (node.type === "JSXElement" && canFormat(node)) {
+    if (node.type === "XJSElement" && canFormat(node)) {
 
       if (node.closingElement) {
 

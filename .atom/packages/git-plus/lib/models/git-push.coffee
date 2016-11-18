@@ -1,10 +1,7 @@
 git = require '../git'
 RemoteListView = require '../views/remote-list-view'
 
-gitPush = (repo) ->
-  git.cmd
-    args: ['remote']
-    cwd: repo.getWorkingDirectory()
-    stdout: (data) -> new RemoteListView(repo, data, mode: 'push')
-
-module.exports = gitPush
+module.exports = (repo, {setUpstream}={}) ->
+  git.cmd(['remote'], cwd: repo.getWorkingDirectory()).then (data) ->
+    mode = if setUpstream then 'push -u' else 'push'
+    new RemoteListView(repo, data, {mode})

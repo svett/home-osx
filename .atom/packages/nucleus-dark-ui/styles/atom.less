@@ -1,106 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: @font-size;
+}
+
+atom-workspace {
+  background-color: @app-background-color;
+}
+
 status-bar {
-  .text(subtle);
-  background: @base-background-color;
-  height: @input-height;
+  .text(highlight);
+  background: @base-border-color;
+  height: @tab-height;
   line-height: @component-line-height;
-  font-size: 10px;
+  font-size: 0.8rem;
+  z-index: +1000;
 
   & > .flexbox-repaint-hack {
     padding-top: 3px;
   }
-}
 
-atom-workspace {
-  border-top: 1px solid @base-border-color;
-}
-
-.find-and-replace .find-meta-container {
-  top: 4px;
-
-  & span {
-    font-size: 10px;
-    text-transform: uppercase;
+  span {
+    font-size: 0.8rem;
   }
 }
 
-atom-text-editor[mini],
-atom-text-editor[mini]::shadow {
-  transition: all @transition-time ease;
-  letter-spacing: 0;
-  color: @text-color-highlight;
-  background-color: transparent;
-  border: 1px solid @input-background-color;
-  border-radius: @component-border-radius;
-  padding-left: @component-padding / 2;
-  height: @input-height;
-  max-height: @input-height;
-  line-height: @input-height - 2px;
-
-  &:hover {
-    background-color: @button-background-color-hover !important;
-  }
-
-  .placeholder-text {
-    .text(subtle);
-    height: @input-height;
-    line-height: @input-height - 2px;
-  }
-
-  .cursor {
-    border-color: @text-color;
-  }
-
-  .selection .region {
-    background-color: @background-color-highlight !important;
-  }
+.title-bar {
+  background: @app-background-color;
+  border-color: transparent;
 }
 
-atom-text-editor[mini].is-focused,
-atom-text-editor[mini].is-focused::shadow {
-  border: 1px solid @text-color-highlight;
-  background-color: @input-background-color-active;
-
-  &:hover {
-    background-color: @input-background-color-active !important;
-  }
-
-  .selection .region {
-    background-color: @background-color-highlight !important;
-  }
+// Keyboard Shortcuts ----------------------------------------------------------
+kbd, .keystroke {
+  .text(invert);
+  font-size: @font-size;
+  font-family: @font-family;
+  line-height: @component-line-height;
+  background: @background-color-info;
+  padding: 2px 4px;
+  border: 0;
+  border-radius: 2px;
 }
 
-.icon-x::before {
+// Close icons -----------------------------------------------------------------
+.close-icon::before,
+.icon-x::before,
+.icon.x::before {
   content: '✕' !important;
 }
 
-atom-notification .close:before {
-  color: fade(@theme-background-color, 50%);
-}
-
-atom-notification .close {
-  transition: all @transition-time ease;
-}
-
-atom-notifications {
-  .text(normal);
-}
-
-.background-message .message,
-.background-message li {
-  .text(subtle);
-  font-size: 24px;
-  font-weight: 300;
-
-  .keystroke {
-    border-width: 1px;
-    font-weight: 300;
+// Scrollbars ------------------------------------------------------------------
+.scrollbars-visible-always {
+  /deep/::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
   }
-}
 
-kbd {
-  .text(info);
-  color: @tooltip-background-color;
-  background: @text-color;
-  font-size: 90%;
-  border-radius: @component-border-radius/2;
+  /deep/::-webkit-scrollbar-track {
+    background: @scrollbar-background-color;
+  }
+
+  /deep/::-webkit-scrollbar-corner {
+    background: @scrollbar-background-color;
+  }
+
+  /deep/::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    border: 3px solid @scrollbar-background-color;
+    background: @scrollbar-color;
+    background-clip: content-box;
+
+    &:active,
+    &:hover {
+      border-width: 1px;
+    }
+  }
+
+  atom-text-editor,
+  atom-pane-container,
+  atom-panel-container.bottom {
+    /deep/::-webkit-scrollbar-track {
+      background: @base-background-color;
+    }
+
+    /deep/::-webkit-scrollbar-corner {
+      background: @base-background-color;
+    }
+
+    /deep/::-webkit-scrollbar-thumb {
+      border-color: @base-background-color;
+      background: @scrollbar-color;
+    }
+  }
 }

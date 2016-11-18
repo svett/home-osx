@@ -1,21 +1,46 @@
-{Range, CompositeDisposable} = require 'atom'
+{Range, CompositeDisposable, Emitter} = require 'atom'
 _ = require 'underscore-plus'
+StatusBarView = require './status-bar-view'
 
 module.exports =
 class HighlightedAreaView
 
   constructor: ->
+    @emitter = new Emitter
     @views = []
+    @enable()
     @listenForTimeoutChange()
     @activeItemSubscription = atom.workspace.onDidChangeActivePaneItem =>
       @debouncedHandleSelection()
       @subscribeToActiveTextEditor()
     @subscribeToActiveTextEditor()
+    @listenForStatusBarChange()
 
   destroy: =>
     clearTimeout(@handleSelectionTimeout)
     @activeItemSubscription.dispose()
     @selectionSubscription?.dispose()
+    @statusBarView?.removeElement()
+    @statusBarTile?.destroy()
+    @statusBarTile = null
+
+  onDidAddMarker: (callback) =>
+    @emitter.on 'did-add-marker', callback
+
+  onDidRemoveAllMarkers: (callback) =>
+    @emitter.on 'did-remove-all-markers', callback
+
+  disable: =>
+    @disabled = true
+    @removeMarkers()
+
+  enable: =>
+    @disabled = false
+    @debouncedHandleSelection()
+
+  setStatusBar: (statusBar) =>
+    @statusBar = statusBar
+    @setupStatusBar()
 
   debouncedHandleSelection: =>
     clearTimeout(@handleSelectionTimeout)
@@ -48,6 +73,8 @@ class HighlightedAreaView
 
   handleSelection: =>
     @removeMarkers()
+
+    return if @disabled
 
     editor = @getActiveEditor()
     return unless editor
@@ -83,13 +110,18 @@ class HighlightedAreaView
         regexSearch =  "\\b" + regexSearch
       regexSearch = regexSearch + "\\b"
 
+    resultCount = 0
     editor.scanInBufferRange new RegExp(regexSearch, regexFlags), range,
       (result) =>
+        resultCount += 1
         unless @showHighlightOnSelectedWord(result.range, @selections)
           marker = editor.markBufferRange(result.range)
           decoration = editor.decorateMarker(marker,
             {type: 'highlight', class: @makeClasses()})
           @views.push marker
+          @emitter.emit 'did-add-marker', marker
+
+    @statusBarElement?.updateCount(resultCount)
 
   makeClasses: ->
     className = 'highlight-selected'
@@ -120,6 +152,8 @@ class HighlightedAreaView
       view.destroy()
       view = null
     @views = []
+    @statusBarElement?.updateCount(@views.length)
+    @emitter.emit 'did-remove-all-markers'
 
   isWordSelected: (selection) ->
     if selection.getBufferRange().isSingleLine()
@@ -150,3 +184,23 @@ class HighlightedAreaView
     selectionEnd = selection.getBufferRange().end
     range = Range.fromPointWithDelta(selectionEnd, 0, 1)
     @isNonWordCharacter(@getActiveEditor().getTextInBufferRange(range))
+
+  setupStatusBar: =>
+    return if @statusBarElement?
+    return unless atom.config.get('highlight-selected.showInStatusBar')
+    @statusBarElement = new StatusBarView()
+    @statusBarTile = @statusBar.addLeftTile(
+      item: @statusBarElement.getElement(), priority: 100)
+
+  removeStatusBar: =>
+    return unless @statusBarElement?
+    @statusBarTile?.destroy()
+    @statusBarTile = null
+    @statusBarElement = null
+
+  listenForStatusBarChange: =>
+    atom.config.onDidChange 'highlight-selected.showInStatusBar', (changed) =>
+      if changed.newValue
+        @setupStatusBar()
+      else
+        @removeStatusBar()

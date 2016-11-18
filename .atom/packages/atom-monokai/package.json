@@ -1,46 +1,70 @@
 {
-  "name": "atom-monokai",
-  "theme": "syntax",
-  "version": "0.8.0",
-  "private": true,
-  "description": "Atom syntax theme inspired by monokai. Works with Atom Dark, Light and Seti UI.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/burntime/atom-monokai"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-24710-129r06h"
+    ]
+  ],
+  "_from": "../d-1161016-24710-15pzrb7/package.tgz",
+  "_id": "atom-monokai@0.10.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/atom-monokai",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+    "type": "local"
   },
-  "license": "MIT",
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-24710-15pzrb7/package.tgz",
+  "_shasum": "6a1e71bbe727bcfe9084bb157a36a05f99940225",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-24710-129r06h",
+  "bugs": {
+    "url": "https://github.com/burntime/atom-monokai/issues"
+  },
+  "dependencies": {},
+  "description": "Monokai syntax theme for Atom Dark, One Dark, Seti UI and other",
+  "devDependencies": {},
+  "dist": {
+    "shasum": "4cd9c25def7cd564111f923a3c8e817175abdf4c"
+  },
   "engines": {
     "atom": ">0.50.0"
   },
+  "homepage": "https://github.com/burntime/atom-monokai",
   "keywords": [
     "monokai",
     "seti-ui",
     "dark",
-    "light",
-    "syntax",
-    "adaptive"
+    "syntax"
   ],
+  "license": "MIT",
+  "name": "atom-monokai",
+  "optionalDependencies": {},
+  "private": true,
   "readme": "# atom-monokai theme\n\nAtom syntax theme inspired by [monokai](http://www.monokai.nl/blog/2006/07/15/textmate-color-theme/).\nWorks with Atom Dark, Light and Seti UI.\n\n![](https://raw.github.com/burntime/atom-monokai/master/screenshot.png)\n",
   "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/burntime/atom-monokai/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burntime/atom-monokai.git"
   },
-  "homepage": "https://github.com/burntime/atom-monokai",
-  "_id": "atom-monokai@0.8.0",
-  "dist": {
-    "shasum": "4cd9c25def7cd564111f923a3c8e817175abdf4c"
-  },
-  "_resolved": "file:../d-11571-36667-19aat4s/package.tgz",
-  "_from": "../d-11571-36667-19aat4s/package.tgz",
-  "_shasum": "fb52b9e81b53414424085146203e65375399c16a",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "theme": "syntax",
+  "version": "0.10.4"
 }

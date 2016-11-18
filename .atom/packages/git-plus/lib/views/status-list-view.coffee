@@ -1,5 +1,5 @@
 {$$, SelectListView} = require 'atom-space-pen-views'
-fs = require 'fs'
+fs = require 'fs-plus'
 Path = require 'path'
 git = require '../git'
 GitDiff = require '../models/git-diff'
@@ -7,11 +7,10 @@ notifier = require '../notifier'
 
 module.exports =
 class StatusListView extends SelectListView
-  initialize: (@repo, @data, {@onlyCurrentFile}={}) ->
+  initialize: (@repo, @data) ->
     super
     @show()
-    @branch = @data[0]
-    @setItems @parseData @data[...-1]
+    @setItems @parseData @data
     @focusFilterEditor()
 
   parseData: (files) ->
@@ -20,6 +19,8 @@ class StatusListView extends SelectListView
       {type: line[1], path: line[2]}
 
   getFilterKey: -> 'path'
+
+  getEmptyMessage: -> "Nothing to commit, working directory clean."
 
   show: ->
     @panel ?= atom.workspace.addModalPanel(item: this)

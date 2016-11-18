@@ -1,0 +1,120 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34380-o4j5zp"
+    ]
+  ],
+  "_from": "../d-1161016-34380-11x2j/package.tgz",
+  "_id": "go-debug@0.1.22",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/go-debug",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-34380-11x2j/package.tgz",
+  "_shasum": "efd250af87b52fc33b1ba646659b719666b1b101",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34380-o4j5zp",
+  "bugs": {
+    "url": "https://github.com/lloiser/go-debug/issues"
+  },
+  "configSchema": {
+    "limitCommandsToGo": {
+      "title": "Commands available only in go source",
+      "description": "Determines whether the commands of this package are only available in go source files",
+      "type": "boolean",
+      "default": false
+    },
+    "panelInitialVisible": {
+      "title": "Panel Initially Visible",
+      "description": "Determines whether the panel is initially visible or not.",
+      "type": "boolean",
+      "default": false
+    },
+    "dlvPath": {
+      "title": "dlv path",
+      "description": "The path to a dlv executable to use.",
+      "type": "string",
+      "default": ""
+    }
+  },
+  "consumedServices": {
+    "go-config": {
+      "versions": {
+        "1.0.0": "consumeGoconfig"
+      }
+    },
+    "go-get": {
+      "versions": {
+        "1.0.0": "consumeGoget"
+      }
+    }
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "atom-package-deps": "^4.0.1",
+    "json-rpc2": "^1.0.2",
+    "react-for-atom": "^15.2.1-0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "request": "^2.74.0"
+  },
+  "description": "go debugger using delve for atom",
+  "devDependencies": {
+    "standard": "^8.0.0-beta.4"
+  },
+  "engines": {
+    "atom": ">=1.5.3 <2.0.0"
+  },
+  "homepage": "https://github.com/lloiser/go-debug#readme",
+  "keywords": [
+    "go",
+    "golang",
+    "debug",
+    "debugger",
+    "delve",
+    "dlv"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "go-debug",
+  "optionalDependencies": {},
+  "package-deps": [
+    "go-config",
+    "go-get"
+  ],
+  "readme": "# [go-debug](https://atom.io/packages/go-debug)\n\nA go debugger for atom using [delve](https://github.com/derekparker/delve).\n\n![Demo](https://raw.githubusercontent.com/lloiser/go-debug/master/resources/demo.gif)\n\n## Install\n\nEither `apm install go-debug` or search for `go-debug` in the settings.\n\n### Install delve\n\nsee https://github.com/derekparker/delve/tree/master/Documentation/installation\n\n## Key bindings\n\n* `f5` runs the current package (`dlv debug`)\n* `ctrl-f5` runs the current package tests (`dlv test`)\n* `shift-f5` restarts the current delve session (`r / restart`)\n* `f6` stops delve (`exit / quit / q`)\n* `f8` continue the execution (`c / continue`)\n* `f9` toggle breakpoint\n* `f10` step over to next source line (`n / next`)\n* `f11` step into functions (`s / step`)\n* `cmd-k cmd-g` (mac) / `ctrl-k ctrl-g` (others) toggles the main panel\n\n## Links\n\n* Gopher community on slack: [![Slack](https://img.shields.io/badge/gophers_slack-%23go--plus-blue.svg?style=flat)](https://gophersinvite.herokuapp.com) <br />Questions? Use the `go-plus` channel or send me direct messages\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lloiser/go-debug.git"
+  },
+  "standard": {
+    "globals": [
+      "atom",
+      "waitsForPromise"
+    ]
+  },
+  "version": "0.1.22"
+}

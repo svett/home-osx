@@ -1,5 +1,17 @@
 ## Change Log
 
+### v0.11.2 (2015/02/02)
+- Add Remove All Markers event ([@richrace])
+- Added `inline-block` class for better compatibility with status bar ([@scippio])
+
+### v0.11.1 (2015/11/15)
+- Fix highlights count ([@richrace])
+
+### v0.11.0 (2015/11/15)
+- Add status bar for highlights ([@richrace])
+- Add API service end point ([@richrace])
+- Add hotkeys/menus ([@richrace])
+
 ### v0.10.1 (2015/06/17)
 - Ensure border for highlighted region doesn't overlap other lines ([@richrace])
 
@@ -174,3 +186,4 @@
 [@hmatsuda]: https://github.com/hmatsuda
 [@izuzak]: https://github.com/izuzak
 [@JCCR]: https://github.com/JCCR
+[@scippio]: https://github.com/scippio

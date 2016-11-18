@@ -5,12 +5,15 @@ HighlightSelected = require '../lib/highlight-selected'
 # Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 
 describe "HighlightSelected", ->
-  [activationPromise, workspaceElement, minimap,
+  [activationPromise, workspaceElement, minimap, statusBar,
    editor, editorElement, highlightSelected, minimapHS, minimapModule] = []
 
   hasMinimap = atom.packages.getAvailablePackageNames()
     .indexOf('minimap') isnt -1 and atom.packages.getAvailablePackageNames()
     .indexOf('minimap-highlight-selected') isnt -1
+
+  hasStatusBar = atom.packages.getAvailablePackageNames()
+    .indexOf('status-bar') isnt -1
 
   beforeEach ->
     workspaceElement = atom.views.getView(atom.workspace)
@@ -23,6 +26,10 @@ describe "HighlightSelected", ->
 
   describe "when opening a coffee file", ->
     beforeEach ->
+      waitsForPromise ->
+        atom.packages.activatePackage('status-bar').then (pack) ->
+          statusBar = workspaceElement.querySelector("status-bar")
+
       waitsForPromise ->
         atom.packages.activatePackage('highlight-selected')
           .then ({mainModule}) ->
@@ -69,6 +76,25 @@ describe "HighlightSelected", ->
           .querySelectorAll('.highlight-selected .region')
           ).toHaveLength(4)
 
+      it "creates the highlight selected status bar element", ->
+        expect(workspaceElement.querySelector('status-bar')).toExist()
+        expect(workspaceElement.querySelector('.highlight-selected-status'))
+          .toExist()
+
+      it "updates the status bar with highlights number", ->
+        content = workspaceElement.querySelector(
+          '.highlight-selected-status').innerHTML
+        expect(content).toBe('Highlighted: 4')
+
+      describe "when the status bar is disabled", ->
+        beforeEach ->
+          atom.config.set('highlight-selected.showInStatusBar', false)
+
+        it "highlight isn't attached", ->
+          expect(workspaceElement.querySelector('status-bar')).toExist()
+          expect(workspaceElement.querySelector('.highlight-selected-status'))
+            .not.toExist()
+
     describe "when hide highlight on selected word is enabled", ->
       beforeEach ->
         atom.config.set('highlight-selected.hideHighlightOnSelectedWord', true)
@@ -109,6 +135,7 @@ describe "HighlightSelected", ->
 
     describe "will highlight non whole words", ->
       beforeEach ->
+        atom.config.set('highlight-selected.onlyHighlightWholeWords', false)
         range = new Range(new Point(10, 13), new Point(10, 17))
         editor.setSelectedBufferRange(range)
         advanceClock(20000)

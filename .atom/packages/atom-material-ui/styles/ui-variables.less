@@ -1,35 +1,32 @@
-@import "ui-mixins";
 @import "syntax-variables";
 
-// Get Background Color from Syntax
-
-@app-background-color: @syntax-background-color;
-
 // Colors
+@app-background-color: @syntax-background-color;
+@accent-color: @syntax-cursor-color;
+@accent-text-color: darken(@accent-color, 25%);
 
 @text-color: fade(@syntax-text-color, 80%);
-@text-color-dark: #333;
-@text-color-subtle: #666;
-@text-color-highlight: #FFF;
+@text-color-dark: darken(@text-color, 10%);
+@text-color-subtle: fade(@text-color, 50%);
+@text-color-highlight: fade(@text-color, 60%);
 @text-color-selected: @text-color-highlight;
 
-@text-color-info: #2196F3;
-@text-color-success: #8BC34A;
-@text-color-warning: #FFCA28;
-@text-color-error: #F44336;
+@text-color-info: @md-blue;
+@text-color-success: @md-light-green;
+@text-color-warning: darken(@md-amber, 10%);
+@text-color-error: @md-red;
 
-@text-color-ignored: @text-color-subtle;
+@text-color-ignored: fade(@text-color, 50%);
 @text-color-added: lighten(@text-color-success, 10%);
 @text-color-renamed: lighten(@text-color-info, 10%);
-@text-color-modified: lighten(@text-color-warning, 15%);
+@text-color-modified: @md-amber;
 @text-color-removed: @text-color-error;
 
-@background-color-info: #2196F3;
-@background-color-success: #8BC34A;
-@background-color-warning: #ffaa2c;
-@background-color-error: #F44336;
-@background-color-highlight: rgba(255, 255, 255, 0.07);
-
+@background-color-info: lighten(@md-blue, 25%);
+@background-color-success: lighten(@md-light-green, 25%);
+@background-color-warning: lighten(@md-yellow, 10%);
+@background-color-error: lighten(@md-red, 25%);
+@background-color-highlight: fade(@base-color, 10%);
 
 @base-background-color: transparent;
 @base-border-color: rgba(0, 0, 0, 0.1);
@@ -37,7 +34,7 @@
 @pane-item-background-color: @base-background-color;
 @pane-item-border-color: rgba(0, 0, 0, 0.1);
 
-@input-background-color: #FFF;
+@input-background-color: @syntax-background-color;
 @input-border-color: @base-border-color;
 
 @tool-panel-background-color: @app-background-color;
@@ -67,7 +64,7 @@
 @tree-view-border-color: @tool-panel-border-color;
 
 @scrollbar-background-color: @app-background-color;
-@scrollbar-color: fade(@text-color, 5%);
+@scrollbar-color: fade(@text-color, 20%);
 
 @ui-site-color-1: @background-color-success;
 @ui-site-color-2: @background-color-info;
@@ -75,21 +72,19 @@
 @ui-site-color-4: #9C27B0;
 @ui-site-color-5: #FFEB3B;
 
+@tip-background-color: @md-grey-700;
+@tip-text-color: #FFF;
 
 // Sizes
 
-@font-size: 11px;
-@input-font-size: 14px;
-
-@disclosure-arrow-size: 12px;
-
-@component-padding: 10px;
-@component-icon-padding: 5px;
-@component-icon-size: 16px;
-@component-line-height: 25px;
-@component-border-radius: 3px;
-
-@tab-height: 48px;
+@font-size: 0.8rem;
+@input-font-size: 0.8rem;
+@disclosure-arrow-size: 0.8rem;
+@component-padding: 0.5rem;
+@component-icon-padding: 0.25rem;
+@component-icon-size: 1.5rem;
+@component-line-height: 1;
+@component-border-radius: 0.125rem;
 
 // Other
 
@@ -116,8 +111,22 @@
 @md-deep-orange:    #FF5722;
 @md-brown:          #795548;
 @md-grey:           #9E9E9E;
+@md-grey-700:       #616161;
 @md-blue-grey:      #607D8B;
 
 // Accent Colors
 
 @background-color-selected: @md-blue-grey;
+@md-timing-function: cubic-bezier(.4, 0, .2, 1);
+
+// These are default values
+
+@accent-color: #FFFFFF;
+@accent-text-color: #FFFFFF;
+@base-color: #009688;
+
+:root {
+    font-size: 16px;
+}
+
+@import "custom";

@@ -3,11 +3,12 @@
 
 git = require '../git'
 notifier = require '../notifier'
+OutputViewManager = require '../output-view-manager'
 
 class InputView extends View
   @content: ->
     @div =>
-      @subview 'commandEditor', new TextEditorView(mini: true, placeHolderText: 'Git command and arguments')
+      @subview 'commandEditor', new TextEditorView(mini: true, placeholderText: 'Git command and arguments')
 
   initialize: (@repo) ->
     @disposables = new CompositeDisposable
@@ -24,14 +25,27 @@ class InputView extends View
     @disposables.add atom.commands.add 'atom-text-editor', 'core:confirm', (e) =>
       @disposables.dispose()
       @panel?.destroy()
+      view = OutputViewManager.create()
       args = @commandEditor.getText().split(' ')
       if args[0] is 1 then args.shift()
-      git.cmd
-        args: args
-        cwd: @repo.getWorkingDirectory()
-        stdout: (data) =>
-          notifier.addSuccess(data.toString()) if data.toString().length > 0
-          git.refresh()
-          @currentPane.activate()
+      git.cmd(args, cwd: @repo.getWorkingDirectory(), {color: true})
+      .then (data) =>
+        msg = "git #{args.join(' ')} was successful"
+        notifier.addSuccess(msg)
+        if data?.length > 0
+          view.setContent data
+        else
+          view.reset()
+        view.finish()
+        git.refresh @repo
+        @currentPane.activate()
+      .catch (msg) =>
+        if msg?.length > 0
+          view.setContent msg
+        else
+          view.reset()
+        view.finish()
+        git.refresh @repo
+        @currentPane.activate()
 
 module.exports = (repo) -> new InputView(repo)

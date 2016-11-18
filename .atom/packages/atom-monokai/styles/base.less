@@ -1,12 +1,9 @@
-@import "ui-variables";
-@import "colors";
-@import "mixin";
-@import "keyframes";
-
 .atom-text-editor, :host {
 
-  .base-background (@base);
-  .base-text-color (@base);
+  @syntax-bg: darken(@base-background-color, 4%);
+
+  color: @text-color;
+  background: @syntax-bg;
 
   .invisible-character,
   .indent-guide {
@@ -68,8 +65,16 @@
   color: @storage;
 }
 
-.storage.type {
+.storage.type, .support.type.stdint, .support.type.sys-types {
   color: @green;
+}
+
+.support.function.any-method, .support.function.C99 {
+  color: @functionCall;
+}
+
+.support.type.exception {
+  color: @variable;
 }
 
 .constant {

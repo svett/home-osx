@@ -1,27 +1,18 @@
 {
-  "name": "base16-ocean-dark-spacegray",
-  "theme": "syntax",
-  "version": "0.10.0",
-  "private": true,
-  "description": "A port of the Spacegray base16 Ocean Theme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/carloe/spacegray-base16-ocean-dark"
-  },
-  "license": "MIT",
-  "engines": {
-    "atom": ">0.50.0"
-  },
-  "readme": "# base16-ocean-spacegray-dark theme\n\nA port of the Spacegray base16-ocean-dark Theme\n\n### To Install:\n`apm install base16-ocean-dark-spacegray`\n\nConverted from the [Sublime Text Version](https://github.com/kkga/spacegray)\n\n![screenshot](https://dl.dropboxusercontent.com/u/8518439/github/base-16-ocean-spacegray.png)\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/carloe/spacegray-base16-ocean-dark/issues"
-  },
-  "homepage": "https://github.com/carloe/spacegray-base16-ocean-dark",
-  "_id": "base16-ocean-dark-spacegray@0.10.0",
-  "_shasum": "664509c96e036d266babfc9a1308e764a6bec153",
-  "_resolved": "file:../d-115117-88963-1kvocx7/package.tgz",
-  "_from": "../d-115117-88963-1kvocx7/package.tgz",
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24724-166xg1n/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24724-166xg1n/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24724-166xg1n/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-24724-1rocgbp"
+    ]
+  ],
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],
@@ -31,5 +22,50 @@
       ]
     },
     "folders": []
-  }
+  },
+  "_from": "../d-1161016-24724-166xg1n/package.tgz",
+  "_id": "base16-ocean-dark-spacegray@0.12.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/base16-ocean-dark-spacegray",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24724-166xg1n/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24724-166xg1n/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24724-166xg1n/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-24724-166xg1n/package.tgz",
+  "_shasum": "664509c96e036d266babfc9a1308e764a6bec153",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24724-166xg1n/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-24724-1rocgbp",
+  "bugs": {
+    "url": "https://github.com/carloe/spacegray-base16-ocean-dark/issues"
+  },
+  "dependencies": {},
+  "description": "A port of the Spacegray base16 Ocean Theme",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/carloe/spacegray-base16-ocean-dark",
+  "license": "MIT",
+  "name": "base16-ocean-dark-spacegray",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "# base16-ocean-spacegray-dark theme\n\nA port of the Spacegray base16-ocean-dark Theme\n\n### To Install:\n`apm install base16-ocean-dark-spacegray`\n\nConverted from the [Sublime Text Version](https://github.com/kkga/spacegray)\n\n![screenshot](https://dl.dropboxusercontent.com/u/8518439/github/base-16-ocean-spacegray.png)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloe/spacegray-base16-ocean-dark.git"
+  },
+  "theme": "syntax",
+  "version": "0.12.0"
 }

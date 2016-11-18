@@ -36,13 +36,13 @@ function startWithNewLine(str) {
 function surroundedByText(node) {
 
   var textBefore = node.startToken.prev
-  && node.startToken.prev.type === "JSXText"
+  && node.startToken.prev.type === "XJSText"
   && !endsWithNewLine(node.startToken.prev.value);
   var textAfter = node.endToken.next
-  && node.endToken.next.type === "JSXText"
+  && node.endToken.next.type === "XJSText"
   && !startWithNewLine(node.endToken.next.value);
 
-  return (textBefore && textAfter) || (node.parent && node.parent.type === 'JSXElement' && surroundedByText(node.parent));
+  return (textBefore && textAfter) || (node.parent && node.parent.type === 'XJSElement' && surroundedByText(node.parent));
 }
 
 var _opts = {};
@@ -52,7 +52,7 @@ module.exports = {
     _opts = opts;
   },
   nodeAfter: function(node) {
-    if (node.type === "JSXOpeningElement" && utils.isInRange(node, _opts.range) && !surroundedByText(node)) {
+    if (node.type === "XJSOpeningElement" && utils.isInRange(node, _opts.range) && !surroundedByText(node)) {
       // Split attributes into multiple lines
       if (node.attributes.length > 1 && tagAttributesTooLong(node)) { // TODO make this a variable and check length as well
         if (node.name.endToken.next.type === "WhiteSpace") {
@@ -69,7 +69,7 @@ module.exports = {
               next.value = "\n";
               //TODO add indent before
             }
-          } else if (next.type === "JSXIdentifier") {
+          } else if (next.type === "XJSIdentifier") {
             before(next, newLine());
           }
         });

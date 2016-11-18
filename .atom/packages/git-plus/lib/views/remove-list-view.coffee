@@ -1,7 +1,6 @@
 {$, $$, EditorView} = require 'atom-space-pen-views'
 
 git = require '../git'
-OutputView = require './output-view'
 notifier = require '../notifier'
 SelectListMultipleView = require './select-list-multiple-view'
 
@@ -51,13 +50,9 @@ class SelectStageFilesView extends SelectListMultipleView
 
     editor = atom.workspace.getActiveTextEditor()
     atom.views.getView(editor).remove() if currentFile in files
-    git.cmd
-      args: ['rm', '-f'].concat(files)
-      cwd: @repo.getWorkingDirectory()
-      stdout: (data) ->
-        notifier.addSuccess "Removed #{prettify data}"
+    git.cmd(['rm', '-f'].concat(files), cwd: @repo.getWorkingDirectory())
+    .then (data) -> notifier.addSuccess "Removed #{prettify data}"
 
-  # cut off rm '' around the filenames.
   prettify = (data) ->
     data = data.match(/rm ('.*')/g)
     if data?.length >= 1

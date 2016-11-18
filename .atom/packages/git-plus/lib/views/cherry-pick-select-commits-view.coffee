@@ -1,7 +1,6 @@
 {$, $$} = require 'atom-space-pen-views'
 
 git = require '../git'
-OutputView = require './output-view'
 notifier = require '../notifier'
 SelectListMultipleView = require './select-list-multiple-view'
 
@@ -18,8 +17,7 @@ class CherryPickSelectCommits extends SelectListMultipleView
     )
     @focusFilterEditor()
 
-  getFilterKey: ->
-    'hash'
+  getFilterKey: -> 'hash'
 
   addButtons: ->
     viewButton = $$ ->
@@ -40,11 +38,9 @@ class CherryPickSelectCommits extends SelectListMultipleView
 
     @storeFocusedElement()
 
-  cancelled: ->
-    @hide()
+  cancelled: -> @hide()
 
-  hide: ->
-    @panel?.destroy()
+  hide: -> @panel?.destroy()
 
   viewForItem: (item, matchedStr) ->
     $$ ->
@@ -56,9 +52,7 @@ class CherryPickSelectCommits extends SelectListMultipleView
 
   completed: (items) ->
     @cancel()
-    commits = (item.hash for item in items)
-    git.cmd
-      args: ['cherry-pick'].concat(commits)
-      cwd: @repo.getWorkingDirectory()
-      stdout: (data) =>
-        notifier.addSuccess data
+    commits = items.map (item) -> item.hash
+    git.cmd(['cherry-pick'].concat(commits), cwd: @repo.getWorkingDirectory())
+    .then (msg) -> notifier.addSuccess msg
+    .catch (msg) -> notifier.addError msg

@@ -1,5 +1,276 @@
 ## Changelog
 
+### 5.25.3
+- Fix [#548](https://github.com/akonwi/git-plus/issues/548)
+
+### 5.25.2
+- Fix [#545](https://github.com/akonwi/git-plus/issues/545)
+
+### 5.25.1
+- Use experimental toggle: 'Always Pull From Upstream', when pulling before pushing is enabled
+
+### 5.25.0
+- Adds new experimental toggle: 'Always Pull From Upstream', which will pull from your current branch upstream automatically without prompting you for a branch to pull from.
+- Fix [#538](https://github.com/akonwi/git-plus/issues/538)
+  - [#537](https://github.com/akonwi/git-plus/issues/537) has been left open as the original.
+
+### 5.24.2
+- Fix [#436](https://github.com/akonwi/git-plus/issues/436)
+- Fix [#529](https://github.com/akonwi/git-plus/issues/529)
+
+### 5.24.1
+- Fix [#515](https://github.com/akonwi/git-plus/issues/515)
+- Fix [#533](https://github.com/akonwi/git-plus/issues/533)
+
+### 5.24.0
+- This enables basic support for submodules. You should be able to add, commit, and diff files that belong to submodules.
+- Small performance improvements for initial loading of the package's command palette.
+
+### 5.23.3
+- Add new command, `Commit All and Push`
+- Fix [#509](https://github.com/akonwi/git-plus/issues/509) where multiple selected commits weren't being cherry picked.
+- Update README
+  - Table of commands contains info about using Tags.
+  - Add note for Windows users to check out [#224](https://github.com/akonwi/git-plus/issues/224) for troubleshooting pull/push problems
+
+### 5.23.2
+- Fix #459 [pr #459](https://github.com/akonwi/git-plus/issues/459)
+  - Output from commands executed by Git Run will be colored if git provides coloring
+
+### 5.22.1
+- Fix #448 [pr #514](https://github.com/akonwi/git-plus/issues/448)
+- Fix #517 [pr #514](https://github.com/akonwi/git-plus/issues/517)
+
+### 5.22.0
+- Adds a new command to do `git push -u`.
+  - The old push command automatically retried after a failure with the `-u` flag and that can completely ignore some pre-push hooks. Fixes [#422](https://github.com/akonwi/git-plus/issues/422)
+- Files can now be staged from the Tree-view with a Git add command in the context menu from right clicking files and folders.
+  - More commands can be added there with pull requests. See [#422](https://github.com/akonwi/git-plus/issues/422)
+  - This work also fixes an unreported bug where trying to open a difftool for a file from the tree-view that was different than the currently active file would not work.
+
+### 5.21.0
+- Includes a format option for the Git Show command in package settings. [pr #527](https://github.com/akonwi/git-plus/issues/527)
+
+### 5.20.0
+- Fix #510 [pr #514](https://github.com/akonwi/git-plus/issues/514)
+- Add new command (Add Modified) [pr #519](https://github.com/akonwi/git-plus/issues/519)
+
+### 5.19.0
+- Add new command (Merge without fast-forward) [pr #492](https://github.com/akonwi/git-plus/issues/492)
+
+### 5.18.3
+- Merge [pr #489](https://github.com/akonwi/git-plus/issues/489)
+
+### 5.18.2
+- Git show defaults to HEAD if input is left empty. [pr #481](https://github.com/akonwi/git-plus/issues/481)
+- Pin icon in status bar can now be disabled. [pr #488](https://github.com/akonwi/git-plus/issues/488)
+
+### 5.18.0
+- Enable activating the difftool on files and folders in the tree-view [pr #508](https://github.com/akonwi/git-plus/issues/508)
+- Allow the package to initialize immediately when atom loads
+
+### 5.17.1
+- Fix bugs with new diff highlighting [#511](https://github.com/akonwi/git-plus/issues/511)
+
+### 5.17.0
+- Add syntax highlighting to diffs [#507](https://github.com/akonwi/git-plus/issues/507)
+- Improves diff grammar and styling [#507](https://github.com/akonwi/git-plus/issues/507)
+
+### 5.16.2
+- Fix [#476](https://github.com/akonwi/git-plus/issues/476)
+
+### 5.16.1
+- Fix [#472](https://github.com/akonwi/git-plus/issues/472)
+
+### 5.16.0
+- Add toggle for experimental features in package settings
+- Verbose commits is now an experimental feature([#90](https://github.com/akonwi/git-plus/issues/90))
+
+### 5.15.0
+- New command to 'Add and commit and push' (@john-d-murphy)[#452](https://github.com/akonwi/git-plus/issues/452)
+- New command 'Open all changed files' (@flexoid) [#463](https://github.com/akonwi/git-plus/issues/463)
+
+### 5.14.0
+- Add a new stash command to save with a message -> [#396](https://github.com/akonwi/git-plus/issues/396)
+- Fix placeholder text for Run command not displaying
+
+### 5.13.6
+- Fix [#445](https://github.com/akonwi/git-plus/issues/445)
+
+### 5.13.5
+- Fix [#412](https://github.com/akonwi/git-plus/issues/412)
+- Slight refactor to diff grammar
+
+### 5.13.4
+- Fix [#423](https://github.com/akonwi/git-plus/issues/423)
+
+### 5.13.3
+- Show errors when Add and Push commands fail
+
+### 5.13.0
+- Add keyboard support for git log view (@aki77)[PR#389](https://github.com/akonwi/git-plus/pull/389)
+
+### 5.12.3
+- Fix [#387](https://github.com/akonwi/git-plus/issues/387)
+- Fix [#383](https://github.com/akonwi/git-plus/issues/383)
+- Fix [#369](https://github.com/akonwi/git-plus/issues/369)
+
+### 5.12.1
+- Merge [pr #380](https://github.com/akonwi/git-plus/issues/380)
+- Merge [pr #381](https://github.com/akonwi/git-plus/issues/381)
+ - Fixes [#372](https://github.com/akonwi/git-plus/issues/372)
+- Fix [#377](https://github.com/akonwi/git-plus/issues/377)
+
+### 5.12.0
+- Add `Merge Remote` command (@crshd)
+- Fix [#370](https://github.com/akonwi/git-plus/issues/370)
+- Fix [#371](https://github.com/akonwi/git-plus/issues/371)
+- Remove code that 'fixed' [#90](https://github.com/akonwi/git-plus/issues/90) because there are still gaps to figure out
+
+### 5.11.0
+- Fix [#355](https://github.com/akonwi/git-plus/issues/355)
+- Fix [#354](https://github.com/akonwi/git-plus/issues/354)
+- Fix [#358](https://github.com/akonwi/git-plus/issues/358)
+
+### 5.9.0
+- Fix a bug where the commit amend file didn't show the status of the previous
+commit if there were no new changed files
+- Fix for a blank uncommented line inside the status of the amend file
+- Fix syntax error in the amend file. Changed 'removed' to 'deleted'
+
+### 5.8.3
+- Show errors from `Diff` command
+
+### 5.8.2
+- Fix for no notifications when changing branches
+
+### 5.8.1
+- Remove verbose commit feature because it isn't fully implemented
+
+### 5.8.0
+- Add setting for verbose commit panes
+
+### 5.7.1
+- Fix #349 (@joshbaldock)
+
+### 5.7.0
+- Added config options for pulling before pushing
+
+### 5.6.10
+- Fix #340 (@brettle)
+
+### 5.6.8
+- Fix #322 (@teefax)
+- Change format of list of commands in README (@capncodewash)
+
+### 5.6.6
+- Fix #322 (@mightydok)
+- Make all notifications dismissable (@jamen)
+- Fix height for long log outputs (@sxasraf)
+
+### 5.6.5
+- Trigger checkout from clicking on branch name in status bar on atom-workspace
+- Update splitPaneDirection config to be an enum
+
+### 5.6.3
+- Fix #318
+
+### 5.6.2
+- Disable color for 'Git show' (@modosc)
+
+### 5.6.1
+- Display untracked files in list of files to stage as separate items
+
+### 5.6.0
+- Fix #270. When pulling, you now have the default option to pull from the origin of the current branch
+
+### 5.5.7
+- Fix #317 and #319
+
+### 5.5.6
+- Fix #315
+
+### 5.5.5
+- Complete fix for #310
+
+### 5.5.4
+- Refactor
+- Try to ignore CRLF errors when commiting
+
+### 5.5.3
+- Fix #311
+
+### 5.5.2
+- Refactoring
+- Catch unstage files errors
+
+### 5.5.0
+- A lot of refactoring into promises
+- __Output console__
+  - Add toggle on the right of status-bar for toggling the output console
+  - Output from `Git Run` will be displayed in the output console
+  - Show notification when Push/Pull/Fetch starts in the output console
+  - Show bigger messages like results of stash/merge in output console
+- Clicking on the branch name in the status-bar will trigger the `Git Checkout` menu (@kandros)
+- Amending no longer resets HEAD so you can safely cancel an amend
+- __`Add All Commit And Push`__
+  - is now an activation command (@dbenson24)
+  - it tries to `pull` before pushing (@mhuggins7278)
+- Add `Git Difftool` to open up a difftool (@outsmirkable)
+- Add `Git Rebase` (@afontaine)
+
+### 5.4.7
+- #269
+
+### 5.4.6
+ - Refactor to fix #266
+
+### 5.4.5
+- #265
+
+### 5.4.4
+- #263
+
+### 5.4.3
+- Add deactivate method to package
+- Refactoring
+
+### 5.4.2
+- #261
+
+### 5.4.1
+- #260: Destroy 'COMMIT_EDITMSG' pane not just editor
+
+### 5.4.0
+- #201: Add `Commit All` command. Equivalent of `git commit -a`
+
+### 5.3.5
+- #209: Only destroy textEditor for 'COMMIT_EDITMSG'
+
+### 5.3.4
+- unlink COMMIT_EDITMSG file after commits
+- Respect no 'open pane' setting with commit window
+
+### 5.3.3
+- #231: Shift-Enter confirms stage/unstage in dialogs
+
+### 5.3.2
+- Fix #226: remove COMMIT_EDITMSG file from repo when committing
+- Fix #228: Don't show color codes in diff when `color.ui=always`
+
+### 5.3.0
+- Fix #233 (@hotoiledgoblins)
+- Add 'Git checkout remote' to atom command palette
+- Respect `commit.template` config option
+
+### 5.2.4
+- Fix #243
+- Fix #42
+- Add 'push' command to context menu
+
+### 5.2.3
+- Make git-diff highlighting non-greedy. Thanks to @Victorystick
+
 ### 5.2.2
 
 - fix 'Git log current file'

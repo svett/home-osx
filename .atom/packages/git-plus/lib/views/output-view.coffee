@@ -1,28 +1,33 @@
+AnsiToHtml = require 'ansi-to-html'
+ansiToHtml = new AnsiToHtml()
 {$, ScrollView} = require 'atom-space-pen-views'
 
-module.exports =
-  class OutputView extends ScrollView
-    message: ''
+defaultMessage = 'Nothing new to show'
 
-    @content: ->
-      @div class: 'git-plus info-view', =>
-        @pre class: 'output'
+class OutputView extends ScrollView
+  @content: ->
+    @div class: 'git-plus info-view', =>
+      @pre class: 'output', defaultMessage
 
-    initialize: ->
-      super
-      @panel ?= atom.workspace.addBottomPanel(item: this)
+  html: defaultMessage
 
-    addLine: (line) ->
-      @message += line
+  initialize: -> super
 
-    reset: ->
-      @message = ''
+  reset: -> @html = defaultMessage
 
-    finish: ->
-      @find(".output").append(@message)
-      setTimeout =>
-        @destroy()
-      , atom.config.get('git-plus.messageTimeout') * 1000
+  setContent: (content) ->
+    @html = ansiToHtml.toHtml content
+    this
 
-    destroy: ->
-      @panel?.destroy()
+  finish: ->
+    @find(".output").html(@html)
+    @show()
+    @timeout = setTimeout =>
+      @hide()
+    , atom.config.get('git-plus.messageTimeout') * 1000
+
+  toggle: ->
+    clearTimeout @timeout if @timeout
+    $.fn.toggle.call(this)
+
+module.exports = OutputView

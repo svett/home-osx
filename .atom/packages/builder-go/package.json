@@ -1,0 +1,100 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34391-zptg5j/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34391-zptg5j/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34391-zptg5j/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34391-prn1u6"
+    ]
+  ],
+  "_from": "../d-1161016-34391-zptg5j/package.tgz",
+  "_id": "builder-go@1.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/builder-go",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34391-zptg5j/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34391-zptg5j/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34391-zptg5j/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-34391-zptg5j/package.tgz",
+  "_shasum": "d3fc2770bf552edb7ea548b584e66cab2ecbbdad",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34391-zptg5j/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34391-prn1u6",
+  "author": {
+    "name": "Joe Fitzgerald",
+    "email": "jfitzgerald@pivotal.io",
+    "url": "http://github.com/joefitzgerald"
+  },
+  "bugs": {
+    "url": "https://github.com/joefitzgerald/builder-go/issues"
+  },
+  "configSchema": {},
+  "consumedServices": {
+    "go-config": {
+      "versions": {
+        "1.0.0": "consumeGoconfig"
+      }
+    }
+  },
+  "dependencies": {
+    "atom-package-deps": "4.2.0",
+    "rimraf": "^2.5.4",
+    "temp": "^0.8.3"
+  },
+  "description": "Build your go source and keep gocode autocomplete suggestions up to date.",
+  "devDependencies": {
+    "standard": "^8.0.0-beta.4"
+  },
+  "engines": {
+    "atom": ">=1.5.3 <2.0.0"
+  },
+  "homepage": "https://atom.io/packages/builder-go",
+  "keywords": [
+    "go",
+    "golang",
+    "build"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib/main",
+  "name": "builder-go",
+  "optionalDependencies": {},
+  "package-deps": [
+    "go-config"
+  ],
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provide"
+      }
+    }
+  },
+  "readme": "# `builder-go` [![Build Status](https://travis-ci.org/joefitzgerald/builder-go.svg?branch=master)](https://travis-ci.org/joefitzgerald/builder-go) [![Build status](https://ci.appveyor.com/api/projects/status/94xc9j658w69cri9/branch/master?svg=true)](https://ci.appveyor.com/project/joefitzgerald/builder-go/branch/master)\n\n`builder-go` is a [Linter](https://atom.io/packages/linter) provider that builds your go source code and allows you to see syntax or compilation errors. It depends on the following packages:\n\n* [`go-config`](https://atom.io/packages/go-config)\n\n## How Are The Builds Performed?\n\nThe following commands are run for the directory of the current file:\n* `go install .` (for normal `.go` files)\n* `go test -o {tmpdir} -c .` (for `_test.go` files)\n\n## Why Are You Running `go install` Instead Of `go build`?\n\n`gocode` (and a few other tools, like `gotype`) work on `.a` files (i.e. the package object archive), and the way to keep these up to date is to run `go install` periodically. This ensures your autocomplete suggestions are kept up to date without having to resort to `gocode set autobuild true` :tada:.\n\n## But What About `gb`?\n\nI'm open to suggestions for detecting a package which is built with gb; please feel free to submit a pull request that detects a gb package without any explicit configuration and runs it.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joefitzgerald/builder-go.git"
+  },
+  "standard": {
+    "globals": [
+      "atom",
+      "waitsForPromise"
+    ]
+  },
+  "version": "1.0.1"
+}

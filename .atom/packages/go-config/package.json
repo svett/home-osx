@@ -1,0 +1,103 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34435-fo1nmd/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34435-fo1nmd/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34435-fo1nmd/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34435-1ulx62q"
+    ]
+  ],
+  "_from": "../d-1161016-34435-fo1nmd/package.tgz",
+  "_id": "go-config@1.2.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/go-config",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34435-fo1nmd/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34435-fo1nmd/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34435-fo1nmd/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-34435-fo1nmd/package.tgz",
+  "_shasum": "887e70d0df4b0b521d9016da0d2d045bdac1410d",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34435-fo1nmd/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34435-1ulx62q",
+  "author": {
+    "name": "Joe Fitzgerald",
+    "email": "jfitzgerald@pivotal.io",
+    "url": "http://github.com/joefitzgerald"
+  },
+  "bugs": {
+    "url": "https://github.com/joefitzgerald/go-config/issues"
+  },
+  "configSchema": {
+    "gopath": {
+      "title": "GOPATH",
+      "description": "(Not Recommended For Use) If you have issues setting your GOPATH in your environment, you can use this to establish a fallback value. See https://github.com/joefitzgerald/go-config/wiki/GOPATH for more information.",
+      "type": "string",
+      "default": "",
+      "order": 1
+    }
+  },
+  "dependencies": {
+    "fs-plus": "^2.9.2",
+    "lodash": "^4.16.2",
+    "semver": "^5.3.0"
+  },
+  "description": "Detects installed go (golang) runtime(s), tools, and configuration, making them available for use by other packages.",
+  "devDependencies": {
+    "fs-extra": "^0.30.0",
+    "standard": "^8.2.0",
+    "temp": "^0.8.3"
+  },
+  "engines": {
+    "atom": ">=1.5.3 <2.0.0"
+  },
+  "homepage": "https://atom.io/packages/go-config",
+  "keywords": [
+    "go",
+    "golang",
+    "gopath",
+    "runtime",
+    "config"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib/main",
+  "name": "go-config",
+  "optionalDependencies": {},
+  "providedServices": {
+    "go-config": {
+      "versions": {
+        "1.0.0": "provide",
+        "0.1.0": "provide010"
+      }
+    }
+  },
+  "readme": "# `go-config` For Atom [![Build Status](https://travis-ci.org/joefitzgerald/go-config.svg)](https://travis-ci.org/joefitzgerald/go-config) [![Build status](https://ci.appveyor.com/api/projects/status/sh7nepkf0cvt7r6j?svg=true)](https://ci.appveyor.com/project/joefitzgerald/go-config)\n\n`go-config` detects your go installation(s), tool(s), and associated configuration. You can optionally configure the package to provide hints for go installations tools.\n\nThis package provides an API via an Atom service. This API can be used by other packages that need to work with the `go` tool, other related tools (e.g. `gofmt`, `vet`, etc.) or `$GOPATH/bin` tools (e.g. `goimports`, `goreturns`, etc.).\n\n## Configuration\n\nYou can configure the GOPATH in the `go-config` package settings, however _it is not recommended_ to configure the package in this way. Please see https://github.com/joefitzgerald/go-config/wiki/GOPATH for further information.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joefitzgerald/go-config.git"
+  },
+  "standard": {
+    "globals": [
+      "atom",
+      "waitsForPromise"
+    ]
+  },
+  "version": "1.2.4"
+}

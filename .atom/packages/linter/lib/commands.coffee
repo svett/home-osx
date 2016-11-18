@@ -16,10 +16,18 @@ class Commands
     @index = null
 
   togglePanel: ->
-    @linter.views.panel.panelVisibility = !@linter.views.panel.panelVisibility
+    atom.config.set('linter.showErrorPanel', not atom.config.get('linter.showErrorPanel'))
 
   toggleLinter: ->
-    @linter.getActiveEditorLinter()?.toggleStatus()
+    activeEditor = atom.workspace.getActiveTextEditor()
+    return unless activeEditor
+    editorLinter = @linter.getEditorLinter(activeEditor)
+    if editorLinter
+      editorLinter.dispose()
+    else
+      @linter.createEditorLinter(activeEditor)
+      @lint()
+
 
   setBubbleTransparent: ->
     bubble = document.getElementById('linter-inline')
@@ -50,8 +58,6 @@ class Commands
   lint: ->
     try
       @linter.getActiveEditorLinter()?.lint(false)
-      @linter.views.render()
-
     catch error
       atom.notifications.addError error.message, {detail: error.stack, dismissable: true}
 
@@ -84,7 +90,7 @@ class Commands
     atom.workspace.open(message.filePath).then ->
       atom.workspace.getActiveTextEditor().setCursorBufferPosition(message.range.start)
 
-  destroy: ->
+  dispose: ->
     @messages = null
     @subscriptions.dispose()
 

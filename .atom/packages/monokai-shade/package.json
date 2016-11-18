@@ -1,37 +1,63 @@
 {
-  "name": "monokai-shade",
-  "theme": "syntax",
-  "version": "0.3.2",
-  "description": "A Monokai syntax theme variant with some subtle, relaxing tweaks",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/amp343/monokai-shade"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26321-16yyxtt/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26321-16yyxtt/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26321-16yyxtt/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-26321-15m4rka"
+    ]
+  ],
+  "_from": "../d-1161016-26321-16yyxtt/package.tgz",
+  "_id": "monokai-shade@0.3.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/monokai-shade",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26321-16yyxtt/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26321-16yyxtt/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26321-16yyxtt/package.tgz",
+    "type": "local"
   },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-26321-16yyxtt/package.tgz",
+  "_shasum": "d63f9748f0d8fdd8c3c5474b34beb6791f6df753",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26321-16yyxtt/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-26321-15m4rka",
+  "bugs": {
+    "url": "https://github.com/amp343/monokai-shade/issues"
+  },
+  "dependencies": {},
+  "description": "A Monokai syntax theme variant with some subtle, relaxing tweaks",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/amp343/monokai-shade",
   "keywords": [
     "monokai"
   ],
   "license": "MIT",
-  "engines": {
-    "atom": ">0.50.0"
-  },
-  "bugs": {
-    "url": "https://github.com/amp343/monokai-shade/issues"
-  },
-  "homepage": "https://github.com/amp343/monokai-shade",
+  "name": "monokai-shade",
+  "optionalDependencies": {},
   "readme": "# monokai-shade theme\n\nA Monokai syntax theme variant with some subtle, relaxing tweaks\n\nBased on the original Atom Monokai theme - https://github.com/kevinsawicki/monokai\n\n### Tweaks\n- increased line-height\n- changed default font\n- subtle, low-contrast invisible characters\n- toned down wrap-guide\n- changed bg color to match Monokai from Sublime\n- more padding in line number gutter\n- brighter highlighting\n\n![](https://cloud.githubusercontent.com/assets/425365/8395317/ff4e2fd4-1d36-11e5-9c1d-f8c9982c72ba.png)\n",
   "readmeFilename": "README.md",
-  "_id": "monokai-shade@0.3.2",
-  "_shasum": "0b1336508d6e49b5d48abd4a4b8b95fce464e7e3",
-  "_resolved": "file:../d-11571-36700-ma71i0/package.tgz",
-  "_from": "../d-11571-36700-ma71i0/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amp343/monokai-shade.git"
+  },
+  "theme": "syntax",
+  "version": "0.3.5"
 }

@@ -1,16 +1,13 @@
 git = require '../git'
 notifier = require '../notifier'
+OutputViewManager = require '../output-view-manager'
 
-gitStashSave = (repo) ->
-  notification = notifier.addInfo('Saving...', dismissable: true)
-  git.cmd
-    args: ['stash', 'save']
-    cwd: repo.getWorkingDirectory()
-    options: {
-      env: process.env.NODE_ENV
-    }
-    stdout: (data) ->
-      notification.dismiss()
-      notifier.addSuccess(data)
-
-module.exports = gitStashSave
+module.exports = (repo, {message}={}) ->
+  cwd = repo.getWorkingDirectory()
+  args = ['stash', 'save']
+  args.push(message) if message
+  git.cmd(args, {cwd}, color: true)
+  .then (msg) ->
+    OutputViewManager.create().setContent(msg).finish() if msg isnt ''
+  .catch (msg) ->
+    notifier.addInfo msg

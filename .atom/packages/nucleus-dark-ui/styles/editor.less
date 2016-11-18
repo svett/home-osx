@@ -1,111 +1,112 @@
 atom-text-editor,
 atom-text-editor::shadow,
 :host {
-  .scroll-view {
-    padding: 0;
-  }
-
   .wrap-guide {
-    background: @indent-guide-color;
+    background: @base-border-color;
   }
 
   .indent-guide {
-    color: @indent-guide-color;
-    box-shadow: inset 1px 0 @indent-guide-color;
+    color: @base-border-color;
+    box-shadow: inset 1px 0 @base-border-color;
   }
 
   .bracket-matcher .region {
-    box-sizing: border-box;
-    border: 1px solid @background-color-info;
+    border: 1px solid @text-color-info;
     border-radius: 2px;
-    background-color: @theme-background-color-light;
-    opacity: 1.0;
-    padding: 1px;
+    box-sizing: border-box;
+    background-color: fade(@background-color-info, 32%);
   }
 
   .invisible-character {
-    color: @invisibles-color;
+    color: @base-border-color;
   }
 
   .invisible {
-    color: @invisibles-color;
+    color: @base-border-color;
   }
 
   .line.cursor-line {
-    background: @theme-background-color-light;
+    background-color: fade(@background-color-selected, 32%);
   }
 
   .selection .region {
-    background-color: @theme-background-color-lighter;
+    background-color: @background-color-selected;
   }
 
-  .gutter {
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    background-color: @gutter-background-color;
-    margin-right: 0;
-    border-right: 0;
-    padding-right: 0;
-
-    .line-numbers {
-      background: transparent !important;
+  .line-number {
+    .text(light);
+    color: @text-color-subtle;
+    &.cursor-line {
+      .text(bold);
+      color: @text-color-selected;
+      background-color: transparent;
     }
-    .line-number {
-      background: transparent;
-      opacity: 1.0;
 
-      color: @gutter-text-color;
-      border-left: 2px solid transparent;
-      padding-left: @component-padding !important;
-      padding-right: 0;
+    &.cursor-line-no-selection {
+      background-color: transparent;
+      color: @text-color-highlight;
+      font-weight: 600;
+    }
 
-      &.git-line-added {
-        font-weight: 600;
+    &.git-line-added {
+      color: mix(@syntax-background-color, @text-color-added, 48%);
+      border-left-color: mix(@syntax-background-color, @text-color-added, 48%);
+
+      &.cursor-line,
+      &.cursor-line-no-selection {
         color: @text-color-added;
         border-left-color: @text-color-added;
       }
-      &.git-line-modified {
-        font-weight: 600;
+    }
+
+    &.git-line-modified {
+      color: mix(@syntax-background-color, @text-color-modified, 48%);
+      border-left-color: mix(@syntax-background-color, @text-color-modified, 48%);
+
+      &.cursor-line,
+      &.cursor-line-no-selection {
         color: @text-color-modified;
         border-left-color: @text-color-modified;
       }
-      &.git-line-removed {
-        font-weight: 600;
+    }
+
+    &.git-line-removed {
+      color: mix(@syntax-background-color, @text-color-removed, 48%);
+      border-left-color: mix(@syntax-background-color, @text-color-removed, 48%);
+
+      &.cursor-line,
+      &.cursor-line-no-selection {
         color: @text-color-removed;
         border-left-color: @text-color-removed;
-      }
-
-      &.cursor-line {
-        background-color: @theme-background-color-lighter;
-        color: @gutter-text-color-selected;
-      }
-
-      &.cursor-line-no-selection {
-        background-color: @theme-background-color-light;
-        color: @text-color-highlight;
-      }
-
-      .icon-right {
-        opacity: 1.0;
-        color: @gutter-text-color;
-      }
-
-      .icon-right:hover {
-        color: @gutter-text-color-selected;
       }
     }
   }
 
-  .gutter .line-number.folded,
-  .gutter .line-number.folded .icon-right,
-  .gutter .line-number.folded .cursor-line,
-  .gutter .line-number:after,
-  .fold-marker:after {
-    font-weight: 600;
-    color: @text-color-info;
-    border-left-color: @text-color-info;
+  .gutter {
+    background-color: @base-background-color;
+    -webkit-font-smoothing: antialiased;
+
+    .line-number.folded,
+    .line-number.folded .icon-right,
+    .line-number:after {
+      color: mix(@syntax-background-color, @text-color-info, 48%);
+      border-left-color: mix(@syntax-background-color, @text-color-info, 48%);
+    }
+
+    .line-number.folded.cursor-line,
+    .line-number.folded.cursor-line-no-selection {
+      color: @text-color-info;
+      border-left-color: @text-color-info;
+
+      .icon-right {
+        color: @text-color-info;
+        border-left-color: @text-color-info;
+      }
+    }
   }
+
   .fold-marker:after {
+    color: @text-color-info;
     background: transparent;
   }
 }

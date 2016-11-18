@@ -1,35 +1,63 @@
 {
-  "name": "language-latex",
-  "version": "0.6.1",
-  "private": true,
-  "description": "Syntax highlighting for LaTeX for Atom",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/area/language-latex"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-23769-77ql0p/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-23769-77ql0p/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-23769-77ql0p/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-23769-il0f4y"
+    ]
+  ],
+  "_from": "../d-1161016-23769-77ql0p/package.tgz",
+  "_id": "language-latex@1.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/language-latex",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-23769-77ql0p/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-23769-77ql0p/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-23769-77ql0p/package.tgz",
+    "type": "local"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">0.50.0"
-  },
-  "dependencies": {},
-  "readme": "# language-latex package\n\nSyntax highlighting for LaTeX in atom. Converted from the\n[Textmate bundle](https://github.com/textmate/latex.tmbundle)\n\n# About snippets\nSome features (e.g., [placeholder duplication](https://github.com/atom/snippets/issues/17)) are not yet implemented in Atom snippets management. It is for now impossible to reproduce some advanced coding. The majority of snippets have just been converted or simplified, a few are not property usable for now.\n",
-  "readmeFilename": "README.md",
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161016-23769-77ql0p/package.tgz",
+  "_shasum": "76a57881134625faa7d98235a700a0d5b698b6a4",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-23769-77ql0p/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-23769-il0f4y",
   "bugs": {
     "url": "https://github.com/area/language-latex/issues"
   },
-  "homepage": "https://github.com/area/language-latex",
-  "_id": "language-latex@0.6.1",
-  "_shasum": "c0215255d184cfe7941b7599a7e7dbd02481cd82",
-  "_resolved": "file:../d-115428-19097-tgl6xi/package.tgz",
-  "_from": "../d-115428-19097-tgl6xi/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "dependencies": {},
+  "description": "Syntax highlighting for LaTeX for Atom",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/area/language-latex#readme",
+  "keywords": [
+    "latex"
+  ],
+  "license": "MIT",
+  "name": "language-latex",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "# Language-LaTeX package\n\nSyntax highlighting and Snippets for LaTeX in atom. This package was derived from the [LaTeX TextMate bundle](https://github.com/textmate/latex.tmbundle).\n\n![sample of language-latex package](https://github.com/area/language-latex/blob/master/_img/preview.png?raw=true \"sample of language-latex package\")\n\n------------------------\n\n## Install\nJust run the following command:\n\n```bash\napm install language-tex\n```\n\nIf you prefer installation via GUI, you can go to `Atom` > `Settings` > `Install`, search for `language-tex` in Packages tab and install it.\n\n\n## Project's Activity\n[![Throughput Graph](https://graphs.waffle.io/area/language-latex/throughput.svg)](https://waffle.io/area/language-latex/metrics)\n\n## Contributing\nPlease update the [CHANGELOG.md](https://github.com/area/language-latex/blob/master/CHANGELOG.md) and submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests) when contributing.\n\n## License\nLanguage-LaTeX is released under the [MIT](https://github.com/area/language-latex/blob/master/LICENSE.md) license.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/area/language-latex.git"
+  },
+  "version": "1.0.0"
 }

@@ -1,43 +1,55 @@
 @import "ui-variables";
 @import 'octicon-utf-codes';
 
+@spacing: 3px;
+
 linter-message {
   display: flex;
-  align-items: flex-end;
-  padding: 2px;
+  align-items: center;
   font-size: @font-size;
-  span {
-    padding: 0 6px;
-  }
-  & > .badge {
-    align-self: flex-start;
-  }
+  line-height: 1.2;
+}
+
+.linter-message-item {
+  margin: @spacing;
+}
+
+.linter-highlight {
+  flex: 0 0 auto;
+  align-self: flex-start;
+}
+
+.linter-message-link {
+  margin: 0 0 0 @spacing;
+}
+
+linter-message-line {
+  white-space: pre-wrap; /* Enable whitespace to be maintained from the user message. */
 }
 
 linter-multiline-message {
-  display: block;
-  pointer-events: auto;
-  linter-message-line {
-    display: block;
-    white-space: pre;
-  }
-  linter-message-line:not(:first-child) {
-    display: none;
-    margin-left: 1.1em;
-  }
-  linter-message-line:first-child:not(:nth-last-of-type(1))::before {
+  cursor: pointer;
+
+  &::before {
     font-family: 'Octicons Regular';
     content: @triangle-right;
     display: inline-block;
     width: 1em;
-    margin-right: 0.1em;
+    margin-right: 0.2em;
     text-align: center;
     height: 1em;
   }
-  &:focus, &.expanded {
-    linter-message-line:first-child:not(:nth-last-of-type(1))::before {
+
+  linter-message-line:not(:first-child) {
+    display: none;
+    margin-left: 1.2em;
+  }
+
+  &.expanded {
+    &::before {
       content: @triangle-down;
     }
+
     linter-message-line:not(:first-child) {
       display: block;
     }
@@ -46,10 +58,13 @@ linter-multiline-message {
 
 linter-panel {
   display: block;
-  overflow-y: scroll;
-  max-height: 150px;
-  padding: 4px 8px;
-  &[hidden]{
+  overflow-y: auto;
+  min-height: 2em;
+
+  .linter-messages {
+    padding: @spacing;
+  }
+  [hidden] {
     display: none;
   }
 }
@@ -59,7 +74,7 @@ linter-panel {
   @linter-inline-fg: @base-background-color;
   @linter-inline-bg: @text-color;
   margin-top: 4px;
-  padding: 4px;
+  padding: @spacing;
   color: @linter-inline-fg;
   border-radius: @component-border-radius * 1.5;
   border-top-left-radius: 0;
@@ -82,7 +97,9 @@ linter-panel {
   }
   a {
     color: @linter-inline-link;
-    margin-right: 4px;
+    &:last-of-type {
+      padding-right: @spacing * 1.5; // a bit extra space for visual pleasing
+    }
   }
 }
 
@@ -96,15 +113,7 @@ linter-bottom-tab {
   background: fade(@button-background-color, 33%);
   cursor: pointer;
   vertical-align: middle;
-  &:first-of-type {
-    border-top-left-radius: @component-border-radius;
-    border-bottom-left-radius: @component-border-radius;
-  }
-  &:last-of-type {
-    margin-right: .6em;
-    border-top-right-radius: @component-border-radius;
-    border-bottom-right-radius: @component-border-radius;
-  }
+  position: relative;
 
   &:active {
     background: transparent;
@@ -119,13 +128,22 @@ linter-bottom-tab {
   }
 }
 
-atom-text-editor::shadow .linter-highlight .icon-right{
-  visibility: visible;
-  &::before{
-    content: @primitive-dot;
-    font-size: 1.1em;
-  }
+atom-text-editor::shadow .linter-row {
+  /* Take up the full allowed width */
+  left: 0;
+  right: 0;
+  /* Align the linter dot in the middle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+atom-text-editor::shadow .linter-gutter {
+  height: 0.5em !important;
+  width: 0.5em;
+  border-radius: 50%;
+}
+
 // Styling Error Types
 atom-text-editor::shadow .linter-highlight, .linter-highlight{
   &.badge {
@@ -138,7 +156,7 @@ atom-text-editor::shadow .linter-highlight, .linter-highlight{
       background-color: @background-color-error;
       color: white;
     }
-    .icon-right::before{
+    .linter-gutter{
       color: @background-color-error;
     }
     .region {
@@ -150,19 +168,19 @@ atom-text-editor::shadow .linter-highlight, .linter-highlight{
       background-color: @background-color-warning;
       color: white;
     }
-    .icon-right::before{
+    .linter-gutter{
       color: @background-color-warning;
     }
     .region {
       border-bottom: 1px dashed @background-color-warning;
     }
   }
-  &.trace {
+  &.trace, &.info {
     &:not(.line-number){
       background-color: @background-color-info;
       color: white;
     }
-    .icon-right::before{
+    .linter-gutter{
       color: @background-color-info;
     }
     .region {
@@ -176,5 +194,20 @@ atom-text-editor::shadow .linter-highlight, .linter-highlight{
   }
   &.status-success{
     color: @background-color-success;
+  }
+}
+
+linter-bottom-status {
+  margin-left: .6em;
+  margin-right: 0 !important;
+  &[hidden] {
+    display: none;
+  }
+}
+
+linter-bottom-container {
+  margin-right: .6em;
+  [hidden] {
+    display: none;
   }
 }

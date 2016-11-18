@@ -1,16 +1,11 @@
 git = require '../git'
 notifier = require '../notifier'
+OutputViewManager = require '../output-view-manager'
 
-gitStashPop = (repo) ->
-  git.cmd
-    args: ['stash', 'pop']
-    cwd: repo.getWorkingDirectory()
-    options: {
-      env: process.env.NODE_ENV
-    }
-    stdout: (data) ->
-      notifier.addSuccess(data) if data.toString().length > 0
-    stderr: (data) ->
-      notifier.addError(data)
-
-module.exports = gitStashPop
+module.exports = (repo) ->
+  cwd = repo.getWorkingDirectory()
+  git.cmd(['stash', 'pop'], {cwd}, color: true)
+  .then (msg) ->
+    OutputViewManager.create().setContent(msg).finish() if msg isnt ''
+  .catch (msg) ->
+    notifier.addInfo msg

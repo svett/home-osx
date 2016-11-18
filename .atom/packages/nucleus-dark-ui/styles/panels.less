@@ -1,43 +1,18 @@
+atom-panel-container {
+  &.bottom {
+    z-index: +1000;
+  }
+}
+
 atom-panel {
-  .text(normal);
-  background: @tool-panel-background-color;
-
-  &.left:not(:empty) {
-    border-right: 1px solid @tool-panel-border-color;
-  }
-  &.right:not(:empty) {
-    border-left: 1px solid @tool-panel-border-color;
-  }
-  &.top:not(:empty) {
-    border-bottom: 1px solid @tool-panel-border-color;
-  }
-  &.bottom > *:not(:empty) {
+  &.bottom {
     border-top: 1px solid @tool-panel-border-color;
+    background: @base-background-color;
   }
 }
 
-atom-pane-container atom-pane .item-views,
-atom-panel-container,
-.pane-item {
-  background: @app-background-color !important;
-  border: 0;
-}
-
-.focusable-panel,
-.item-views .focusable-panel {
-  padding: @component-padding;
-}
-
-.inset-panel .panel-heading,
-.panel-heading {
-  .text(light);
-  font-size: 2em;
-  border-radius: 0;
-}
-
-.panel-body {
-  background: @tool-panel-background-color;
-  border-radius: @component-border-radius;
+atom-pane-container {
+  background: linear-gradient(@app-background-color, @base-background-color);
 }
 
 atom-pane-container atom-pane-axis.horizontal > *:last-child {
@@ -46,4 +21,22 @@ atom-pane-container atom-pane-axis.horizontal > *:last-child {
 
 atom-pane-container atom-pane-axis.horizontal > * {
   border-right: 1px solid @base-border-color;
+}
+
+atom-pane-container atom-pane-axis.vertical > atom-pane-resize-handle.vertical {
+  border-top: 1px solid @base-border-color;
+  margin-top: 0;
+}
+
+.inset-panel {
+  .panel-heading {
+    .text(heading);
+  }
+}
+
+.tool-panel {
+  .panel-body,
+  .panel-heading {
+    background: transparent;
+  }
 }
