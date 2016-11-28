@@ -120,4 +120,7 @@ Plugin 'luan/vim-bosh'
 " Color themes
 Plugin 'fatih/molokai'
 
+" Next generation completion framework after neocomplcache
+Plugin 'Shougo/neocomplete.vim'
+
 call vundle#end()

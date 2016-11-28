@@ -28,10 +28,11 @@ runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/concourse.vim
 runtime! config/plugin/dash.vim
 runtime! config/plugin/git.vim
+runtime! config/plugin/neocomplete.vim
 
 "
 " --------------------
-" Plugin Configuration
+" Plugin Language Configuration
 " --------------------
 runtime! config/lang/node.vim
 runtime! config/lang/golang.vim
