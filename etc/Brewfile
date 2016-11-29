@@ -63,6 +63,7 @@ brew 'atomicparsley'
 brew 'unrar'
 brew 'redis'
 brew 'mongodb'
+breq 'postgresql'
 
 cask 'atom'
 cask 'google-chrome'
