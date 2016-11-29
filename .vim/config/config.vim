@@ -91,3 +91,26 @@ set novisualbell
 set mousehide
 " Mouse in all modes
 set mouse=a
+" Show line numbers
+set number
+" Show me what I'm typing
+set showcmd
+" Split horizontal windows below to the current windows
+set splitbelow
+" Automatically save before :next, :make etc.
+set autowrite
+" Prefer Unix over Windows over OS 9 formats
+set fileformats=unix,dos,mac
+" speed up syntax highlighting
+set nocursorcolumn
+set nocursorline
+set updatetime=400
+
+" Completion window max size
+set pumheight=10
+
+"http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
+set clipboard^=unnamed
+set clipboard^=unnamedplus
+
+set viminfo='200
