@@ -1,0 +1,396 @@
+{
+	"name": "Go",
+	"version": "0.6.51",
+	"publisher": "lukehoban",
+	"description": "Rich Go language support for Visual Studio Code",
+	"author": {
+		"name": "Microsoft Corporation - Development Labs"
+	},
+	"icon": "images/goIcon.png",
+	"categories": [
+		"Languages",
+		"Snippets",
+		"Linters",
+		"Debuggers",
+		"Formatters"
+	],
+	"galleryBanner": {
+		"color": "#CFB69A",
+		"theme": "light"
+	},
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Microsoft/vscode-go.git"
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test",
+		"lint": "node ./node_modules/tslint/bin/tslint ./src/*.ts ./src/debugAdapter/*.ts ./test/*.ts"
+	},
+	"extensionDependencies": [],
+	"dependencies": {
+		"console-stamp": "^0.2.2",
+		"diff": "~3.0.0",
+		"json-rpc2": "^1.0.2",
+		"vscode-debugadapter": "^1.11.0",
+		"vscode-debugprotocol": "^1.11.0"
+	},
+	"devDependencies": {
+		"fs-extra": "^0.30.0",
+		"tslint": "^3.14.0",
+		"typescript": "1.8.10",
+		"vscode": "^0.11.17"
+	},
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"activationEvents": [
+		"onLanguage:go",
+		"onCommand:go.gopath",
+		"onCommand:go.test.cursor",
+		"onCommand:go.test.package",
+		"onCommand:go.test.file",
+		"onCommand:go.test.previous",
+		"onCommand:go.test.coverage"
+	],
+	"main": "./out/src/goMain",
+	"contributes": {
+		"languages": [
+			{
+				"id": "go",
+				"extensions": [
+					".go"
+				],
+				"aliases": [
+					"Go"
+				]
+			}
+		],
+		"snippets": [
+			{
+				"language": "go",
+				"path": "./snippets/go.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "go.gopath",
+				"title": "Go: Current GOPATH",
+				"description": "See the currently set GOPATH."
+			},
+			{
+				"command": "go.test.cursor",
+				"title": "Go: Test at Cursor",
+				"description": "Runs a unit test at the cursor."
+			},
+			{
+				"command": "go.test.package",
+				"title": "Go: Test Package",
+				"description": "Runs all unit tests in the package of the current file."
+			},
+			{
+				"command": "go.test.file",
+				"title": "Go: Test File",
+				"description": "Runs all unit tests in the current file."
+			},
+			{
+				"command": "go.test.previous",
+				"title": "Go: Test Previous",
+				"description": "Re-runs the last executed test."
+			},
+			{
+				"command": "go.test.coverage",
+				"title": "Go: Test coverage in current package",
+				"description": "Displays test coverage in the current package."
+			},
+			{
+				"command": "go.test.generate.package",
+				"title": "Go: Generate unit tests for current package",
+				"description": "Generates unit tests for the current package"
+			},
+			{
+				"command": "go.test.generate.file",
+				"title": "Go: Generate unit tests for current file",
+				"description": "Generates unit tests for the current file"
+			},
+			{
+				"command": "go.test.generate.function",
+				"title": "Go: Generate unit tests for current function",
+				"description": "Generates unit tests for the selected function in the current file"
+			},
+			{
+				"command": "go.import.add",
+				"title": "Go: Add Import",
+				"description": "Add an import declaration"
+			},
+			{
+				"command": "go.tools.install",
+				"title": "Go: Install Tools",
+				"description": "install/update the required go packages"
+			},
+			{
+				"command": "go.open.test.file",
+				"title": "Go: Open Test File",
+				"description": "Opens test file (if any) corresponding to the Go file in the current active editor"
+			},
+			{
+				"command": "go.open.test.implementation",
+				"title": "Go: Open Implementation For Test File",
+				"description": "Opens the Go file with implementation for the test file in the current active editor"
+			}
+		],
+		"debuggers": [
+			{
+				"type": "go",
+				"label": "Go",
+				"enableBreakpointsFor": {
+					"languageIds": [
+						"go"
+					]
+				},
+				"program": "./out/src/debugAdapter/goDebug.js",
+				"runtime": "node",
+				"initialConfigurations": [
+					{
+						"name": "Launch",
+						"type": "go",
+						"request": "launch",
+						"mode": "debug",
+						"remotePath": "",
+						"port": 2345,
+						"host": "127.0.0.1",
+						"program": "${workspaceRoot}",
+						"env": {},
+						"args": [],
+						"showLog": true
+					}
+				],
+				"configurationAttributes": {
+					"launch": {
+						"required": [],
+						"properties": {
+							"program": {
+								"type": "string",
+								"description": "Workspace relative path to the program folder (or any file within that folder) when in 'debug' or 'test' mode, and to the pre-built binary file to debug in 'exec' mode.",
+								"default": "."
+							},
+							"mode": {
+								"enum": [
+									"debug",
+									"remote",
+									"test",
+									"exec"
+								],
+								"description": "One of 'debug', 'remote', 'test', 'exec'.",
+								"default": "debug"
+							},
+							"stopOnEntry": {
+								"type": "boolean",
+								"description": "Automatically stop program after launch.",
+								"default": false
+							},
+							"args": {
+								"type": "array",
+								"description": "Command line arguments passed to the program.",
+								"items": {
+									"type": "string"
+								},
+								"default": []
+							},
+							"showLog": {
+								"type": "boolean",
+								"description": "Show log output from the delve debugger.",
+								"default": false
+							},
+							"cwd": {
+								"type": "string",
+								"description": "Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.",
+								"default": "."
+							},
+							"env": {
+								"type": "object",
+								"description": "Environment variables passed to the program.",
+								"default": {}
+							},
+							"buildFlags": {
+								"type": "string",
+								"description": "Build flags, to be passed to the Go compiler.",
+								"default": ""
+							},
+							"init": {
+								"type": "string",
+								"description": "Init file, executed by the terminal client.",
+								"default": ""
+							},
+							"remotePath": {
+								"type": "string",
+								"description": "If remote debugging, the path to the source code on the remote machine, if different from the local machine.",
+								"default": ""
+							},
+							"port": {
+								"type": "number",
+								"description": "The port that the delve debugger will be listening on.",
+								"default": 2345
+							},
+							"host": {
+								"type": "string",
+								"description": "The host name of the machine the delve debugger will be listening on.",
+								"default": "127.0.0.1"
+							}
+						}
+					}
+				}
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Go configuration",
+			"properties": {
+				"go.buildOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run 'go build'/'go test -c' on save."
+				},
+				"go.buildFlags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "Flags to `go build`/`go test` used during build-on-save or running tests. (e.g. ['-ldflags=\"-s\"'])"
+				},
+				"go.lintOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run Lint tool on save."
+				},
+				"go.lintTool": {
+					"type": "string",
+					"default": "golint",
+					"description": "Specifies Lint tool name.",
+					"enum": [
+						"golint",
+						"gometalinter"
+					]
+				},
+				"go.lintFlags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "Flags to pass to Lint tool (e.g. ['-min_confidenc=.8'])"
+				},
+				"go.vetOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run 'go tool vet' on save."
+				},
+				"go.vetFlags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "Flags to pass to `go tool vet` (e.g. ['-all', '-shadow'])"
+				},
+				"go.formatTool": {
+					"type": "string",
+					"default": "goreturns",
+					"description": "Pick 'gofmt', 'goimports' or 'goreturns' to run on format.",
+					"enum": [
+						"gofmt",
+						"goimports",
+						"goreturns"
+					]
+				},
+				"go.formatFlags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "Flags to pass to format tool (e.g. ['-s'])"
+				},
+				"go.useDiffForFormatting": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run the formatting tools with the -d flag"
+				},
+				"go.useCodeSnippetsOnFunctionSuggest": {
+					"type": "boolean",
+					"default": false,
+					"description": "Complete functions with their parameter signature"
+				},
+				"go.gopath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies the GOPATH to use when no environment variable is set."
+				},
+				"go.goroot": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies the GOROOT to use when no environment variable is set."
+				},
+				"go.formatOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Runs formatting tool on save."
+				},
+				"go.coverOnSave": {
+					"type": "boolean",
+					"default": false,
+					"description": "Run 'go test -coverprofile' on save"
+				},
+				"go.testTimeout": {
+					"type": "string",
+					"default": "30s",
+					"description": "Specifies the timeout for go test in ParseDuration format."
+				},
+				"go.gocodeAutoBuild": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable gocode's autobuild feature"
+				},
+				"go.buildTags": {
+					"type": "string",
+					"default": "",
+					"description": "The Go build tags to use for all commands that support a `-tags '...'` argument"
+				},
+				"go.testEnvVars": {
+					"type": "object",
+					"default": {},
+					"description": "Environment variables that will passed to the process that runs the Go tests"
+				},
+				"go.autocompleteUnimportedPackages": {
+					"type": "boolean",
+					"default": true,
+					"description": "Autocomplete members from unimported packages."
+				},
+				"go.docsTool": {
+					"type": "string",
+					"default": "godoc",
+					"description": "Pick 'godoc' or 'gogetdoc' to get documentation. In Go 1.5, godoc is used regardless of the choice here.",
+					"enum": [
+						"godoc",
+						"gogetdoc"
+					]
+				}
+			}
+		}
+	},
+	"__metadata": {
+		"id": "d6f6cfea-4b6f-41f4-b571-6ad2ab7918da",
+		"publisherId": "2bb7981d-dd9a-486d-8660-0cf1f838abf5",
+		"publisherDisplayName": "lukehoban"
+	}
+}
