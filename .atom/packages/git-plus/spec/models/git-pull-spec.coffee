@@ -10,7 +10,6 @@ describe "Git Pull", ->
   beforeEach -> spyOn(git, 'cmd').andReturn Promise.resolve true
 
   it "calls git.cmd with ['remote'] to get remote repositories", ->
-    atom.config.set('git-plus.experimental', false)
     atom.config.set('git-plus.alwaysPullFromUpstream', false)
     GitPull(repo)
     expect(git.cmd).toHaveBeenCalledWith ['remote'], options
@@ -24,9 +23,9 @@ describe "Git Pull", ->
 
   describe "The pull function", ->
     it "calls git.cmd", ->
-      _pull repo, remote: 'origin', branch: 'foo'
+      _pull repo
       expect(git.cmd).toHaveBeenCalledWith ['pull', 'origin', 'foo'], options, {color: true}
 
     it "calls git.cmd with extra arguments if passed", ->
-      _pull repo, remote: 'origin', branch: 'foo', extraArgs: ['--rebase']
+      _pull repo, extraArgs: ['--rebase']
       expect(git.cmd).toHaveBeenCalledWith ['pull', '--rebase', 'origin', 'foo'], options, {color: true}

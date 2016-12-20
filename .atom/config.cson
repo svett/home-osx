@@ -3,11 +3,24 @@
     autoActivationDelay: 0
     navigateCompletions: "ctrl-p,ctrl-n"
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "file-icons"
       "autocomplete"
       "minimap"
       "vim-mode"
+      "tree-view"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -41,6 +54,8 @@
     plugins:
       "find-and-replace": true
       "highlight-selected": true
+  nuclide:
+    installRecommendedPackages: true
   react: {}
   "tree-view": {}
   "vim-mode":

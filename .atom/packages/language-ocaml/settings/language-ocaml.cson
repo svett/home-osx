@@ -1,0 +1,4 @@
+'.source.ocaml':
+  'editor':
+    'commentStart': '(* '
+    'commentEnd': ' *)'

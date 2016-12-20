@@ -1,6 +1,8 @@
 # debug
+[![Build Status](https://travis-ci.org/visionmedia/debug.svg?branch=master)](https://travis-ci.org/visionmedia/debug)
 
-  tiny node.js debugging utility modelled after node core's debugging technique.
+A tiny node.js debugging utility modelled after node core's debugging technique.
+
 
 ## Installation
 
@@ -10,7 +12,7 @@ $ npm install debug
 
 ## Usage
 
- With `debug` you simply invoke the exported function to generate your debug function, passing it a name which will determine if a noop function is returned, or a decorated `console.error`, so all of the `console` [format string goodies](https://developer.chrome.com/devtools/docs/console-api#consolelogobject-object) you're used to work fine. A unique color is selected per-function for visibility.
+`debug` exposes a function; simply pass this function the name of your module, and it will return a decorated version of `console.error` for you to pass debug statements to. This will allow you to toggle the debug output for different parts of your module as well as the module as a whole. 
 
 Example _app.js_:
 
@@ -79,7 +81,7 @@ Then, run the program to be debugged as usual.
 
 ## Conventions
 
- If you're using this in one or more of your libraries, you _should_ use the name of your library so that developers may toggle debugging as desired without guessing names. If you have more than one debuggers you _should_ prefix them with your library name and use ":" to separate features. For example "bodyParser" from Connect would then be "connect:bodyParser".
+  If you're using this in one or more of your libraries, you _should_ use the name of your library so that developers may toggle debugging as desired without guessing names. If you have more than one debuggers you _should_ prefix them with your library name and use ":" to separate features. For example "bodyParser" from Connect would then be "connect:bodyParser".
 
 ## Wildcards
 
@@ -87,9 +89,66 @@ Then, run the program to be debugged as usual.
 
   You can also exclude specific debuggers by prefixing them with a "-" character.  For example, `DEBUG=*,-connect:*` would include all debuggers except those starting with "connect:".
 
-## Browser support
+## Environment Variables
 
-  Debug works in the browser as well, currently persisted by `localStorage`. Consider the situation shown below where you have `worker:a` and `worker:b`, and wish to debug both. You can enable this using `localStorage.debug`:
+  When running through Node.js, you can set a few environment variables that will
+  change the behavior of the debug logging:
+
+| Name      | Purpose                                         |
+|-----------|-------------------------------------------------|
+| `DEBUG`   | Enables/disabled specific debugging namespaces. |
+| `DEBUG_COLORS`| Whether or not to use colors in the debug output. |
+| `DEBUG_FD`| File descriptor to output debug logs to. Defaults to stderr. |
+| `DEBUG_DEPTH` | Object inspection depth. |
+| `DEBUG_SHOW_HIDDEN` | Shows hidden properties on inspected objects. |
+
+
+  __Note:__ The environment variables beginning with `DEBUG_` end up being
+  converted into an Options object that gets used with `%o`/`%O` formatters.
+  See the Node.js documentation for
+  [`util.inspect()`](https://nodejs.org/api/util.html#util_util_inspect_object_options)
+  for the complete list.
+
+  __Note:__ Certain IDEs (such as WebStorm) don't support colors on stderr. In these cases you must set `DEBUG_COLORS` to `1` and additionally change `DEBUG_FD` to `1`.
+
+## Formatters
+
+
+  Debug uses [printf-style](https://wikipedia.org/wiki/Printf_format_string) formatting. Below are the officially supported formatters:
+
+| Formatter | Representation |
+|-----------|----------------|
+| `%O`      | Pretty-print an Object on multiple lines. |
+| `%o`      | Pretty-print an Object all on a single line. |
+| `%s`      | String. |
+| `%d`      | Number (both integer and float). |
+| `%j`      | JSON. Replaced with the string '[Circular]' if the argument contains circular references. |
+| `%%`      | Single percent sign ('%'). This does not consume an argument. |
+
+### Custom formatters
+
+  You can add custom formatters by extending the `debug.formatters` object. For example, if you wanted to add support for rendering a Buffer as hex with `%h`, you could do something like:
+
+```js
+const createDebug = require('debug')
+createDebug.formatters.h = (v) => {
+  return v.toString('hex')
+}
+
+// …elsewhere
+const debug = createDebug('foo')
+debug('this is hex: %h', new Buffer('hello world'))
+//   foo this is hex: 68656c6c6f20776f726c6421 +0ms
+```
+
+## Browser support
+  You can build a browser-ready script using [browserify](https://github.com/substack/node-browserify),
+  or just use the [browserify-as-a-service](https://wzrd.in/) [build](https://wzrd.in/standalone/debug@latest),
+  if you don't want to build it yourself.
+
+  Debug's enable state is currently persisted by `localStorage`.
+  Consider the situation shown below where you have `worker:a` and `worker:b`,
+  and wish to debug both. You can enable this using `localStorage.debug`:
 
 ```js
 localStorage.debug = 'worker:*'
@@ -160,12 +219,6 @@ Example:
 ```bash
 $ DEBUG_FD=3 node your-app.js 3> whatever.log
 ```
-
-### Terminal colors
-
-  By default colors will only be used in a TTY. However this can be overridden by setting the environment variable `DEBUG_COLORS` to `1`.
-
-  Note: Certain IDEs (such as WebStorm) don't support colors on stderr. In these cases you must set `DEBUG_COLORS` to `1` and additionally change `DEBUG_FD` to `1`.
 
 ## Authors
 

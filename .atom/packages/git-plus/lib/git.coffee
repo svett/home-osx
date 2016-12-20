@@ -15,9 +15,6 @@ _prettify = (data) ->
   data = data.split(/\0/)[...-1]
   [] = for mode, i in data by 2
     {mode, path: data[i+1] }
-  # data = data.split(/\n/)
-  # data.filter((file) -> file isnt '').map (file) ->
-  #   {mode: file[0], path: file.substring(1).trim()}
 
 _prettifyUntracked = (data) ->
   return [] if data is ''
@@ -64,10 +61,7 @@ module.exports = git =
         notifier.addError 'Git Plus is unable to locate the git command. Please ensure process.env.PATH can access git.'
         reject "Couldn't find git"
 
-  getConfig: (setting, workingDirectory=null) ->
-    workingDirectory ?= Os.homedir()
-    git.cmd(['config', '--get', setting], cwd: workingDirectory).catch (error) ->
-      if error? and error isnt '' then notifier.addError error else ''
+  getConfig: (repo, setting) -> repo.getConfigValue setting, repo.getWorkingDirectory()
 
   reset: (repo) ->
     git.cmd(['reset', 'HEAD'], cwd: repo.getWorkingDirectory()).then () -> notifier.addSuccess 'All changes unstaged'

@@ -1,0 +1,28 @@
+'scopeName': 'source.hs.y'
+
+'fileTypes': [
+  'y'
+]
+
+'firstLineMatch': '^#!.*haskell.*'
+'name': 'Haskell Happy'
+
+'patterns': [
+  {
+    'match': '(?<!\\.)\\b(\\%name|\\%tokentype|\\%error|\\%token)(?!\\s*:)\\b'
+    'name': 'keyword.control.hs.y'
+  }
+  {
+    'include': 'source.hs'
+  }
+  {
+    'begin': '{'
+    'end': '}'
+    'name': 'meta.section.hs'
+    'patterns': [
+      {
+        'include': 'source.hs'
+      }
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+os:
+  - linux
+  - osx
+
+language: go
+
+go:
+  - 1.6
+
+git:
+  depth: 10
+
+env:
+  global:
+    - APM_TEST_PACKAGES="environment go-config go-get"
+
+  matrix:
+    - ATOM_CHANNEL=stable
+    - ATOM_CHANNEL=beta
+
+script:
+  - go get -u github.com/nsf/gocode
+  - 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
+
+addons:
+  apt:
+    packages:
+    - build-essential
+    - git
+    - libgnome-keyring-dev
+    - fakeroot
+
+branches:
+  only:
+    - master

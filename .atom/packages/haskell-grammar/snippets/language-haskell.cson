@@ -1,0 +1,10 @@
+'source.hs':
+  'let':
+    'prefix': 'let'
+    'body': 'let $1 = $2'
+  'let ... in ...':
+    'prefix': 'letin'
+    'body': 'let $1 = $2 in $3'
+  'list comprehension':
+    'prefix': 'licomp'
+    'body': '[$1 | $1 <- $2]'

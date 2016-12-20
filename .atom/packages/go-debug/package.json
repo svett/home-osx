@@ -2,61 +2,74 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39858-1acwovd/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
-        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39858-1acwovd/package.tgz",
+        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39858-1acwovd/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34380-o4j5zp"
+      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161120-39858-x02i89"
     ]
   ],
-  "_from": "../d-1161016-34380-11x2j/package.tgz",
-  "_id": "go-debug@0.1.22",
+  "_from": "../d-1161120-39858-1acwovd/package.tgz",
+  "_id": "go-debug@1.0.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/go-debug",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39858-1acwovd/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
-    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
+    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39858-1acwovd/package.tgz",
+    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39858-1acwovd/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161016-34380-11x2j/package.tgz",
-  "_shasum": "efd250af87b52fc33b1ba646659b719666b1b101",
+  "_resolved": "file:../d-1161120-39858-1acwovd/package.tgz",
+  "_shasum": "d904838b78527733f6f8bd7bad104585cfc3e58b",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-34380-11x2j/package.tgz",
-  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-34380-o4j5zp",
+  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39858-1acwovd/package.tgz",
+  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161120-39858-x02i89",
   "bugs": {
     "url": "https://github.com/lloiser/go-debug/issues"
   },
   "configSchema": {
-    "limitCommandsToGo": {
-      "title": "Commands available only in go source",
-      "description": "Determines whether the commands of this package are only available in go source files",
-      "type": "boolean",
-      "default": false
-    },
-    "panelInitialVisible": {
-      "title": "Panel Initially Visible",
-      "description": "Determines whether the panel is initially visible or not.",
-      "type": "boolean",
-      "default": false
+    "configurationFile": {
+      "title": "Configuration File",
+      "description": "Path to the configuration file. Separate multiple paths with commas",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "order": 1
     },
     "dlvPath": {
       "title": "dlv path",
       "description": "The path to a dlv executable to use.",
       "type": "string",
-      "default": ""
+      "default": "",
+      "order": 2
+    },
+    "limitCommandsToGo": {
+      "title": "Commands available only in go source",
+      "description": "Determines whether the commands of this package are only available in go source files or in all files.",
+      "type": "boolean",
+      "default": true,
+      "order": 3
+    },
+    "panelInitialVisible": {
+      "title": "Panel Initially Visible",
+      "description": "Determines whether the panel is initially visible or not.",
+      "type": "boolean",
+      "default": false,
+      "order": 4
     }
   },
   "consumedServices": {
@@ -67,25 +80,26 @@
     },
     "go-get": {
       "versions": {
-        "1.0.0": "consumeGoget"
+        "2.0.0": "consumeGoget"
       }
     }
   },
   "dependencies": {
     "adm-zip": "^0.4.7",
-    "atom-package-deps": "^4.0.1",
+    "ansi-to-html": "^0.5.0",
+    "atom-package-deps": "^4.3.1",
+    "chokidar": "^1.6.1",
+    "etch": "^0.8.0",
     "json-rpc2": "^1.0.2",
-    "react-for-atom": "^15.2.1-0",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2",
-    "request": "^2.74.0"
+    "redux": "^3.6.0",
+    "request": "^2.79.0"
   },
   "description": "go debugger using delve for atom",
   "devDependencies": {
-    "standard": "^8.0.0-beta.4"
+    "standard": "^8.6.0"
   },
   "engines": {
-    "atom": ">=1.5.3 <2.0.0"
+    "atom": ">=1.9.9 <2.0.0"
   },
   "homepage": "https://github.com/lloiser/go-debug#readme",
   "keywords": [
@@ -101,10 +115,16 @@
   "name": "go-debug",
   "optionalDependencies": {},
   "package-deps": [
-    "go-config",
-    "go-get"
+    "go-plus"
   ],
-  "readme": "# [go-debug](https://atom.io/packages/go-debug)\n\nA go debugger for atom using [delve](https://github.com/derekparker/delve).\n\n![Demo](https://raw.githubusercontent.com/lloiser/go-debug/master/resources/demo.gif)\n\n## Install\n\nEither `apm install go-debug` or search for `go-debug` in the settings.\n\n### Install delve\n\nsee https://github.com/derekparker/delve/tree/master/Documentation/installation\n\n## Key bindings\n\n* `f5` runs the current package (`dlv debug`)\n* `ctrl-f5` runs the current package tests (`dlv test`)\n* `shift-f5` restarts the current delve session (`r / restart`)\n* `f6` stops delve (`exit / quit / q`)\n* `f8` continue the execution (`c / continue`)\n* `f9` toggle breakpoint\n* `f10` step over to next source line (`n / next`)\n* `f11` step into functions (`s / step`)\n* `cmd-k cmd-g` (mac) / `ctrl-k ctrl-g` (others) toggles the main panel\n\n## Links\n\n* Gopher community on slack: [![Slack](https://img.shields.io/badge/gophers_slack-%23go--plus-blue.svg?style=flat)](https://gophersinvite.herokuapp.com) <br />Questions? Use the `go-plus` channel or send me direct messages\n",
+  "providedServices": {
+    "go-plus.view": {
+      "versions": {
+        "0.1.0": "provideGoPlusView"
+      }
+    }
+  },
+  "readme": "# [go-debug](https://atom.io/packages/go-debug)\n\nA go debugger for atom using [delve](https://github.com/derekparker/delve).\n\n![Demo](https://raw.githubusercontent.com/lloiser/go-debug/master/resources/demo.gif)\n\n## Install\n\nEither `apm install go-debug` or search for `go-debug` in the settings.\n\n### Install delve\n\n`go-debug` tries to install/download a delve automatically.\n\nIf this fails you can still do it manually by using this guide: https://github.com/derekparker/delve/tree/master/Documentation/installation\n\n## Configuration\n\n`go-debug` has two built-in configurations. Both work on the file/package that is currently open in atom.\n\n* `Debug`: compile and debug the current package\n* `Test`: compile and debug the tests of the current package\n\nIt's possible to create additional configurations by creating a file and setting the path in the `go-debug` setting `Configuration File`. You can even specify multiple configurations by separating the paths in this setting with commas. Relative paths will be resolved relative to the current project.\n\nSuch a configuration file looks like:\n\n```js\n{\n  \"configurations\": [\n    { /* a configuration */ },\n    { /* another configuration */ },\n    // ...\n  ]\n}\n```\n\nEach configuration supports the following options:\n\n```js\n{\n  // \"name\" is the display name in the panel (REQUIRED)\n  \"name\": \"...\",\n\n  // \"mode\" determines how to start / connect to delve (REQUIRED)\n  // * debug is used to debug a package\n  // * test debugs the tests of the package\n  // * remote connects to an already running headless delve session on a remote server (see \"host\" and \"port\" below)\n  // * exec debugs a precompiled executable (see \"program\" below)\n  \"mode\": \"debug\" | \"test\" | \"remote\" | \"exec\",\n\n  // used to pass arguments to the executed package / tests (e.g. \"-v\").\n  \"args\": [\"...\"],\n\n  // use this if you have to specify additional environment variables.\n  \"env\": { \"<key>\": \"<value>\" },\n\n  // \"cwd\" specifies the current working directory where delve starts from.\n  // This is useful if you always want to debug/test a specific package (e.g. the \"main\" package) but are currently working on another package\n  \"cwd\": \"<dir>\",\n\n  // \"host\" and \"port\" are used to modify the default port of the locally running delve server.\n  // If \"mode\" is \"remote\" then these define the host and port of the server where a \"headless\" delve is running.\n  \"host\": \"localhost\",\n  \"port\": 2345,\n\n  // \"program\" contains the path to a precompiled executable that should be debugged.\n  // (useful if you have a custom build chain like gb)\n  \"program\": \"<path>\",\n\n  // pass additional build flags when delve compiles the package/tests.\n  \"buildFlags\": \"\",\n\n  // a path to the \"init\" file that will be executed once delve has started.\n  \"init\": \"<path>\",\n\n  // turns on/off (default) the \"verbose\" logging for delve (useful if you encounter problems with delve or go-debug).\n  \"showLog\": true | false\n}\n```\n\nAll string options can make use of the following variables by using `${...}` somewhere inside the string:\n\n```js\n{\n  // the working directory on startup of atom\n  cwd: \"...\",\n  // the open file (full path)\n  file: \"...\",\n  // the open file's basename\n  fileBasename: \"...\",\n  // the open file's dirname\n  fileDirname: \"...\",\n  // the open file's extension\n  fileExtname: \"...\",\n  // the open file relative to the \"workspaceRoot\" variable\n  relativeFile: \"...\",\n  // the full path of the project root folder\n  workspaceRoot: \"...\",\n  // this contains all environment variables known to atom including the \"env\" variables from above\n  env: { \"<key>\": \"<value>\"}\n}\n```\n\n_Note: `go-debug` also supports the configuration for vscode which are stored in `.vscode/launch.json`. But be aware that not all configurations might work!_\n\n### Examples\n\nAlways debug the `cmd` of your program wherever you are right now in your code and add some arguments and environment variables:\n```js\n{\n  \"name\": \"Debug cmd\",\n  \"mode\": \"debug\",\n\n  \"cwd\": \"${workspaceRoot}/cmd\",\n  \"args\": [\"--connection=sql\"],\n  \"env\": {\n    \"USER\": \"ROOT\",\n    \"PW\": \"SECRET!\"\n  }\n}\n```\n\nStart tests with verbose flag:\n```js\n{\n  \"name\": \"Verbose Test\",\n  \"mode\": \"test\",\n  \"args\": [\"-v\"]\n}\n```\n\n## Key bindings\n\n* `f5` starts the current selected configuration\n* `shift-f5` restarts the current delve session (`r / restart`)\n* `f6` stops delve (`exit / quit / q`)\n* `f8` continue the execution (`c / continue`)\n* `f9` toggle breakpoint\n* `f10` step over to next source line (`n / next`)\n* `f11` step into functions (`s / step`)\n* `f11` step out of functions (`stepOut`)\n* `cmd-k cmd-g` (mac) / `ctrl-k ctrl-g` (others) toggles the main panel\n\n## Links\n\n* Gopher community on slack: [![Slack](https://img.shields.io/badge/gophers_slack-%23go--plus-blue.svg?style=flat)](https://gophersinvite.herokuapp.com) <br />Questions? Use the `go-plus` channel or send me direct messages\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -112,9 +132,8 @@
   },
   "standard": {
     "globals": [
-      "atom",
-      "waitsForPromise"
+      "atom"
     ]
   },
-  "version": "0.1.22"
+  "version": "1.0.0"
 }

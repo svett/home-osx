@@ -13,7 +13,8 @@ export function create (rawVariables) {
       loaded: true,
       hasChildren: children ? !!children.length : false,
       value: variable.value,
-      parentPath
+      parentPath,
+      type: variable.kind
     }
     if (children) {
       children.forEach((v) => {
@@ -37,21 +38,23 @@ function pathJoin (...items) {
 
 const factory = {
   variable (variable) {
+    let kind = KINDS[variable.kind]
     if (variable.unreadable !== '') {
-      return { value: `(unreadable ${variable.unreadable})` }
+      return { value: `(unreadable ${variable.unreadable})`, kind }
     }
 
     if (!variable.value && variable.addr === 0) {
-      return { value: [shortType(variable.type), nil()] }
+      return { value: [shortType(variable.type), nil()], kind }
     }
 
-    let fn = KINDS[variable.kind]
-    if (fn.startsWith('complex')) {
-      fn = 'complex'
-    } else if (!factory[fn]) {
-      fn = 'default'
+    if (kind.startsWith('complex')) {
+      kind = 'complex'
+    } else if (!factory[kind]) {
+      kind = 'default'
     }
-    return factory[fn](variable)
+    const v = factory[kind](variable)
+    v.kind = kind
+    return v
   },
   array (variable) {
     return factory.slice(variable)
@@ -76,6 +79,10 @@ const factory = {
   },
   ptr (variable) {
     const child = variable.children[0]
+    if (!child) {
+      return { value: nil() }
+    }
+
     if (variable.type === '') {
       return { value: nil() }
     }
@@ -100,7 +107,7 @@ const factory = {
     const diff = variable.len - variable.value.length
     return {
       value: {
-        className: 'string',
+        className: 'syntax--string string',
         value: [
           '"' + variable.value + '"',
           diff > 0 && `... +${diff} more`
@@ -182,6 +189,13 @@ const factory = {
       const { value: vv, children: vc } = factory.variable(variable.children[i + 1])
       if (!kc && !vc) {
         children.push({ path: i, name: kv, value: vv })
+      } else if (!kc) {
+        children.push({
+          path: i,
+          name: kv,
+          value: vv,
+          children: vc
+        })
       } else {
         children.push({
           path: i,
@@ -219,9 +233,9 @@ const factory = {
     let className
     if (variable.value) {
       if (kind.match(NUMERIC_REGEX)) {
-        className = 'constant numeric'
+        className = 'syntax--constant syntax--numeric constant numeric'
       } else if (kind === 'bool') {
-        className = 'constant language'
+        className = 'syntax--constant syntax--language language'
       }
     }
     return {
@@ -267,11 +281,16 @@ function shortType (type) {
     return ''
   }
   if (type.startsWith('map[')) {
-    // does not work maps with maps:
-    // map[map[int]string]float32
-    // map[float32]map[int]string
-    // map[map[int]string]map[float32]string
     const parts = type.split(']')
+    if (parts.length > 2) {
+      // TODO: this does not work for complex types
+      // "map[float32]map[int]string"
+      // "map[string][2]int32"
+      // "map[string]func(*net/http.Server, *crypto/tls.Conn, net/http.Handler)"
+      // "map[string]map[string]github.com/nicksnyder/go-i18n/i18n/translation.Translation"
+      // "map[net/http.http2FrameType]map[net/http.http2Flags]string"
+      return type
+    }
     return ['map[', shortType(parts[0].substr(4)), ']', shortType(parts[1])]
   }
   if (type.startsWith('struct ')) {
@@ -293,6 +312,6 @@ function shortType (type) {
   t += type.split('/').pop()
   return t
 }
-function nil () { return { value: ' nil', className: 'constant language' } }
-function formatNumber (value) { return { value, className: 'constant numeric' } }
+function nil () { return { value: ' nil', className: 'syntax--constant syntax--language constant language' } }
+function formatNumber (value) { return { value, className: 'syntax--constant syntax--numeric constant numeric' } }
 function formatAddr (variable) { return formatNumber('0x' + variable.addr.toString(16)) }

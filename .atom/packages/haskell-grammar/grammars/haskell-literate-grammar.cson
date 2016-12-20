@@ -1,0 +1,18 @@
+'scopeName': 'source.hs.lhs'
+
+'fileTypes': [
+  'lhs'
+]
+
+# 'firstLineMatch': '^>#!.*\\b'
+'name': 'Haskell (Literate)'
+
+'patterns': [
+  {
+    'match': '^(?!>)(.*)(?=\n)'
+    'name': 'comment.line.documentation.hs.lhs'
+  }
+  {
+    'include': 'source.hs'
+  }
+]

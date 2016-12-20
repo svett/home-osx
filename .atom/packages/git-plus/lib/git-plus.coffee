@@ -1,22 +1,24 @@
 {CompositeDisposable}  = require 'atom'
 {$}                    = require 'atom-space-pen-views'
 git                    = require './git'
-contextCommandMap      = require './context-command-map'
 configurations         = require './config'
 OutputViewManager      = require './output-view-manager'
 GitPaletteView         = require './views/git-palette-view'
-GitAddContext          = require './models/git-add-context'
+GitAddContext          = require './models/context/git-add-context'
+GitDiffContext         = require './models/context/git-diff-context'
+GitAddAndCommitContext = require './models/context/git-add-and-commit-context'
 GitBranch              = require './models/git-branch'
 GitDeleteLocalBranch   = require './models/git-delete-local-branch.coffee'
 GitDeleteRemoteBranch  = require './models/git-delete-remote-branch.coffee'
 GitCheckoutAllFiles    = require './models/git-checkout-all-files'
-GitCheckoutCurrentFile = require './models/git-checkout-current-file'
+GitCheckoutFile        = require './models/git-checkout-file'
+GitCheckoutFileContext = require './models/context/git-checkout-file-context'
 GitCherryPick          = require './models/git-cherry-pick'
 GitCommit              = require './models/git-commit'
 GitCommitAmend         = require './models/git-commit-amend'
 GitDiff                = require './models/git-diff'
 GitDifftool            = require './models/git-difftool'
-GitDifftoolContext     = require './models/git-difftool-context'
+GitDifftoolContext     = require './models/context/git-difftool-context'
 GitDiffAll             = require './models/git-diff-all'
 GitFetch               = require './models/git-fetch'
 GitFetchPrune          = require './models/git-fetch-prune.coffee'
@@ -36,6 +38,7 @@ GitStashSaveMessage    = require './models/git-stash-save-message'
 GitStatus              = require './models/git-status'
 GitTags                = require './models/git-tags'
 GitUnstageFiles        = require './models/git-unstage-files'
+GitUnstageFileContext  = require './models/context/git-unstage-file-context'
 GitRun                 = require './models/git-run'
 GitMerge               = require './models/git-merge'
 GitRebase              = require './models/git-rebase'
@@ -96,7 +99,7 @@ module.exports =
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:commit-all-and-push', -> git.getRepo().then((repo) -> GitCommit(repo, stageChanges: true, andPush: true))
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:checkout', -> git.getRepo().then((repo) -> GitBranch.gitBranches(repo))
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:checkout-remote', -> git.getRepo().then((repo) -> GitBranch.gitRemoteBranches(repo))
-    @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:checkout-current-file', -> git.getRepo().then((repo) -> GitCheckoutCurrentFile(repo))
+    @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:checkout-current-file', -> git.getRepo().then((repo) -> GitCheckoutFile(repo, file: currentFile(repo)))
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:checkout-all-files', -> git.getRepo().then((repo) -> GitCheckoutAllFiles(repo))
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:new-branch', -> git.getRepo().then((repo) -> GitBranch.newBranch(repo))
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:delete-local-branch', -> git.getRepo().then((repo) -> GitDeleteLocalBranch(repo))
@@ -133,8 +136,12 @@ module.exports =
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:merge-no-fast-forward', -> git.getRepo().then((repo) -> GitMerge(repo, noFastForward: true))
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:rebase', -> git.getRepo().then((repo) -> GitRebase(repo))
     @subscriptions.add atom.commands.add 'atom-workspace', 'git-plus:git-open-changed-files', -> git.getRepo().then((repo) -> GitOpenChangedFiles(repo))
-    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:add', -> git.getRepo().then((repo) -> GitAddContext(repo, contextCommandMap))
-    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:difftool', -> git.getRepo().then((repo) -> GitDifftoolContext(repo, contextCommandMap))
+    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:add', -> git.getRepo().then(GitAddContext)
+    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:add-and-commit', -> git.getRepo().then(GitAddAndCommitContext)
+    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:checkout-file', -> git.getRepo().then(GitCheckoutFileContext)
+    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:diff', -> git.getRepo().then(GitDiffContext)
+    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:difftool', -> git.getRepo().then(GitDifftoolContext)
+    @subscriptions.add atom.commands.add '.tree-view', 'git-plus-context:unstage-file', -> git.getRepo().then(GitUnstageFileContext)
     @subscriptions.add atom.config.observe 'git-plus.syntaxHighlighting', setDiffGrammar
     @subscriptions.add atom.config.observe 'git-plus.wordDiff', setDiffGrammar
 

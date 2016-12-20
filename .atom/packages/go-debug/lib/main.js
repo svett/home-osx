@@ -1,16 +1,18 @@
 'use babel'
 
 import { CompositeDisposable } from 'atom'
-import * as Delve from './delve'
 
-let subscriptions, goconfig, goget
-let editors, output, panel, store, commands
-let initialState, dependenciesInstalled, path
-let cmds
+import * as OutputPanelManager from './output-panel-manager'
+import { serialize } from './store-helper'
+
+let subscriptions
+let goconfig, goget, path
+let dependenciesInstalled = false
+let store, initialState
 
 export default {
   activate (state) {
-    initialState = state
+    subscriptions = new CompositeDisposable()
 
     require('atom-package-deps').install('go-debug').then(() => {
       dependenciesInstalled = true
@@ -19,20 +21,27 @@ export default {
     }).catch((e) => {
       console.warn('go-debug', e)
     })
+
+    initialState = state
   },
   deactivate () {
-    if (subscriptions) {
-      subscriptions.dispose()
-      subscriptions = null
-    }
-    dependenciesInstalled = false
+    subscriptions.dispose()
+    subscriptions = null
+    store = null
+    goget = null
+    goconfig = null
     path = null
-    goget = goconfig = null
   },
   serialize () {
-    return store ? store.serialize() : initialState
+    return store ? serialize(store) : initialState
   },
 
+  provideGoPlusView () {
+    return {
+      view: require('./output-panel'),
+      model: OutputPanelManager.getManager()
+    }
+  },
   consumeGoget (service) {
     goget = service
     this.getDlv()
@@ -46,10 +55,8 @@ export default {
       return
     }
 
-    Delve.get(goget, goconfig).then((p) => {
-      if (!p) {
-        return
-      }
+    const getDelve = require('./delve-get')
+    getDelve(goget, goconfig).then((p) => {
       path = p
       this.start()
     }).catch((e) => {
@@ -58,53 +65,67 @@ export default {
   },
 
   start () {
-    if (!dependenciesInstalled || !path) {
+    if (!path || store || !dependenciesInstalled) {
       return
     }
 
     // load all dependencies once after everything is ready
     // this reduces the initial load time of this package
-    commands = require('./commands')
+    const Store = require('./store')
+    store = Store(initialState)
 
-    store = require('./store')
-    store.init(initialState)
-    store.store.dispatch({ type: 'SET_DLV_PATH', path: path })
+    const chokidar = require('chokidar')
+    const DelveConfiguration = require('./delve-configuration')
+    const configuration = new DelveConfiguration(
+      store,
+      (file, callback) => chokidar.watch(file).on('all', (event) => callback(event))
+    )
 
-    editors = require('./editors')
-    panel = require('./panel.jsx')
-    output = require('./output.jsx')
+    const DelveSession = require('./delve-session')
+    const { spawn } = require('child_process')
+    const rpc = require('json-rpc2')
 
-    panel.init()
-    editors.init()
-    output.init()
+    const DelveConnection = require('./delve-connection')
+    const connection = new DelveConnection(
+      (args, options) => spawn(path, args, options),
+      (port, host) => {
+        return new Promise((resolve, reject) => {
+          rpc.Client.$create(port, host).connectSocket((err, conn) => {
+            if (err) {
+              return reject(err)
+            }
+            return resolve(conn)
+          })
+        })
+      },
+      (proc, conn, mode) => new DelveSession(proc, conn, mode),
+      OutputPanelManager.addOutputMessage,
+      goconfig
+    )
+
+    const Debugger = require('./debugger')
+    const dbg = new Debugger(
+      store,
+      connection,
+      OutputPanelManager.addOutputMessage,
+    )
+
+    const EditorManager = require('./editor-manager')
+    const editorManager = new EditorManager(store, dbg)
+
+    const Commands = require('./commands')
+    const commands = new Commands(store, dbg)
+
+    const { PanelManager } = require('./panel')
+    const panelManager = new PanelManager(store, dbg, commands)
 
     subscriptions = new CompositeDisposable(
-      atom.commands.add('atom-workspace', {
-        'go-debug:toggle-panel': commands.get('toggle-panel').action
-      }),
-      output,
-      editors,
-      panel,
-      Delve,
-      store
+      dbg,
+      editorManager,
+      panelManager,
+      commands,
+      connection,
+      configuration
     )
-
-    // start observing config values
-    subscriptions.add(
-      atom.config.observe('go-debug.limitCommandsToGo', this.observeCommandsLimit.bind(this))
-    )
-  },
-  observeCommandsLimit (limitCommandsToGo) {
-    if (cmds) {
-      subscriptions.remove(cmds)
-      cmds.dispose()
-    }
-
-    let selector = 'atom-text-editor'
-    if (limitCommandsToGo === true) {
-      selector = 'atom-text-editor[data-grammar~=\'go\']'
-    }
-    cmds = atom.commands.add(selector, commands.getKeyboardCommands())
-    subscriptions.add(cmds)
   }
 }
