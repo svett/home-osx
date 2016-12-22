@@ -12,7 +12,7 @@ tap 'cloudfoundry/tap'
 tap 'neovim/neovim'
 tap 'drone/drone'
 
-brew 'drone'
+brew 'drone', args: ['devel']
 brew 'heroku'
 brew 'hugo'
 brew 'ack'
