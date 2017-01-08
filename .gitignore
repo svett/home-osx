@@ -39,6 +39,16 @@
 .vim/bundle
 .aws/credentials
 .lesshst
+.heroku/
+.mongorc.js
+.netrc
+.pia_manager_crash.log
+.pry_history
+.psql_history
+.pylint.d/
+.rediscli_history
+.rnd
+.dbshell
 iCloud Drive (Archive)
 workspace
 go
@@ -55,3 +65,4 @@ Music/
 Pictures/
 Public/
 private/
+Creative Cloud Files/
