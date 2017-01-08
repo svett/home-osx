@@ -9,6 +9,9 @@ main() {
 
   install_brew_if_not_exists
   install_brew_update
+
+  symlink_ssl
+
   install_ruby
   install_ruby_gems
 
@@ -18,11 +21,10 @@ main() {
   reload_modified_services
 
   update_golang_packages
+  update_vim_plugins
   update_tmux_plugins
   update_npm_packages
-  update_vim_plugins
 
-  symlink_ssl
 }
 
 install_brew_if_not_exists() {
