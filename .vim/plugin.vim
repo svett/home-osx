@@ -98,9 +98,6 @@ Plugin 'shime/vim-livedown'
 " Highlight colours in files
 Plugin 'ap/vim-css-color'
 
-" Perform all your vim insert mode completions with Tab
-Plugin 'ervandew/supertab'
-
 " Develop Golang
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
