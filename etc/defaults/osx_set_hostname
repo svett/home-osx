@@ -1,14 +1,9 @@
 #!/bin/bash
 
-set +u
+MACHINE_NAME=${MACHINE_NAME:-snowflake}
 
-if [ -n "$MACHINE_NAME" ]
-then
-  sudo scutil --set HostName "$MACHINE_NAME"
-  sudo scutil --set LocalHostName "$MACHINE_NAME"
-  sudo scutil --set ComputerName "$MACHINE_NAME"
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$MACHINE_NAME"
-  dscacheutil -flushcache
-fi
-
-set -u
+sudo scutil --set HostName "$MACHINE_NAME"
+sudo scutil --set LocalHostName "$MACHINE_NAME"
+sudo scutil --set ComputerName "$MACHINE_NAME"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$MACHINE_NAME"
+dscacheutil -flushcache
