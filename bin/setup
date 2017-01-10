@@ -101,8 +101,8 @@ write_git_config() {
 }
 
 symlink_ssl() {
-  ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-  ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+  ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/ || true
+  ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/ || true
 }
 
 osx_appstore_update() {
