@@ -29,6 +29,7 @@ runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
 runtime! config/plugin/neocomplete.vim
 runtime! config/plugin/nerdtree.vim
+runtime! config/plugin/rainbow.vim
 runtime! config/plugin/syntastic.vim
 runtime! config/plugin/tagbar.vim
 

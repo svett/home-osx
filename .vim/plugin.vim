@@ -26,6 +26,13 @@ Plugin 'tpope/vim-endwise'
 " easily search for, substitute, and abbreviate multiple variants of a word
 Plugin 'tpope/vim-abolish'
 
+" True Sublime Text style multiple selections for Vim
+Plugin 'terryma/vim-multiple-cursors'
+
+" rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
+Plugin 'luochen1990/rainbow'
+
+
 " Ruby specific
 Plugin 'tpope/rbenv-ctags'
 Plugin 'tpope/vim-rake',              { 'for': ['ruby', 'rake'] }
