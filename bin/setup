@@ -155,7 +155,7 @@ update_npm_packages() {
 }
 
 configure_gimp() {
-  cd "$HOME/Library/Application\ Support/GIMP"
+  cd "$HOME/Library/Application Support/GIMP"
   mv 2.8 2.8.backup
   git clone --depth=1 https://github.com/doctormo/GimpPs.git 2.8
 }
