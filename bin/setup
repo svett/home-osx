@@ -10,6 +10,8 @@ main() {
   install_brew_if_not_exists
   install_brew_update
 
+  configure_gimp
+
   symlink_ssl
 
   install_ruby
@@ -150,6 +152,12 @@ update_npm_packages() {
   npm install -g eslint
   npm install -g babel-eslint
   npm install -g eslint-plugin-react
+}
+
+configure_gimp() {
+  cd "$HOME/Library/Application\ Support/GIMP"
+  mv 2.8 2.8.backup
+  git clone --depth=1 https://github.com/doctormo/GimpPs.git 2.8
 }
 
 main
