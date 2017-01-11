@@ -20,6 +20,7 @@ main() {
   osx_configure
   osx_appstore_update
   git_configure
+  configure_postgres
   reload_modified_services
 
   update_golang_packages
@@ -158,6 +159,10 @@ configure_gimp() {
   cd "$HOME/Library/Application Support/GIMP"
   mv 2.8 2.8.backup
   git clone --depth=1 https://github.com/doctormo/GimpPs.git 2.8
+}
+
+configure_postgres() {
+  "$(brew --prefix postgres)/bin/createuser" -s postgres || true
 }
 
 main
