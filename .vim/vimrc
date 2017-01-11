@@ -15,27 +15,30 @@ runtime! config/binding.vim
 " --------------------
 " Plugin Configuration
 " --------------------
-runtime! config/plugin/colors.vim
 runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
+runtime! config/plugin/colors.vim
 runtime! config/plugin/commentary.vim
+runtime! config/plugin/concourse.vim
+runtime! config/plugin/ctrlp.vim
+runtime! config/plugin/dash.vim
 runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
-runtime! config/plugin/livedown.vim
-runtime! config/plugin/tagbar.vim
-runtime! config/plugin/nerdtree.vim
-runtime! config/plugin/ctrlp.vim
-runtime! config/plugin/concourse.vim
-runtime! config/plugin/dash.vim
 runtime! config/plugin/git.vim
+runtime! config/plugin/livedown.vim
+runtime! config/plugin/multicursor.vim
 runtime! config/plugin/neocomplete.vim
+runtime! config/plugin/nerdtree.vim
+runtime! config/plugin/syntastic.vim
+runtime! config/plugin/tagbar.vim
 
 "
 " --------------------
 " Plugin Language Configuration
 " --------------------
-runtime! config/lang/node.vim
 runtime! config/lang/golang.vim
+runtime! config/lang/node.vim
+runtime! config/lang/polyglot.vim
 runtime! config/lang/ruby.vim
 runtime! config/lang/rust.vim
 runtime! config/lang/yaml.vim
