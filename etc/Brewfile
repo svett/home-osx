@@ -68,6 +68,7 @@ brew 'redis'
 brew 'mongodb'
 brew 'postgresql'
 brew 'sfk'
+brew 'nmap'
 
 cask 'atom'
 cask 'google-chrome'
