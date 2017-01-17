@@ -157,8 +157,12 @@ update_npm_packages() {
 
 configure_gimp() {
   cd "$HOME/Library/Application Support/GIMP"
-  mv 2.8 2.8.backup
-  git clone --depth=1 https://github.com/doctormo/GimpPs.git 2.8
+  backup_dir=2.8.backup
+
+  if [ ! -d "$backup_dir" ]; then
+    mv 2.8 "$backup_dir"
+    git clone --depth=1 https://github.com/doctormo/GimpPs.git 2.8
+  fi
 }
 
 configure_postgres() {
