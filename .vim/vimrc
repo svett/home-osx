@@ -43,3 +43,4 @@ runtime! config/lang/polyglot.vim
 runtime! config/lang/ruby.vim
 runtime! config/lang/rust.vim
 runtime! config/lang/yaml.vim
+runtime! config/lang/TypeScript.vim

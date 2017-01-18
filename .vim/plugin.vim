@@ -62,6 +62,7 @@ Plugin 'tpope/vim-jdaddy'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'moll/vim-node'
+Plugin 'Quramy/vim-js-pretty-template'
 
 " Ghetto HTML/XML mappings
 Plugin 'tpope/vim-ragtag'
@@ -110,6 +111,11 @@ Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Develop Rust
 Plugin 'rust-lang/rust.vim'
+
+" Develop TypeScript
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
+Plugin 'Quramy/tsuquyomi'
 
 " A solid language pack for Vim.
 " Adds 70+ languages and optimizes loading and installing.
