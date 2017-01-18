@@ -43,7 +43,7 @@ class ListView extends SelectListView
       @li name
 
   pull: (remoteName) ->
-    if atom.config.get('git-plus.alwaysPullFromUpstream')
+    if atom.config.get('git-plus.remoteInteractions.alwaysPullFromUpstream')
       _pull @repo, extraArgs: [@extraArgs]
     else
       git.cmd(['branch', '--no-color', '-r'], cwd: @repo.getWorkingDirectory())
@@ -57,9 +57,9 @@ class ListView extends SelectListView
       @mode = 'fetch'
       @execute name, '--prune'
     else if @mode is 'push'
-      pullOption = atom.config.get 'git-plus.pullBeforePush'
-      @extraArgs = if pullOption?.includes '--rebase' then '--rebase' else ''
-      unless pullOption? and pullOption is 'no'
+      pullBeforePush = atom.config.get('git-plus.remoteInteractions.pullBeforePush')
+      @extraArgs = '--rebase' if pullBeforePush and atom.config.get('git-plus.remoteInteractions.pullRebase')
+      if pullBeforePush
         @pull(name).then => @execute name
       else
         @execute name

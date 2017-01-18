@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26395-ja42kb/package.tgz",
+        "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1374-1jsy7tg/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26395-ja42kb/package.tgz",
-        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26395-ja42kb/package.tgz",
+        "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1374-1jsy7tg/package.tgz",
+        "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1374-1jsy7tg/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-26395-315rou"
+      "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1374-7scs6z"
     ]
   ],
-  "_from": "../d-1161016-26395-ja42kb/package.tgz",
-  "_id": "highlight-line@0.11.1",
+  "_from": "../d-117018-1374-1jsy7tg/package.tgz",
+  "_id": "highlight-line@0.12.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/highlight-line",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26395-ja42kb/package.tgz",
+    "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1374-1jsy7tg/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26395-ja42kb/package.tgz",
-    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26395-ja42kb/package.tgz",
+    "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1374-1jsy7tg/package.tgz",
+    "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1374-1jsy7tg/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161016-26395-ja42kb/package.tgz",
-  "_shasum": "78f4f3c684f3378e783345bb319bdc66be49814d",
+  "_resolved": "file:../d-117018-1374-1jsy7tg/package.tgz",
+  "_shasum": "c012c42ebefc53875565244f070527f8a5e379f3",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-26395-ja42kb/package.tgz",
-  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-26395-315rou",
+  "_spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1374-1jsy7tg/package.tgz",
+  "_where": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1374-7scs6z",
   "bugs": {
     "url": "https://github.com/richrace/highlight-line/issues"
   },
@@ -47,7 +47,7 @@
     "coffeelint-jasmine": "0.0.2"
   },
   "engines": {
-    "atom": ">=0.174.0 <2.0.0"
+    "atom": ">=1.13.0 <2.0.0"
   },
   "homepage": "https://github.com/richrace/highlight-line",
   "license": "MIT",
@@ -60,5 +60,5 @@
     "type": "git",
     "url": "git+https://github.com/richrace/highlight-line.git"
   },
-  "version": "0.11.1"
+  "version": "0.12.0"
 }

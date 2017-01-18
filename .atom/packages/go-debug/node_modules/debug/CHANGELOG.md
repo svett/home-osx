@@ -1,4 +1,36 @@
 
+2.6.0 / 2016-12-28
+==================
+
+  * Fix: added better null pointer checks for browser useColors (@thebigredgeek)
+  * Improvement: removed explicit `window.debug` export (#404, @tootallnate)
+  * Improvement: deprecated `DEBUG_FD` environment variable (#405, @tootallnate)
+
+2.5.2 / 2016-12-25
+==================
+
+  * Fix: reference error on window within webworkers (#393, @KlausTrainer)
+  * Docs: fixed README typo (#391, @lurch) 
+  * Docs: added notice about v3 api discussion (@thebigredgeek)
+
+2.5.1 / 2016-12-20
+==================
+
+  * Fix: babel-core compatibility
+
+2.5.0 / 2016-12-20
+==================
+
+  * Fix: wrong reference in bower file (@thebigredgeek)
+  * Fix: webworker compatibility (@thebigredgeek)
+  * Fix: output formatting issue (#388, @kribblo)
+  * Fix: babel-loader compatibility (#383, @escwald)
+  * Misc: removed built asset from repo and publications (@thebigredgeek) 
+  * Misc: moved source files to /src (#378, @yamikuronue)
+  * Test: added karma integration and replaced babel with browserify for browser tests (#378, @yamikuronue)
+  * Test: coveralls integration (#378, @yamikuronue)
+  * Docs: simplified language in the opening paragraph (#373, @yamikuronue)
+
 2.4.5 / 2016-12-17
 ==================
 

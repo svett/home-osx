@@ -21,6 +21,7 @@ getCommands = ->
   GitRemove              = require './models/git-remove'
   GitShow                = require './models/git-show'
   GitStageFiles          = require './models/git-stage-files'
+  GitStageFilesBeta      = require './models/git-stage-files-beta'
   GitStageHunk           = require './models/git-stage-hunk'
   GitStashApply          = require './models/git-stash-apply'
   GitStashDrop           = require './models/git-stash-drop'
@@ -40,6 +41,8 @@ getCommands = ->
       currentFile = repo.relativize(atom.workspace.getActiveTextEditor()?.getPath())
       git.refresh repo
       commands = []
+      if atom.config.get('git-plus.experimental.customCommands')
+        commands = commands.concat(require('./service').getCustomCommands())
       commands.push ['git-plus:add', 'Add', -> git.add(repo, file: currentFile)]
       commands.push ['git-plus:add-modified', 'Add Modified', -> git.add(repo, update: true)]
       commands.push ['git-plus:add-all', 'Add All', -> git.add(repo)]
@@ -68,14 +71,16 @@ getCommands = ->
       commands.push ['git-plus:fetch', 'Fetch', -> GitFetch(repo)]
       commands.push ['git-plus:fetch-prune', 'Fetch Prune', -> GitFetchPrune(repo)]
       commands.push ['git-plus:pull', 'Pull', -> GitPull(repo)]
-      commands.push ['git-plus:pull-using-rebase', 'Pull Using Rebase', -> GitPull(repo, rebase: true)]
       commands.push ['git-plus:push', 'Push', -> GitPush(repo)]
       commands.push ['git-plus:push-set-upstream', 'Push -u', -> GitPush(repo, setUpstream: true)]
       commands.push ['git-plus:remove', 'Remove', -> GitRemove(repo, showSelector: true)]
       commands.push ['git-plus:reset', 'Reset HEAD', -> git.reset(repo)]
       commands.push ['git-plus:show', 'Show', -> GitShow(repo)]
-      commands.push ['git-plus:stage-files', 'Stage Files', -> GitStageFiles(repo)]
-      commands.push ['git-plus:unstage-files', 'Unstage Files', -> GitUnstageFiles(repo)]
+      if atom.config.get('git-plus.experimental.stageFilesBeta')
+        commands.push ['git-plus:stage-files', 'Stage Files', -> GitStageFilesBeta(repo)]
+      else
+        commands.push ['git-plus:stage-files', 'Stage Files', -> GitStageFiles(repo)]
+        commands.push ['git-plus:unstage-files', 'Unstage Files', -> GitUnstageFiles(repo)]
       commands.push ['git-plus:stage-hunk', 'Stage Hunk', -> GitStageHunk(repo)]
       commands.push ['git-plus:stash-save', 'Stash: Save Changes', -> GitStashSave(repo)]
       commands.push ['git-plus:stash-save-message', 'Stash: Save Changes With Message', -> GitStashSaveMessage(repo)]

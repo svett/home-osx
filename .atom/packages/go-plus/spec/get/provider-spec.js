@@ -40,8 +40,8 @@ describe('go-get service provider', () => {
       let manager
       let provider
       beforeEach(() => {
-        manager = mainModule.getGetManager()
         provider = mainModule.provideGoGet()
+        manager = mainModule.getservice.getmanager
         expect(manager).toBeTruthy()
         expect(manager.packages).toBeTruthy()
         expect(manager.packages.size).toBe(0)
@@ -89,25 +89,6 @@ describe('go-get service provider', () => {
         registration2.dispose()
         expect(manager.packages.size).toBe(0)
       })
-    })
-  })
-
-  describe('the 1.0.0 provider', () => {
-    it('is truthy', () => {
-      expect(mainModule.provideGoGet100).toBeDefined()
-      expect(mainModule.provideGoGet100()).toBeTruthy()
-    })
-
-    it('has a get function', () => {
-      expect(mainModule.provideGoGet100().get).toBeDefined()
-    })
-
-    it('has a check function', () => {
-      expect(mainModule.provideGoGet100().check).toBeDefined()
-    })
-
-    it('does not have a register function', () => {
-      expect(mainModule.provideGoGet100().register).not.toBeDefined()
     })
   })
 })

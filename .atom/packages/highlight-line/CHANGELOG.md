@@ -1,5 +1,11 @@
 ## Change Log
 
+### v0.12.0 2016/12/28
+- Only support Atom 1.13 selectors ([@richrace])
+
+### v0.11.2 2016/12/28
+- Update selected line when consolidating selections ([@itiut])
+
 ### v0.11.1 2016/02/02
 - Fix `cmd + l` empty line selection ([@shemerey])
 
@@ -151,5 +157,6 @@
 [@sniperbat]: https://github.com/sniperbat
 [@skulled]: https://github.com/skulled
 [@shemerey]: https://github.com/shemerey
+[@itiut]: https://github.com/itiut
 [62]: https://github.com/richrace/highlight-line/issues/62
 [66]: https://github.com/richrace/highlight-line/issues/62

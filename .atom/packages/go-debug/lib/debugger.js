@@ -1,7 +1,7 @@
 'use babel'
 
 import { Emitter } from 'atom'
-import { getBreakpoint, getBreakpoints } from './store-helper'
+import { getBreakpoint, getBreakpoints, getBreakpointByID } from './store-helper'
 
 export default class Debugger extends Emitter {
   constructor (store, connection, addOutputMessage) {
@@ -25,16 +25,20 @@ export default class Debugger extends Emitter {
    * @return {Promise}
    */
   start (config, file) {
+    if (this.isStarted()) {
+      return Promise.resolve()
+    }
+
     this.emit('start', {})
 
     this._store.dispatch({ type: 'SET_STATE', state: 'starting' })
 
     // start the debugger
-    this._addOutputMessage('debug', `Starting delve with config "${config.name}"`)
+    this._addOutputMessage('debug', `Starting delve with config "${config.name}"\n`)
 
     return this._connection.start({ config, file })
       .then((session) => {
-        this._addOutputMessage('debug', `Started delve with config "${config.name}"`)
+        this._addOutputMessage('debug', `Started delve with config "${config.name}"\n`)
         this._store.dispatch({ type: 'SET_STATE', state: 'started' })
 
         this._session = session
@@ -49,7 +53,7 @@ export default class Debugger extends Emitter {
         })
       })
       .catch((err) => {
-        this._addOutputMessage('debug', `Failed to start delve with config "${config.name}"\r\n  Error: ${err}`)
+        this._addOutputMessage('debug', `Failed to start delve with config "${config.name}"\r\n  Error: ${err}\n`)
         return this.stop()
       })
   }
@@ -89,15 +93,15 @@ export default class Debugger extends Emitter {
     }
 
     const fileAndLine = `${file}:${line + 1}`
-    this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine}`)
+    this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine}\n`)
     this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, state: 'busy' } })
     return this._addBreakpoint(file, line)
-      .then((response) => {
-        this._addOutputMessage('debug', `Added breakpoint @ ${fileAndLine}`)
-        this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, id: response.id, state: 'valid' } })
+      .then(({ id: delveID }) => {
+        this._addOutputMessage('debug', `Added breakpoint @ ${fileAndLine}\n`)
+        this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, delveID, state: 'valid' } })
       })
       .catch((err) => {
-        this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}`)
+        this._addOutputMessage('debug', `Adding breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
         this._store.dispatch({ type: 'ADD_BREAKPOINT', bp: { file, line, state: 'invalid', message: err } })
       })
   }
@@ -111,15 +115,15 @@ export default class Debugger extends Emitter {
    * @param {number} line
    * @return {Promise}
    */
-  removeBreakpoint (file, line) {
-    const bp = getBreakpoint(this._store, file, line)
+  removeBreakpoint (id) {
+    const bp = getBreakpointByID(this._store, id)
     if (!bp) {
       return Promise.resolve()
     }
-    const { state } = bp
+    const { state, file, line } = bp
 
     const done = () => {
-      this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { file, line, state: 'removed' } })
+      this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { id, state: 'removed' } })
     }
 
     if (state === 'invalid' || !this.isStarted()) {
@@ -127,18 +131,18 @@ export default class Debugger extends Emitter {
     }
 
     const fileAndLine = `${file}:${line + 1}`
-    this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine}`)
-    this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { file, line, state: 'busy' } })
+    this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine}\n`)
+    this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { id, state: 'busy' } })
     return this._removeBreakpoint(bp)
-      .then(() => this._addOutputMessage('debug', `Removed breakpoint @ ${fileAndLine}`))
+      .then(() => this._addOutputMessage('debug', `Removed breakpoint @ ${fileAndLine}\n`))
       .then(done)
       .catch((err) => {
-        this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}`)
-        this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { file, line, state: 'invalid', message: err } })
+        this._addOutputMessage('debug', `Removing breakpoint @ ${fileAndLine} failed!\r\n  Error: ${err}\n`)
+        this._store.dispatch({ type: 'REMOVE_BREAKPOINT', bp: { id, state: 'invalid', message: err } })
       })
   }
   _removeBreakpoint (bp) {
-    return this._session.removeBreakpoint({ bp })
+    return this._session.removeBreakpoint({ id: bp.delveID })
   }
 
   /**
@@ -152,19 +156,13 @@ export default class Debugger extends Emitter {
     if (!bp) {
       return this.addBreakpoint(file, line)
     }
-    return this.removeBreakpoint(file, line)
+    return this.removeBreakpoint(bp.id)
   }
 
-  updateBreakpointLine (file, line, newLine) {
-    const bp = getBreakpoint(this._store, file, line)
-    if (!this.isStarted()) {
-      // just update the breakpoint in the store
-      this._store.dispatch({ type: 'UPDATE_BREAKPOINT_LINE', bp, newLine })
-      return
-    }
-
+  updateBreakpointLine (id, newLine) {
     // remove and add the breakpoint, this also updates the store correctly
-    this.removeBreakpoint(file, line).then(() => this.addBreakpoint(file, newLine))
+    const bp = getBreakpointByID(this._store, id)
+    this.removeBreakpoint(id).then(() => this.addBreakpoint(bp.file, newLine))
   }
 
   /**

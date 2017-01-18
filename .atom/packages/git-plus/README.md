@@ -32,34 +32,54 @@ _Commands are accessible for keybindings by dasherizing the command title._
 
 > Git Add All Commit And Push == `git-plus:add-all-commit-and-push`
 
-  __Note: This list is not exhaustive. And if what you want isn't a feature, You can use `Git Run` and enter the command__
+  __Note: The following list of commands is not exhaustive. If what you want isn't a feature, you can use `Git Run` and enter the command.__
 
 | Command | Effect | Default key binding |
 |----------|--------|------------------
 | `Git Run ` | Execute a custom command. ex. `fetch --all` | |
 | `Git Status ` | Show current status. | `Cmd-Shift-A S` |
-| `Git Add ` | Add the current file. | `Cmd-Shift-A` |
-| `Git Add All` | Adds all changed files. | |
-| `Git add and commit and push` | Commit currently open file and push to a remote repo. | `Cmd-Shift-A Q` |
-| `Git add all commit and push` | Commit every changed file and push to a remote repo. | `Cmd-Shift-A P` |
-| `Git commit` | Commit the staged changes. Git-Plus shows a commit message editor. To make the commit, save the file. To cancel the commit, close the tab. | `Cmd-Shift-C`(*`Ctrl-Shift-X`* on Windows and Linux) |
-| `Git commit amend` | Amend the changes to previous commit. |  |
-| `Git checkout current file` | Undo changes and checkout the current file. | |
+| `Git Add ` | Add the current file to the index. | `Cmd-Shift-A` |
+| `Git Add All` | Adds all files to the index (ex. `git add .`). | |
+| `Git Commit` | Commit the staged changes. Git-Plus will show an editor for the commit message. To make the commit, save the file. To cancel the commit, close the tab. | `Cmd-Shift-C`(*`Ctrl-Shift-X`* on Windows and Linux) |
+| `Git Add And Commit` | Stages the current file before preparing a commit. (`Git add all` and `Git commit` run in succession) | `Cmd-Shift-A c` |
+| `Git Add All and Commit` | Stages all changes before preparing a commit. (`Git add all` and `Git commit` in succession) | `Cmd-Shift-A a` |
+| `Git Add And Commit And Push` |  Commit currently open file and push to a remote repo. | `Cmd-Shift-A Q` |
+| `Git Add All Commit And Push` | Commit all changes and push to a remote repo. | `Cmd-Shift-A P` |
+| `Git Commit Amend` | Amend the previous commit. |  |
+| `Git Checkout Current File` | Undo changes and reset the current file to HEAD. | |
 | `Git Checkout `*`[ref]`* | Change to another ref (branch or tag). | |
+| `Git Checkout New branch` | Create a new branch. | |
 | `Git Diff [All]` | Show the diff for the current file, or all files. The diff can either be against the staged or un-staged tree, as selected in the options. | |
-| `Git new branch` | Create a new branch. | |
-| `Git` *`[push⎮pull]`* | Push to or pull from a remote repo. If you have multiple remote repos, you can choose which to push to or pull from. | |
-| `Git Add and Commit` | Add all changed files and show the commit message file. Similar to `Git add all` and `Git commit` run in succession. | `Cmd-Shift-A c` |
-| `Git Add All and Commit` | Add all changed files and show the commit message file. Similar to `Git add all` and `Git commit` in succession. | `Cmd-Shift-A a` |
+| `Git` *`[Push⎮Pull]`* | Push to or pull from a remote repo. If you have multiple remote repos, you can choose which to push to or pull from. | |
 | `Git Remove [current file]` | `git rm` the current file or open an selector to select the files to remove. You can select multiple files at once. | |
 | `Git Log [Current File]` | Show the commit history [for the current file] and show display the selected commit. | |
 | `Git Show` | Show the specified object, for example `HEAD`, `HEAD~2`,`3925a0d`, `origin/master` or `v2.7.3`. | |
 | `Git Open Changed Files` | Open tabs with all added, modified or renamed files. | |
 | `Git Tags` | Operate on tags individually. There are options to add, show, push, checkout, verify, and delete. | |
 
-### Commit window
+### Commit Window
 To change where the commit window appears go to settings and find
 ![screenshot](http://imgur.com/cdc7M5p.png)
+
+### Experimental Features
+If you would like to use experimental features, enable them in the package settings.
+* Custom Commands
+  > If enabled, you can define your own commands in your atom `init.coffee` or `init.js` file. These commands will appear in both the atom command palette as well as the Git-Plus command palette. Just like any other commands, you can define keybindings for them as well.
+
+  > Example command for undoing the last commit:
+  ``` coffeescript
+  # In init.coffee
+  atom.packages.onDidActivateInitialPackages (p) ->
+  if gitPlus = atom.packages.getActivePackage('git-plus')?.mainModule.provideService()
+    gitPlus.registerCommand 'atom-text-editor', 'custom-git-commands:undo-last-commit', ->
+      gitPlus.getRepo() # If there are multiple repos in the project, you will be prompted to select which to use
+      .then (repo) -> gitPlus.run repo, 'reset HEAD~1'
+  ```
+  > The name of the command in the Git-plus palette will be the undasherized version of what you provided -> 'Undo Last Commit'.
+
+  > *Please beware of giving your commands the same name(undo-last-commit) as existing commands. They will appear as duplicates in the Git-plus palette.*
+* Stage Files Beta
+  > When enabled, the 'Unstage Files' and 'Stage Files' commands will be merged into one view where the staged status of multiple files can be toggled.
 
 ## Contributing
 

@@ -8,7 +8,7 @@ GitPull = require './git-pull'
 
 disposables = new CompositeDisposable
 
-verboseCommitsEnabled = -> atom.config.get('git-plus.experimental') and atom.config.get('git-plus.verboseCommits')
+verboseCommitsEnabled = -> atom.config.get('git-plus.commits.verboseCommits')
 
 getStagedFiles = (repo) ->
   git.stagedFiles(repo).then (files) ->
@@ -19,7 +19,10 @@ getStagedFiles = (repo) ->
 
 getTemplate = (filePath) ->
   if filePath
-    fs.readFileSync(fs.absolute(filePath.trim())).toString().trim()
+    try
+      fs.readFileSync(fs.absolute(filePath.trim())).toString().trim()
+    catch e
+      throw new Error("Your configured commit template file can't be found.")
   else
     ''
 
@@ -43,7 +46,7 @@ prepFile = ({status, filePath, diff, commentChar, template}) ->
   fs.writeFileSync filePath, content
 
 destroyCommitEditor = (filePath) ->
-  if atom.config.get('git-plus.openInPane')
+  if atom.config.get('git-plus.general.openInPane')
     atom.workspace.paneForURI(filePath)?.destroy()
   else
     atom.workspace.paneForURI(filePath).itemForURI(filePath)?.destroy()
@@ -68,17 +71,16 @@ commit = (directory, filePath) ->
 cleanup = (currentPane, filePath) ->
   currentPane.activate() if currentPane.isAlive()
   disposables.dispose()
-  fs.removeSync filePath
 
 showFile = (filePath) ->
   commitEditor = atom.workspace.paneForURI(filePath)?.itemForURI(filePath)
   if not commitEditor
-    if atom.config.get('git-plus.openInPane')
-      splitDirection = atom.config.get('git-plus.splitPane')
+    if atom.config.get('git-plus.general.openInPane')
+      splitDirection = atom.config.get('git-plus.general.splitPane')
       atom.workspace.getActivePane()["split#{splitDirection}"]()
     atom.workspace.open filePath
   else
-    if atom.config.get('git-plus.openInPane')
+    if atom.config.get('git-plus.general.openInPane')
       atom.workspace.paneForURI(filePath).activate()
     else
       atom.workspace.paneForURI(filePath).activateItemForURI(filePath)
@@ -88,11 +90,16 @@ module.exports = (repo, {stageChanges, andPush}={}) ->
   filePath = Path.join(repo.getPath(), 'COMMIT_EDITMSG')
   currentPane = atom.workspace.getActivePane()
   commentChar = git.getConfig(repo, 'core.commentchar') ? '#'
-  template = getTemplate(git.getConfig(repo, 'commit.template'))
+  try
+    template = getTemplate(git.getConfig(repo, 'commit.template'))
+  catch e
+    notifier.addError(e.message)
+    return Promise.reject(e.message)
+
   init = -> getStagedFiles(repo).then (status) ->
     if verboseCommitsEnabled()
       args = ['diff', '--color=never', '--staged']
-      args.push '--word-diff' if atom.config.get('git-plus.wordDiff')
+      args.push '--word-diff' if atom.config.get('git-plus.diffs.wordDiff')
       git.cmd(args, cwd: repo.getWorkingDirectory())
       .then (diff) -> prepFile {status, filePath, diff, commentChar, template}
     else

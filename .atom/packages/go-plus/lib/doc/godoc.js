@@ -4,17 +4,18 @@ import path from 'path'
 import {CompositeDisposable, Point} from 'atom'
 import GodocPanel from './godoc-panel'
 import {isValidEditor} from '../utils'
+import os from 'os'
 
 class Godoc {
-  constructor (goconfig, goget) {
+  constructor (goconfig) {
     this.goconfig = goconfig
-    this.goget = goget
     this.subscriptions = new CompositeDisposable()
     this.panelModel = new GodocPanel()
     this.subscriptions.add(this.panelModel)
     this.subscriptions.add(atom.commands.add(
       'atom-text-editor', 'golang:showdoc',
       () => this.commandInvoked()))
+    this.methodRegexp = /(?:^func \(\w+ \**)(\w+)/
   }
 
   commandInvoked () {
@@ -54,42 +55,7 @@ class Godoc {
       if (cmd) {
         return cmd
       }
-      // first check for Go 1.6+, if we don't have that, don't even offer to
-      // 'go get', since it will definitely fail
-      return this.goconfig.locator.runtime().then((runtime) => {
-        if (!runtime) {
-          return false
-        }
-        const components = runtime.semver.split('.')
-        if (!components || components.length < 2) {
-          return false
-        }
-        const minor = parseInt(components[1], 10)
-        if (minor < 6) {
-          atom.notifications.addError('godoc requires Go 1.6 or later', {
-            detail: 'The go-plus package uses the `gogetdoc` tool, which requires Go 1.6 or later; please update your Go installation to use the doc feature.',
-            dismissable: true
-          })
-          return false
-        }
-        if (!this.goget) {
-          return false
-        }
-        return this.goget.get({
-          name: 'gogetdoc',
-          packageName: 'gogetdoc',
-          packagePath: 'github.com/zmb3/gogetdoc',
-          type: 'missing'
-        }).then((r) => {
-          if (r.success) {
-            return this.goconfig.locator.findTool('gogetdoc')
-          }
-          console.log('gogetdoc is not available and could not be installed via "go get -u github.com/zmb3/gogetdoc"; please manually install it to enable doc functionality')
-          return false
-        }).catch((e) => {
-          console.log(e)
-        })
-      })
+      return false
     })
   }
 
@@ -98,6 +64,7 @@ class Godoc {
     this.subscriptions = null
     this.goconfig = null
     this.panelModel = null
+    this.methodRegexp = null
   }
 
   getDoc (file, offset, cwd, cmd, stdin) {
@@ -106,7 +73,7 @@ class Godoc {
     }
 
     // use a large line length because Atom will wrap the paragraphs automatically
-    const args = ['-pos', `${file}:#${offset}`, '-linelength', '999']
+    const args = ['-pos', `${file}:#${offset}`, '-linelength', '999', '-json']
 
     const options = {cwd: cwd}
     if (stdin && stdin !== '') {
@@ -129,9 +96,25 @@ class Godoc {
         }
         return {success: false, result: r}
       }
-      const message = r.stdout.trim()
-      if (message) {
-        this.panelModel.updateContent(message)
+      const doc = JSON.parse(r.stdout.trim())
+      if (doc) {
+        if (doc.decl.startsWith('package')) {
+          // older versions of gogetdoc didn't populate the import property
+          // for packages - prompt user to update
+          if (!doc.import || !doc.import.length) {
+            this.promptForToolsUpdate()
+          } else {
+            doc.gddo = 'https://godoc.org/' + doc.import
+          }
+        } else {
+          const typ = this.declIsMethod(doc.decl)
+          if (typ) {
+            doc.gddo = 'https://godoc.org/' + doc.import + '#' + typ + '.' + doc.name
+          } else {
+            doc.gddo = 'https://godoc.org/' + doc.import + '#' + doc.name
+          }
+        }
+        this.panelModel.updateContent(doc)
       }
 
       if (r.exitcode !== 0 || r.stderr && r.stderr.trim() !== '') {
@@ -139,7 +122,42 @@ class Godoc {
         return {success: false, result: r}
       }
 
-      return {success: true, result: r}
+      return {success: true, result: r, doc: doc}
+    })
+  }
+
+  declIsMethod (decl) {
+    // func (receiver Type) Name(Args...) -> return Type
+    // func Name(Args...) -> return undefined
+    const matches = this.methodRegexp.exec(decl)
+    if (matches && matches.length) {
+      return matches[matches.length - 1]
+    }
+    return undefined
+  }
+
+  promptForToolsUpdate () {
+    if (this.electedNotToUpdate) {
+      return
+    }
+    this.electedNotToUpdate = true
+
+    const notification = atom.notifications.addWarning('Go-Plus', {
+      dismissable: true,
+      detail: '`gogetdoc` may be out of date',
+      description: 'Your `gogetdoc` tool may be out of date.' + os.EOL + os.EOL + 'Would you like to run `go get -u github.com/zmb3/gogetdoc` to update?',
+      buttons: [{
+        text: 'Yes',
+        onDidClick: () => {
+          notification.dismiss()
+          atom.commands.dispatch(atom.views.getView(atom.workspace), 'golang:update-tools', ['github.com/zmb3/gogetdoc'])
+        }
+      }, {
+        text: 'Not Now',
+        onDidClick: () => {
+          notification.dismiss()
+        }
+      }]
     })
   }
 

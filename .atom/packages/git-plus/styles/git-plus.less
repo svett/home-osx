@@ -21,6 +21,10 @@
 	&.info-view {
 		overflow  : auto;
 		max-height: 30vh;
+
+		.output {
+			background-color: inherit;
+		}
 	}
 }
 
@@ -31,39 +35,6 @@
 	justify-content: space-between;
 }
 
-// ::shadow and ::host pseudo-selectors will soon be deprecated by atom
-atom-text-editor,
-atom-text-editor::shadow {
-	.diff {
-		.unimportant {
-			color: mix(@syntax-text-color, @syntax-background-color, 25%);
-		}
-
-		.info {
-			color: @syntax-color-modified;
-		}
-
-		.deletion {
-			color: @syntax-color-removed;
-		}
-
-		.insertion {
-			color: @syntax-color-added;
-		}
-
-		.markup.removed.diff,
-		.meta.diff.header.from-file {
-			border-bottom: 2px solid @syntax-color-removed;
-		}
-
-		.markup.added.diff,
-		.meta.diff.header.to-file {
-			border-bottom: 2px solid @syntax-color-added;
-		}
-	}
-}
-
-// These are the future selectors to use
 atom-text-editor,
 atom-text-editor.editor {
 	.syntax--diff {
@@ -100,6 +71,7 @@ atom-text-editor.editor {
 	overflow-y      : auto;
 
 	#git-plus-commits {
+		width: 100%;
 		color : @text-color;
 		cursor: pointer;
 
@@ -125,5 +97,12 @@ atom-text-editor.editor {
 			width     : 10%;
 			text-align: right;
 		}
+	}
+
+	.show-more {
+		text-align: center;
+	}
+	#show-more {
+		padding-top: 10px;
 	}
 }

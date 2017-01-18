@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39977-17jvht2/package.tgz",
+        "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1368-19rk0nw/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39977-17jvht2/package.tgz",
-        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39977-17jvht2/package.tgz",
+        "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1368-19rk0nw/package.tgz",
+        "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1368-19rk0nw/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161120-39977-1gos45o"
+      "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1368-1ve9o10"
     ]
   ],
-  "_from": "../d-1161120-39977-17jvht2/package.tgz",
-  "_id": "go-plus@5.0.5",
+  "_from": "../d-117018-1368-19rk0nw/package.tgz",
+  "_id": "go-plus@5.1.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/go-plus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39977-17jvht2/package.tgz",
+    "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1368-19rk0nw/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39977-17jvht2/package.tgz",
-    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39977-17jvht2/package.tgz",
+    "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1368-19rk0nw/package.tgz",
+    "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1368-19rk0nw/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161120-39977-17jvht2/package.tgz",
-  "_shasum": "1fcfeccd29aa94b484e271f2c9e355810ffaa5da",
+  "_resolved": "file:../d-117018-1368-19rk0nw/package.tgz",
+  "_shasum": "532d0c411831436f8104f75aafece7ea2d5668a0",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161120-39977-17jvht2/package.tgz",
-  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161120-39977-1gos45o",
+  "_spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1368-19rk0nw/package.tgz",
+  "_where": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1368-1ve9o10",
   "activationCommands": {
     "atom-workspace": [
       "golang:get-package",
@@ -400,7 +400,7 @@
     "etch": "^0.8.0",
     "etch-octicon": "^0.1.0",
     "fs-plus": "^2.9.3",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.4",
     "rimraf": "^2.5.4",
     "semver": "^5.3.0",
     "temp": "^0.8.3"
@@ -411,8 +411,8 @@
     "standard": "^8.6.0"
   },
   "engines": {
-    "atom": ">=1.9.9 <2.0.0",
-    "node": ">= 4"
+    "atom": ">=1.12.7 <2.0.0",
+    "node": ">= 6"
   },
   "homepage": "https://atom.io/packages/go-plus",
   "keywords": [
@@ -448,8 +448,7 @@
     },
     "go-get": {
       "versions": {
-        "2.0.0": "provideGoGet",
-        "1.0.0": "provideGoGet100"
+        "2.0.0": "provideGoGet"
       }
     },
     "linter": {
@@ -481,5 +480,23 @@
       "waitsForPromise"
     ]
   },
-  "version": "5.0.5"
+  "version": "5.1.0",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "atom": ">=1.12.7 <2.0.0",
+        "node": ">= 6"
+      },
+      "pkgid": "go-plus@5.1.0"
+    },
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "atom": ">=1.12.7 <2.0.0",
+        "node": ">= 6"
+      },
+      "pkgid": "go-plus@5.1.0"
+    }
+  ]
 }

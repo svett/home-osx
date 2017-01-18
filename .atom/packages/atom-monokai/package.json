@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+        "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1338-14zu2en/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
-        "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+        "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1338-14zu2en/package.tgz",
+        "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1338-14zu2en/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-24710-129r06h"
+      "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1338-i05w17"
     ]
   ],
-  "_from": "../d-1161016-24710-15pzrb7/package.tgz",
-  "_id": "atom-monokai@0.10.4",
+  "_from": "../d-117018-1338-14zu2en/package.tgz",
+  "_id": "atom-monokai@0.10.7",
   "_inCache": true,
   "_installable": true,
   "_location": "/atom-monokai",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+    "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1338-14zu2en/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
-    "spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
+    "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1338-14zu2en/package.tgz",
+    "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1338-14zu2en/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1161016-24710-15pzrb7/package.tgz",
-  "_shasum": "6a1e71bbe727bcfe9084bb157a36a05f99940225",
+  "_resolved": "file:../d-117018-1338-14zu2en/package.tgz",
+  "_shasum": "c86f3f541d1dcb7edd24ce84adbebffd84cf318e",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/d-1161016-24710-15pzrb7/package.tgz",
-  "_where": "/private/var/folders/0f/0c43ltds7c74b9_knf0wpzmw0000gn/T/apm-install-dir-1161016-24710-129r06h",
+  "_spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1338-14zu2en/package.tgz",
+  "_where": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1338-i05w17",
   "bugs": {
     "url": "https://github.com/burntime/atom-monokai/issues"
   },
@@ -66,5 +66,5 @@
     "url": "git+https://github.com/burntime/atom-monokai.git"
   },
   "theme": "syntax",
-  "version": "0.10.4"
+  "version": "0.10.7"
 }
