@@ -69,6 +69,7 @@ brew 'mongodb'
 brew 'postgresql'
 brew 'sfk'
 brew 'nmap'
+brew 'typescript'
 
 cask 'atom'
 cask 'google-chrome'
