@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+[ -z "$DEBUG" ] || set -x
+
+HOURS="${1:-1}"
+VOLUME=/Volumes/ralch
+KEY="$VOLUME/id_rsa"
+
+if [ -d "$VOLUME" ]; then
+  /usr/bin/ssh-add -D
+  /usr/bin/ssh-add -t "${HOURS}H" "$KEY"
+  /usr/sbin/diskutil umount force "$VOLUME"
+else
+  echo "The secured SSH USB has not been plugged"
+  exit 1
+fi
+
