@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if which yarn >&-
+then
+  export YARN_BIN
+  YARN_BIN="$(yarn global bin)"
+  export PATH="${PATH}:${YARN_BIN}"
+fi
