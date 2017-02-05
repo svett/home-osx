@@ -151,7 +151,7 @@ popd >&-
 
 update_npm_packages() {
   npm install -g jasmine
-  npm install -g karma
+  npm install -g karma-cli
 }
 
 configure_gimp() {
