@@ -152,6 +152,7 @@ popd >&-
 update_npm_packages() {
   npm install -g jasmine
   npm install -g karma-cli
+  npm install -g tslint typescript
 }
 
 configure_gimp() {
