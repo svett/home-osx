@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "definitions": {
+        "configurations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Platform name. Mac, Linux, or Win32 are the defaults unless a custom platform is added.",
+                        "type": "string"
+                    },
+                    "includePath": {
+                        "description": "Search paths to look for header files. Specify '*' to indicate non-recursive search. For example: '/usr/includes' will search through all subdirectories while '/usr/includes/*' will not.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "browse": {
+                        "type": "object",
+                        "properties": {
+                            "limitSymbolsToIncludedHeaders": {
+                                "description": "true to process only those files directly or indirectly included as headers, false to process all files under the specified include paths",
+                                "type": "boolean"
+                            },
+                            "databaseFilename": {
+                                "description": "Path to the generated symbol database. Empty string means default to rootfolder/.vscode/.browse.VC.db",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "clang_format": {
+            "type": "object",
+            "properties": {
+                "style": {
+                    "description": "Coding style. See clang-format -style switch for values that can be specified for this setting",
+                    "type": "string"
+                },
+                "fallback-style": {
+                    "description": "Fallback coding style. See clang-format -fallback-style switch for values that can be specified for this setting",
+                    "type": "string"
+                },
+                "sort-includes": {
+                    "description": "Control sorting of include files",
+                    "type": "boolean"
+                }
+            }
+        }
+    },
+    "properties": {
+        "configurations": {
+            "$ref": "#/definitions/configurations"
+        },
+        "clang_format": {
+            "$ref": "#/definitions/clang_format"
+        }
+    },
+    "required": [
+        "configurations"
+    ]
+}
