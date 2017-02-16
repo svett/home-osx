@@ -1,67 +1,16 @@
 "*":
-  "autocomplete-plus":
-    autoActivationDelay: 0
-    navigateCompletions: "ctrl-p,ctrl-n"
   core:
-    customFileTypes:
-      "source.ini": [
-        ".buckconfig"
-        ".hgrc"
-      ]
-      "source.json": [
-        ".arcconfig"
-        "BUCK.autodeps"
-      ]
-      "source.python": [
-        "BUCK"
-      ]
-    disabledPackages: [
-      "file-icons"
-      "autocomplete"
-      "minimap"
-      "vim-mode"
-      "tree-view"
-    ]
-    telemetryConsent: "limited"
+    telemetryConsent: "no"
     themes: [
-      "nucleus-dark-ui"
-      "monokai-shade"
+      "atom-visual-studio-code-ui"
+      "base16-tomorrow-dark-theme"
     ]
-  editor:
-    autoIndentOnPaste: false
-    invisibles: {}
-    scrollPastEnd: true
-    scrollSensitivity: 20
-    showIndentGuide: true
-    softWrap: true
   "exception-reporting":
-    userId: "2ea2c470-8b70-1c35-89f6-8813faaa465a"
-  "go-plus":
-    environmentOverridesConfiguration: true
-    goInstallation: "/usr/local/Cellar/go/1.7.1/bin/go"
-    goPath: "~/go"
-    lintOnSave: false
-    vetOnSave: false
-  gocode:
-    includeCompletionsFromAllBuffers: false
-  hidpi:
-    cutoffHeight: 1539
-    cutoffWidth: 2560
-  linter: {}
-  metrics:
-    userId: "52da33fcb06c65312f0480376129b839bdd3774a"
-  minimap:
-    plugins:
-      "find-and-replace": true
-      "highlight-selected": true
-  nuclide:
-    installRecommendedPackages: true
-  react: {}
-  "tree-view": {}
-  "vim-mode":
-    useSmartcaseForSearch: true
-  welcome:
-    showOnStartup: false
-  whitespace:
-    ignoreWhitespaceOnCurrentLine: false
-  "wrap-lines": {}
+    userId: "80ec0aa6-4854-4e7d-a36a-47607e003f85"
+  "nord-atom-ui": {}
+  "terminal-plus":
+    core:
+      mapTerminalsTo: "Folder"
+    toggles:
+      autoClose: true
+      cursorBlink: false

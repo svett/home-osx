@@ -1,0 +1,186 @@
+################################
+# Block-level snippets
+################################
+
+'.source.ts':
+
+  'Describe block':
+    prefix: 'des'
+    body: """
+      describe('${1:description}', () => {
+      \t$2
+      });$3
+    """
+  'It block':
+    prefix: 'it'
+    body: """
+      it('${1:description}', () => {
+      \t$2
+      });$3
+    """
+  'It Async block':
+    prefix: 'itA'
+    body: """
+      it('${1:description}', (${2:done}) => {
+      \t$3
+      \t${2:done}();
+      });$4
+    """
+  'After-Each block':
+    prefix: 'aft'
+    body: """
+      afterEach(() => {
+      \t$1
+      });$2
+    """
+  'After-Each Async block':
+    prefix: 'aftA'
+    body: """
+      afterEach((${1:done}) => {
+      \t$2
+      \t${1:done}();
+      });$3
+    """
+  'Before-Each block':
+    prefix: 'bef'
+    body: """
+      beforeEach(() => {
+      \t$1
+      });$2
+    """
+  'Before-Each Async block':
+    prefix: 'befA'
+    body: """
+      beforeEach((${1:done}) => {
+      \t$2
+      \t${1:done}();
+      });$3
+    """
+  'Runs':
+    prefix: 'ru'
+    body: """
+      runs(() => {
+      \t$1
+      });$2
+    """
+
+
+'.source.js':
+
+  'Describe block':
+    prefix: 'des'
+    body: """
+      describe('${1:description}', function() {
+      \t$2
+      });$3
+    """
+  'It block':
+    prefix: 'it'
+    body: """
+      it('${1:description}', function() {
+      \t$2
+      });$3
+    """
+  'It Async block':
+    prefix: 'itA'
+    body: """
+      it('${1:description}', function(${2:done}) {
+      \t$3
+      \t${2:done}();
+      });$4
+    """
+  'After-Each block':
+    prefix: 'aft'
+    body: """
+      afterEach(function() {
+      \t$1
+      });$2
+    """
+  'After-Each Async block':
+    prefix: 'aftA'
+    body: """
+      afterEach(function(${1:done}) {
+      \t$2
+      \t${1:done}();
+      });$3
+    """
+  'Before-Each block':
+    prefix: 'bef'
+    body: """
+      beforeEach(function() {
+      \t$1
+      });$2
+    """
+  'Before-Each Async block':
+    prefix: 'befA'
+    body: """
+      beforeEach(function(${1:done}) {
+      \t$2
+      \t${1:done}();
+      });$3
+    """
+  'Runs':
+    prefix: 'ru'
+    body: """
+      runs(function() {
+      \t$1
+      });$2
+    """
+
+
+'.source.coffee':
+
+  'Describe block':
+    prefix: 'des'
+    body: """
+      describe '${1:description}', ->
+      \t$2
+    """
+  'It block':
+    prefix: 'it'
+    body: """
+      it '${1:description}', ->
+      \t$2
+    """
+  'It Async block':
+    prefix: 'itA'
+    body: """
+      it '${1:description}', (${2:done}) ->
+      \t$3
+      \t${2:done}();
+      $4
+    """
+  'After-Each block':
+    prefix: 'aft'
+    body: """
+      afterEach ->
+      \t$1
+    """
+  'After-Each block':
+    prefix: 'aftA'
+    body: """
+      afterEach (${1:done}) ->
+      \t$2
+      \t${1:done}();
+      $3
+    """
+  'Before-Each block':
+    prefix: 'bef'
+    body: """
+      beforeEach ->
+      \t$1
+    """
+  'Before-Each Async block':
+    prefix: 'befA'
+    body: """
+      beforeEach (${1:done}) ->
+      \t$2
+      \t${1:done}();
+      $3
+    """
+  'Runs':
+    prefix: 'ru'
+    body: """
+      runs ->
+      \t$1
+    """

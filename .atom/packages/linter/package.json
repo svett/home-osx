@@ -2,45 +2,45 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1392-3wgr29/package.tgz",
+        "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-21891-1p8ipx5/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1392-3wgr29/package.tgz",
-        "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1392-3wgr29/package.tgz",
+        "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-21891-1p8ipx5/package.tgz",
+        "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-21891-1p8ipx5/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1392-fs4454"
+      "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117116-21891-1ou967z"
     ]
   ],
-  "_from": "../d-117018-1392-3wgr29/package.tgz",
-  "_id": "linter@1.11.21",
+  "_from": "../d-117116-21891-1p8ipx5/package.tgz",
+  "_id": "linter@1.11.23",
   "_inCache": true,
   "_installable": true,
   "_location": "/linter",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1392-3wgr29/package.tgz",
+    "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-21891-1p8ipx5/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1392-3wgr29/package.tgz",
-    "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1392-3wgr29/package.tgz",
+    "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-21891-1p8ipx5/package.tgz",
+    "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-21891-1p8ipx5/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117018-1392-3wgr29/package.tgz",
-  "_shasum": "03a2ae350e04482afb21aa9408018537f5768ea0",
+  "_resolved": "file:../d-117116-21891-1p8ipx5/package.tgz",
+  "_shasum": "e5b6b42c0e7af49a560602916c5dcaa612603788",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117018-1392-3wgr29/package.tgz",
-  "_where": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117018-1392-fs4454",
+  "_spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-21891-1p8ipx5/package.tgz",
+  "_where": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117116-21891-1ou967z",
   "author": {
-    "name": "atom-community"
+    "name": "steelbrain"
   },
   "bugs": {
-    "url": "https://github.com/atom-community/linter/issues"
+    "url": "https://github.com/steelbrain/linter/issues"
   },
   "consumedServices": {
     "linter": {
@@ -63,7 +63,7 @@
   "engines": {
     "atom": ">=1.13.0 <2.0.0"
   },
-  "homepage": "https://github.com/atom-community/linter#readme",
+  "homepage": "https://github.com/steelbrain/linter#readme",
   "license": "MIT",
   "main": "./lib/main",
   "name": "linter",
@@ -84,10 +84,10 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atom-community/linter.git"
+    "url": "git+https://github.com/steelbrain/linter.git"
   },
   "scripts": {
     "lint": "coffeelint lib && eslint lib"
   },
-  "version": "1.11.21"
+  "version": "1.11.23"
 }

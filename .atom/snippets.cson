@@ -13,32 +13,9 @@
 #     'prefix': 'log'
 #     'body': 'console.log $1'
 #
-
-'.source.go':
-  "It":
-    "prefix": "it"
-    "body": "It(\"$1\", func() {\n\t$2\n})"
-
-  "Context":
-    "prefix": "con"
-    "body": "Context(\"$1\", func() {\n\t$2\n})"
-
-  "Describe":
-    "prefix": "des"
-    "body": "Describe(\"$1\", func() {\n\t$2\n})"
-
-  "BeforeEach":
-    "prefix": "bef"
-    "body": "BeforeEach(func() {\n\t$1\n})"
-
-  "AfterEach":
-    "prefix": "aft"
-    "body": "AfterEach(func() {\n\t$1\n})"
-
-  "JustBeforeEach":
-    "prefix": "just"
-    "body": "JustBeforeEach(func() {\n\t$1\n})"
-
-  "Ω(err).ShouldNot(HaveOccurred())":
-    "prefix": "Ωerr"
-    "body": "Ω(${1:err}).ShouldNot(HaveOccurred())"
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson

@@ -1,0 +1,55 @@
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Language CSS                                        +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2016                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Supports LESSCSS and Sass.
+
+[Language Packages]
+  > language-css (https://atom.io/packages/language-css)
+
+[References]
+LESSCSS
+  (http://lesscss.org)
+Sass
+  (http://sass-lang.com)
+W3C
+  (https://www.w3.org/TR/css3-roadmap)
+*/
+.syntax--source.syntax--css,
+.syntax--source.syntax--css.syntax--less,
+.syntax--source.syntax--css.syntax--scss,
+.syntax--source.syntax--css.syntax--sass {
+  .syntax--meta {
+    &.syntax--at-rule {
+      .syntax--punctuation.syntax--definition.syntax--keyword {
+        color: @syntax-color-keyword;
+      }
+
+      & > .syntax--string.syntax--quoted {
+        color: @syntax-color-class;
+      }
+    }
+
+    &.syntax--property-value {
+      .syntax--punctuation.syntax--definition.syntax--constant {
+        color: @syntax-color-keyword;
+      }
+    }
+  }
+
+  .syntax--support {
+    &.syntax--constant.syntax--property-value {
+      color: @syntax-color-keyword;
+    }
+
+    &.syntax--type.syntax--property-name {
+      color: @syntax-color-css-property;
+    }
+  }
+}

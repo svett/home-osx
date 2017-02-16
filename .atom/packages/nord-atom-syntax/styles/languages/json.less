@@ -1,0 +1,43 @@
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Language JSON                                       +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2016                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Language Packages]
+  > language-json (https://atom.io/packages/language-json)
+
+[References]
+JSON
+  (http://www.json.org)
+*/
+.syntax--source.syntax--json {
+  .syntax--meta.syntax--structure.syntax--dictionary.syntax--json {
+    & > .syntax--string.syntax--quoted.syntax--json {
+      color: @syntax-color-attribute;
+
+      & > .syntax--punctuation.syntax--string {
+        color: @syntax-color-punctuation;
+      }
+    }
+  }
+
+  .syntax--meta.syntax--structure.syntax--dictionary.syntax--json,
+  .syntax--meta.syntax--structure.syntax--array.syntax--json {
+    & > .syntax--constant.syntax--language.syntax--json {
+      color: @syntax-color-keyword;
+    }
+
+    & > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+      color: @syntax-color-string;
+    }
+
+    & > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+      color: @syntax-color-punctuation;
+    }
+  }
+}

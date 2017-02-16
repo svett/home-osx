@@ -1,0 +1,26 @@
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Language Go                                         +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2016                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Language Packages]
+  > language-go (https://atom.io/packages/language-go)
+
+[References]
+Go
+  (https://golang.org)
+*/
+.syntax--source.syntax--go {
+  .syntax--entity.syntax--name.syntax--package {
+    color: @syntax-color-import;
+  }
+
+  .syntax--storage.syntax--type.syntax--string {
+      color: @syntax-color-class;
+  }
+}

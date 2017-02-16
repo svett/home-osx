@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-23320-lcv1v2/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-23320-lcv1v2/package.tgz",
+        "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-23320-lcv1v2/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117116-23320-hwqfsl"
+    ]
+  ],
+  "_from": "../d-117116-23320-lcv1v2/package.tgz",
+  "_id": "atom-visual-studio-code-ui@1.3.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/atom-visual-studio-code-ui",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-23320-lcv1v2/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-23320-lcv1v2/package.tgz",
+    "spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-23320-lcv1v2/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117116-23320-lcv1v2/package.tgz",
+  "_shasum": "e3b105c21efed56f253260acdd2ef0cce8b86ebd",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/d-117116-23320-lcv1v2/package.tgz",
+  "_where": "/private/var/folders/7g/_5mng7112091wl09f9t8g_w00000gn/T/apm-install-dir-117116-23320-hwqfsl",
+  "bugs": {
+    "url": "https://github.com/Zeioth/atom-visual-studio-code-ui/issues"
+  },
+  "dependencies": {},
+  "description": "The experience of Visual Studio Code, now in Atom.",
+  "devDependencies": {
+    "coffeelint": "^1.9.7"
+  },
+  "engines": {
+    "atom": ">0.40.0"
+  },
+  "homepage": "https://github.com/Zeioth/atom-visual-studio-code-ui#readme",
+  "keywords": [
+    "visual",
+    "studio",
+    "code",
+    "ui",
+    "theme",
+    "atom"
+  ],
+  "license": "MIT",
+  "name": "atom-visual-studio-code-ui",
+  "optionalDependencies": {},
+  "readme": "## Atom Visual Studio Code UI theme [![Build Status](https://travis-ci.org/atom/one-dark-ui.svg?branch=master)](https://travis-ci.org/atom/one-dark-ui)\n\n![Banner Atom Visual Studio Code UI](https://cloud.githubusercontent.com/assets/3357792/10440872/3af1d882-7143-11e5-9df9-2c1d0aa5e919.png)\n\nThis theme aims to reproduce the exact feeling of work with Visual Studio Code. So you don't need to renounce to the features of Atom to enjoy a great workflow. It looks even better with monokai syntax. If you prefer, there is an [alternative version](https://atom.io/themes/atom-visual-studio-code-light-ui) in light colors.\n\nMade by [@Zeioth](https://twitter.com/Zeioth)\n\n---\n\n![atom-visual-studio-code-ui](https://cloud.githubusercontent.com/assets/3357792/10440991/538ad92e-7144-11e5-8a93-b4752fa40f2b.png)\n\n### Install your toolbar\n\nAfter you install this theme you'll only have the color scheme of __Visual Studio Code__. To enjoy the full experience you must install the next packages.\n\n1. `tool-bar` by suda - This will enable the sidebar. You can set the position to left.\n2. `flex-tool-bar` by cakecatz - It will allow us to configure the elements of the tool-bar.\n3. `git-plus` by akonwi - Having this you can run git commands from your toolbar.\n\n### Customize your toolbar\n\nYou can't see the toolbar yet. To configure it, you must press ctrl+shift+p and write \"Flex Tool Bar: Edit Config File\". Then paste this code and save it. You should be able to see your new toolbar after restart Atom.\n\n```json\n[\n  {\n    type: \"button\"\n    iconset: \"ion\"\n    icon: \"ios-copy\"\n    callback: \"tree-view:toggle\"\n    tooltip: \"Toggle Project Tree\"\n  }\n  {\n    type: \"button\"\n    iconset: \"fa\"\n    icon: \"columns\"\n    tooltip: \"Split Screen\"\n    callback: [\"pane:split-right\"]\n  }\n  {\n    type: \"button\"\n    iconset: \"devicon\"\n    icon: \"git-plain\"\n    callback: \"git-plus:menu\"\n    tooltip: \"Git\"\n    style:\n      color: \"#0198E1\"\n  }\n  {\n    type: \"url\"\n    iconset: \"ion\"\n    icon: \"bug\"\n    url: \"http://localhost:8000\"\n    tooltip: \"Debug Django Project\"\n    show: [ \"Python\", \"HTML\", \"JavaScript\" ]\n  }\n]\n```\n\n### FAQ\n__Can I custumize this theme?__\nYes, you can change anything in your styles.less like this:\n```css\n.theme-atom-visual-studio-code-ui {\n  atom-text-editor {\n    background-color: #272822;\n  }\n}\n```\n__My toolbar icons are too small!__\nYou can edit the size of the icons in \"Preferences > Packages > Tool-bar\".\n\n__Something has an incorrect color or size?__\nGo to our Github repository, and open an issue uploading an image of your problem. I will fix it as soon as possible. Also, this theme is based on One Dark UI, so if you need further help, please refer to the documentation of said theme.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zeioth/atom-visual-studio-code-ui.git"
+  },
+  "theme": "ui",
+  "version": "1.3.4"
+}

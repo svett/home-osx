@@ -1,0 +1,110 @@
+################################
+# Expectations
+################################
+
+'.source.js, .source.ts':
+
+  'Expect not to be defined':
+    prefix: 'notd'
+    body:   'expect($1).not.toBeDefined();$2'
+  'Expect not to be falsy':
+    prefix: 'notf'
+    body:   'expect(${1:target}).not.toBeFalsy();$2'
+  'Expect not to be null':
+    prefix: 'notn'
+    body:   'expect(${1:target}).not.toBeNull();$2'
+  'Expect not to be truthy':
+    prefix: 'nott'
+    body:   'expect(${1:target}).not.toBeTruthy();$2'
+  'Expect not to contain':
+    prefix: 'notc'
+    body:   'expect(${1:target}).not.toContain(${2:value});$3'
+
+  'Expect to be defined':
+    prefix: 'ed'
+    body: 'expect($1).toBeDefined();$2'
+  'Expect to be falsy':
+    prefix: 'ef'
+    body:   'expect(${1:target}).toBeFalsy();$2'
+  'Expect to be null':
+    prefix: 'en'
+    body:   'expect(${1:target}).toBeNull();$2'
+  'Expect to be truthy':
+    prefix: 'et'
+    body:   'expect(${1:target}).toBeTruthy();$2'
+  'Expect to contain':
+    prefix: 'ec'
+    body:   'expect(${1:target}).toContain(${2:value});$3'
+  'Expect to equal':
+    prefix: 'ee'
+    body:   'expect(${1:target}).toEqual(${2:value});$3'
+  'Expect to match':
+    prefix: 'em'
+    body:   'expect(${1:target}).toMatch(${2:pattern});$3'
+  'Expect to have been called':
+    prefix: 'ebc'
+    body:   'expect(${1:target}).toHaveBeenCalled();$2'
+  'Expect to have been called with':
+    prefix: 'ebcw'
+    body:   'expect(${1:target}).toHaveBeenCalledWith("${2:value}");$3'
+  'Expect to throw error':
+    prefix: 'ete'
+    body:   'expect(${1:target}).toThrowError("${2:error}");$3'
+
+  'Expect':
+    prefix: 'ex'
+    body: 'expect($1)$2;$3'
+
+
+'.source.coffee':
+
+  'Expect not to be defined':
+    prefix: 'notd'
+    body:   'expect($1).not.toBeDefined()$2'
+  'Expect not to be falsy':
+    prefix: 'notf'
+    body:   'expect(${1:target}).not.toBeFalsy()$2'
+  'Expect not to be null':
+    prefix: 'notn'
+    body:   'expect(${1:target}).not.toBeNull()$2'
+  'Expect not to be truthy':
+    prefix: 'nott'
+    body:   'expect(${1:target}).not.toBeTruthy()$2'
+  'Expect not to contain':
+    prefix: 'notc'
+    body:   'expect(${1:target}).not.toContain(${2:value})$3'
+
+  'Expect to be defined':
+    prefix: 'ed'
+    body: 'expect($1).toBeDefined()$2'
+  'Expect to be falsy':
+    prefix: 'ef'
+    body:   'expect(${1:target}).toBeFalsy()$2'
+  'Expect to be null':
+    prefix: 'en'
+    body:   'expect(${1:target}).toBeNull()$2'
+  'Expect to be truthy':
+    prefix: 'et'
+    body:   'expect(${1:target}).toBeTruthy()$2'
+  'Expect to contain':
+    prefix: 'ec'
+    body:   'expect(${1:target}).toContain(${2:value})$3'
+  'Expect to equal':
+    prefix: 'ee'
+    body:   'expect(${1:target}).toEqual(${2:value})$3'
+  'Expect to match':
+    prefix: 'em'
+    body:   'expect(${1:target}).toMatch(${2:pattern})$3'
+  'Expect to have been called':
+    prefix: 'ebc'
+    body:   'expect(${1:target}).toHaveBeenCalled()$2'
+  'Expect to have been called with':
+    prefix: 'ebcw'
+    body:   'expect(${1:target}).toHaveBeenCalledWith("${2:value}")$3'
+  'Expect to throw error':
+    prefix: 'ete'
+    body:   'expect(${1:target}).toThrowError("${2:error}")$3'
+
+  'Expect':
+    prefix: 'ex'
+    body: 'expect($1)$2'

@@ -1,0 +1,28 @@
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Language C#                                         +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2016                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Language Packages]
+  > language-csharp (https://atom.io/packages/language-csharp)
+
+[References]
+Microsoft .NET Framework
+  (https://www.microsoft.com/net)
+*/
+.syntax--source.syntax--cs {
+  .syntax--meta {
+    &.syntax--method.syntax--annotation {
+      color: @syntax-color-annotation;
+    }
+
+    &.syntax--namespace.syntax--body {
+      color: @syntax-color-class;
+    }
+  }
+}

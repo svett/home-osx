@@ -1,0 +1,26 @@
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Language GLSL                                       +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2016                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Language Packages]
+  > language-glsl (https://atom.io/packages/language-glsl)
+
+[References]
+OpenGL
+  (https://www.opengl.org/documentation/glsl)
+*/
+.syntax--source.syntax--glsl {
+  .syntax--punctuation.syntax--definition.syntax--directive {
+    color: @syntax-color-keyword;
+  }
+
+  .syntax--string.syntax--include {
+    color: @syntax-color-class;
+  }
+}

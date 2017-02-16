@@ -1,0 +1,30 @@
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Language Ruby                                       +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2016                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Language Packages]
+  > language-ruby (https://atom.io/packages/language-ruby)
+
+[References]
+Ruby
+  (https://www.ruby-lang.org)
+*/
+.syntax--source.syntax--ruby {
+  .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+    color: @syntax-color-keyword;
+  }
+
+  .syntax--variable.syntax--other.syntax--constant {
+    color: @syntax-color-constant;
+  }
+
+  .syntax--punctuation.syntax--definition.syntax--variable {
+    color: @syntax-color-keyword;
+  }
+}

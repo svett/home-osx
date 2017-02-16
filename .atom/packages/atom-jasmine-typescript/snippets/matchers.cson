@@ -1,0 +1,32 @@
+  ################################
+  # Matchers
+  ################################
+
+'.source.js, .source.ts':
+
+  'Partial matching with jasmine.objectContaining':
+    prefix: 'oc'
+    body:   'jasmine.objectContaining({${1:property}: ${2:value}})'
+
+
+'.source.coffee':
+
+  'Partial matching with jasmine.objectContaining':
+    prefix: 'oc'
+    body:   'jasmine.objectContaining ${1:property}: ${2:value}'
+
+
+'.source.js, .source.ts, .source.coffee':
+
+  'String Matching with jasmine.stringMatching':
+    prefix: 'sm'
+    body:   'jasmine.stringMatching($1)'
+  'Partial Array Matching with jasmine.arrayContaining':
+    prefix: 'ac'
+    body:   'jasmine.arrayContaining([$1])'
+  'Matching existence with jasmine.anything':
+    prefix: 'anyt'
+    body:   'jasmine.anything()'
+  'Matching Anything with jasmine.any':
+    prefix: 'any'
+    body:   'jasmine.any($1)'

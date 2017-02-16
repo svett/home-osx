@@ -1,4 +1,0 @@
-[merge]
-	tool = atom
-[mergetool "atom"]
-	cmd = atom_merge $MERGED

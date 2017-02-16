@@ -1,0 +1,51 @@
+################################
+# Spies
+###############################
+
+'.source.js, .source.ts':
+
+  'spyOn':
+    prefix: 'spy'
+    body:   "spyOn(${1:target}, '${2:method}');$3"
+  'spyOn.and.callThrough':
+    prefix: 'spyc'
+    body:   "spyOn(${1:target}, '${2:method}').and.callThrough();$3"
+  'spyOn.and.returnValue':
+    prefix: 'spyv'
+    body:   "spyOn(${1:target}, '${2:method}').and.returnValue(${3:value});$4"
+  'spyOn.and.callFake':
+    prefix: 'spyf'
+    body:   "spyOn(${1:target}, '${2:method}').and.callFake(${3:value});$4"
+  'spyOn.and.throwError':
+    prefix: 'spye'
+    body:   "spyOn(${1:target}, '${2:method}').and.throwError('${3:error}');$4"
+  'jasmine.createSpy':
+    prefix: 'cspy'
+    body:   "${1:target} = jasmine.createSpy('${1:target}');$2"
+  'jasmine.createSpyObj':
+    prefix: 'spyo'
+    body:   "${1:obj} = jasmine.createSpyObj('${1:obj}', ['${2:method}']);$3"
+
+'.source.coffee':
+
+  'spyOn':
+    prefix: 'spy'
+    body:   "spyOn(${1:target}, '${2:method}')$3"
+  'spyOn.and.callThrough':
+    prefix: 'spyc'
+    body:   "spyOn(${1:target}, '${2:method}').and.callThrough()$3"
+  'spyOn.and.returnValue':
+    prefix: 'spyv'
+    body:   "spyOn(${1:target}, '${2:method}').and.returnValue(${3:value})$4"
+  'spyOn.and.callFake':
+    prefix: 'spyf'
+    body:   "spyOn(${1:target}, '${2:method}').and.callFake(${3:value})$4"
+  'spyOn.and.throwError':
+    prefix: 'spye'
+    body:   "spyOn(${1:target}, '${2:method}').and.throwError('${3:error}')$4"
+  'jasmine.createSpy':
+    prefix: 'cspy'
+    body:   "${1:target} = jasmine.createSpy('${1:target}')$2"
+  'jasmine.createSpyObj':
+    prefix: 'spyo'
+    body:   "${1:obj} = jasmine.createSpyObj('${1:obj}', ['${2:method}'])$3"
