@@ -154,8 +154,7 @@ update_npm_packages() {
   npm install -g karma-cli
   npm install -g typescript
   npm install -g tslint
-  npm install -g react-to-typescript-definitions
-  npm install -g react-native-cli
+  npm install -g stylelint
 }
 
 configure_gimp() {
