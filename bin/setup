@@ -155,6 +155,7 @@ update_npm_packages() {
   npm install -g typescript
   npm install -g tslint
   npm install -g stylelint
+  npm install -g webpack
 }
 
 configure_gimp() {
