@@ -1,0 +1,10 @@
+  {
+    "defaults": [
+    ],
+    "expressions": [
+      {
+        "match": "test64",
+        "replace": "-I\n$1"
+      }
+    ]
+  }

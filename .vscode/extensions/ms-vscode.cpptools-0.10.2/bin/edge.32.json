@@ -1,0 +1,10 @@
+  {
+    "defaults": [
+    ],
+    "expressions": [
+      {
+        "match": "test32",
+        "replace": "-I\n$1"
+      }
+    ]
+  }

@@ -1,0 +1,33 @@
+"use strict";
+var LangResourceKeys;
+(function (LangResourceKeys) {
+    LangResourceKeys[LangResourceKeys["newVersionMessage"] = 0] = "newVersionMessage";
+    LangResourceKeys[LangResourceKeys["seeReleaseNotes"] = 1] = "seeReleaseNotes";
+    LangResourceKeys[LangResourceKeys["dontShowThis"] = 2] = "dontShowThis";
+    LangResourceKeys[LangResourceKeys["seeReadme"] = 3] = "seeReadme";
+    LangResourceKeys[LangResourceKeys["welcomeMessageBegin"] = 4] = "welcomeMessageBegin";
+    LangResourceKeys[LangResourceKeys["welcomeMessageEnd"] = 5] = "welcomeMessageEnd";
+    LangResourceKeys[LangResourceKeys["activationPath"] = 6] = "activationPath";
+    LangResourceKeys[LangResourceKeys["aboutOfficialApi"] = 7] = "aboutOfficialApi";
+    LangResourceKeys[LangResourceKeys["learnMore"] = 8] = "learnMore";
+    LangResourceKeys[LangResourceKeys["urlReleaseNote"] = 9] = "urlReleaseNote";
+    LangResourceKeys[LangResourceKeys["urlReadme"] = 10] = "urlReadme";
+    LangResourceKeys[LangResourceKeys["urlOfficialApi"] = 11] = "urlOfficialApi";
+    LangResourceKeys[LangResourceKeys["reload"] = 12] = "reload";
+    LangResourceKeys[LangResourceKeys["autoReload"] = 13] = "autoReload";
+    LangResourceKeys[LangResourceKeys["disableDetect"] = 14] = "disableDetect";
+    LangResourceKeys[LangResourceKeys["iconCustomizationMessage"] = 15] = "iconCustomizationMessage";
+    LangResourceKeys[LangResourceKeys["iconRestoreMessage"] = 16] = "iconRestoreMessage";
+    LangResourceKeys[LangResourceKeys["ngPresetMessage"] = 17] = "ngPresetMessage";
+    LangResourceKeys[LangResourceKeys["jsOfficialPresetMessage"] = 18] = "jsOfficialPresetMessage";
+    LangResourceKeys[LangResourceKeys["tsOfficialPresetMessage"] = 19] = "tsOfficialPresetMessage";
+    LangResourceKeys[LangResourceKeys["jsonOfficialPresetMessage"] = 20] = "jsonOfficialPresetMessage";
+    LangResourceKeys[LangResourceKeys["hideFoldersPresetMessage"] = 21] = "hideFoldersPresetMessage";
+    LangResourceKeys[LangResourceKeys["enabled"] = 22] = "enabled";
+    LangResourceKeys[LangResourceKeys["disabled"] = 23] = "disabled";
+    LangResourceKeys[LangResourceKeys["restart"] = 24] = "restart";
+    LangResourceKeys[LangResourceKeys["ngDetected"] = 25] = "ngDetected";
+    LangResourceKeys[LangResourceKeys["nonNgDetected"] = 26] = "nonNgDetected";
+    LangResourceKeys[LangResourceKeys["projectDetecticonResetMessage"] = 27] = "projectDetecticonResetMessage";
+})(LangResourceKeys = exports.LangResourceKeys || (exports.LangResourceKeys = {}));
+//# sourceMappingURL=langResourceKeys.js.map
