@@ -54,6 +54,8 @@
 .kodi
 .m2
 .yarnrc
+.gradle
+.android
 iCloud Drive (Archive)
 workspace
 go
