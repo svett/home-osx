@@ -16,6 +16,7 @@ main() {
 
   install_ruby
   install_ruby_gems
+  install_python_packages
 
   osx_configure
   osx_appstore_update
@@ -63,7 +64,13 @@ install_ruby() {
 }
 
 install_ruby_gems() {
-  gem install 'bundler'
+  gem install bundler
+  gem install neovim
+  gem install rcodetools
+}
+
+install_python_packages() {
+  pip install neovim
 }
 
 osx_software_update() {
