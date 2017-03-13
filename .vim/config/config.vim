@@ -117,3 +117,7 @@ set viminfo='200
 
 let g:python_host_prog = '/usr/local/bin/python2.7'
 let g:python3_host_prog = '/usr/local/bin/python3'
+
+if has('nvim')
+  set termguicolors
+end
