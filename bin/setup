@@ -71,6 +71,7 @@ install_ruby_gems() {
 
 install_python_packages() {
   pip install neovim
+  pip3 install neovim
 }
 
 osx_software_update() {

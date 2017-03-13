@@ -6,7 +6,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Universal set of vim defaults that everyone can agree on
-Plugin 'tpope/vim-sensible'
+if !has('nvim')"
+ Plugin 'tpope/vim-sensible'
+end
 
 " comment stuff out (via leader-/)
 Plugin 'tpope/vim-commentary'
