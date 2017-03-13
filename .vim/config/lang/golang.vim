@@ -35,15 +35,23 @@ let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "ultisnips"
 let g:go_auto_type_info = 0
 let g:go_fmt_autosave = 1
-let g:go_bin_path = expand("~/go")
+let g:go_bin_path = expand("~/go/bin")
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
 let g:go_term_height = 15
 
+" this breaks folding on vim < 8.0 or neovim
+if v:version >= 800 || has('nvim')
+  let g:go_fmt_experimental = 1
+endif
+
 if has('nvim')
-   let g:gomakeprg =
-    \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
-      \ '! PATH=' . g:go_bin_path . ':' . $PATH . ' gometalinter ' .
+  let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
+  let g:neomake_go_enabled_makers = []
+  let g:deoplete#sources#go#align_class = 1
+  let g:gomakeprg =
+        \ 'go test -o /tmp/vim-go-test -c ./%:h && ' .
+        \ '! PATH=' . g:go_bin_path . ':' . $PATH . ' gometalinter ' .
         \ '--tests ' .
         \ '--disable-all ' .
         \ '--enable=vet ' .
@@ -51,26 +59,22 @@ if has('nvim')
         \ '--enable=errcheck ' .
         \ '--sort=severity ' .
         \ '--exclude "should have comment" ' .
-      \ '| grep "%"'
+        \ '| grep "%"'
 
   " match gometalinter + go test output
   let g:goerrorformat =
-    \ '%f:%l:%c:%t%*[^:]:\ %m,' .
-    \ '%f:%l::%t%*[^:]:\ %m,' .
-    \ '%W%f:%l: warning: %m,' .
-    \ '%E%f:%l:%c:%m,' .
-    \ '%E%f:%l:%m,' .
-    \ '%C%\s%\+%m,' .
-    \ '%-G#%.%#'
+        \ '%f:%l:%c:%t%*[^:]:\ %m,' .
+        \ '%f:%l::%t%*[^:]:\ %m,' .
+        \ '%W%f:%l: warning: %m,' .
+        \ '%E%f:%l:%c:%m,' .
+        \ '%E%f:%l:%m,' .
+        \ '%C%\s%\+%m,' .
+        \ '%-G#%.%#'
 
   " wire in Neomake
   autocmd BufEnter *.go let &makeprg = gomakeprg
   autocmd BufEnter *.go let &errorformat = goerrorformat
   autocmd! BufWritePost *.go Neomake!
-  let g:neomake_go_enabled_makers = []
-
-  let g:deoplete#sources#go#gocode_binary	= g:go_bin_path . '/gocode'
-  let g:deoplete#sources#go#align_class = 1
 else
   let g:syntastic_go_gometalinter_args = '' .
         \ '--tests ' .

@@ -27,11 +27,17 @@ runtime! config/plugin/fugitive.vim
 runtime! config/plugin/git.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/multicursor.vim
-runtime! config/plugin/neocomplete.vim
+runtime! config/plugin/neomake.vim
 runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/rainbow.vim
 runtime! config/plugin/syntastic.vim
 runtime! config/plugin/tagbar.vim
+
+if has('nvim')
+  runtime! config/plugin/deoplete.vim
+else 
+  runtime! config/plugin/neocomplete.vim
+end
 
 "
 " --------------------

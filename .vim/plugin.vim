@@ -5,10 +5,21 @@ call vundle#begin()
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
-" Universal set of vim defaults that everyone can agree on
-if !has('nvim')"
- Plugin 'tpope/vim-sensible'
+if has('nvim')"
+  " provides an asynchronous keyword completion system in the current buffer
+  Plugin 'Shougo/deoplete.nvim'
+  " deoplete.nvim source for Golang and gocode or vim-go
+  Plugin 'zchee/deoplete-go', { 'do': 'make' }
+else
+  " Universal set of vim defaults that everyone can agree on
+  Plugin 'tpope/vim-sensible'
+
+  " Next generation completion framework after neocomplcache
+  Plugin 'Shougo/neocomplete.vim'
 end
+"
+" Syntax checking hacks for vim
+Plugin 'benekastah/neomake'
 
 " comment stuff out (via leader-/)
 Plugin 'tpope/vim-commentary'
@@ -131,8 +142,5 @@ Plugin 'luan/vim-bosh'
 
 " Color themes
 Plugin 'fatih/molokai'
-
-" Next generation completion framework after neocomplcache
-Plugin 'Shougo/neocomplete.vim'
 
 call vundle#end()
