@@ -651,54 +651,6 @@
     "_f_light_mustache": {
       "iconPath": "../../icons/file_type_light_mustache.svg"
     },
-    "_f_ng_component_js": {
-      "iconPath": "../../icons/file_type_ng_component_js.svg"
-    },
-    "_f_ng_component_ts": {
-      "iconPath": "../../icons/file_type_ng_component_ts.svg"
-    },
-    "_f_ng_controller_js": {
-      "iconPath": "../../icons/file_type_ng_controller_js.svg"
-    },
-    "_f_ng_controller_ts": {
-      "iconPath": "../../icons/file_type_ng_controller_ts.svg"
-    },
-    "_f_ng_directive_js": {
-      "iconPath": "../../icons/file_type_ng_directive_js.svg"
-    },
-    "_f_ng_directive_ts": {
-      "iconPath": "../../icons/file_type_ng_directive_ts.svg"
-    },
-    "_f_ng_module_js": {
-      "iconPath": "../../icons/file_type_ng_module_js.svg"
-    },
-    "_f_ng_module_ts": {
-      "iconPath": "../../icons/file_type_ng_module_ts.svg"
-    },
-    "_f_ng_pipe_js": {
-      "iconPath": "../../icons/file_type_ng_pipe_js.svg"
-    },
-    "_f_ng_pipe_ts": {
-      "iconPath": "../../icons/file_type_ng_pipe_ts.svg"
-    },
-    "_f_ng_routing_js": {
-      "iconPath": "../../icons/file_type_ng_routing_js.svg"
-    },
-    "_f_ng_routing_ts": {
-      "iconPath": "../../icons/file_type_ng_routing_ts.svg"
-    },
-    "_f_ng_service_js": {
-      "iconPath": "../../icons/file_type_ng_service_js.svg"
-    },
-    "_f_ng_service_ts": {
-      "iconPath": "../../icons/file_type_ng_service_ts.svg"
-    },
-    "_f_ng_smart_component_js": {
-      "iconPath": "../../icons/file_type_ng_smart_component_js.svg"
-    },
-    "_f_ng_smart_component_ts": {
-      "iconPath": "../../icons/file_type_ng_smart_component_ts.svg"
-    },
     "_f_nim": {
       "iconPath": "../../icons/file_type_nim.svg"
     },
@@ -1348,24 +1300,6 @@
     "xvc": "_f_matlab",
     "mustache": "_f_mustache",
     "mst": "_f_mustache",
-    "component.js": "_f_ng_component_js",
-    "component.ts": "_f_ng_component_ts",
-    "controller.js": "_f_ng_controller_js",
-    "controller.ts": "_f_ng_controller_ts",
-    "directive.js": "_f_ng_directive_js",
-    "directive.ts": "_f_ng_directive_ts",
-    "module.js": "_f_ng_module_js",
-    "module.ts": "_f_ng_module_ts",
-    "pipe.js": "_f_ng_pipe_js",
-    "pipe.ts": "_f_ng_pipe_ts",
-    "routing.js": "_f_ng_routing_js",
-    "routing.ts": "_f_ng_routing_ts",
-    "service.js": "_f_ng_service_js",
-    "service.ts": "_f_ng_service_ts",
-    "page.js": "_f_ng_smart_component_js",
-    "container.js": "_f_ng_smart_component_js",
-    "page.ts": "_f_ng_smart_component_ts",
-    "container.ts": "_f_ng_smart_component_ts",
     "njsproj": "_f_njsproj",
     "nupkg": "_f_nuget",
     "nuspec": "_f_nuget",
@@ -1583,8 +1517,6 @@
     "license.txt": "_f_license",
     "licence.txt": "_f_license",
     "include.xml": "_f_lime",
-    "app-routing.module.js": "_f_ng_routing_js",
-    "app-routing.module.ts": "_f_ng_routing_ts",
     ".nvmrc": "_f_node",
     ".npmignore": "_f_npm",
     ".npmrc": "_f_npm",
@@ -2072,24 +2004,6 @@
       "xvc": "_f_matlab",
       "mustache": "_f_light_mustache",
       "mst": "_f_light_mustache",
-      "component.js": "_f_ng_component_js",
-      "component.ts": "_f_ng_component_ts",
-      "controller.js": "_f_ng_controller_js",
-      "controller.ts": "_f_ng_controller_ts",
-      "directive.js": "_f_ng_directive_js",
-      "directive.ts": "_f_ng_directive_ts",
-      "module.js": "_f_ng_module_js",
-      "module.ts": "_f_ng_module_ts",
-      "pipe.js": "_f_ng_pipe_js",
-      "pipe.ts": "_f_ng_pipe_ts",
-      "routing.js": "_f_ng_routing_js",
-      "routing.ts": "_f_ng_routing_ts",
-      "service.js": "_f_ng_service_js",
-      "service.ts": "_f_ng_service_ts",
-      "page.js": "_f_ng_smart_component_js",
-      "container.js": "_f_ng_smart_component_js",
-      "page.ts": "_f_ng_smart_component_ts",
-      "container.ts": "_f_ng_smart_component_ts",
       "njsproj": "_f_njsproj",
       "nupkg": "_f_nuget",
       "nuspec": "_f_nuget",
@@ -2307,8 +2221,6 @@
       "license.txt": "_f_license",
       "licence.txt": "_f_license",
       "include.xml": "_f_lime",
-      "app-routing.module.js": "_f_ng_routing_js",
-      "app-routing.module.ts": "_f_ng_routing_ts",
       ".nvmrc": "_f_node",
       ".npmignore": "_f_npm",
       ".npmrc": "_f_npm",
