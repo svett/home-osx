@@ -56,6 +56,11 @@
 .yarnrc
 .gradle
 .android
+.IdentityService
+.ServiceHub
+.mono
+.sqlite_history
+.templateengine
 iCloud Drive (Archive)
 workspace
 go
