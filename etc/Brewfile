@@ -72,6 +72,7 @@ brew 'postgresql'
 brew 'sfk'
 brew 'nmap'
 brew 'typescript'
+brew 'asciinema'
 
 cask 'atom'
 cask 'google-chrome'
