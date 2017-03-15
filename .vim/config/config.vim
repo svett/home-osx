@@ -121,3 +121,5 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 if has('nvim')
   set termguicolors
 end
+
+autocmd FileType help setlocal nospell
