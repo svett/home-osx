@@ -1,0 +1,66 @@
+{
+	"name": "vscode-babel-coloring",
+	"displayName": "Babel ES6/ES7",
+	"description": "Adds JS Babel es6/es7 syntax coloring",
+	"version": "0.0.4",
+	"publisher": "dzannotti",
+	"engines": {
+		"vscode": "*"
+	},
+	"categories": [
+		"Languages"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dzannotti/vscode-babel/"
+	},
+	"bugs": "https://github.com/dzannotti/vscode-babel/issues",
+	"links": {
+		"getstarted": {
+			"uri": "https://github.com/dzannotti/vscode-babel/blob/master/README.md"
+		},
+		"support": {
+			"uri": "https://github.com/dzannotti/vscode-babel/issues"
+		}
+	},
+	"icon": "images/babel.png",
+	"galleryBanner": {
+		"color": "#323330",
+		"theme": "dark"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "javascript",
+				"aliases": [
+					"Javascript (Babel)"
+				],
+				"extensions": [
+					".js",
+					".jsx",
+					".es6"
+				],
+				"firstLine": "^#!.*\\bnode",
+				"mimetypes": [
+					"text/javascript"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "javascript",
+				"scopeName": "source.js.jsx",
+				"path": "./syntaxes/Babel Language.json"
+			},
+			{
+				"scopeName": "source.regexp.babel",
+				"path": "./syntaxes/Babel Regex.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "d7b592dd-41c9-4f2b-acf3-055ae65e55c6",
+		"publisherId": "f3764338-6fd9-45d3-be23-3da192e4db4b",
+		"publisherDisplayName": "dzannotti"
+	}
+}

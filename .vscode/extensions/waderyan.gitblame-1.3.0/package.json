@@ -1,0 +1,60 @@
+{
+	"name": "gitblame",
+	"displayName": "Git Blame",
+	"description": "See git blame information in the status bar.",
+	"version": "1.3.0",
+	"publisher": "waderyan",
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"galleryBanner": {
+		"color": "#f0efe7",
+		"theme": "light"
+	},
+	"icon": "images/git_icon.png",
+	"activationEvents": [
+		"*"
+	],
+	"keywords": [
+		"git",
+		"gitblame",
+		"blame"
+	],
+	"main": "./out/src/extension",
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"dependencies": {
+		"git-blame": "^0.1.1",
+		"moment": "^2.10.6",
+		"path": "^0.12.7",
+		"typescript": "^1.6.2",
+		"vscode": "0.10.x"
+	},
+	"homepage": "https://github.com/wadeanderson7/vscode-gitblame/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/wadeanderson7/vscode-gitblame/issues"
+	},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wadeanderson7/vscode-gitblame"
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.blame",
+				"title": "Git Blame"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "2335b326-c334-4e81-bc51-c408fcec6e7c",
+		"publisherId": "531ba7ca-0230-4a97-bfd1-0d02fdb02958",
+		"publisherDisplayName": "Wade Anderson"
+	}
+}
