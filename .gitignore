@@ -61,6 +61,7 @@
 .mono
 .sqlite_history
 .templateengine
+.babel.json
 iCloud Drive (Archive)
 workspace
 go
