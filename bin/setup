@@ -165,6 +165,7 @@ update_npm_packages() {
   npm install -g tslint
   npm install -g stylelint
   npm install -g webpack
+  npm install -g flow-bin
 }
 
 configure_gimp() {
