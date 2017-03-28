@@ -76,7 +76,6 @@ brew 'nmap'
 brew 'typescript'
 brew 'asciinema'
 
-cask 'atom'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'screenhero'
