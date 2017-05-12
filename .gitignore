@@ -62,6 +62,11 @@
 .sqlite_history
 .templateengine
 .babel.json
+.3T
+.ivy2
+.sbt
+.swt
+.bash_history*
 iCloud Drive (Archive)
 workspace
 go
