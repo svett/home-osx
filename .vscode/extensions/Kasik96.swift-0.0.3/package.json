@@ -1,0 +1,60 @@
+{
+	"name": "swift",
+	"displayName": "Swift Language",
+	"description": "Swift language support for VS Code",
+	"version": "0.0.3",
+	"publisher": "Kasik96",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"icon": "icon.png",
+	"categories": [
+		"Languages"
+	],
+	"galleryBanner": {
+		"color": "#EA7D28",
+		"theme": "light"
+	},
+	"bugs": {
+		"url": "https://github.com/kasik96/Swift-VS-Code/issues",
+		"email": "kasemartin@icloud.com"
+	},
+	"homepage": "https://github.com/kasik96/Swift-VS-Code",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kasik96/Swift-VS-Code"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "swift",
+				"aliases": [
+					"Swift",
+					"swift"
+				],
+				"extensions": [
+					".swift"
+				],
+				"configuration": "./swift.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "swift",
+				"scopeName": "source.swift",
+				"path": "./syntaxes/swift.tmLanguage"
+			}
+		],
+		"snippets": [
+			{
+				"language": "swift",
+				"path": "./snippets/snippets.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "df3f3262-9436-4ca4-8c16-ebd5e3b40400",
+		"publisherId": "d0da30bb-6c9f-4482-8b47-080dc94e6008",
+		"publisherDisplayName": "Martin Kase"
+	}
+}
