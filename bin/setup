@@ -166,6 +166,7 @@ update_npm_packages() {
   npm install -g stylelint
   npm install -g webpack
   npm install -g flow-bin
+  npm install -g create-react-app
 }
 
 configure_gimp() {
