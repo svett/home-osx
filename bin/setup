@@ -167,6 +167,7 @@ update_npm_packages() {
   npm install -g webpack
   npm install -g flow-bin
   npm install -g create-react-app
+  npm install node-gyp node-pre-gyp -g
 }
 
 configure_gimp() {
