@@ -1,0 +1,215 @@
+{
+	"name": "vscode-docker",
+	"version": "0.0.16",
+	"publisher": "PeterJausovec",
+	"displayName": "Docker",
+	"description": "Adds syntax highlighting, snippets, commands, hover tips, and linting for Dockerfile and docker-compose files.",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"icon": "images/docker_icon.svg",
+	"aiKey": "AIF-d9b70cd4-b9f9-4d70-929b-a071c400b217",
+	"galleryBanner": {
+		"color": "#5c2d91",
+		"theme": "dark"
+	},
+	"categories": [
+		"Languages",
+		"Snippets"
+	],
+	"keywords": [
+		"docker",
+		"compose",
+		"container"
+	],
+	"repository": {
+		"url": "https://github.com/microsoft/vscode-docker.git"
+	},
+	"homepage": "https://github.com/Microsoft/vscode-docker/blob/master/README.md",
+	"activationEvents": [
+		"onLanguage:dockerfile",
+		"onLanguage:yaml",
+		"onCommand:vscode-docker.image.build",
+		"onCommand:vscode-docker.image.remove",
+		"onCommand:vscode-docker.image.push",
+		"onCommand:vscode-docker.image.tag",
+		"onCommand:vscode-docker.container.start",
+		"onCommand:vscode-docker.container.start.interactive",
+		"onCommand:vscode-docker.container.start.azurecli",
+		"onCommand:vscode-docker.container.stop",
+		"onCommand:vscode-docker.container.show-logs",
+		"onCommand:vscode-docker.container.open-shell",
+		"onCommand:vscode-docker.compose.up",
+		"onCommand:vscode-docker.compose.down",
+		"onCommand:vscode-docker.configure",
+		"onCommand:vscode-docker.debug.configureLaunchJson",
+		"onCommand:vscode-docker.system.prune"
+	],
+	"main": "./out/dockerExtension",
+	"contributes": {
+		"snippets": [
+			{
+				"language": "dockerfile",
+				"path": "./snippets/dockerfile.json"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorLangId == dockerfile",
+					"command": "vscode-docker.image.build",
+					"group": "docker"
+				}
+			],
+			"explorer/context": [
+				{
+					"when": "resourceLangId == dockerfile",
+					"command": "vscode-docker.image.build",
+					"group": "docker"
+				}
+			]
+		},
+		"debuggers": [
+			{
+				"type": "docker",
+				"label": "Docker Attach",
+				"initialConfigurations": "vscode-docker.debug.configureLaunchJson"
+			}
+		],
+		"languages": [
+			{
+				"id": "dockerfile",
+				"aliases": [
+					"Dockerfile"
+				],
+				"filenamePatterns": [
+					"dockerfile*",
+					"Dockerfile*"
+				]
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Docker configuration options",
+			"properties": {
+				"docker.defaultRegistry": {
+					"type": "string",
+					"default": "",
+					"description": "Default registry to push to, empty string will push to Dockerhub."
+				},
+				"docker.defaultRegistryPath": {
+					"type": "string",
+					"default": "",
+					"description": "Path within registry to push to."
+				},
+				"docker.enableLinting": {
+					"type": "boolean",
+					"default": false,
+					"description": "Turn linting of Dockerfiles on or off."
+				},
+				"docker.linterRuleFile": {
+					"type": "string",
+					"default": "",
+					"description": "Full path to the linting rules file to use. See https://github.com/projectatomic/dockerfile_lint#extending-and-customizing-rule-files) for sample files and how to create your own."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "vscode-docker.configure",
+				"title": "Docker: Add docker files to workspace",
+				"description": "Add Dockerfile, docker-compose.yml files"
+			},
+			{
+				"command": "vscode-docker.image.build",
+				"title": "Docker: Build Image",
+				"description": "Build a Docker image from a Dockerfile"
+			},
+			{
+				"command": "vscode-docker.image.remove",
+				"title": "Docker: Remove Images",
+				"description": "Remove a Docker image"
+			},
+			{
+				"command": "vscode-docker.image.tag",
+				"title": "Docker: Tag Image",
+				"description": "Tag a Docker image"
+			},
+			{
+				"command": "vscode-docker.container.start",
+				"title": "Docker: Run",
+				"description": "Starts a container from an image"
+			},
+			{
+				"command": "vscode-docker.container.start.interactive",
+				"title": "Docker: Run Interactive",
+				"description": "Starts a container from an image and runs it interactively"
+			},
+			{
+				"command": "vscode-docker.container.start.azurecli",
+				"title": "Docker: Azure CLI",
+				"description": "Starts a container from the Azure CLI image and runs it interactively"
+			},
+			{
+				"command": "vscode-docker.container.stop",
+				"title": "Docker: Stop",
+				"description": "Stop a running container"
+			},
+			{
+				"command": "vscode-docker.container.show-logs",
+				"title": "Docker: Show Logs",
+				"description": "Show the logs of a running container"
+			},
+			{
+				"command": "vscode-docker.container.open-shell",
+				"title": "Docker: Attach Shell to a running container",
+				"description": "Open a terminal with an interactive shell for a running container"
+			},
+			{
+				"command": "vscode-docker.compose.up",
+				"title": "Docker: Compose Up",
+				"description": "Starts a composition of containers"
+			},
+			{
+				"command": "vscode-docker.compose.down",
+				"title": "Docker: Compose Down",
+				"description": "Stops a composition of containers"
+			},
+			{
+				"command": "vscode-docker.image.push",
+				"title": "Docker: Push",
+				"description": "Push an image to a registry"
+			},
+			{
+				"command": "vscode-docker.system.prune",
+				"title": "Docker: System Prune",
+				"description": "Removes unused data"
+			}
+		]
+	},
+	"engines": {
+		"vscode": "^1.9.0"
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"extensionDependencies": [
+		"vscode.docker",
+		"vscode.yaml"
+	],
+	"devDependencies": {
+		"vscode": "^1.0.0",
+		"typescript": "^2.1.5",
+		"@types/node": "^6.0.40"
+	},
+	"dependencies": {
+		"dockerfile_lint": "^0.2.6",
+		"dockerode": "^2.3.2",
+		"vscode-extension-telemetry": "^0.0.6"
+	},
+	"__metadata": {
+		"id": "0479fc1c-3d67-49f9-b087-fb9069afe48f",
+		"publisherId": "bc3f1075-3ced-4395-9b1b-3f0ecaee83be",
+		"publisherDisplayName": "Microsoft"
+	}
+}
