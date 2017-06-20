@@ -67,6 +67,9 @@
 .sbt
 .swt
 .bash_history*
+.erlang.cookie
+.kotlin_history
+.node-gyp
 iCloud Drive (Archive)
 workspace
 go
