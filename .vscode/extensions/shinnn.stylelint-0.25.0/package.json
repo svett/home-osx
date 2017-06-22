@@ -1,0 +1,99 @@
+{
+	"name": "stylelint",
+	"version": "0.25.0",
+	"displayName": "stylelint",
+	"description": "Modern CSS/SCSS/Less linter",
+	"publisher": "shinnn",
+	"repository": "https://github.com/shinnn/vscode-stylelint",
+	"homepage": "https://github.com/shinnn/vscode-stylelint#readme",
+	"bugs": "https://github.com/shinnn/vscode-stylelint/issues",
+	"license": "MIT",
+	"icon": "media/icon.svg",
+	"galleryBanner": {
+		"color": "#32CD32",
+		"theme": "light"
+	},
+	"engines": {
+		"vscode": "^1.8.0"
+	},
+	"categories": [
+		"Linters"
+	],
+	"keywords": [
+		"lint",
+		"style",
+		"stylelint",
+		"css",
+		"check"
+	],
+	"activationEvents": [
+		"onLanguage:css",
+		"onLanguage:less",
+		"onLanguage:postcss",
+		"onLanguage:scss"
+	],
+	"main": "index.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "stylelint configuration options",
+			"properties": {
+				"stylelint.enable": {
+					"type": "boolean",
+					"default": true,
+					"description": "Control whether stylelint is enabled for CSS/SCSS/Less files or not."
+				},
+				"stylelint.config": {
+					"type": [
+						"object",
+						"null"
+					],
+					"default": null,
+					"description": "A stylelint configuration object."
+				},
+				"stylelint.configOverrides": {
+					"type": [
+						"object",
+						"null"
+					],
+					"default": null,
+					"description": "A partial stylelint config whose properties override the existing ones."
+				}
+			}
+		},
+		"jsonValidation": [
+			{
+				"fileMatch": "**/.stylelintrc*",
+				"url": "http://json.schemastore.org/stylelintrc.json"
+			}
+		]
+	},
+	"scripts": {
+		"test": "eslint --fix --format=codeframe index.js server.js"
+	},
+	"dependencies": {
+		"stylelint-vscode": "^5.2.3",
+		"vscode-languageclient": "^3.3.0",
+		"vscode-languageserver": "^3.3.0"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^4.0.0",
+		"eslint": "^4.0.0",
+		"vscode": "^1.1.0"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn/node",
+		"settings": {
+			"node": {
+				"allowModules": [
+					"vscode"
+				]
+			}
+		}
+	},
+	"__metadata": {
+		"id": "f8b5562e-a2d9-49ab-9f91-e7da91998a92",
+		"publisherId": "253db61f-997d-4722-8120-7559a25856e6",
+		"publisherDisplayName": "Shinnosuke Watanabe"
+	}
+}
