@@ -70,6 +70,8 @@
 .erlang.cookie
 .kotlin_history
 .node-gyp
+.npm-packages/
+.vscode-react-native/
 iCloud Drive (Archive)
 workspace
 go
