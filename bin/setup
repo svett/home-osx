@@ -1,4 +1,4 @@
-#!/usr/bin/env sh -e
+#!/bin/bash
 
 [ -z "$DEBUG" ] || set -x
 
@@ -51,13 +51,14 @@ install_ruby() {
   echo "Setting up ruby..."
   # chruby contains unbound variables
   set +u
-  source /usr/local/share/chruby/chruby.sh
+  # shellcheck disable=SC1091
+  . /usr/local/share/chruby/chruby.sh
 
-  if chruby $(cat "${HOME}/.ruby-version") > /dev/null 2>&1; then
+  if chruby "$(cat "${HOME}/.ruby-version")" > /dev/null 2>&1; then
     echo "$(cat "${HOME}/.ruby-version") already installed..."
   else
     echo "will install $(cat "${HOME}/.ruby-version")..."
-    ruby-install $(cat ~/.ruby-version)
+    ruby-install "$(cat ~/.ruby-version)"
   fi
   set -u
 
@@ -143,7 +144,11 @@ update_vim_plugins() {
 }
 
 update_tmux_plugins() {
+  # shellcheck disable=SC1091
+  # shellcheck source=${HOME}/.tmux/plugins/tpm/bin/install_plugins
   . "${HOME}/.tmux/plugins/tpm/bin/install_plugins" || true
+  # shellcheck disable=SC1091
+  # shellcheck source=${HOME}/.tmux/plugins/tpm/bin/update_plugins
   . "${HOME}/.tmux/plugins/tpm/bin/update_plugins" all || true
 }
 
@@ -171,7 +176,7 @@ update_npm_packages() {
 }
 
 configure_gimp() {
-  cd "$HOME/Library/Application Support/GIMP"
+  cd "$HOME/Library/Application Support/GIMP" || true
   backup_dir=2.8.backup
 
   if [ ! -d "$backup_dir" ]; then
