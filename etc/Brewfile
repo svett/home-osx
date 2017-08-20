@@ -50,7 +50,7 @@ brew 'tmux'
 brew 'reattach-to-user-namespace'
 brew 'tree'
 brew 'vim', args: ['with-lua','with-python']
-brew 'neovim/neovim/neovim'
+brew 'neovim'
 brew 'watch'
 brew 'wget'
 brew 'pstree'
