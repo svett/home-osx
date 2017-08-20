@@ -46,6 +46,7 @@
 .pry_history
 .psql_history
 .pylint.d/
+.lnav/
 .rediscli_history
 .rnd
 .dbshell
