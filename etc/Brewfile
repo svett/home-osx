@@ -80,6 +80,7 @@ brew 'typescript'
 brew 'asciinema'
 brew 'gradle'
 brew 'graphviz'
+brew 'npm'
 
 cask 'google-chrome'
 cask 'google-chrome-canary'
