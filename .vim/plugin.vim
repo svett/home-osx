@@ -45,6 +45,8 @@ Plugin 'terryma/vim-multiple-cursors'
 " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
 Plugin 'luochen1990/rainbow'
 
+" Kotlin
+Plugin 'udalov/kotlin-vim'
 
 " Ruby specific
 Plugin 'tpope/rbenv-ctags'
