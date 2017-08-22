@@ -123,3 +123,5 @@ if has('nvim')
 end
 
 autocmd FileType help setlocal nospell
+autocmd BufWinLeave *.* mkview!
+autocmd BufWinEnter *.* silent loadview
