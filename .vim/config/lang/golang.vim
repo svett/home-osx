@@ -41,10 +41,6 @@ let g:go_term_mode = "split"
 let g:go_term_height = 15
 let g:go_list_autoclose = 0
 
-" enable folding
-set foldmethod=syntax
-set foldlevelstart=1
-
 " this breaks folding on vim < 8.0 or neovim
 if v:version >= 800 || has('nvim')
   let g:go_fmt_experimental = 1

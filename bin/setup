@@ -166,8 +166,9 @@ popd >&-
 update_npm_packages() {
   npm install -g jasmine
   npm install -g karma-cli
-  npm install -g typescript
   npm install -g tslint
+  npm install -g tsutils
+  npm install -g typescript
   npm install -g stylelint
   npm install -g webpack
   npm install -g flow-bin
