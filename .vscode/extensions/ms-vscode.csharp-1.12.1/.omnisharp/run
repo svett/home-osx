@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+BIN_DIR="$(cd "$(dirname "$0")" && pwd -P)"
+
+PLATFORM_SUFFIX=""
+ARCH_SUFFIX=""
+
+case `uname` in
+    "Darwin") PLATFORM_SUFFIX=".osx" ;;
+    "Linux")
+        PLATFORM_SUFFIX=".linux"
+        case `uname -m` in
+            "x86" | "i386" | "i686") ARCH_SUFFIX="-x86" ;;
+            "x86_64") ARCH_SUFFIX="-x86_64" ;;
+        esac
+        ;;
+esac
+
+MONO_CMD=${BIN_DIR}/mono${PLATFORM_SUFFIX}${ARCH_SUFFIX}
+CONFIG=${BIN_DIR}/etc/config${PLATFORM_SUFFIX}
+
+FRAMEWORK_PATH=${BIN_DIR}/framework
+OMNISHARP_PATH=${BIN_DIR}/omnisharp
+OMNISHARP=${BIN_DIR}/omnisharp/OmniSharp.exe
+
+NO_OMNISHARP=false
+
+name=$1
+case $name in
+    --no-omnisharp)
+        shift
+        NO_OMNISHARP=true
+        ;;
+esac
+
+export MONO_CFG_DIR=${BIN_DIR}/etc
+
+if [ "$NO_OMNISHARP" = true ]; then
+    export MONO_PATH=${FRAMEWORK_PATH}
+    "${MONO_CMD}" --assembly-loader=strict --config "${CONFIG}" "$@"
+else
+    export MONO_PATH=${FRAMEWORK_PATH}:${OMNISHARP_PATH}
+    "${MONO_CMD}" --assembly-loader=strict --config "${CONFIG}" "${OMNISHARP}" "$@"
+fi
