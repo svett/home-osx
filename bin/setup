@@ -17,6 +17,7 @@ main() {
   install_ruby
   install_ruby_gems
   install_python_packages
+  install_libs
 
   osx_configure
   osx_appstore_update
@@ -174,6 +175,11 @@ update_npm_packages() {
   npm install -g flow-bin
   npm install -g create-react-app
   npm install node-gyp node-pre-gyp -g
+}
+
+install_libs() {
+  cd "$HOME/lib" || true
+  curl -O http://www.antlr.org/download/antlr-4.7-complete.jar
 }
 
 configure_gimp() {
