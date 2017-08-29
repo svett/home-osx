@@ -73,6 +73,7 @@
 .node-gyp
 .npm-packages/
 .vscode-react-native/
+.circleci
 iCloud Drive (Archive)
 workspace
 go
