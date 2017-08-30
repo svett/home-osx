@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# relaunch with sudo if we aren't root
+if [[ $EUID -ne 0 ]]; then
+   echo "$0: relaunching as sudo $0 $1 $USER"
+   sudo "$0" $1 $USER
+   exit $?
+fi
+
+real_user=$USER
+if [ -n "$2" ]; then
+  real_user=$2
+fi
+
+stop() {
+  echo $0: unloading Symantec Endpoint Protection daemon
+  launchctl unload /Library/LaunchDaemons/com.symantec.symdaemon.*plist
+
+  echo $0: unloading Symantec Endpoint Protection shared settings daemon
+  launchctl unload /Library/LaunchDaemons/com.symantec.sharedsettings.*plist
+
+  echo $0: closing Symantec Endpoint Protection UI widget as $real_user
+  sudo -u $real_user launchctl unload /Library/LaunchAgents/com.symantec.uiagent.application.*plist
+}
+
+start() {
+  echo $0: loading Symantec Endpoint Protection daemon
+  launchctl load /Library/LaunchDaemons/com.symantec.symdaemon.*plist
+
+  echo $0: loading Symantec Endpoint Protection shared settings daemon
+  launchctl load /Library/LaunchDaemons/com.symantec.sharedsettings.*plist
+
+  echo $0: launching Symantec Endpoint Protection UI widget as $real_user
+  sudo -u $real_user launchctl load /Library/LaunchAgents/com.symantec.uiagent.application.*plist
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  *)
+    echo "Usage: $0 [start|stop]"
+    ;;
+esac
