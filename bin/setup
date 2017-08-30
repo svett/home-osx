@@ -66,9 +66,9 @@ install_ruby() {
 }
 
 install_ruby_gems() {
+  gem install fastri
   gem install bundler
   gem install neovim
-  gem install fastri
   gem install rcodetools
 }
 
