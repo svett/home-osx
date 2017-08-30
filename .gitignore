@@ -74,6 +74,7 @@
 .npm-packages/
 .vscode-react-native/
 .circleci
+.vsts/
 iCloud Drive (Archive)
 workspace
 go
