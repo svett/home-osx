@@ -82,6 +82,7 @@ brew 'typescript'
 brew 'asciinema'
 brew 'gradle'
 brew 'graphviz'
+brew 'onepass'
 
 cask 'google-chrome'
 cask 'google-chrome-canary'
