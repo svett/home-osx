@@ -139,4 +139,4 @@ brew 'graphviz'
 brew 'maven'
 brew 'r'
 brew 'vault-cli'
-brew 'paket'
+brew 'paket', args: ['without-mono']
