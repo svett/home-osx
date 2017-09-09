@@ -124,6 +124,9 @@ Plugin 'ap/vim-css-color'
 " Develop Golang
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
+" Develop F#
+Plugin 'fsharp/vim-fsharp'
+
 " Develop Rust
 Plugin 'rust-lang/rust.vim'
 
