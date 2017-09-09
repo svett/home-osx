@@ -148,4 +148,7 @@ Plugin 'luan/vim-bosh'
 " Color themes
 Plugin 'fatih/molokai'
 
+" editorconfig.org plugin
+Plugin 'editorconfig/editorconfig-vim'
+
 call vundle#end()
