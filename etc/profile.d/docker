@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias docker-env='eval "$(docker-machine env)"'
+
 DOCKER_MACHINE_NAME="default"
 DOCKER_MACHINE_STATUS=$(docker-machine ls | grep -i "$DOCKER_MACHINE_NAME" | grep "Running" | awk '{ print $2}')
 
