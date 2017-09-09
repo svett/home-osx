@@ -75,6 +75,7 @@
 .vscode-react-native/
 .circleci
 .vsts/
+.op/
 iCloud Drive (Archive)
 workspace
 go
