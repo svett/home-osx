@@ -65,6 +65,7 @@ cask 'duet'
 cask 'Postico'
 cask 'onedrive'
 cask 'grammarly'
+cask 'soapui'
 
 brew 'irssi'
 brew 'drone', args: ['devel']
