@@ -77,7 +77,7 @@
 .vsts/
 .op/
 .soapuios/
-.xml
+*.xml
 iCloud Drive (Archive)
 workspace
 go
