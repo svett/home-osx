@@ -1,0 +1,102 @@
+{
+	"name": "stylelint",
+	"version": "0.30.0",
+	"displayName": "stylelint",
+	"description": "Modern CSS/SCSS/Less linter",
+	"publisher": "shinnn",
+	"repository": "https://github.com/shinnn/vscode-stylelint",
+	"homepage": "https://github.com/shinnn/vscode-stylelint#readme",
+	"bugs": "https://github.com/shinnn/vscode-stylelint/issues",
+	"license": "MIT",
+	"icon": "media/icon.png",
+	"galleryBanner": {
+		"color": "#32CD32",
+		"theme": "light"
+	},
+	"engines": {
+		"vscode": "^1.8.0"
+	},
+	"categories": [
+		"Linters"
+	],
+	"keywords": [
+		"lint",
+		"style",
+		"stylelint",
+		"css",
+		"check"
+	],
+	"qna": "https://stackoverflow.com/questions/tagged/vscode+stylelint",
+	"activationEvents": [
+		"onLanguage:css",
+		"onLanguage:less",
+		"onLanguage:postcss",
+		"onLanguage:scss",
+		"onLanguage:sugarss",
+		"workspaceContains:node_modules/stylelint-processor-styled-components/package.json"
+	],
+	"main": "index.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "stylelint configuration options",
+			"properties": {
+				"stylelint.enable": {
+					"type": "boolean",
+					"default": true,
+					"description": "Control whether stylelint is enabled for CSS/SCSS/Less files or not."
+				},
+				"stylelint.config": {
+					"type": [
+						"object",
+						"null"
+					],
+					"default": null,
+					"description": "A stylelint configuration object."
+				},
+				"stylelint.configOverrides": {
+					"type": [
+						"object",
+						"null"
+					],
+					"default": null,
+					"description": "A partial stylelint config whose properties override the existing ones."
+				},
+				"stylelint.additionalDocumentSelectors": {
+					"type": [
+						"array"
+					],
+					"default": [],
+					"description": "A optional set of additional document types to run stylelint against."
+				}
+			}
+		},
+		"jsonValidation": [
+			{
+				"fileMatch": "**/.stylelintrc*",
+				"url": "http://json.schemastore.org/stylelintrc.json"
+			}
+		]
+	},
+	"scripts": {
+		"test": "eslint --fix --format=codeframe index.js server.js"
+	},
+	"dependencies": {
+		"stylelint-vscode": "^6.0.0",
+		"vscode-languageclient": "^3.4.5",
+		"vscode-languageserver": "^3.4.3"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^4.0.2",
+		"eslint": "^4.8.0",
+		"vscode": "^1.1.5"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn/node"
+	},
+	"__metadata": {
+		"id": "f8b5562e-a2d9-49ab-9f91-e7da91998a92",
+		"publisherId": "253db61f-997d-4722-8120-7559a25856e6",
+		"publisherDisplayName": "Shinnosuke Watanabe"
+	}
+}
