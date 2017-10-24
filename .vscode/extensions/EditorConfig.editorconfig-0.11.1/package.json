@@ -1,0 +1,69 @@
+{
+	"name": "EditorConfig",
+	"displayName": "EditorConfig for VS Code",
+	"description": "EditorConfig Support for Visual Studio Code",
+	"publisher": "EditorConfig",
+	"version": "0.11.1",
+	"icon": "EditorConfig_icon.png",
+	"engines": {
+		"vscode": "^1.11.0"
+	},
+	"author": "EditorConfig Team",
+	"license": "MIT",
+	"categories": [
+		"Other"
+	],
+	"homepage": "https://github.com/editorconfig/editorconfig-vscode/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/editorconfig/editorconfig-vscode.git"
+	},
+	"bugs": {
+		"url": "https://github.com/editorconfig/editorconfig-vscode/issues"
+	},
+	"galleryBanner": {
+		"color": "#37699A",
+		"theme": "dark"
+	},
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/src/editorConfigMain",
+	"contributes": {
+		"commands": [
+			{
+				"command": "vscode.generateeditorconfig",
+				"title": "EditorConfig: Generate"
+			}
+		]
+	},
+	"dependencies": {
+		"editorconfig": "^0.15.0",
+		"lodash.compact": "^3.0.1",
+		"lodash.get": "^4.4.2"
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.14.77",
+		"@types/mocha": "^2.2.43",
+		"@types/node": "^8.0.34",
+		"rimraf": "^2.6.2",
+		"tslint": "^5.7.0",
+		"typescript": "^2.5.3",
+		"vscode": "^1.1.6",
+		"vscode-test-utils": "0.0.9"
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"precompile": "rimraf ./out",
+		"compile": "tsc",
+		"lint": "tslint --project tsconfig.json",
+		"pretest": "npm run lint && npm run compile",
+		"test": "node ./node_modules/vscode/bin/test",
+		"vscode:prepublish": "npm run compile"
+	},
+	"__metadata": {
+		"id": "f60a60a6-95ba-42d4-b41c-3d24c1b89588",
+		"publisherId": "1ed869e4-8588-4af4-a51e-9c1c86b034b9",
+		"publisherDisplayName": "EditorConfig"
+	}
+}
