@@ -4,14 +4,39 @@
 
 HOURS="${1:-1}"
 VOLUME=/Volumes/ralch
-KEY="$VOLUME/id_rsa"
 
-if [ -d "$VOLUME" ]; then
+ssh_add() {
+  local SSH_PRIV_KEY
+  SSH_PRIV_KEY=$1
   /usr/bin/ssh-add -D
-  /usr/bin/ssh-add -t "${HOURS}H" "$KEY"
-  /usr/sbin/diskutil umount force "$VOLUME"
-else
-  echo "The secured SSH USB has not been plugged"
-  exit 1
-fi
+  /usr/bin/ssh-add -t "${HOURS}H" "$SSH_PRIV_KEY"
+}
+
+last_pass() {
+  local SSH_PRIV_KEY
+  SSH_PRIV_KEY=$(mktemp)
+  lpass show --name id_rsa --notes > "$SSH_PRIV_KEY"
+  echo "$SSH_PRIV_KEY"
+}
+
+ssh_key() {
+ if [ -d "$VOLUME" ]; then
+   echo "$VOLUME/id_rsa"
+ else
+   last_pass
+ fi
+}
+
+clean_up() {
+ if [ -d "$VOLUME" ]; then
+   /usr/sbin/diskutil umount force "$VOLUME"
+ else
+   rm "$SSH_PRIV_KEY"
+ fi
+}
+
+SSH_PRIV_KEY=$(ssh_key)
+
+ssh_add "$SSH_PRIV_KEY"
+clean_up "$SSH_PRIV_KEY"
 
