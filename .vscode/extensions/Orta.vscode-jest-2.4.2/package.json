@@ -1,0 +1,159 @@
+{
+	"name": "vscode-jest",
+	"displayName": "Jest",
+	"description": "Use Facebook's Jest With Pleasure.",
+	"version": "2.4.2",
+	"publisher": "Orta",
+	"engines": {
+		"vscode": "^1.12.0"
+	},
+	"author": {
+		"name": "Orta Therox",
+		"url": "http://orta.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/orta/vscode-jest"
+	},
+	"galleryBanner": {
+		"theme": "light",
+		"color": "#ca461a"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"workspaceContains:node_modules/.bin/jest",
+		"workspaceContains:node_modules/react-scripts/node_modules/.bin/jest",
+		"onCommand:io.orta.jest.start"
+	],
+	"main": "./out/src/extension",
+	"icon": "images/vscode-jest.png",
+	"contributes": {
+		"languages": [
+			{
+				"id": "jest-snapshot",
+				"extensions": [
+					".js.snap",
+					".jsx.snap",
+					".ts.snap",
+					".tsx.snap"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "jest-snapshot",
+				"scopeName": "source.jest.snap",
+				"path": "./syntaxes/jest-snapshot.tmLanguage"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Jest configuration",
+			"properties": {
+				"jest.autoEnable": {
+					"description": "Automatically starting Jest for this project.",
+					"type": "boolean",
+					"default": true
+				},
+				"jest.pathToJest": {
+					"description": "The path to the Jest binary, or an npm command to run tests prefixed with `--` e.g. `npm test --`",
+					"type": "string",
+					"default": "node_modules/.bin/jest"
+				},
+				"jest.pathToConfig": {
+					"description": "The path to your Jest configuration file",
+					"type": "string",
+					"default": ""
+				},
+				"jest.rootPath": {
+					"description": "The path to your frontend src folder",
+					"type": "string",
+					"default": ""
+				},
+				"jest.enableInlineErrorMessages": {
+					"description": "Whether errors should be reported inline on a file",
+					"type": "boolean",
+					"default": true
+				},
+				"jest.enableSnapshotUpdateMessages": {
+					"description": "Whether snapshot update messages should show",
+					"type": "boolean",
+					"default": true
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "io.orta.jest.start",
+				"title": "Jest: Start Runner"
+			},
+			{
+				"command": "io.orta.jest.stop",
+				"title": "Jest: Stop Runner"
+			},
+			{
+				"command": "io.orta.jest.show-channel",
+				"title": "Jest: Show Test Output Channel"
+			},
+			{
+				"command": "io.orta.jest.coverage.toggle",
+				"title": "Jest: Toggle Coverage Overlay"
+			}
+		]
+	},
+	"lint-staged": {
+		"*.json": [
+			"npm run prettier-write --",
+			"git add"
+		],
+		"*.ts": [
+			"npm run prettier-write --",
+			"git add"
+		]
+	},
+	"scripts": {
+		"precommit": "lint-staged",
+		"ci": "yarn lint && yarn test",
+		"clean-out": "rimraf ./out",
+		"vscode:prepublish": "yarn clean-out && tsc -p ./tsconfig.publish.json",
+		"compile": "tsc -watch -p ./tsconfig.publish.json",
+		"lint": "node scripts/lint",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "jest --config jest.json",
+		"watch-test": "yarn test -- --watch",
+		"prettier": "prettier",
+		"prettier-write": "npm run prettier -- --parser typescript --no-semi --single-quote --trailing-comma es5 --write --print-width 120",
+		"prettier-project": "npm run prettier-write -- '?(__mocks__|src|tests)/**/*.ts'"
+	},
+	"devDependencies": {
+		"@types/jest": "^21.1.1",
+		"@types/node": "^8.0.31",
+		"glob": "^7.1.1",
+		"husky": "^0.14.3",
+		"jest": "^21.2.0",
+		"lint-staged": "^4.2.3",
+		"prettier": "^1.7.3",
+		"rimraf": "^2.6.2",
+		"tslint": "^5.7.0",
+		"tslint-config-prettier": "^1.5.0",
+		"typescript": "2.5.3",
+		"vscode": "^1.1.5",
+		"vsce": "^1.31"
+	},
+	"dependencies": {
+		"elegant-spinner": "^1.0.1",
+		"istanbul-lib-coverage": "^1.1.1",
+		"istanbul-lib-source-maps": "^1.1.0",
+		"jest-editor-support": "21.3.0-alpha.eff7a1cf",
+		"jest-snapshot": "21.3.0-alpha.eff7a1cf",
+		"jest-test-typescript-parser": "21.3.0-alpha.eff7a1cf",
+		"micromatch": "^2.3.11"
+	},
+	"__metadata": {
+		"id": "7997a8ae-1fae-4022-b834-12f6318aeffd",
+		"publisherId": "c22b4001-1af3-48d1-87ed-490c6c3b747f",
+		"publisherDisplayName": "Orta"
+	}
+}
