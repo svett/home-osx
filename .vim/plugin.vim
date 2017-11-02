@@ -154,4 +154,7 @@ Plugin 'fatih/molokai'
 " editorconfig.org plugin
 Plugin 'editorconfig/editorconfig-vim'
 
+" ansible syntax highlighting
+Plugin 'pearofducks/ansible-vim'
+
 call vundle#end()
