@@ -1,0 +1,68 @@
+notifications:
+  email: false
+
+sudo: true
+
+os:
+- linux
+
+language: node_js
+
+node_js:
+- 8.9.1
+
+env:
+  global:
+    secure: "xxrknQgZj/Zdr/LePcWcq9rVX3JvAcMsn7wv5VNE2yn49yvLXDH6WQuoG+xE47JkVlL3dG5jTRLFmglg+VxkpqyT/ozjUT4XTJueSghJKhWJedjp1w9qHqnqyChY66KCmi9euEfp552ecu5ud9tCu+aMvtYz2Li5ZjE1BS/r2sRmnKzb5DK0zIaNi+lNW1VBjWLSEBeUswfJingoOkb1EwgRwAvrdq91n7B3wccbVLLLLkzghzr8GTREsxHww9VwYGmMtquSczp9fx5gFg8icLqhjgWOmlu4hmhxSsFZASQDHwWAiFae4VBYklXwdk+YBYtQkea8L+8WpJ3Q/cN6DpNzOvCo8leEnJJkb0m0DPBYN1cZBzTY7/QL2yKVKxwZbzEYSbrS44YgQX5Wcv8b07TDJlzXSFjimQshiJF0AIPVbsOezvF8WvSeACyAd+mpLUlgSXhRP6AEMZqzVYOPUoZ51BNo5LCYA/o4YCSXqudbHI3zoPMCHKSASFFx6924uO1w4AZn/wEe4n3/P6NMDLIywUb/xOkKMChgZ/IVz5zbkjjAc/Nwpbggj4SIpNx1fWD/G6hteNbB2981O45num4h5jIUUC7HN0uSViyZFQYoNshQsRgjQIAcRtIuHBPh5pngsZeKvby3Z+q6fNsqtLr4DuC++XbrpOjETi5hLpg="
+
+addons:
+  apt:
+    packages:
+      - libsecret-1-dev
+
+before_install:
+- if [ $TRAVIS_OS_NAME == "linux" ]; then
+    export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
+    sh -e /etc/init.d/xvfb start;
+    sleep 3;
+  fi
+
+install:
+- npm install -g gulp;
+- npm install;
+
+script:
+- git ls-tree -r HEAD --name-only | grep ".*.[t|j]s$" | xargs ./node_modules/prettier/bin/prettier.js --write --print-width 100 --single-quote --trailing-comma es5
+- if [[ $(git diff-index HEAD --) ]]; then
+    ./node_modules/prettier/bin/prettier.js -v;
+    git diff;
+    echo "Prettier Failed. Run `gulp` or `gulp forceprettier`";
+    exit 1;
+  else
+    echo "Prettier passed.";
+  fi
+- gulp
+- npm test --silent;
+
+before_deploy:
+- npm install -g vsce;
+- vsce package;
+
+deploy:
+- provider: releases
+  api_key:
+    secure: PmBcza43E3Y5/OxmR2V3nLJSBW9LildJCHdNQrKC0AndO6b14K+FLq3lwUBNX36q08noRX1V/nrYiDIFbZf8AQNq7j+rsR6mJOTXmu/pThrz0ugBK12f5aVoJOAdPPD2XZ/Cu7nLNvqVbLgZIqACVwWzCukSD0/3JWFv1w3yjGj/t1QNBHJoT7Wy1K6a1d3IISnDC9XROBYWvG/4IZipTAiv8yD0TMncgVaWxjEng5lhtmDE+XhBQU7Z5Ywc9IJMgajos+Ix6j+bju7Evta26+tLvonwC3dK8eeUZbIqdanrGl1zW0yft15y2SYo1YYQE6qLFO1kDsR90iY1YaW94vGyDJ3TLDAEjyZ3RMYv1OFOKOc6fhV3l5piyacCmvc30gP+AKjlukxgckYRY1soDNW5xqjcMSluaOMumNPbXpVsx7Kup+ceYkktQBSoTHtZFxt1uQmo7KY9IcNIsZuRP2hLcxV0eI6HI78THa56vTffxXWBZ2NYkKJ6gBADghQlJaz6D40yX2Qj2XsXH09aaY6oQ2Y/x3TZTLxwbyiHA2DPVY5e06GDRaEeavIyDiM9p4wlgsYuS4vDXGbNkzoBZuijpKw3fG1tf39+rUqlVw2LBN1kroAiNfHjaalTwsWS3F9y1ispCALYUuMl4lIAsgGXYgOZbfPO5sof6Wjvg4Q=
+  file_glob: true
+  file: "*.vsix"
+  skip_cleanup: true
+  on:
+    repo: VSCodeVim/Vim
+    tags: true
+    condition: $TRAVIS_OS_NAME = linux
+- provider: script
+  script: vsce publish -p $VS_TOKEN
+  skip_cleanup: true
+  on:
+    repo: VSCodeVim/Vim
+    tags: true
+    condition: $TRAVIS_OS_NAME = linux
