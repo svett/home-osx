@@ -6,5 +6,10 @@ alias bi="bundle install"
 alias bu="bundle update"
 alias bout="bundle outdated"
 
+# shellcheck disable=SC1091
+# shellcheck source=/usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/chruby.sh
+
+# shellcheck disable=SC1091
+# shellcheck source=/usr/local/share/chruby/auto.sh
 source /usr/local/share/chruby/auto.sh
