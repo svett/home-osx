@@ -17,7 +17,6 @@ main() {
   install_ruby
   install_ruby_gems
   install_python
-  install_python_packages
   install_libs
 
   osx_configure
@@ -70,15 +69,30 @@ install_ruby_gems() {
 }
 
 install_python() {
-  echo "Setting up python..."
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 
-  PYTHON_VERSION="3.6.3"
-  pyenv install "$PYTHON_VERSION"
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+  install_python_version 2.7.14
+  install_python_version 3.6.3
 }
 
-install_python_packages() {
+install_python_version() {
+  PYTHON_VERSION="$1"
+  PYTHON_VIRTUAL_ENV="neovim-python-$PYTHON_VERSION"
+
+  echo "Setting up python $PYTHON_VERSION..."
+
+  pyenv install -s "$PYTHON_VERSION"
+  pyenv virtualenv "$PYTHON_VERSION" "$PYTHON_VIRTUAL_ENV"
+  pyenv activate "$PYTHON_VIRTUAL_ENV"
+
+  echo "Setting packages for python $PYTHON_VERSION..."
   pip install neovim
-  pip3 install neovim
+
+  PYTHON_PATH=$(pyenv which python)
+  echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"
 }
 
 osx_software_update() {

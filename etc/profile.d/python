@@ -1,4 +1,10 @@
 #!/bin/bash
 
+export CFLAGS
+export LDFLAGS
+
+CFLAGS="-I$(brew --prefix openssl)/include"
+LDFLAGS="-L$(brew --prefix openssl)/lib"
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"

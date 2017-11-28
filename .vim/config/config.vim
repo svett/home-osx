@@ -115,8 +115,8 @@ set clipboard^=unnamedplus
 
 set viminfo='200
 
-let g:python_host_prog = '/usr/local/bin/python2.7'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/Users/ralch/.pyenv/versions/neovim-python-2.7.14/bin/python'
+let g:python3_host_prog = '/Users/ralch/.pyenv/versions/neovim-python-3.6.3/bin/python'
 
 if has('nvim')
   set termguicolors

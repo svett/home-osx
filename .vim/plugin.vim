@@ -49,7 +49,9 @@ Plugin 'luochen1990/rainbow'
 Plugin 'udalov/kotlin-vim'
 
 " Ruby specific
-Plugin 'tpope/rbenv-ctags'
+Plugin 'ngmy/vim-rubocop',            { 'for': ['ruby', 'rake'] }
+Plugin 'vim-ruby/vim-ruby',           { 'for': ['ruby', 'rake'] }
+Plugin 'tpope/rbenv-ctags',           { 'for': ['ruby', 'rake'] }
 Plugin 'tpope/vim-rake',              { 'for': ['ruby', 'rake'] }
 Plugin 'tpope/vim-bundler',           { 'for': ['ruby', 'rake'] }
 Plugin 'ecomba/vim-ruby-refactoring', { 'for': ['ruby', 'rake'] }
