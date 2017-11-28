@@ -76,6 +76,7 @@
 .circleci
 .vsts/
 .op/
+.nvm
 .soapuios/
 *.xml
 iCloud Drive (Archive)

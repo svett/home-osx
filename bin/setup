@@ -29,7 +29,6 @@ main() {
   update_vim_plugins
   update_tmux_plugins
   update_npm_packages
-
 }
 
 install_brew_if_not_exists() {
@@ -165,17 +164,7 @@ popd >&-
 }
 
 update_npm_packages() {
-  npm install -g npm
-  npm install -g jasmine
-  npm install -g karma-cli
-  npm install -g tslint
-  npm install -g tsutils
-  npm install -g typescript
-  npm install -g stylelint
-  npm install -g webpack
-  npm install -g flow-bin
-  npm install -g create-react-app
-  npm install node-gyp node-pre-gyp -g
+  yarn global add create-react-app
 }
 
 install_libs() {
