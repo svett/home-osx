@@ -79,6 +79,7 @@
 .nvm
 .soapuios/
 *.xml
+.vscode/extensions/
 iCloud Drive (Archive)
 workspace
 go
