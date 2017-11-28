@@ -49,19 +49,16 @@ install_brew_update() {
 
 install_ruby() {
   echo "Setting up ruby..."
-  # chruby contains unbound variables
-  set +u
+
+  RUBY_VERSION="ruby-2.4.1"
   # shellcheck disable=SC1091
-  . /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/chruby.sh
 
-  if chruby "$(cat "${HOME}/.ruby-version")" > /dev/null 2>&1; then
-    echo "$(cat "${HOME}/.ruby-version") already installed..."
+  if chruby "$RUBY_VERSION" /dev/null 2>&1; then
+    echo "$RUBY_VERSION is already installed..."
   else
-    echo "will install $(cat "${HOME}/.ruby-version")..."
-    ruby-install "$(cat ~/.ruby-version)"
+    ruby-install "$RUBY_VERSION"
   fi
-  set -u
-
 }
 
 install_ruby_gems() {
