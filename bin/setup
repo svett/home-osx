@@ -16,6 +16,7 @@ main() {
 
   install_ruby
   install_ruby_gems
+  install_python
   install_python_packages
   install_libs
 
@@ -66,6 +67,13 @@ install_ruby_gems() {
   gem install bundler
   gem install neovim
   gem install rcodetools
+}
+
+install_python() {
+  echo "Setting up python..."
+
+  PYTHON_VERSION="3.6.3"
+  pyenv install "$PYTHON_VERSION"
 }
 
 install_python_packages() {
