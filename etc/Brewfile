@@ -105,6 +105,7 @@ brew 'zlib'
 brew 'pyenv'
 brew 'pyenv-virtualenv'
 brew 's3cmd'
+brew 'kylef/formulae/swiftenv'
 brew 'nvm'
 brew 'yarn', args: ['without-node']
 brew 'tig'
