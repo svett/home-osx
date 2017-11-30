@@ -81,6 +81,7 @@
 .soapuios/
 *.xml
 .vscode/extensions/
+.swiftenv/shims/
 .openvpn-connect.json
 iCloud Drive (Archive)
 workspace
