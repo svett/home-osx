@@ -61,6 +61,7 @@ install_ruby() {
     gem install bundler
     gem install neovim
     gem install pry
+    gem install rspec
   fi
 }
 
@@ -84,6 +85,7 @@ install_python_version() {
 
   echo "Setting packages for python $PYTHON_VERSION..."
   pip install neovim
+  pip install awscli
 
   PYTHON_PATH=$(pyenv which python)
   echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"

@@ -8,3 +8,5 @@ LDFLAGS="-L$(brew --prefix openssl)/lib"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+alias aws="/Users/ralch/.pyenv/versions/neovim-python-3.6.3/bin/aws"

@@ -75,7 +75,6 @@ brew 'irssi'
 brew 'drone', args: ['devel']
 brew 'hugo'
 brew 'ack'
-brew 'awscli'
 brew 'bash'
 brew 'chruby'
 brew 'coreutils'
