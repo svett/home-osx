@@ -15,8 +15,8 @@ main() {
   symlink_ssl
 
   install_ruby
-  install_ruby_gems
   install_python
+  install_node
   install_libs
 
   osx_configure
@@ -28,7 +28,6 @@ main() {
   update_golang_packages
   update_vim_plugins
   update_tmux_plugins
-  update_npm_packages
 }
 
 install_brew_if_not_exists() {
@@ -58,21 +57,16 @@ install_ruby() {
     echo "$RUBY_VERSION is already installed..."
   else
     ruby-install "$RUBY_VERSION"
+
+    gem install bundler
+    gem install neovim
+    gem install pry
   fi
 }
 
-install_ruby_gems() {
-  gem install fastri
-  gem install bundler
-  gem install neovim
-  gem install rcodetools
-}
-
 install_python() {
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+  # shellcheck disable=SC1090
+  source "$HOME/etc/profile.d/python"
 
   install_python_version 2.7.14
   install_python_version 3.6.3
@@ -93,6 +87,20 @@ install_python_version() {
 
   PYTHON_PATH=$(pyenv which python)
   echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"
+}
+
+install_node() {
+  # shellcheck disable=SC1090
+  source "$HOME/etc/profile.d/node"
+
+  NODE_VERSION="9.2.0"
+
+  nvm install "$NODE_VERSION"
+  nvm use "$NODE_VERSION"
+
+  npm install -g typescript
+  npm install -g jest-cli
+  npm install -g create-react-app
 }
 
 osx_software_update() {
@@ -180,10 +188,6 @@ pushd "${HOME}/go/packages" >&-
   go get "${pkg//\~//}"
  done
 popd >&-
-}
-
-update_npm_packages() {
-  yarn global add create-react-app
 }
 
 install_libs() {

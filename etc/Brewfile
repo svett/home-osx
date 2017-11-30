@@ -106,6 +106,7 @@ brew 'pyenv'
 brew 'pyenv-virtualenv'
 brew 's3cmd'
 brew 'nvm'
+brew 'yarn', args: ['without-node']
 brew 'tig'
 brew 'tmux'
 brew 'reattach-to-user-namespace'

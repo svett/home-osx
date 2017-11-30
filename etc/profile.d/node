@@ -4,3 +4,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # shellcheck disable=SC1091
 source "/usr/local/opt/nvm/nvm.sh"
+
+if which yarn >&-
+then
+  export YARN_BIN
+  YARN_BIN="$(yarn global bin)"
+  export PATH="${PATH}:${YARN_BIN}"
+fi
