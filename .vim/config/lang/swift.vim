@@ -1,2 +1,1 @@
-
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:syntastic_swift_checkers = ['swift', 'swiftlint']
