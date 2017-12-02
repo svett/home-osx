@@ -11,6 +11,7 @@ tap 'git-duet/tap'
 tap 'universal-ctags/universal-ctags'
 tap 'cloudfoundry/tap'
 tap 'drone/drone'
+tap 'vapor/homebrew-tap'
 
 cask 'karabiner-elements'
 cask 'vivaldi'
@@ -146,3 +147,4 @@ brew 'r'
 brew 'vault-cli'
 brew 'paket', args: ['without-mono']
 brew 'kops'
+brew 'vapor'
