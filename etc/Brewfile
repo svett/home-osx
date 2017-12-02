@@ -106,6 +106,8 @@ brew 'pyenv'
 brew 'pyenv-virtualenv'
 brew 's3cmd'
 brew 'kylef/formulae/swiftenv'
+brew 'vapor'
+brew 'swiftlint'
 brew 'nvm'
 brew 'yarn', args: ['without-node']
 brew 'tig'
@@ -147,4 +149,3 @@ brew 'r'
 brew 'vault-cli'
 brew 'paket', args: ['without-mono']
 brew 'kops'
-brew 'vapor'
