@@ -86,6 +86,7 @@ install_python_version() {
   echo "Setting packages for python $PYTHON_VERSION..."
   pip install neovim
   pip install awscli
+  pip install powerline-shell
 
   PYTHON_PATH=$(pyenv which python)
   echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"
