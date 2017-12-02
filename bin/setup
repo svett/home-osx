@@ -101,6 +101,7 @@ install_node() {
   nvm install "$NODE_VERSION"
   nvm use "$NODE_VERSION"
 
+  npm install -g yarn
   npm install -g typescript
   npm install -g jest-cli
   npm install -g create-react-app
