@@ -48,6 +48,9 @@ Plugin 'luochen1990/rainbow'
 " Kotlin
 Plugin 'udalov/kotlin-vim'
 
+" Swift
+Plugin 'keith/swift.vim'
+
 " Ruby specific
 Plugin 'tpope/rbenv-ctags',           { 'for': ['ruby', 'rake'] }
 Plugin 'tpope/vim-rake',              { 'for': ['ruby', 'rake'] }

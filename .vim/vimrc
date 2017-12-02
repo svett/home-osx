@@ -22,6 +22,7 @@ runtime! config/plugin/commentary.vim
 runtime! config/plugin/concourse.vim
 runtime! config/plugin/ctrlp.vim
 runtime! config/plugin/dash.vim
+runtime! config/plugin/deoplete.vim
 runtime! config/plugin/echodoc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/git.vim
@@ -50,4 +51,4 @@ runtime! config/lang/ruby.vim
 runtime! config/lang/rust.vim
 runtime! config/lang/yaml.vim
 runtime! config/lang/typescript.vim
-runtime! config/lang/omnisharp.vim
+runtime! config/lang/swift.vim
