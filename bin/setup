@@ -71,6 +71,8 @@ install_python() {
 
   install_python_version 2.7.14
   install_python_version 3.6.3
+
+  pyenv shell 2.7.14
 }
 
 install_python_version() {
