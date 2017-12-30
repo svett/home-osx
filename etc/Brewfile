@@ -149,3 +149,4 @@ brew 'r'
 brew 'vault-cli'
 brew 'paket', args: ['without-mono']
 brew 'kops'
+brew 'fzf'
