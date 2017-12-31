@@ -20,7 +20,7 @@ runtime! config/plugin/airline.vim
 runtime! config/plugin/colors.vim
 runtime! config/plugin/commentary.vim
 runtime! config/plugin/concourse.vim
-runtime! config/plugin/ctrlp.vim
+runtime! config/plugin/fzf.vim
 runtime! config/plugin/dash.vim
 runtime! config/plugin/deoplete.vim
 runtime! config/plugin/echodoc.vim

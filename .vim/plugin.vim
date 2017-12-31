@@ -94,11 +94,8 @@ Plugin 'scrooloose/nerdtree'
 " Syntax checking hacks for vim
 Plugin 'vim-syntastic/syntastic'
 
-" Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
-Plugin 'ctrlpvim/ctrlp.vim'
-
-" Fast vim CtrlP matcher based on python
-Plugin 'FelikZ/ctrlp-py-matcher'
+" Fuzzy fast search
+Plugin 'junegunn/fzf.vim'
 
 " displays information in echo area from echodoc plugin.
 Plugin 'Shougo/echodoc.vim'
