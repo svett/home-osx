@@ -83,6 +83,8 @@
 .vscode/extensions/
 .swiftenv/shims/
 .openvpn-connect.json
+.terraform.d/
+bin/hippo
 iCloud Drive (Archive)
 workspace
 go
