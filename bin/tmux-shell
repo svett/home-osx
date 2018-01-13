@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TMUX_CMD="/usr/local/Cellar/tmux/2.6/bin/tmux"
+
+"$TMUX_CMD" attach -t init || "$TMUX_CMD" new -s init
