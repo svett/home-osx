@@ -49,7 +49,7 @@ install_brew_update() {
 install_ruby() {
   echo "Setting up ruby..."
 
-  RUBY_VERSION="ruby-2.4.3"
+  RUBY_VERSION="ruby-2.5.0"
   # shellcheck disable=SC1091
   source /usr/local/share/chruby/chruby.sh
 
