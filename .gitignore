@@ -84,6 +84,9 @@
 .swiftenv/shims/
 .openvpn-connect.json
 .terraform.d/
+.cargo/
+.rustup/
+.multirust
 bin/hippo
 iCloud Drive (Archive)
 workspace

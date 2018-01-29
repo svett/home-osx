@@ -14,3 +14,5 @@ do
   # shellcheck source=/dev/null
   . "$profile_config"
 done
+
+export PATH="$HOME/.cargo/bin:$PATH"
