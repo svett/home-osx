@@ -132,6 +132,7 @@ Plugin 'fsharp/vim-fsharp'
 
 " Develop Rust
 Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 
 " Develop TypeScript
 Plugin 'HerringtonDarkholme/yats.vim'

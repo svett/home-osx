@@ -17,6 +17,7 @@ main() {
   install_ruby
   install_python
   install_node
+  install_rust
   install_libs
 
   osx_configure
@@ -107,6 +108,10 @@ install_node() {
   npm install -g typescript
   npm install -g jest-cli
   npm install -g create-react-app
+}
+
+install_rust() {
+  cargo install racer
 }
 
 osx_software_update() {

@@ -17,4 +17,3 @@ do
   . "$profile_config"
 done
 
-export PATH="$HOME/.cargo/bin:$PATH"
