@@ -1,5 +1,9 @@
 #!/bin/bash
 
 export FZF_TMUX=1
+eval $(gdircolors ~/.dircolors)
 
+# Aliases
 alias vim="nvim"
+alias ls='gls --color=auto'
+alias ll='ls -al'
