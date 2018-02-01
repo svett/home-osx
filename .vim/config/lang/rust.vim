@@ -1,4 +1,5 @@
 let g:rustfmt_autosave = 1
+let g:racer_experimental_completer = 1
 
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)

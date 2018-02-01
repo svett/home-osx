@@ -112,6 +112,7 @@ install_node() {
 
 install_rust() {
   cargo install racer
+  rustup component add rust-src
 }
 
 osx_software_update() {
