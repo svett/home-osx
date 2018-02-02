@@ -89,6 +89,9 @@ install_python_version() {
   pip install neovim
   pip install awscli
   pip install powerline-shell
+  pip install --upgrade httpie-aws-auth
+  pip install --upgrade httpie-jwt-auth
+  pip install --upgrade httpie-oauth
 
   PYTHON_PATH=$(pyenv which python)
   echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"
