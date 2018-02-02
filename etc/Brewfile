@@ -151,3 +151,4 @@ brew 'paket', args: ['without-mono']
 brew 'kops'
 brew 'fzf'
 brew 'fd'
+brew 'httpie'
