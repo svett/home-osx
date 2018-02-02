@@ -89,6 +89,7 @@ install_python_version() {
   pip install neovim
   pip install awscli
   pip install powerline-shell
+  pip install pyyaml
   pip install --upgrade httpie-aws-auth
   pip install --upgrade httpie-jwt-auth
   pip install --upgrade httpie-oauth

@@ -50,6 +50,7 @@ Plugin 'udalov/kotlin-vim'
 
 " Swift
 Plugin 'keith/swift.vim'
+Plugin 'mitsuse/autocomplete-swift'
 
 " Ruby specific
 Plugin 'tpope/rbenv-ctags',           { 'for': ['ruby', 'rake'] }
