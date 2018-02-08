@@ -1,6 +1,5 @@
-let g:rustfmt_autosave = 0
+let g:rustfmt_autosave = 1
 let g:rustfmt_fail_silently = 1
-let g:rustfmt_command = "cargo fmt -- "
 let g:racer_experimental_completer = 1
 let g:rust_recommended_style = 1
 let g:rust_clip_command = 'pbcopy'
