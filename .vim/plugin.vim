@@ -168,4 +168,7 @@ Plugin 'hashivim/vim-terraform.git'
 " Apiary Intergration
 Plugin 'kylef/apiblueprint.vim'
 
+" Brewfile Support
+Plugin 'bfontaine/Brewfile.vim'
+
 call vundle#end()

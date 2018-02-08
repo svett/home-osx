@@ -87,6 +87,8 @@
 .cargo/
 .rustup/
 .multirust
+.lldb/
+.tig_history
 bin/hippo
 iCloud Drive (Archive)
 workspace
