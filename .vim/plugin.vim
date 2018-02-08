@@ -162,4 +162,10 @@ Plugin 'editorconfig/editorconfig-vim'
 " ansible syntax highlighting
 Plugin 'pearofducks/ansible-vim'
 
+" Basic vim/terraform integration
+Plugin 'hashivim/vim-terraform.git'
+
+" Apiary Intergration
+Plugin 'kylef/apiblueprint.vim'
+
 call vundle#end()

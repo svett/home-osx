@@ -62,6 +62,7 @@ install_ruby() {
     gem install neovim
     gem install pry
     gem install rspec
+    gem install apiaryio
   fi
 }
 
