@@ -131,6 +131,9 @@ Plugin 'OmniSharp/omnisharp-vim'
 " Develop F#
 Plugin 'fsharp/vim-fsharp'
 
+" Install Web API needed by Rust
+Plugin 'mattn/webapi-vim'
+
 " Develop Rust
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
