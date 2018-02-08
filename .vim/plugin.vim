@@ -155,6 +155,7 @@ Plugin 'luan/vim-bosh'
 
 " Color themes
 Plugin 'fatih/molokai'
+Plugin 'jpo/vim-railscasts-theme'
 
 " editorconfig.org plugin
 Plugin 'editorconfig/editorconfig-vim'
