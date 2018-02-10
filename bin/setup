@@ -87,10 +87,10 @@ install_python_version() {
   pyenv activate "$PYTHON_VIRTUAL_ENV"
 
   echo "Setting packages for python $PYTHON_VERSION..."
-  pip install neovim
-  pip install awscli
-  pip install powerline-shell
-  pip install pyyaml
+  pip install --upgrade neovim
+  pip install --upgrade awscli
+  pip install --upgrade powerline-shell
+  pip install --upgrade pyyaml
   pip install --upgrade httpie-aws-auth
   pip install --upgrade httpie-jwt-auth
   pip install --upgrade httpie-oauth
@@ -115,9 +115,17 @@ install_node() {
 }
 
 install_rust() {
-  cargo install racer
-  rustup component add rust-src
-  cargo install diesel_cli --no-default-features --features "postgres sqlite"
+  if rustup component list | grep rust-src 2>&1>/dev/null | $?; then
+    rustup component add rust-src
+  fi
+
+  if ! [ -x "$(command -v racer)" ]; then
+    cargo install racer
+  fi
+
+  if ! [ -x "$(command -v diesel)" ]; then
+    cargo install diesel_cli --no-default-features --features "postgres sqlite"
+  fi
 }
 
 osx_software_update() {
