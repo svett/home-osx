@@ -33,6 +33,7 @@ runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/rainbow.vim
 runtime! config/plugin/syntastic.vim
 runtime! config/plugin/tagbar.vim
+runtime! config/plugin/test.vim
 
 if has('nvim')
   runtime! config/plugin/deoplete.vim

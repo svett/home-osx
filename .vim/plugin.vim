@@ -172,4 +172,7 @@ Plugin 'kylef/apiblueprint.vim'
 " Brewfile Support
 Plugin 'bfontaine/Brewfile.vim'
 
+" Run any tests
+Plugin 'janko-m/vim-test'
+
 call vundle#end()

@@ -99,6 +99,8 @@ set showcmd
 set splitbelow
 " Automatically save before :next, :make etc.
 set autowrite
+" Automatically read
+set autoread
 " Prefer Unix over Windows over OS 9 formats
 set fileformats=unix,dos,mac
 " speed up syntax highlighting
