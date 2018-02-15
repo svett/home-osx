@@ -175,4 +175,8 @@ Plugin 'bfontaine/Brewfile.vim'
 " Run any tests
 Plugin 'janko-m/vim-test'
 
+" Install PSQL plugin
+Plugin 'lifepillar/pgsql.vim'
+Plugin 'vim-scripts/dbext.vim'
+
 call vundle#end()

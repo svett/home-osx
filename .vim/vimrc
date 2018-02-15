@@ -54,3 +54,4 @@ runtime! config/lang/yaml.vim
 runtime! config/lang/typescript.vim
 runtime! config/lang/swift.vim
 runtime! config/lang/apiary.vim
+runtime! config/lang/psql.vim
