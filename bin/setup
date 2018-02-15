@@ -57,13 +57,13 @@ install_ruby() {
     echo "$RUBY_VERSION is already installed..."
   else
     ruby-install "$RUBY_VERSION"
-
-    gem install bundler
-    gem install neovim
-    gem install pry
-    gem install rspec
-    gem install apiaryio
   fi
+
+  gem install bundler
+  gem install neovim
+  gem install pry
+  gem install rspec
+  gem install apiaryio
 }
 
 install_python() {
@@ -73,7 +73,7 @@ install_python() {
   install_python_version 2.7.14
   install_python_version 3.6.3
 
-  pyenv shell 2.7.14
+  pyenv global neovim-python-2.7.14
 }
 
 install_python_version() {
@@ -94,6 +94,8 @@ install_python_version() {
   pip install --upgrade httpie-aws-auth
   pip install --upgrade httpie-jwt-auth
   pip install --upgrade httpie-oauth
+  pip install --upgrade pgcli
+  pip install --upgrade psycopg2-binary
 
   PYTHON_PATH=$(pyenv which python)
   echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"
