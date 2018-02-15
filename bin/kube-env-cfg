@@ -1,0 +1,5 @@
+#!/bin/bash
+
+[ -z "$1" ] && echo "Kube namespace is not provided" && exit 1
+
+kubectl edit -n "$1" -o yaml configmaps/environment-config
