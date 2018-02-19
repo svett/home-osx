@@ -96,6 +96,7 @@ install_python_version() {
   pip install --upgrade httpie-oauth
   pip install --upgrade pgcli
   pip install --upgrade psycopg2-binary
+  pip install --upgrade gcalcli
 
   PYTHON_PATH=$(pyenv which python)
   echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"
