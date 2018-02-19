@@ -1,0 +1,48 @@
+# Mailboxes
+source ~/.mutt/account/mailbox.muttrc
+
+# Default Theme
+source ~/.mutt/theme/solarized-dark.muttrc
+
+# Appereance
+source ~/.mutt/config/appereance.muttrc
+source ~/.mutt/config/header.muttrc
+source ~/.mutt/config/autoview.muttrc
+
+# Macros for switching accounts
+source ~/.mutt/config/macros.muttrc
+
+# Shortcuts
+source ~/.mutt/config/binding.muttrc
+
+# Security
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# Syncronize
+set mail_check = 30
+set mail_check_stats = yes
+set imap_keepalive = 900
+set imap_check_subscribed = yes
+
+# Behavior Settings
+set wait_key = no
+set mbox_type = Maildir
+set editor = "vim"
+set charset = "utf-8"
+set text_flowed = yes
+set beep_new = yes
+set pipe_decode = yes
+set delete = yes
+set quit = yes
+set move = no
+set timeout = 3
+set thorough_search = yes
+set new_mail_command = 'osascript -e beep'
+set pager = "builtin"
+set pager_context = 5
+set pager_index_lines = 20
+
+# Forward Settings
+set mime_forward
+set mime_forward_rest = yes

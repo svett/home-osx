@@ -125,3 +125,4 @@ if has('nvim')
 end
 
 autocmd FileType help setlocal nospell
+autocmd FileType mail setlocal formatoptions+=aw

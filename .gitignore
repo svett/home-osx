@@ -89,6 +89,7 @@
 .multirust
 .lldb/
 .tig_history
+.mutt/store
 bin/hippo
 iCloud Drive (Archive)
 workspace

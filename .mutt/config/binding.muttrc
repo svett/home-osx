@@ -1,0 +1,28 @@
+# vim: set filetype=muttrc :
+
+# Remove default shortcuts
+bind index,pager g  noop
+bind index,pager \# noop
+bind index,pager \& noop
+
+# Common 
+bind index,pager \134 sidebar-toggle-visible
+bind index,pager R    group-reply
+
+## Pager
+bind pager /  search
+bind pager gg top
+bind pager G  bottom
+bind pager j  next-line
+bind pager k  previous-line
+bind pager gg top
+
+## Index
+bind index i        noop
+bind index F        imap-fetch-mail
+bind index gg       first-entry
+bind index G        last-entry
+bind index zt       current-top
+bind index zz       current-middle
+bind index zb       current-bottom
+bind index <space>  collapse-thread

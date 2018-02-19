@@ -1,0 +1,1 @@
+text/html; pandoc -f html -t markdown; copiousoutput; compose=vim %s

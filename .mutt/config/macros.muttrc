@@ -1,0 +1,5 @@
+# vim: set filetype=muttrc :
+
+# Follow links with urlview
+macro pager \Cb  '<pipe-entry>urlview<enter>'
+macro compose \em "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
