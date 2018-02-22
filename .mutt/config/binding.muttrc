@@ -1,13 +1,16 @@
 # vim: set filetype=muttrc :
 
 # Remove default shortcuts
-bind index,pager g  noop
-bind index,pager \# noop
-bind index,pager \& noop
+bind index,pager g   noop
+bind index,pager \#  noop
+bind index,pager \&  noop
 
 # Common 
+bind index,pager \CR  group-reply
 bind index,pager \134 sidebar-toggle-visible
-bind index,pager R    group-reply
+bind index,pager \Ck  sidebar-prev
+bind index,pager \Cj  sidebar-next
+bind index,pager \Ce  sidebar-open
 
 ## Pager
 bind pager /  search

@@ -42,6 +42,11 @@ set new_mail_command = 'osascript -e beep'
 set pager = "builtin"
 set pager_context = 5
 set pager_index_lines = 20
+set net_inc = 5
+set abort_nosubject = yes
+set markers = no
+set abort_unmodified = yes
+set mark_old = no
 
 # Forward Settings
 set mime_forward
