@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+[ -z "$DEBUG" ] || set -x
+
+export APIARY_API_KEY
+
+APIARY_API_KEY="$(lpass show --name apiary --notes)"
+
