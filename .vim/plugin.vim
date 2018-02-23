@@ -179,4 +179,7 @@ Plugin 'janko-m/vim-test'
 Plugin 'lifepillar/pgsql.vim'
 Plugin 'vim-scripts/dbext.vim'
 
+" Install tmux integration
+Plugin 'christoomey/vim-tmux-navigator'
+
 call vundle#end()
