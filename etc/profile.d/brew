@@ -1,19 +1,4 @@
 #!/bin/bash -exs
 
-BASH_COMPLETION="/usr/local/etc/bash_completion"
-
-add_homebrew_sbin_to_path() {
-  export PATH="/usr/local/bin:$PATH"
-  export PATH="/usr/local/sbin:$PATH"
-}
-
-enable_homebrew_packages_bash_autocompletion() {
-  if [ -f "$BASH_COMPLETION" ]; then
-    # shellcheck disable=SC1091
-    # shellcheck source=/usr/local/etc/bash_completion
-    source "$BASH_COMPLETION"
-  fi
-}
-
-add_homebrew_sbin_to_path
-enable_homebrew_packages_bash_autocompletion
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"

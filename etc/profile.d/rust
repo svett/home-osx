@@ -3,4 +3,5 @@
 export RUST_SRC_PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+RUST_SYS_ROOT_PATH="$(rustc --print sysroot)"
+RUST_SRC_PATH=$RUST_SYS_ROOT_PATH/lib/rustlib/src/rust/src

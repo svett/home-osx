@@ -1,16 +1,10 @@
 #!/bin/bash
 
-export CFLAGS
-export LDFLAGS
-
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYTHON_BIN="$HOME/.pyenv/versions/neovim-python-3.6.3/bin"
 
-CFLAGS="-I$(brew --prefix openssl)/include"
-LDFLAGS="-L$(brew --prefix openssl)/lib"
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init - --no-rehash)"
+eval "$(pyenv virtualenv-init - --no-rehash)"
 
 alias aws='"$PYTHON_BIN"/aws'
 alias powerline-shell='"$PYTHON_BIN"/powerline-shell'
