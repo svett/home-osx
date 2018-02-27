@@ -1,0 +1,16 @@
+# ~/.tmuxinator/hippo.yml
+
+name: workspace
+root: ~/go/src/github.com/transisland
+startup_window: editor
+windows:
+  - mutt: mutt
+  - ranger: ranger
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim
+        - bash
+  - shell:
+      panes:
+        - vim
