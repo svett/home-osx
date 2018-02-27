@@ -13,4 +13,4 @@ windows:
         - bash
   - shell:
       panes:
-        - vim
+        - bash
