@@ -90,6 +90,7 @@
 .lldb/
 .tig_history
 .mutt/store
+.fpp
 bin/hippo
 iCloud Drive (Archive)
 workspace
