@@ -1,12 +1,13 @@
 # ~/.tmuxinator/hippo.yml
 
 name: workspace
-root: ~/go/src/github.com/transisland
+root: ~/
 startup_window: editor
 windows:
   - mutt: mutt
   - ranger: ranger
   - editor:
+      root: ~/go/src/github.com/transisland
       layout: main-horizontal
       panes:
         - vim
