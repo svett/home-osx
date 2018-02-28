@@ -65,6 +65,7 @@ install_ruby() {
   gem install rspec
   gem install apiaryio
   gem install tmuxinator
+  gem install guard
 }
 
 install_python() {
