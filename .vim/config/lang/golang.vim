@@ -9,6 +9,7 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>l <Plug>(go-metalinter)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>T :Tmux ginkgo -r<CR>
 
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)

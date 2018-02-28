@@ -181,5 +181,6 @@ Plugin 'vim-scripts/dbext.vim'
 
 " Install tmux integration
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'jgdavey/tslime.vim'
 
 call vundle#end()

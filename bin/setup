@@ -66,6 +66,7 @@ install_ruby() {
   gem install apiaryio
   gem install tmuxinator
   gem install guard
+  gem install guard-shell
 }
 
 install_python() {
