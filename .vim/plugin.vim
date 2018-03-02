@@ -183,4 +183,7 @@ Plugin 'vim-scripts/dbext.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jgdavey/tslime.vim'
 
+" VIM Icons Yahoo
+Plugin 'ryanoasis/vim-devicons'
+
 call vundle#end()

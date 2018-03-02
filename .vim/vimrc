@@ -35,6 +35,7 @@ runtime! config/plugin/syntastic.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/test.vim
 runtime! config/plugin/tmux.vim
+runtime! config/plugin/devicon.vim
 
 if has('nvim')
   runtime! config/plugin/deoplete.vim
