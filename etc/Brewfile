@@ -115,7 +115,7 @@ brew 'tig'
 brew 'tmux'
 brew 'reattach-to-user-namespace'
 brew 'tree'
-brew 'vim', args: ['with-lua', 'with-python']
+brew 'vim', args: ['with-lua', 'with-python', 'with-python3']
 brew 'neovim'
 brew 'watch'
 brew 'wget'
