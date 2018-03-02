@@ -1,9 +1,9 @@
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 if has('nvim')"
   " provides an asynchronous keyword completion system in the current buffer
