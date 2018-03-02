@@ -126,7 +126,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " OmniSharp
-Plugin 'OmniSharp/omnisharp-vim'
+" Plugin 'OmniSharp/omnisharp-vim'
 
 " Develop F#
 Plugin 'fsharp/vim-fsharp'
