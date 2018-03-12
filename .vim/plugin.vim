@@ -186,4 +186,7 @@ Plugin 'jgdavey/tslime.vim'
 " VIM Icons Yahoo
 Plugin 'ryanoasis/vim-devicons'
 
+" CodeClimate
+Plugin 'wfleming/vim-codeclimate'
+
 call vundle#end()
