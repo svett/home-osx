@@ -19,4 +19,3 @@ do
   # shellcheck source=/dev/null
   . "$profile_config"
 done
-

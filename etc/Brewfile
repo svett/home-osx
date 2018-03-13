@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# vim:ft=Brewfile
 
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
@@ -14,7 +14,6 @@ tap 'universal-ctags/universal-ctags'
 tap 'cloudfoundry/tap'
 tap 'drone/drone'
 tap 'vapor/homebrew-tap'
-tap 'codeclimate/formulae'
 
 cask 'karabiner-elements'
 cask 'vivaldi'
@@ -163,4 +162,3 @@ brew 'pandoc'
 brew 'ranger'
 brew 'highlight'
 brew 'fpp'
-brew 'codeclimate'
