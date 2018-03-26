@@ -90,6 +90,7 @@ install_python_version() {
   pyenv activate "$PYTHON_VIRTUAL_ENV"
 
   echo "Setting packages for python $PYTHON_VERSION..."
+  pip install --upgrade pip
   pip install --upgrade neovim
   pip install --upgrade awscli
   pip install --upgrade powerline-shell
