@@ -60,31 +60,49 @@ install_ruby() {
     ruby-install "$RUBY_VERSION"
   fi
 
-  gem install bundler
-  gem install neovim
-  gem install pry
-  gem install rspec
-  gem install apiaryio
-  gem install tmuxinator
-  gem install guard
-  gem install guard-shell
+  gem install bundler --conservative
+  gem install neovim --conservative
+  gem install pry --conservative
+  gem install rspec --conservative
+  gem install apiaryio --conservative
+  gem install tmuxinator --conservative
+  gem install guard --conservative
+  gem install guard-shell --conservative
 }
 
 install_python() {
   echo "Setting packages for python $PYTHON_VERSION..."
 
-  pip install --upgrade pip
-  pip install --upgrade neovim
-  pip install --upgrade awscli
-  pip install --upgrade powerline-shell
-  pip install --upgrade pyyaml
-  pip install --upgrade httpie-aws-auth
-  pip install --upgrade httpie-jwt-auth
-  pip install --upgrade httpie-oauth
-  pip install --upgrade pgcli
-  pip install --upgrade psycopg2-binary
-  pip install --upgrade gcalcli
-  pip install --upgrade pytz
+   # shellcheck disable=SC1090
+  source "$HOME/etc/profile.d/python"
+
+  pip install --upgrade -r "$HOME/etc/python/system-dependencies"
+
+  install_python_for_vim 2.7.14
+  install_python_for_vim 3.6.3
+
+  pyenv global system
+}
+
+install_python_for_vim() {
+  PYTHON_VERSION="$1"
+  PYTHON_VIRTUAL_ENV="neovim-python-$PYTHON_VERSION"
+
+  echo "Setting up python $PYTHON_VERSION..."
+
+  pyenv install -s "$PYTHON_VERSION"
+  pyenv virtualenv "$PYTHON_VERSION" "$PYTHON_VIRTUAL_ENV"
+  pyenv activate "$PYTHON_VIRTUAL_ENV"
+
+  pip install --upgrade -r "$HOME/etc/python/vim-dependencies"
+}
+
+npm_install() {
+  if ! [ -x "$(npm list "$1" 2>&1>/dev/null)" ]; then
+    npm update -g "$1"
+  else
+    npm install -g "$1"
+  fi
 }
 
 install_node() {
@@ -94,12 +112,11 @@ install_node() {
   NODE_VERSION="9.2.0"
 
   nvm install "$NODE_VERSION"
-  nvm use "$NODE_VERSION"
 
-  npm install -g yarn
-  npm install -g typescript
-  npm install -g jest-cli
-  npm install -g create-react-app
+  npm_install yarn
+  npm_install typescript
+  npm_install jest-cli
+  npm_install create-react-app
 }
 
 install_rust() {

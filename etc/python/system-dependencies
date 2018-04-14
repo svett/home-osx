@@ -1,0 +1,9 @@
+pip
+click>=4.1
+sqlparse>=0.1.19
+certifi>=2017.4.17
+chardet<3.1.0,>=3.0.2
+urllib3<1.23,>=1.21.1
+awscli
+powerline-shell
+pgcli
