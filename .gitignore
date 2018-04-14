@@ -92,6 +92,7 @@
 .mutt/store
 .fpp
 .glide
+.mysql_history
 bin/hippo
 iCloud Drive (Archive)
 workspace
