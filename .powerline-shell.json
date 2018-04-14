@@ -1,13 +1,10 @@
 {
   "segments": [
-    "ssh",
-    "username",
     "git",
-    "jobs",
     "cwd",
-    "read_only",
-    "root"
+    "read_only"
   ],
+  "theme": "basic",
   "cwd": {
     "max_depth": 3
   },
