@@ -94,7 +94,7 @@
 .glide
 .mysql_history
 .gnupg
-bin/hippo
+lib/hippo
 iCloud Drive (Archive)
 workspace
 go
