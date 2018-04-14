@@ -1,10 +1,11 @@
 #!/bin/bash
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYTHON_BIN="$HOME/.pyenv/versions/neovim-python-3.6.3/bin"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
-eval "$(pyenv init - --no-rehash)"
-eval "$(pyenv virtualenv-init - --no-rehash)"
+# eval "$(pyenv init - --no-rehash)"
+# eval "$(pyenv virtualenv-init - --no-rehash)"
 
-alias aws='"$PYTHON_BIN"/aws'
-alias powerline-shell='"$PYTHON_BIN"/powerline-shell'
+# alias aws='"$PYTHON_BIN"/aws'
+# alias powerline-shell='"$PYTHON_BIN"/powerline-shell'

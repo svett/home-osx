@@ -4,4 +4,6 @@ function _update_ps1() {
   PS1="$(powerline-shell $?)"
 }
 
-PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+if command -v powerline-shell >/dev/null 2>&1; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi

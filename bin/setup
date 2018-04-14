@@ -39,6 +39,7 @@ install_brew_if_not_exists() {
 
 install_brew_update() {
   cd "${HOME}/etc" || return
+
   brew tap Homebrew/bundle
   brew update
   brew bundle
@@ -70,26 +71,8 @@ install_ruby() {
 }
 
 install_python() {
-  # shellcheck disable=SC1090
-  source "$HOME/etc/profile.d/python"
-
-  install_python_version 2.7.14
-  install_python_version 3.6.3
-
-  pyenv global neovim-python-2.7.14
-}
-
-install_python_version() {
-  PYTHON_VERSION="$1"
-  PYTHON_VIRTUAL_ENV="neovim-python-$PYTHON_VERSION"
-
-  echo "Setting up python $PYTHON_VERSION..."
-
-  pyenv install -s "$PYTHON_VERSION"
-  pyenv virtualenv "$PYTHON_VERSION" "$PYTHON_VIRTUAL_ENV"
-  pyenv activate "$PYTHON_VIRTUAL_ENV"
-
   echo "Setting packages for python $PYTHON_VERSION..."
+
   pip install --upgrade pip
   pip install --upgrade neovim
   pip install --upgrade awscli
@@ -102,9 +85,6 @@ install_python_version() {
   pip install --upgrade psycopg2-binary
   pip install --upgrade gcalcli
   pip install --upgrade pytz
-
-  PYTHON_PATH=$(pyenv which python)
-  echo "Python $PYTHON_VERSION is installed at $PYTHON_PATH"
 }
 
 install_node() {
