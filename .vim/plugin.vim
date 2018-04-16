@@ -5,21 +5,8 @@ call vundle#begin()
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-if has('nvim')"
-  " provides an asynchronous keyword completion system in the current buffer
-  Plugin 'Shougo/deoplete.nvim'
-  " deoplete.nvim source for Golang and gocode or vim-go
-  Plugin 'zchee/deoplete-go', { 'do': 'make' }
-else
-  " Universal set of vim defaults that everyone can agree on
-  Plugin 'tpope/vim-sensible'
-
-  " Next generation completion framework after neocomplcache
-  Plugin 'Shougo/neocomplete.vim'
-end
-"
-" Syntax checking hacks for vim
-Plugin 'benekastah/neomake'
+" Universal set of vim defaults that everyone can agree on
+Plugin 'tpope/vim-sensible'
 
 " comment stuff out (via leader-/)
 Plugin 'tpope/vim-commentary'
@@ -92,9 +79,6 @@ Plugin 'majutsushi/tagbar'
 " A tree explorer plugin for vim
 Plugin 'scrooloose/nerdtree'
 
-" Syntax checking hacks for vim
-Plugin 'vim-syntastic/syntastic'
-
 " Fuzzy fast search
 Plugin 'junegunn/fzf.vim'
 
@@ -139,9 +123,10 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
 
 " Develop TypeScript
-Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
-Plugin 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
+
+" Develop VUE
+Plugin 'posva/vim-vue', { 'for': 'vue' }
 
 " A solid language pack for Vim.
 " Adds 70+ languages and optimizes loading and installing.
@@ -156,6 +141,9 @@ Plugin 'luan/vim-bosh'
 " Color themes
 Plugin 'fatih/molokai'
 Plugin 'jpo/vim-railscasts-theme'
+Plugin 'morhetz/gruvbox'
+Plugin 'mhartington/oceanic-next'
+Plugin 'ayu-theme/ayu-vim'
 
 " editorconfig.org plugin
 Plugin 'editorconfig/editorconfig-vim'
@@ -188,5 +176,36 @@ Plugin 'ryanoasis/vim-devicons'
 
 " CodeClimate
 Plugin 'wfleming/vim-codeclimate'
+
+" Asynchronous Lint Engine
+Plugin 'w0rp/ale'
+
+" Fast, Extensible, Async Completion Framework for Neovim
+if has('python3')
+  Plugin 'roxma/nvim-completion-manager'
+  Plugin 'roxma/ncm-clang' " C/C++
+  Plugin 'roxma/nvim-cm-racer' " Rust
+  Plugin 'roxma/nvim-cm-tern', {'do': 'npm install'} " Javascript
+  Plugin 'calebeby/ncm-css' " CSS
+  Plugin 'rhysd/github-complete.vim' "GitHub
+  Plugin 'Shougo/neco-syntax'
+  Plugin 'Shougo/neco-vim'
+  Plugin 'roxma/ncm-rct-complete' " Ruby
+endif
+
+" Clang based syntax highlighting for Neovim
+Plugin 'arakashic/chromatica.nvim'
+
+if !has('nvim') || $ALL_PLUGINS ==# 'true'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+if has('python') || has('python3')
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
+endif
+
+" asynchronous process manager; run :VimProcBang to run a command and echo the results
+Plugin 'Shougo/vimproc.vim', {'do': 'make'}
 
 call vundle#end()
