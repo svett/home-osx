@@ -196,8 +196,8 @@ endif
 " Clang based syntax highlighting for Neovim
 Plugin 'arakashic/chromatica.nvim'
 
-if !has('nvim') || $ALL_PLUGINS ==# 'true'
-  Plug 'roxma/vim-hug-neovim-rpc'
+if !has('nvim')
+  Plugin 'roxma/vim-hug-neovim-rpc'
 endif
 
 if has('python') || has('python3')
