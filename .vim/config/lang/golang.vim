@@ -45,16 +45,14 @@ let g:go_bin_path = expand("~/go/bin")
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
 let g:go_term_height = 15
-let g:go_metalinter_enabled = 1
 let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'misspell']
+let g:go_metalinter_disabled = ['gotype', 'gotypex']
+let g:go_metalinter_enabled = ['vet', 'ineffassign', 'golint', 'gofmt', 'gocyclo', 'errcheck']
 
 let g:ale_go_gometalinter_options =
       \ '--tests ' .
-      \ '--fast ' .
-      \ '--disable=gotype ' .
-      \ '--disable=gotypex ' .
-      \ '--exclude="should have comment" ' .
-      \ '--exclude="error return value not checked \(defer"'
+      \ '--fast '
 
 let s:go_tags_path = resolve(expand('<sfile>:h') . '/../../gotags')
 let s:go_tags_script_path = resolve(expand('<sfile>:h') . '/../../scripts/gotags')
