@@ -117,6 +117,7 @@ install_node() {
   npm_install typescript
   npm_install jest-cli
   npm_install create-react-app
+  npm_install livedown
 }
 
 install_rust() {
