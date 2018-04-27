@@ -6,18 +6,7 @@ PKG_DIR="${1:-$PWD}"
 PKG_COVER_FILE="$PKG_DIR/coverage.cov"
 
 run_tests() {
-  if ! [ -f "$PKG_COVER_FILE" ]; then
-    ginkgo -r -cover "$PKG_DIR"
-  fi
-}
-
-combine_cover_profiles() {
-  echo "mode: atomic" > "$PKG_COVER_FILE"
-
-  for profile in $(find . -name '*.coverprofile' -maxdepth 10  -type f); do
-    grep -v "mode: " < "$profile" >> "$PKG_COVER_FILE"
-    rm "$profile"
-  done
+  ginkgo -r -cover -coverprofile "$PKG_COVER_FILE"
 }
 
 show_cover_profile() {
@@ -26,7 +15,6 @@ show_cover_profile() {
 
 main() {
   run_tests
-  combine_cover_profiles
   show_cover_profile
 }
 
