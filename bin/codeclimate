@@ -1,5 +1,7 @@
 #!/bin/bash
 
+eval "$(docker-machine env)"
+
 docker run \
   --interactive --tty --rm \
   --env CODECLIMATE_CODE="$PWD" \
