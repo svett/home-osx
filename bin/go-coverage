@@ -1,0 +1,33 @@
+#!/bin/bash
+
+[ -z "$DEBUG" ] || set -x
+
+PKG_DIR="${1:-$PWD}"
+PKG_COVER_FILE="$PKG_DIR/coverage.cov"
+
+run_test() {
+  if ! [ -f "$PKG_COVER_FILE" ]; then
+    ginkgo -r -cover "$PKG_DIR"
+  fi
+}
+
+combine_cover_profiles() {
+  echo "mode: atomic" > "$PKG_COVER_FILE"
+
+  for profile in $(find . -name '*.coverprofile' -maxdepth 10  -type f); do
+    grep -v "mode: " < "$profile" >> coverage.cov
+    rm "$profile"
+  done
+}
+
+show_cover_profile() {
+  go tool cover -html="$PKG_COVER_FILE"
+}
+
+main() {
+  run_test
+  combine_cover_profiles
+  show_cover_profile
+}
+
+main
