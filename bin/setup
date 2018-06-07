@@ -12,8 +12,6 @@ main() {
 
   configure_gimp
 
-  symlink_ssl
-
   install_ruby
   install_python
   install_node

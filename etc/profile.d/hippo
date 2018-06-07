@@ -1,0 +1,3 @@
+#!/bin/bash
+
+export PATH="$HOME/workspace/hippo/hippo-sdk/bin:$PATH"
