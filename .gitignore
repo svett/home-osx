@@ -37,7 +37,7 @@
 .dotnet
 .nuget
 .vim/bundle
-.aws/credentials
+.aws/credentials*
 .lesshst
 .heroku/
 .mongorc.js
@@ -94,6 +94,11 @@
 .glide
 .mysql_history
 .gnupg
+.dlv
+.adobe
+.hsdk
+.VSCodeVim
+.hydra.yml
 lib/hippo
 iCloud Drive (Archive)
 workspace
