@@ -1,3 +1,11 @@
 #!/bin/bash
 
 export PATH="$HOME/workspace/hippo/hippo-sdk/bin:$PATH"
+
+alias hippo-network='export AWS_PROFILE=hippo-network && $(hsdk setenv hippo-network)'
+alias hippo-prod='export AWS_PROFILE=hippo-prod && $(hsdk setenv production)'
+alias hippo-e2e='export AWS_PROFILE=hippo-e2e && $(hsdk setenv e2e)'
+alias hippo-stage='export AWS_PROFILE=hippo-stage && $(hsdk setenv stage)'
+alias hippo-dev='export AWS_PROFILE=hippo-dev && $(hsdk setenv dev)'
+alias hippo-old-dev='export AWS_PROFILE=hippo-dev-old && $(hsdk setenv old-dev)'
+alias hippo-ssh='ssh svetlin@jumpbox.hippo-dev.tools'

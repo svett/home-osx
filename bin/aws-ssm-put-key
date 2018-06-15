@@ -1,0 +1,3 @@
+#!/bin/sh
+
+aws ssm put-parameter --name "$1" --type "SecureString" --overwrite --value "$2"
