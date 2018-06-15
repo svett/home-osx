@@ -99,6 +99,7 @@
 .hsdk
 .VSCodeVim
 .hydra.yml
+.s3cfg
 lib/hippo
 iCloud Drive (Archive)
 workspace

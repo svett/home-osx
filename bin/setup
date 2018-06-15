@@ -10,8 +10,6 @@ main() {
   install_brew_if_not_exists
   install_brew_update
 
-  configure_gimp
-
   install_ruby
   install_python
   install_node
@@ -221,16 +219,6 @@ update_golang_packages() {
 install_libs() {
   cd "$HOME/lib" || true
   curl -O http://www.antlr.org/download/antlr-4.7-complete.jar
-}
-
-configure_gimp() {
-  cd "$HOME/Library/Application Support/GIMP" || true
-  backup_dir=2.8.backup
-
-  if [ ! -d "$backup_dir" ]; then
-    mv 2.8 "$backup_dir"
-    git clone --depth=1 https://github.com/doctormo/GimpPs.git 2.8
-  fi
 }
 
 main
