@@ -181,29 +181,22 @@ Plugin 'wfleming/vim-codeclimate'
 Plugin 'w0rp/ale'
 
 " Fast, Extensible, Async Completion Framework for Neovim
-if has('python3')
-  Plugin 'roxma/nvim-completion-manager'
-  Plugin 'roxma/ncm-clang' " C/C++
-  Plugin 'roxma/nvim-cm-racer' " Rust
-  Plugin 'roxma/nvim-cm-tern', {'do': 'npm install'} " Javascript
-  Plugin 'calebeby/ncm-css' " CSS
-  Plugin 'rhysd/github-complete.vim' "GitHub
-  Plugin 'Shougo/neco-syntax'
-  Plugin 'Shougo/neco-vim'
-  Plugin 'roxma/ncm-rct-complete' " Ruby
-endif
+Plugin 'roxma/nvim-completion-manager'
+Plugin 'roxma/ncm-clang' " C/C++
+Plugin 'roxma/nvim-cm-racer' " Rust
+Plugin 'roxma/nvim-cm-tern', {'do': 'npm install'} " Javascript
+Plugin 'calebeby/ncm-css' " CSS
+Plugin 'rhysd/github-complete.vim' "GitHub
+Plugin 'Shougo/neco-syntax'
+Plugin 'Shougo/neco-vim'
+Plugin 'roxma/ncm-rct-complete' " Ruby
 
 " Clang based syntax highlighting for Neovim
 Plugin 'arakashic/chromatica.nvim'
+Plugin 'roxma/vim-hug-neovim-rpc'
 
-if !has('nvim')
-  Plugin 'roxma/vim-hug-neovim-rpc'
-endif
-
-if has('python') || has('python3')
-  Plugin 'SirVer/ultisnips'
-  Plugin 'honza/vim-snippets'
-endif
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " asynchronous process manager; run :VimProcBang to run a command and echo the results
 Plugin 'Shougo/vimproc.vim', {'do': 'make'}

@@ -1,2 +1,5 @@
 pip
 neovim
+jedi
+psutil
+setproctitle

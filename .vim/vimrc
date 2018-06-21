@@ -34,6 +34,7 @@ runtime! config/plugin/rainbow.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/test.vim
 runtime! config/plugin/tmux.vim
+runtime! config/plugin/ncm.vim
 
 "
 " --------------------
