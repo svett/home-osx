@@ -19,3 +19,15 @@ if [ -f $BASH_COMPLETION ]; then
   # shellcheck source=/usr/local/etc/bash_completion
   source $BASH_COMPLETION
 fi
+
+git-release() {
+   RELEASE_NAME=$1
+
+   if [ -z "$RELEASE_NAME" ]; then
+     RELEASE_NAME="release"
+   else
+     RELEASE_NAME="$RELEASE_NAME-release"
+   fi
+
+   git checkout -b "$RELEASE_NAME"-"$(date '+%Y-%m-%d')"
+}
