@@ -13,6 +13,8 @@ hippo-env() {
     *)
       eval "$(hsdk setenv "$1")" ;;
   esac
+
+  tmux setenv -g HSDK_ENV_DESCRIPTION "$HSDK_ENV_DESCRIPTION"
 }
 
 hippo-domain() {
