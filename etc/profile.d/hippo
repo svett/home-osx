@@ -2,36 +2,77 @@
 
 export PATH="$HOME/workspace/hippo/hippo-sdk/bin:$PATH"
 
+_fail() {
+  echo "$*"
+  exit 1
+}
+
+_hippo-domain() {
+  case "$HSDK_ENV_ALIAS" in
+    "network")
+      echo "hippo.partners" ;;
+    "production")
+      echo "hippo.tools" ;;
+    "dev")
+      echo "hippo-dev.tools" ;;
+    "stage")
+      echo "hippo-stage.tools" ;;
+    *)
+      _fail "Unsupported environment $HSDK_ENV_ALIAS" ;;
+  esac
+}
+
 hippo-env() {
-  export AWS_PROFILE="hippo-$1"
+  export AWS_IAM_USER
+  export AWS_PROFILE
+
+  AWS_PROFILE="hippo-$1"
 
   case "$1" in
+    "dev")
+      eval "$(hsdk setenv dev)" ;;
+    "stage")
+      eval "$(hsdk setenv stage)" ;;
     "prod")
       eval "$(hsdk setenv production)" ;;
     "network")
       eval "$(hsdk setenv hippo-network)" ;;
-    *)
-      eval "$(hsdk setenv "$1")" ;;
+    "e2e")
+      eval "$(hsdk setenv e2e)" ;;
   esac
 
-  tmux setenv -g HSDK_ENV_DESCRIPTION "$HSDK_ENV_DESCRIPTION"
-}
+  AWS_IAM_USER=$(aws iam get-user | jq ".User.UserName" -r)
 
-hippo-domain() {
-  case "$1" in
-    "network")
-      echo "hippo.partners" ;;
-    *)
-      echo "hippo-$1.tools" ;;
-  esac
+  if [ -n "$TMUX" ]; then
+    tmux setenv -g HSDK_ENV_DESCRIPTION "$HSDK_ENV_DESCRIPTION"
+    tmux setenv -g HSDK_ENV_ALIAS "$HSDK_ENV_ALIAS"
+    tmux setenv -g AWS_IAM_USER "$AWS_IAM_USER"
+  fi
 }
 
 hippo-ssh() {
-  DOMAIN="$(hippo-domain "$1")"
-  ssh "svetlin@jumpbox.$DOMAIN"
+  DOMAIN=$(_hippo-domain)
+  JUMPBOX="$AWS_IAM_USER@jumpbox.$DOMAIN"
+  ssh "$JUMPBOX"
 }
 
 hippo-proxy() {
-  DOMAIN="$(hippo-domain "$1")"
-  ssh -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -o ConnectTimeout=3 -L 5430:"$2.$DOMAIN:5432 svetlin@jumpbox.$DOMAIN"
+  DB_NAME="$1"
+  DOMAIN=$(_hippo-domain)
+  DB_DOMAIN="db-$DB_NAME.$DOMAIN"
+  JUMPBOX="$AWS_IAM_USER@jumpbox.$DOMAIN"
+  ssh -N -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -o ConnectTimeout=3 -L 5430:"$DB_DOMAIN":5432 "$JUMPBOX" &
+}
+
+hippo-proxy-stop() {
+  DB_NAME="$1"
+
+  if [ -n "$DB_NAME" ]; then
+   DOMAIN=$(_hippo-domain)
+   PATTERN="db-$DB_NAME.$DOMAIN"
+  else
+    PATTERN="$AWS_IAM_USER@jumpbox"
+  fi
+
+  pkill -9 -f "$PATTERN"
 }
