@@ -32,3 +32,5 @@ bind status c !git commit
 bind status C !git duet-commit
 bind status a !git commit --amend
 bind status x !git clean -fd
+
+source ~/.tig/themes/molokai.tigrc

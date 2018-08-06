@@ -32,7 +32,7 @@ nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
 " Git ncurses
-nnoremap <Leader>g :!tig --all<CR>
+nnoremap <Leader>T :Tig<Cr>
 
 " ### Other ###
 " double percentage sign in command mode is expanded

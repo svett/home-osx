@@ -197,6 +197,7 @@ Plugin 'roxma/vim-hug-neovim-rpc'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'codeindulgence/vim-tig'
 
 " asynchronous process manager; run :VimProcBang to run a command and echo the results
 Plugin 'Shougo/vimproc.vim', {'do': 'make'}
