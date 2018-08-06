@@ -9,7 +9,7 @@ _fail() {
 
 _hippo-domain() {
   case "$HSDK_ENV_ALIAS" in
-    "network")
+    "hippo-network")
       echo "hippo.partners" ;;
     "production")
       echo "hippo.tools" ;;
