@@ -1,0 +1,20 @@
+#!/bin/bash
+
+git-release() {
+   case "$1" in
+      "stage")
+         RELEASE_PREFIX="stage" ;;
+      "network")
+         RELEASE_PREFIX="network-release" ;;
+      "prod")
+         RELEASE_PREFIX="release" ;;
+   esac
+
+   RELEASE_NAME="$RELEASE_PREFIX-$(date '+%Y-%m-%d')"
+   RELEASE_COUNT="$(git branch -v | grep "$RELEASE_NAME" | awk '{print $2}' | wc -l)"
+
+   NEXT_RELEASE_NO=$((RELEASE_COUNT + 1))
+   NEXT_RELEASE_NAME="$RELEASE_NAME.$NEXT_RELEASE_NO"
+
+   git checkout -b "$NEXT_RELEASE_NAME"
+}
