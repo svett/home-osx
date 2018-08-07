@@ -6,4 +6,5 @@ chardet<3.1.0,>=3.0.2
 urllib3<1.23,>=1.21.1
 awscli
 powerline-shell
+powerline-status
 pgcli
