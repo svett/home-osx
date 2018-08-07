@@ -101,7 +101,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax highlighting, matching rules and mappings for the original Markdown
 Plugin 'plasticboy/vim-markdown'
-Plugin 'shime/vim-livedown'
+Plugin 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
 
 " Highlight colours in files
 Plugin 'ap/vim-css-color'
