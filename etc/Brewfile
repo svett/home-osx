@@ -62,6 +62,7 @@ cask 'telegram'
 cask 'duet'
 cask 'grammarly'
 cask 'twist'
+cask 'powershell'
 
 brew 'irssi'
 brew 'hugo'
