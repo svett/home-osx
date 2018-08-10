@@ -12,6 +12,7 @@ tap 'cloudfoundry/tap'
 tap 'vapor/homebrew-tap'
 tap 'kylef/formulae'
 tap 'phogolabs/tap'
+tap 'mscharley/homebrew'
 
 cask 'karabiner-elements'
 cask 'vivaldi'
@@ -116,6 +117,7 @@ brew 'ipcalc'
 brew 'shellcheck'
 brew 'the_silver_searcher'
 brew 'universal-ctags', args: ['HEAD']
+brew 'alacritty', args: ['HEAD']
 brew 'youtube-dl'
 brew 'bash-completion'
 brew 'ansible'
