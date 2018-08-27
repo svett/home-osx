@@ -1,0 +1,20 @@
+#!/bin/bash
+
+aws-ssm-get-key() {
+  aws ssm get-parameter --name "$1" --with-decryption
+}
+
+aws-ssm-put-key() {
+  export AWS_SSM_PARAM_PAYLOAD
+  export AWS_SSM_PARAM_NAME="$1"
+  export AWS_SSM_PARAM_VALUE="$2"
+  export AWS_SSM_PARAM_PAYLOAD_TEMPLATE='{
+    "Name": "env.AWS_SSM_PARAM_NAME",
+    "Value": "env.AWS_SSM_PARAM_VALUE",
+    "Type": "SecureString",
+    "Description": ""
+  }'
+
+  AWS_SSM_PARAM_PAYLOAD=$(echo "$AWS_SSM_PARAM_PAYLOAD_TEMPLATE" | jq '.Name=env.AWS_SSM_PARAM_NAME | .Value=env.AWS_SSM_PARAM_VALUE')
+  aws ssm put-parameter --overwrite --cli-input-json "$AWS_SSM_PARAM_PAYLOAD"
+}
