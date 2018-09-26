@@ -39,7 +39,7 @@ install_brew_update() {
   brew update
   brew bundle
   brew bundle cleanup
-  brew cask cleanup
+  brew cleanup
 }
 
 install_ruby() {
