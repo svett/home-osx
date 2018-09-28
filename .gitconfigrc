@@ -64,4 +64,4 @@
 [core]
   excludesfile = ~/.gitignore
 [help]
-  autocorrect = 1
+  autocorrect = 2
