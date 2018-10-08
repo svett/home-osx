@@ -2,6 +2,5 @@
 
 OLD_TEXT=$1
 NEW_TEXT=$2
-LC_CTYPE=C
 
-find "$PWD" -not -path '*/\.*' -type f -exec sed -i "" "s/$OLD_TEXT/$NEW_TEXT/g" {} \;
+LC_CTYPE=C find "$PWD" -not -path '*/\.*' -type f -exec sed -i "" "s/$OLD_TEXT/$NEW_TEXT/g" {} \;
