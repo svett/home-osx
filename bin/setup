@@ -212,7 +212,7 @@ update_golang_packages() {
 
   for pkg in *
   do
-   go get "${pkg//\~//}"
+   GO111MODULE=off go get "${pkg//\~//}"
   done
 }
 
