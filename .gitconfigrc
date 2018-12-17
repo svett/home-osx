@@ -53,17 +53,17 @@
   default = current
 [merge]
   tool = vimdiff
-  conflictstyle = diff3
 [mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
   prompt = false
 [diff]
   tool = vimdiff
-  conflictstyle = diff3
-[difftool]
-  prompt = false
 [core]
   excludesfile = ~/.gitignore
 [help]
   autocorrect = 2
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
