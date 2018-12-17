@@ -14,6 +14,7 @@ tap 'kylef/formulae'
 tap 'phogolabs/tap'
 tap 'mscharley/homebrew'
 
+cask 'viscosity'
 cask 'qbittorrent'
 cask 'free-ruler'
 cask 'google-chrome'
