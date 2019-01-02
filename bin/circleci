@@ -13,7 +13,13 @@ LATEST_DIGEST_FILE="$CIRCLECI_DIR/latest_picard_digest"
 
 UNKNOWN_DIGEST=""
 
-CLI_VERSION="0.0.5894-01cdb92"
+CLI_VERSION="0.1.0"
+
+# Both the new CLI install script and the `switch` command are assuming the install path.
+# For users who have followed our documented instructions here:
+#   https://circleci.com/docs/2.0/local-cli/#installing-the-circleci-local-cli-on-macos-and-linux-distros
+CIRCLECI_CLI_URL="https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh"
+CIRCLECI_PREFIX="/usr/local/bin/circleci"
 
 # Pull `latest` tag from docker repo and write digest into the file
 pull_latest_image() {
@@ -69,6 +75,38 @@ update_picard_cli() {
   bash -c "$cmd_prefix curl -o $PICARD_CLI_FILE $PICARD_CLI_URL --fail --silent --show-error && $cmd_prefix chmod +x $PICARD_CLI_FILE"
 }
 
+upgrade_circleci_cli() {
+  cmd_prefix=""
+  echo "Upgrading CircleCI to the newest version."
+  if ! [[ -w $CIRCLECI_PREFIX ]]; then
+    echo "[WARN] Not enough permissions to write to $CIRCLECI_PREFIX, trying sudo..."
+    cmd_prefix="sudo "
+  fi
+  bash -c "$cmd_prefix curl $CIRCLECI_CLI_URL --fail --show-error | $cmd_prefix bash"
+  exit 0
+}
+
+switch() {
+  echo "Thank you for your interest in trying the new CLI!"
+  echo ""
+  echo "Be sure to read the docs if you get stuck. [https://github.com/CircleCI-Public/circleci-cli#readme]"
+  echo ""
+  printf "Are you sure you're ready to upgrade? [y/N]: "
+  while true;
+  do
+    read -r reply
+    case "$reply" in
+      [yY][eE][sS]|[yY])
+        upgrade_circleci_cli
+        ;;
+      *)
+        echo "Ok, please let us know when you're ready."
+        exit 0
+        ;;
+    esac
+  done
+}
+
 #
 # Main program
 #
@@ -89,7 +127,7 @@ case $1 in
     picard_image="$PICARD_REPO:$2"
     shift; shift;
     echo "[WARN] Using circleci:" $picard_image
-	;;
+  ;;
 
   --version )
     echo $CLI_VERSION
@@ -129,13 +167,15 @@ case $1 in
     exit 0
     ;;
 
+  switch )
+    switch
+    ;;
+
   "" )
     set -- "-h"
 esac
 
-if is_update_available; then
-  echo "INFO: There's a newer version of CircleCI build-agent available. Run 'circleci update' for update"
-fi
+echo "INFO: We've built a brand new CLI for CircleCI! Please run 'circleci switch' to upgrade."
 
 docker run -it --rm \
        -e DOCKER_API_VERSION=${DOCKER_API_VERSION:-1.23} \
