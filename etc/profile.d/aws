@@ -21,3 +21,14 @@ aws-ssm-put-key() {
   AWS_SSM_PARAM_PAYLOAD=$(echo "$AWS_SSM_PARAM_PAYLOAD_TEMPLATE" | jq '.Name=env.AWS_SSM_PARAM_NAME | .Value=env.AWS_SSM_PARAM_VALUE')
   aws ssm put-parameter --overwrite --cli-input-json "$AWS_SSM_PARAM_PAYLOAD"
 }
+
+aws-ssm-move-key() {
+  export AWS_SSM_PARAM_NAME_OLD="$1"
+  export AWS_SSM_PARAM_NAME_NEW="$2"
+  export AWS_SSM_PARAM_VALUE
+
+  AWS_SSM_PARAM_VALUE="$(aws-ssm-get-key "$AWS_SSM_PARAM_NAME_OLD" | jq -r .Parameter.Value)"
+
+  aws-ssm-put-key "$AWS_SSM_PARAM_NAME_NEW" "$AWS_SSM_PARAM_VALUE"
+  aws-ssm-del-key "$AWS_SSM_PARAM_NAME_OLD"
+}
