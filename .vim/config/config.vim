@@ -65,7 +65,7 @@ set formatoptions=crql
 " Add extra characters that are valid parts of variables
 set iskeyword+=$,@,-
 set tags=./tags;/,tags;/
-set completeopt=menu,noinsert,noselect
+set completeopt=noinsert,menuone,noselect
 
 " ### Formatting ###
 set tabstop=2

@@ -28,13 +28,14 @@ runtime! config/plugin/fugitive.vim
 runtime! config/plugin/fzf.vim
 runtime! config/plugin/git.vim
 runtime! config/plugin/multicursor.vim
+runtime! config/plugin/ncm.vim
 runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/polyglot.vim
 runtime! config/plugin/rainbow.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/test.vim
 runtime! config/plugin/tmux.vim
-runtime! config/plugin/ncm.vim
+runtime! config/plugin/ultisnips.vim
 
 "
 " --------------------

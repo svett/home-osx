@@ -20,9 +20,6 @@ Plugin 'tpope/vim-fugitive'
 " GitHub extension for vim-fugitive
 Plugin 'tpope/vim-rhubarb'
 
-" Ends certain structures automatically
-Plugin 'tpope/vim-endwise'
-
 " easily search for, substitute, and abbreviate multiple variants of a word
 Plugin 'tpope/vim-abolish'
 
@@ -180,26 +177,30 @@ Plugin 'wfleming/vim-codeclimate'
 " Asynchronous Lint Engine
 Plugin 'w0rp/ale'
 
-" Fast, Extensible, Async Completion Framework for Neovim
-Plugin 'roxma/nvim-completion-manager'
-Plugin 'roxma/ncm-clang' " C/C++
-Plugin 'roxma/nvim-cm-racer' " Rust
-Plugin 'roxma/nvim-cm-tern', {'do': 'npm install'} " Javascript
-Plugin 'calebeby/ncm-css' " CSS
-Plugin 'rhysd/github-complete.vim' "GitHub
-Plugin 'Shougo/neco-syntax'
+" support NCM2
 Plugin 'Shougo/neco-vim'
-Plugin 'roxma/ncm-rct-complete' " Ruby
-
-" Clang based syntax highlighting for Neovim
-Plugin 'arakashic/chromatica.nvim'
-Plugin 'roxma/vim-hug-neovim-rpc'
-
+Plugin 'Shougo/neoinclude.vim'
+Plugin 'Shougo/neco-syntax'
+Plugin 'Shougo/vimproc.vim', {'do': 'make'}
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'codeindulgence/vim-tig'
+Plugin 'roxma/nvim-yarp'
 
-" asynchronous process manager; run :VimProcBang to run a command and echo the results
-Plugin 'Shougo/vimproc.vim', {'do': 'make'}
+" Fast, Extensible, Async Completion Framework for Neovim
+Plugin 'ncm2/ncm2'
+Plugin 'ncm2/ncm2-bufword'
+Plugin 'ncm2/ncm2-path'
+Plugin 'ncm2/ncm2-github'
+Plugin 'ncm2/ncm2-tmux'
+Plugin 'ncm2/ncm2-tagprefix'
+Plugin 'ncm2/ncm2-syntax'
+Plugin 'ncm2/ncm2-neoinclude'
+Plugin 'ncm2/ncm2-racer'
+Plugin 'ncm2/ncm2-vim'
+Plugin 'ncm2/ncm2-go'
+Plugin 'ncm2/ncm2-ultisnips'
+Plugin 'ncm2/ncm2-match-highlight'
+Plugin 'ncm2/ncm2-highprio-pop'
 
 call vundle#end()
