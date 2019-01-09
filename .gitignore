@@ -37,6 +37,7 @@
 .dotnet
 .nuget
 .vim/bundle
+.vim/python
 .aws/credentials*
 .lesshst
 .heroku/
@@ -101,6 +102,8 @@
 .hydra.yml
 .s3cfg
 .packer.d/
+.vault-token
+.zoomus/
 lib/hippo
 iCloud Drive (Archive)
 workspace
