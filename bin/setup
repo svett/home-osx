@@ -66,30 +66,22 @@ install_ruby() {
 }
 
 install_python() {
-  echo "Setting packages for python $PYTHON_VERSION..."
-
-   # shellcheck disable=SC1090
-  source "$HOME/etc/profile.d/python"
+  echo "Setting packages for python"
 
   pip install --upgrade -r "$HOME/etc/python/system-dependencies"
 
-  install_python_for_vim 2.7.14
-  install_python_for_vim 3.6.3
-
-  pyenv global system
+  install_python_for_vim
 }
 
 install_python_for_vim() {
-  PYTHON_VERSION="$1"
-  PYTHON_VIRTUAL_ENV="neovim-python-$PYTHON_VERSION"
+  echo "Setting up Python v3 for Vim"
 
-  echo "Setting up python $PYTHON_VERSION..."
+  python3 -m venv "$HOME/.vim/python/v3"
 
-  pyenv install -s "$PYTHON_VERSION"
-  pyenv virtualenv "$PYTHON_VERSION" "$PYTHON_VIRTUAL_ENV"
-  pyenv activate "$PYTHON_VIRTUAL_ENV"
+   # shellcheck disable=SC1090
+  source "$HOME/.vim/python/v3/bin/activate"
 
-  pip install --upgrade -r "$HOME/etc/python/vim-dependencies"
+  pip3 install --upgrade -r "$HOME/etc/python/vim-dependencies"
 }
 
 npm_install() {
@@ -116,6 +108,8 @@ install_node() {
 }
 
 install_rust() {
+  export PATH="$HOME/.cargo/bin:$PATH"
+
   if rustup component list | grep rust-src 2>&1>/dev/null | $?; then
     rustup component add rust-src
   fi

@@ -106,6 +106,7 @@ Plugin 'ap/vim-css-color'
 " Develop Golang
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
+
 " OmniSharp
 " Plugin 'OmniSharp/omnisharp-vim'
 
@@ -148,8 +149,8 @@ Plugin 'editorconfig/editorconfig-vim'
 " ansible syntax highlighting
 Plugin 'pearofducks/ansible-vim'
 
-" Basic vim/terraform integration
-Plugin 'hashivim/vim-terraform.git'
+" Support HCL
+Plugin 'hashivim/vim-hashicorp-tools'
 
 " Apiary Intergration
 Plugin 'kylef/apiblueprint.vim'
@@ -202,5 +203,6 @@ Plugin 'ncm2/ncm2-go'
 Plugin 'ncm2/ncm2-ultisnips'
 Plugin 'ncm2/ncm2-match-highlight'
 Plugin 'ncm2/ncm2-highprio-pop'
+Plugin 'ncm2/ncm2-jedi'
 
 call vundle#end()
