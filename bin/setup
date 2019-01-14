@@ -14,7 +14,6 @@ main() {
   install_python
   install_node
   install_rust
-  install_libs
 
   osx_configure
   osx_appstore_update
@@ -208,11 +207,6 @@ update_golang_packages() {
   do
    GO111MODULE=off go get "${pkg//\~//}"
   done
-}
-
-install_libs() {
-  cd "$HOME/lib" || true
-  curl -O http://www.antlr.org/download/antlr-4.7-complete.jar
 }
 
 main
