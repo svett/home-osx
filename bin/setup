@@ -14,6 +14,7 @@ main() {
   install_python
   install_node
   install_rust
+  install_perl
 
   osx_configure
   osx_appstore_update
@@ -120,6 +121,10 @@ install_rust() {
   if ! [ -x "$(command -v diesel)" ]; then
     cargo install diesel_cli --no-default-features --features "postgres sqlite"
   fi
+}
+
+install_perl() {
+  sudo cpan Template
 }
 
 osx_software_update() {

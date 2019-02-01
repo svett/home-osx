@@ -32,3 +32,7 @@ aws-ssm-move-key() {
   aws-ssm-put-key "$AWS_SSM_PARAM_NAME_NEW" "$AWS_SSM_PARAM_VALUE"
   aws-ssm-del-key "$AWS_SSM_PARAM_NAME_OLD"
 }
+
+aws-ecr-login() {
+  eval "$(aws ecr get-login --no-include-email --region "${AWS_DEFAULT_REGION}")"
+}
