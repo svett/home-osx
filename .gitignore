@@ -104,6 +104,9 @@
 .packer.d/
 .vault-token
 .zoomus/
+.cpan/
+.tsung/
+.pdfbox.cache
 lib/hippo
 iCloud Drive (Archive)
 workspace

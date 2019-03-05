@@ -68,6 +68,7 @@ install_ruby() {
 install_python() {
   echo "Setting packages for python"
 
+  pip install --upgrade pip
   pip install --upgrade -r "$HOME/etc/python/system-dependencies"
 
   install_python_for_vim
@@ -96,7 +97,7 @@ install_node() {
   # shellcheck disable=SC1090
   source "$HOME/etc/profile.d/node"
 
-  NODE_VERSION="9.2.0"
+  NODE_VERSION="11.10.0"
 
   nvm install "$NODE_VERSION"
 
