@@ -1,7 +1,0 @@
-#!/bin/bash
-
-HIPPO_TOOL_DIR=$HOME/bin/hippo/bin
-
-if [ -d "$HIPPO_TOOL_DIR" ]; then
-  export PATH=$HIPPO_TOOL_DIR:$PATH
-fi

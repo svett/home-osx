@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export GO111MODULE=on
-
 if which go >&-
 then
   export GOPATH="${HOME}/go"

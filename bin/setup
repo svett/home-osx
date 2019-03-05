@@ -68,7 +68,6 @@ install_ruby() {
 install_python() {
   echo "Setting packages for python"
 
-  pip install --upgrade pip
   pip install --upgrade -r "$HOME/etc/python/system-dependencies"
 
   install_python_for_vim
@@ -111,7 +110,7 @@ install_node() {
 install_rust() {
   export PATH="$HOME/.cargo/bin:$PATH"
 
-  if rustup component list | grep rust-src 2>&1>/dev/null | $?; then
+  if rustup component list | grep -q rust-src; then
     rustup component add rust-src
   fi
 
