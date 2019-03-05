@@ -190,8 +190,8 @@ reload_modified_services() {
 }
 
 update_vim_plugins() {
-  vim +PluginInstall +qall
-  vim +GoUpdateBinaries +qall
+  nvim +PluginInstall +qall
+  nvim +GoUpdateBinaries +qall
 }
 
 update_tmux_plugins() {
@@ -204,13 +204,14 @@ update_tmux_plugins() {
 }
 
 update_golang_packages() {
+  export GO111MODULE=off
   export GOPATH="${GOPATH:-"${HOME}/go"}"
 
   cd "${HOME}/go/packages" || return
 
   for pkg in *
   do
-   GO111MODULE=off go get "${pkg//\~//}"
+   go get "${pkg//\~//}"
   done
 }
 
