@@ -4,7 +4,7 @@ export PATH="$HOME/workspace/hippo/hsdk/bin:$PATH"
 
 alias hsdk-jump="hsdk jump svetlin"
 
-hippo-env() {
+hsdk-env() {
  eval "$(hsdk setenv "$1")"
 
  if [ -n "$TMUX" ]; then

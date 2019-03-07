@@ -107,6 +107,7 @@
 .cpan/
 .tsung/
 .pdfbox.cache
+.travis/
 lib/hippo
 iCloud Drive (Archive)
 workspace

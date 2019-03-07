@@ -175,6 +175,9 @@ Plugin 'ryanoasis/vim-devicons'
 " CodeClimate
 Plugin 'wfleming/vim-codeclimate'
 
+" mustache
+Plugin 'mustache/vim-mustache-handlebars'
+
 " Asynchronous Lint Engine
 Plugin 'w0rp/ale'
 
