@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GO111MODULE=auto
+export GO111MODULE=on
 
 if which go >&-
 then
