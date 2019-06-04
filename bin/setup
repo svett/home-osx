@@ -114,7 +114,7 @@ install_rust() {
   fi
 
   if ! [ -x "$(command -v racer)" ]; then
-    cargo install racer
+    cargo install --version 2.0.13 racer
   fi
 
   if ! [ -x "$(command -v diesel)" ]; then
