@@ -14,6 +14,8 @@ tap 'kylef/formulae'
 tap 'phogolabs/tap'
 tap 'golangci/tap'
 
+cask 'plex-media-server'
+cask 'plex-media-player'
 cask 'alacritty'
 cask 'zoomus'
 cask 'backblaze'

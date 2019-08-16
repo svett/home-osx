@@ -22,3 +22,11 @@ if [ -f $BASH_COMPLETION ]; then
   # shellcheck source=/usr/local/etc/bash_completion
   source $BASH_COMPLETION
 fi
+
+cert-info() {
+ openssl x509 -text -noout -in "$1"
+}
+
+kubectl-logs() {
+ kubectl get pods | grep "$1" | awk '{print $1}' | xargs -I pod kubectl logs pod  -c "$1"
+}

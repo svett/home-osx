@@ -18,7 +18,7 @@ aws-ssm-put-key() {
     "Description": ""
   }'
 
-  AWS_SSM_PARAM_PAYLOAD=$(echo "$AWS_SSM_PARAM_PAYLOAD_TEMPLATE" | jq '.Name=env.AWS_SSM_PARAM_NAME | .Value=env.AWS_SSM_PARAM_VALUE')
+  AWS_SSM_PARAM_PAYLOAD=$(echo "$AWS_SSM_PARAM_PAYLOAD_TEMPLATE" | jq '.Name=env.AWS_SSM_PARAM_NAME' | jq '.Value=env.AWS_SSM_PARAM_VALUE')
   aws ssm put-parameter --overwrite --cli-input-json "$AWS_SSM_PARAM_PAYLOAD"
 }
 
