@@ -27,6 +27,10 @@ cert-info() {
  openssl x509 -text -noout -in "$1"
 }
 
+cert-host() {
+ openssl s_client -showcerts -servername "$1" -connect "$1:443" </dev/null
+}
+
 kubectl-logs() {
  kubectl get pods | grep "$1" | awk '{print $1}' | xargs -I pod kubectl logs pod  -c "$1"
 }

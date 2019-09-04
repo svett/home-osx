@@ -36,11 +36,13 @@
 .CFUserTextEncoding
 .dotnet
 .nuget
+.helm/
 .vim/bundle
 .vim/python
 .aws/credentials*
 .lesshst
 .heroku/
+.ngrok2/
 .mongorc.js
 .netrc
 .pia_manager_crash.log
