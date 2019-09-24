@@ -8,6 +8,6 @@
   # --cacert ~/workspace/hippo/certificates/hippo_engineering_ca.crt \
 
 curl \
-  --key ~/workspace/hippo/certificates/hippo_engineering.key \
-  --cert ~/workspace/hippo/certificates/hippo_engineering.crt \
+  --key ~/workspace/hippo/certificates/hippo.engineering-2019.key \
+  --cert ~/workspace/hippo/certificates/hippo.engineering-2019.crt \
   "$@"
