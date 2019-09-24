@@ -110,6 +110,7 @@
 .tsung/
 .pdfbox.cache
 .travis/
+.invision-studio/
 lib/hippo
 iCloud Drive (Archive)
 workspace
