@@ -11,6 +11,7 @@ export HOMEBREW_NO_GITHUB_API=1
 export DYLD_LIBRARY_PATH="$OPENSSL_PATH/lib"
 export CFLAGS="-I$OPENSSL_PATH/include"
 export LDFLAGS="-L$OPENSSL_PATH/lib"
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 BASH_CONFIG=$(ls -v "${HOME}"/etc/profile.d/*)
 
