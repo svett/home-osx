@@ -47,14 +47,8 @@ let g:go_bin_path = expand("~/go/bin")
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
 let g:go_term_height = 15
-let g:go_def_mode = 'gopls'
-let g:go_info_mode = 'gopls'
 let g:go_metalinter_command = 'golangci-lint'
 let g:go_metalinter_autosave = 1
-
-let g:ale_go_golangci_lint_package = 1
-let g:ale_go_golangci_lint_options = '--fast'
-let g:ale_linters = {'go': ['gobuild', 'gofmt', 'govet', 'gopls', 'golangci-lint']}
 
 " this breaks folding on vim < 8.0 or neovim
 if v:version >= 800 || has('nvim')

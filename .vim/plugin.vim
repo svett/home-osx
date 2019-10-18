@@ -104,8 +104,7 @@ Plugin 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
 Plugin 'ap/vim-css-color'
 
 " Develop Golang
-Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-
+Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " OmniSharp
 " Plugin 'OmniSharp/omnisharp-vim'
@@ -179,7 +178,7 @@ Plugin 'wfleming/vim-codeclimate'
 Plugin 'mustache/vim-mustache-handlebars'
 
 " Asynchronous Lint Engine
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " support NCM2
 Plugin 'Shougo/neco-vim'
