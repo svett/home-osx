@@ -1,9 +1,3 @@
 #!/bin/bash
 
-function _update_ps1() {
-  PS1="$(powerline-shell $?)"
-}
-
-if command -v powerline-shell >/dev/null 2>&1; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+eval "$(starship init bash)"

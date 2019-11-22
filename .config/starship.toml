@@ -1,0 +1,14 @@
+[env_var]
+variable = "HSDK_ENV_ID"
+style = "blue bold"
+default = "unknown"
+symbol = "Σ "
+prefix = "⟪"
+suffix = "⟫"
+
+[aws]
+disabled = true
+
+[jobs]
+symbol = "+"
+threshold = 4
