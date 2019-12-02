@@ -1,3 +1,7 @@
+[jobs]
+symbol = "+"
+threshold = 4
+
 [env_var]
 variable = "HSDK_ENV_ID"
 style = "blue bold"
@@ -9,6 +13,17 @@ suffix = "⟫"
 [aws]
 disabled = true
 
-[jobs]
-symbol = "+"
-threshold = 4
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged.value = "++"
+staged.style = "green"
+staged_count.enabled = true
+staged_count.style = "green"
+renamed = "👅"
+deleted = "🗑"
