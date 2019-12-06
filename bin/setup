@@ -6,6 +6,7 @@ RELOAD_SERVICES=()
 
 main() {
   osx_software_update
+  shell_config
 
   install_brew_if_not_exists
   install_brew_update
@@ -23,6 +24,10 @@ main() {
   update_golang_packages
   update_vim_plugins
   update_tmux_plugins
+}
+
+shell_config() {
+  chsh -s /bin/bash
 }
 
 install_brew_if_not_exists() {
