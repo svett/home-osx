@@ -5,13 +5,13 @@
         "revision": "e023b49867372305d664a8a36e3fd81ea55daba4"
       },
       "homebrew/cask-versions": {
-        "revision": "30d7d8efe332cb7b2e68b3d98fe2cb6b12d7b4a7"
+        "revision": "f83551a616d1650762fc4c1cca167ef2a1425ed8"
       },
       "homebrew/bundle": {
-        "revision": "491e2fbd399d1467f3cfab7fe4c4f07b17bfab7f"
+        "revision": "d7f55b0a90c6870d1944599f8cd6104141523deb"
       },
       "homebrew/core": {
-        "revision": "926642831d7b4f8deaa9ccf23729fc9683c60167"
+        "revision": "dd63f6e36c52dd7a81b972722446a96f4e80ae54"
       },
       "homebrew/services": {
         "revision": "eca39722f130e8bc1e2e322588db493ca0398c01"
@@ -61,7 +61,7 @@
         "version": "1.8.3"
       },
       "qbittorrent": {
-        "version": "4.2.0"
+        "version": "4.2.1"
       },
       "free-ruler": {
         "version": "2.0.3"
@@ -155,6 +155,9 @@
       },
       "powershell": {
         "version": "6.2.3"
+      },
+      "font-dejavusansmono-nerd-font": {
+        "version": "2.0.0"
       }
     },
     "brew": {
@@ -1373,16 +1376,16 @@
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/ansible-2.9.2.catalina.bottle.1.tar.gz",
-              "sha256": "ce13d36d45f503c545b18ea243763c87de6f51dbc2cd8bb5be8c0a9209931a59"
+              "url": "https://homebrew.bintray.com/bottles/ansible-2.9.2.catalina.bottle.2.tar.gz",
+              "sha256": "af0ca35be9c42ad8167fbdb497438814ebb7ba3a08a96431360a91af37064736"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/ansible-2.9.2.mojave.bottle.1.tar.gz",
-              "sha256": "3aa1c3c50b68e086799fa0e775ad4039aede3697cbba99b9c336e6cc7eeb8231"
+              "url": "https://homebrew.bintray.com/bottles/ansible-2.9.2.mojave.bottle.2.tar.gz",
+              "sha256": "616b96839755a08668908e5fc53d62bf987164a395c90b2afde6a659c2d483b1"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/ansible-2.9.2.high_sierra.bottle.1.tar.gz",
-              "sha256": "56ddc3764ecfb4ca657ebb8f9f8b6e986ed580c86508edc1d19ebb1954025df8"
+              "url": "https://homebrew.bintray.com/bottles/ansible-2.9.2.high_sierra.bottle.2.tar.gz",
+              "sha256": "8bab39fa0731d7868724cacbef2ceb716fc99481be1d1cf04d16d000800db286"
             }
           }
         }
@@ -2076,6 +2079,27 @@
             }
           }
         }
+      },
+      "ruby": {
+        "version": "2.6.5",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/ruby-2.6.5.catalina.bottle.1.tar.gz",
+              "sha256": "74304ae76b81629a80edb0655c34883b00ab674fa10e0db4bd5336015acc5e17"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/ruby-2.6.5.mojave.bottle.1.tar.gz",
+              "sha256": "da318a12d35502d95a8bea49f735bb74af72cdb38b687b2f565d75b139941736"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/ruby-2.6.5.high_sierra.bottle.1.tar.gz",
+              "sha256": "9416860e0cd56aa45bfce03801a81eefcb0a25e0ccb123a82c51f5f1b6911abb"
+            }
+          }
+        }
       }
     }
   },
@@ -2084,7 +2108,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "926642831d7b4f8deaa9ccf23729fc9683c60167",
+        "Homebrew/homebrew-core": "dd63f6e36c52dd7a81b972722446a96f4e80ae54",
         "CLT": "1100.0.33.16",
         "Xcode": "11.3",
         "macOS": "10.15.2"

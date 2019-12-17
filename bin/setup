@@ -2,62 +2,56 @@
 
 [ -z "$DEBUG" ] || set -x
 
-RELOAD_SERVICES=()
+OS_NAME=$(uname | awk '{print tolower($0)}')
 
 main() {
-  osx_software_update
-  shell_config
+  setup_os
 
-  install_brew_if_not_exists
-  install_brew_update
+  configure_git
 
   install_ruby
   install_python
   install_node
   install_rust
 
-  osx_configure
-  osx_appstore_update
-  git_configure
-  reload_modified_services
-
   update_golang_packages
   update_vim_plugins
   update_tmux_plugins
 }
 
-shell_config() {
-  chsh -s /bin/bash
+
+setup_os() {
+  if [[ "$SHELL" != "/bin/bash" ]]; then
+    chsh -s /bin/bash
+  fi
+
+  "$HOME/bin/setup-$OS_NAME"
 }
 
-install_brew_if_not_exists() {
-  if [[ ! -x /usr/local/bin/brew ]] ; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+configure_git() {
+  echo "Ensuring git configs are set up..."
+  local gitconfig
+
+  if [[ ! -f "${HOME}/.gitconfig" ]] ; then
+    write_git_config
+  fi
+
+  if [[ $(head -n2 "${HOME}/.gitconfig") != "[include]
+  path = ${HOME}/.gitconfigrc" ]] ; then
+    gitconfig=$(cat "${HOME}/.gitconfig")
+    write_git_config
+    echo "${gitconfig}" >> "${HOME}/.gitconfig"
   fi
 }
 
-install_brew_update() {
-  cd "${HOME}/etc" || return
-
-  brew tap Homebrew/bundle
-  brew update
-  brew bundle
-  brew bundle cleanup
-  brew cleanup
+write_git_config() {
+  echo "[include]" > "${HOME}/.gitconfig"
+  echo "  path = ${HOME}/.gitconfigrc" >> "${HOME}/.gitconfig"
 }
+
 
 install_ruby() {
   echo "Setting up ruby..."
-
-  RUBY_VERSION="ruby-2.5.0"
-  # shellcheck disable=SC1091
-  source /usr/local/share/chruby/chruby.sh
-
-  if chruby "$RUBY_VERSION" /dev/null 2>&1; then
-    echo "$RUBY_VERSION is already installed..."
-  else
-    ruby-install "$RUBY_VERSION"
-  fi
 
   gem install bundler --conservative
   gem install neovim --conservative
@@ -125,68 +119,6 @@ install_rust() {
   if ! [ -x "$(command -v diesel)" ]; then
     cargo install diesel_cli --no-default-features --features "postgres sqlite"
   fi
-}
-
-osx_software_update() {
-  softwareupdate --install --all
-}
-
-osx_configure() {
-  local config
-
-  cd "${HOME}/etc/defaults" || return
-
-  for config in *
-  do
-    # shellcheck source=/dev/null
-    . "$config"
-  done
-}
-
-git_configure() {
-  echo "Ensuring git configs are set up..."
-  local gitconfig
-
-  if [[ ! -f "${HOME}/.gitconfig" ]] ; then
-    write_git_config
-  fi
-
-  if [[ $(head -n2 "${HOME}/.gitconfig") != "[include]
-  path = ${HOME}/.gitconfigrc" ]] ; then
-    gitconfig=$(cat "${HOME}/.gitconfig")
-    write_git_config
-    echo "${gitconfig}" >> "${HOME}/.gitconfig"
-  fi
-}
-
-write_git_config() {
-  echo "[include]" > "${HOME}/.gitconfig"
-  echo "  path = ${HOME}/.gitconfigrc" >> "${HOME}/.gitconfig"
-}
-
-symlink_ssl() {
-  ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/ || true
-  ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/ || true
-}
-
-osx_appstore_update() {
-  if which mas >&-
-  then
-    mas outdated | while read -r app_id_and_name
-    do
-      echo "Updating ${app_id_and_name##* }..."
-      mas install "${app_id_and_name%% *}"
-    done
-  fi
-}
-
-reload_modified_services() {
-  local modified_services=("${RELOAD_SERVICES[@]:?must be defined}")
-  local modified_services_uniq=(
-    "$(printf "%s\\n" "${modified_services[@]}" | sort -u)"
-  )
-
-  killall "${modified_services_uniq[@]}"
 }
 
 update_vim_plugins() {

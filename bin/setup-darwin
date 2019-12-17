@@ -1,0 +1,50 @@
+#!/bin/bash
+
+osx_software_update() {
+  softwareupdate --install --all
+}
+
+osx_appstore_update() {
+  if [ -x "$(command -v mas)" ]; then
+    mas outdated | while read -r app_id_and_name
+    do
+      echo "Updating ${app_id_and_name##* }..."
+      mas install "${app_id_and_name%% *}"
+    done
+  fi
+}
+
+osx_configure() {
+  local config
+
+  cd "${HOME}/etc/defaults" || return
+
+  for config in *
+  do
+    # shellcheck source=/dev/null
+    . "$config"
+  done
+}
+
+
+osx_homewbrew() {
+  if [[ ! -x /usr/local/bin/brew ]] ; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  cd "${HOME}/etc" || return
+
+  brew tap Homebrew/bundle
+  brew update
+  brew bundle
+  brew bundle cleanup
+}
+
+main() {
+  osx_software_update
+  osx_appstore_update
+  osx_homewbrew
+  osx_configure
+}
+
+main
