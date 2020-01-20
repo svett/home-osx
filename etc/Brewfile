@@ -53,6 +53,7 @@ cask 'duet'
 cask 'grammarly'
 cask 'powershell'
 cask 'font-dejavusansmono-nerd-font'
+cask 'google-cloud-sdk'
 
 brew 'irssi'
 brew 'hugo'
