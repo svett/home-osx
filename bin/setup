@@ -94,7 +94,7 @@ install_node() {
   # shellcheck disable=SC1090
   source "$HOME/etc/profile.d/node"
 
-  NODE_VERSION="11.10.0"
+  NODE_VERSION="11.10.1"
 
   nvm install "$NODE_VERSION"
 
