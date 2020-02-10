@@ -15,6 +15,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 augroup vimrc
-  autocmd BufEnter * call ncm2#enable_for_buffer()
-  autocmd TextChangedI * call ncm2#auto_trigger()
+  if has("nvim")
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    autocmd TextChangedI * call ncm2#auto_trigger()
+  endif
 augroup END

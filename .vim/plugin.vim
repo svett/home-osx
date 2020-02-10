@@ -26,9 +26,6 @@ Plugin 'tpope/vim-abolish'
 " True Sublime Text style multiple selections for Vim
 Plugin 'terryma/vim-multiple-cursors'
 
-" rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
-Plugin 'luochen1990/rainbow'
-
 " Kotlin
 Plugin 'udalov/kotlin-vim'
 
@@ -181,30 +178,32 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'dense-analysis/ale'
 
 " support NCM2
-Plugin 'Shougo/neco-vim'
-Plugin 'Shougo/neoinclude.vim'
-Plugin 'Shougo/neco-syntax'
+" Plugin 'Shougo/neco-vim'
+" Plugin 'Shougo/neoinclude.vim'
+" Plugin 'Shougo/neco-syntax'
 Plugin 'Shougo/vimproc.vim', {'do': 'make'}
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'codeindulgence/vim-tig'
-Plugin 'roxma/nvim-yarp'
 
-" Fast, Extensible, Async Completion Framework for Neovim
-Plugin 'ncm2/ncm2'
-Plugin 'ncm2/ncm2-bufword'
-Plugin 'ncm2/ncm2-path'
-Plugin 'ncm2/ncm2-github'
-Plugin 'ncm2/ncm2-tmux'
-Plugin 'ncm2/ncm2-tagprefix'
-Plugin 'ncm2/ncm2-syntax'
-Plugin 'ncm2/ncm2-neoinclude'
-Plugin 'ncm2/ncm2-racer'
-Plugin 'ncm2/ncm2-vim'
-Plugin 'ncm2/ncm2-go'
-Plugin 'ncm2/ncm2-ultisnips'
-Plugin 'ncm2/ncm2-match-highlight'
-Plugin 'ncm2/ncm2-highprio-pop'
-Plugin 'ncm2/ncm2-jedi'
+if has("nvim")
+ Plugin 'roxma/nvim-yarp'
+ " Fast, Extensible, Async Completion Framework for Neovim
+ Plugin 'ncm2/ncm2'
+ Plugin 'ncm2/ncm2-bufword'
+ Plugin 'ncm2/ncm2-path'
+ Plugin 'ncm2/ncm2-github'
+ Plugin 'ncm2/ncm2-tmux'
+ Plugin 'ncm2/ncm2-tagprefix'
+ Plugin 'ncm2/ncm2-syntax'
+ Plugin 'ncm2/ncm2-neoinclude'
+ Plugin 'ncm2/ncm2-racer'
+ Plugin 'ncm2/ncm2-vim'
+ Plugin 'ncm2/ncm2-go'
+ Plugin 'ncm2/ncm2-ultisnips'
+ Plugin 'ncm2/ncm2-match-highlight'
+ Plugin 'ncm2/ncm2-highprio-pop'
+ Plugin 'ncm2/ncm2-jedi'
+endif
 
 call vundle#end()
