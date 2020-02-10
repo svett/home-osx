@@ -15,6 +15,7 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>cm :!gocmt -i % <CR><CR>
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
