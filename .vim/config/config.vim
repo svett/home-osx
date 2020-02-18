@@ -52,6 +52,8 @@ end
 set equalalways
 set splitright
 " Automatically detect file types. (must turn on after Vundle)
+set nocompatible
+set modeline
 filetype plugin indent on
 " use emacs-style tab completion when selecting files, etc
 set wildmode=list:longest
