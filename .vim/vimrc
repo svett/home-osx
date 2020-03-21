@@ -36,6 +36,7 @@ runtime! config/plugin/tagbar.vim
 runtime! config/plugin/test.vim
 runtime! config/plugin/tmux.vim
 runtime! config/plugin/ultisnips.vim
+runtime! config/plugin/terraform.vim
 
 "
 " --------------------
