@@ -16,7 +16,7 @@ set nu
 " Line wrapping off
 set nowrap 
 " Make the command area two lines high
-set cmdheight=1
+set cmdheight=2
 " don't need to show mode since we have airline
 set noshowmode
 " Disable jumping to matching bracket when typing
