@@ -12,6 +12,7 @@ tap 'vapor/homebrew-tap'
 tap 'kylef/formulae'
 tap 'phogolabs/tap'
 tap 'golangci/tap'
+tap 'mongodb/brew'
 
 cask 'unity'
 cask 'ngrok'
