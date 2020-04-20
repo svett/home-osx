@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export GOOGLE_CREDENTIALS="$HOME/gcloud.json"
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/gcloud.json"

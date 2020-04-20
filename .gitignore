@@ -1,7 +1,12 @@
 *un~
 .DS_Store
+.autorest
 .bundle
 .vagrant.d
+.net
+.gsutil
+.vscode
+.terraformrc
 .npm
 .rubies
 .tmux
@@ -111,6 +116,7 @@
 .pdfbox.cache
 .travis/
 .invision-studio/
+gcloud.json*
 lib/hippo
 iCloud Drive (Archive)
 workspace
@@ -131,4 +137,5 @@ Public/
 private/
 Creative Cloud Files/
 VirtualBox VMs/
+Virtual Machines.localized/
 VMs/
