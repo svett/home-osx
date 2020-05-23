@@ -5,13 +5,13 @@
         "revision": "583ef3da7d333d8f8378e868ce2b4541adc62d12"
       },
       "homebrew/cask-versions": {
-        "revision": "4519594d9e89bd5a41fafebf8a02250b95efa0f7"
+        "revision": "0bf353335632ec3d6b9a7f12039d7a8e55d35cd2"
       },
       "homebrew/bundle": {
         "revision": "36df2d1bcf321bc041c0bf34cdf301ab3ad8affb"
       },
       "homebrew/core": {
-        "revision": "fccbd331ad42f22ac2ffca4fd099db3445c4cd67"
+        "revision": "8395d17ac95987864a988eea4f8217c25957e814"
       },
       "homebrew/services": {
         "revision": "11fe6ef39ff6db01699b7d6bec88a49782f4741b"
@@ -73,7 +73,7 @@
         }
       },
       "backblaze": {
-        "version": "7.0.1.434",
+        "version": "7.0.1.444",
         "options": {
           "full_name": "backblaze"
         }
@@ -2208,22 +2208,22 @@
         }
       },
       "protobuf": {
-        "version": "3.12.0",
+        "version": "3.12.1",
         "bottle": {
           "cellar": ":any",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/protobuf-3.12.0.catalina.bottle.tar.gz",
-              "sha256": "d95a476eeb9c256b420889b412d996e1dc4f9d4ba52bbf92ae382bf8b4983ec2"
+              "url": "https://homebrew.bintray.com/bottles/protobuf-3.12.1.catalina.bottle.tar.gz",
+              "sha256": "6b13b089c2754bb9df99f2621ea0fd0fd5feccca601aaca10dc6982927c6fc3a"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/protobuf-3.12.0.mojave.bottle.tar.gz",
-              "sha256": "9276a2418353f096787944c470ae7046987cf212284a2b187d20b3d296a47cd4"
+              "url": "https://homebrew.bintray.com/bottles/protobuf-3.12.1.mojave.bottle.tar.gz",
+              "sha256": "b09bdcad4bde73a6d9f5675979da6f10b16b9620a26b5bc6a7639d03e3b7fccb"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/protobuf-3.12.0.high_sierra.bottle.tar.gz",
-              "sha256": "765bdd2b1735d09a288cd7087e146e9d611ee0dac788ca8224dbac780ba1c867"
+              "url": "https://homebrew.bintray.com/bottles/protobuf-3.12.1.high_sierra.bottle.tar.gz",
+              "sha256": "af2d9b9bc381ef83a030cef3960a5e72bd1007e5ae34d5b8a9f3b7901cdfdd19"
             }
           }
         }
@@ -2292,22 +2292,22 @@
         }
       },
       "gatsby-cli": {
-        "version": "2.12.28",
+        "version": "2.12.34",
         "bottle": {
-          "cellar": "/usr/local/Cellar",
+          "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/gatsby-cli-2.12.28.catalina.bottle.tar.gz",
-              "sha256": "7d1a4c12afc11caa620ae7827dad7e82ac5e95f1dde4ca9a98bdc6fe73559b2c"
+              "url": "https://homebrew.bintray.com/bottles/gatsby-cli-2.12.34.catalina.bottle.tar.gz",
+              "sha256": "3dc54333520c687cddbf02c1517a0b64e171bcf0a86b07108e57567cb0a7869f"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/gatsby-cli-2.12.28.mojave.bottle.tar.gz",
-              "sha256": "bf34bdcb8f34a36e44645c1adc4c5447ee5caa7ddff1b7c254ff550ceef7c3ac"
+              "url": "https://homebrew.bintray.com/bottles/gatsby-cli-2.12.34.mojave.bottle.tar.gz",
+              "sha256": "ab6be8db89294566fbc6aab7039f02bc86d49454ea72c0f17976c9e0d93b5db2"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/gatsby-cli-2.12.28.high_sierra.bottle.tar.gz",
-              "sha256": "39e5c98b3159f3d0f4715d29c8638596fad698ebd1a66558c99c4cc9c6c7893f"
+              "url": "https://homebrew.bintray.com/bottles/gatsby-cli-2.12.34.high_sierra.bottle.tar.gz",
+              "sha256": "ec3618903b2c497b1702bd59918c580827a301057bc071270659185a720397c9"
             }
           }
         }
@@ -2382,9 +2382,9 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.17",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "fccbd331ad42f22ac2ffca4fd099db3445c4cd67",
+        "Homebrew/homebrew-core": "8395d17ac95987864a988eea4f8217c25957e814",
         "CLT": "11.0.33.16",
-        "Xcode": "11.4.1",
+        "Xcode": "11.5",
         "macOS": "10.15.4"
       }
     }
