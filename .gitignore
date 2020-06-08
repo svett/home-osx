@@ -1,5 +1,8 @@
 *un~
+.npmrc
+.vuerc
 .DS_Store
+.krew
 .autorest
 .bundle
 .vagrant.d
@@ -13,6 +16,7 @@
 .dropbox
 .gem
 .cache
+.vim/view
 .vimrc*
 .viminfo
 .subversion
