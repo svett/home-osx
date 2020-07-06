@@ -2,16 +2,8 @@
 symbol = "+"
 threshold = 4
 
-[env_var]
-variable = "HSDK_ENV_ID"
-style = "blue bold"
-default = "unknown"
-symbol = "Σ "
-prefix = "⟪"
-suffix = "⟫"
-
 [aws]
-disabled = true
+symbol = "\uf52c "
 
 [git_status]
 conflicted = "🏳"
