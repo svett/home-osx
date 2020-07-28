@@ -8,6 +8,11 @@ symbol = "\ufb0c"
 error_symbol = "\uf656"
 use_symbol_for_status = true
 
+[docker_context]
+symbol = "\uf308 "
+only_with_files = true
+disabled = false
+
 [aws]
 symbol = "\uf52c "
 
