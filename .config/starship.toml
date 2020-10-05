@@ -16,6 +16,11 @@ disabled = false
 [aws]
 symbol = "\uf52c "
 
+[gcloud]
+symbol = "\ue7b2 "
+style = "bright-cyan"
+format = "on [$symbol$project (\\($region\\))]($style) "
+
 [kubernetes]
 symbol = "\ufd31 "
 style = "blue"
