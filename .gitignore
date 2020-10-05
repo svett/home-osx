@@ -83,6 +83,7 @@
 .erlang.cookie
 .kotlin_history
 .node-gyp
+.node_repl_history
 .npm-packages/
 .vscode-react-native/
 .circleci
@@ -120,6 +121,7 @@
 .pdfbox.cache
 .travis/
 .invision-studio/
+.boto
 gcloud.json*
 lib/hippo
 iCloud Drive (Archive)
