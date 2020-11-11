@@ -2,16 +2,16 @@
   "entries": {
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "eaf82057d6b0ef3833f98c38cbed61f965e4527c"
+        "revision": "77e6259591da7689a654a0276c574c730c9e44eb"
       },
       "homebrew/cask-versions": {
-        "revision": "0f76b28616b8d0eb10426c895630f4e55f982e7f"
+        "revision": "508e83098323ac7e01072c6bbb923bf08346f0bb"
       },
       "homebrew/bundle": {
         "revision": "a8aa5445de31d655508a52223ed20e6c09e121a2"
       },
       "homebrew/core": {
-        "revision": "2cd7462a0f74533e452d55bd8988590794f2c22c"
+        "revision": "58b4b5312b0b0d223e62c933ed0e12b249ade795"
       },
       "homebrew/services": {
         "revision": "f6313045d710df06b1e40597f5820026486a55ee"
@@ -163,7 +163,7 @@
         }
       },
       "dotnet-sdk": {
-        "version": "3.1.403,b4db3ee6-91da-4dd3-a279-37c45d9627b7:fad88a7335d374d6e4d53aef085f4b24",
+        "version": "5.0.100,3bdcd7d2-1444-4f7d-a254-504a994ffe39:e4f42b83604673f971748c722aa20bec",
         "options": {
           "full_name": "dotnet-sdk"
         }
@@ -1034,22 +1034,22 @@
         }
       },
       "awscli": {
-        "version": "2.0.63",
+        "version": "2.1.0",
         "bottle": {
           "cellar": "/usr/local/Cellar",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/awscli-2.0.63.catalina.bottle.tar.gz",
-              "sha256": "324d7486b7f6d29b6d5697e059d4bde72bad7c57c1930821178141143cef0432"
+              "url": "https://homebrew.bintray.com/bottles/awscli-2.1.0.catalina.bottle.tar.gz",
+              "sha256": "51f9359aca42e9dfd419a161837b0803f4d20e095f68bc689c00c5348c0dae20"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/awscli-2.0.63.mojave.bottle.tar.gz",
-              "sha256": "91329b3b179c642c63da406b491034a133562c2477136d2c2e33f7d1d03f9554"
+              "url": "https://homebrew.bintray.com/bottles/awscli-2.1.0.mojave.bottle.tar.gz",
+              "sha256": "0d3f3bda0c603dd6d8c7a355e11946cedafc5a2a3d4f8febd904d0ed8679680c"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/awscli-2.0.63.high_sierra.bottle.tar.gz",
-              "sha256": "075c7bf26ae7184570282c5f84f401fb18e4ebca7c6b8a921b459e9dbeeeeb89"
+              "url": "https://homebrew.bintray.com/bottles/awscli-2.1.0.high_sierra.bottle.tar.gz",
+              "sha256": "216f6687e1340e5565a8794fce22726ecb33e7d6c1ee783050e1900b164b97b0"
             }
           }
         }
@@ -1761,7 +1761,7 @@
         "bottle": false
       },
       "paket": {
-        "version": "5.251.0",
+        "version": "5.252.0",
         "bottle": false
       },
       "kops": {
@@ -2432,9 +2432,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.9-22-g59b1309",
+        "HOMEBREW_VERSION": "2.5.9-46-g9e5555b",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "2cd7462a0f74533e452d55bd8988590794f2c22c",
+        "Homebrew/homebrew-core": "58b4b5312b0b0d223e62c933ed0e12b249ade795",
         "CLT": "12.1.0.0.1.1602137645",
         "Xcode": "12.1",
         "macOS": "10.15.7"
