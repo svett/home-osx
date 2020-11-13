@@ -177,6 +177,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 " Asynchronous Lint Engine
 Plugin 'dense-analysis/ale'
 
+" clang format
+Plugin 'rhysd/vim-clang-format'
+
 " support NCM2
 " Plugin 'Shougo/neco-vim'
 " Plugin 'Shougo/neoinclude.vim'
