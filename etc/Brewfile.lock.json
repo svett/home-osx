@@ -2,16 +2,16 @@
   "entries": {
     "tap": {
       "homebrew/cask-fonts": {
-        "revision": "4f65d0605eb215621fb24d34342e54c1f5470488"
+        "revision": "eb37574312d178087e611429c6f3c95c61ea0737"
       },
       "homebrew/cask-versions": {
-        "revision": "a4dd16f8a6234448d4523a98d4e03f50b33a7bf0"
+        "revision": "46000d29618b2a93fe40cff64657a5978a1a34ba"
       },
       "homebrew/bundle": {
         "revision": "6debfdc6b453b7c62bad3fba4836ec24561fac73"
       },
       "homebrew/core": {
-        "revision": "eaadf0989e0c47bd56a6ed720b0d7318d931555b"
+        "revision": "2daa5a7fc65c15eb013739259b748086091be966"
       },
       "homebrew/services": {
         "revision": "0c81bc3e52cb890eb8ef50f9abff803dbe5f3606"
@@ -70,7 +70,7 @@
         }
       },
       "zoomus": {
-        "version": "4.6.13614.1202",
+        "version": "5.4.58887.1115",
         "options": {
           "full_name": "zoomus"
         }
@@ -714,6 +714,10 @@
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/git-flow-0.4.1.big_sur.bottle.tar.gz",
+              "sha256": "46009ab147b52d74bbda2a0b4d97374f0e515a5157db4ff803f6270ded7fde48"
+            },
             "catalina": {
               "url": "https://homebrew.bintray.com/bottles/git-flow-0.4.1.catalina.bottle.tar.gz",
               "sha256": "8ea12cd7e2666fb6fdfaffaeb3a0437037a40cde559a835fc9de038f36a424dc"
@@ -2115,26 +2119,22 @@
       },
       "gpg": null,
       "pandoc": {
-        "version": "2.11.1.1",
+        "version": "2.11.2",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/pandoc-2.11.1.1.big_sur.bottle.tar.gz",
-              "sha256": "10f88e0f6d822432a7500de9b256b2a3304901256a0abbdeee4e4091218fc5c7"
+              "url": "https://homebrew.bintray.com/bottles/pandoc-2.11.2.big_sur.bottle.tar.gz",
+              "sha256": "c0c2dfcfb22df26903844595a9d3983222b3b977d958b24b31b513c5a21acccb"
             },
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/pandoc-2.11.1.1.catalina.bottle.tar.gz",
-              "sha256": "7cdcf09a97ea9156a2450f67f597099b31f6e9826d4e3cbcd1312871f05964f9"
+              "url": "https://homebrew.bintray.com/bottles/pandoc-2.11.2.catalina.bottle.tar.gz",
+              "sha256": "1f3e1a1274efd7f89c1a6881b9ccb14c19cda7bd4c2b2d31ab2ea9169a806643"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/pandoc-2.11.1.1.mojave.bottle.tar.gz",
-              "sha256": "5365310e20e9caa6f14f2c884c9a05348568d96398cd05b5c497ca65e2106a53"
-            },
-            "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/pandoc-2.11.1.1.high_sierra.bottle.tar.gz",
-              "sha256": "383bbdec7227f3c0a07b193d2ff00915c654e8d3bce59528f2450ec6a4d18d60"
+              "url": "https://homebrew.bintray.com/bottles/pandoc-2.11.2.mojave.bottle.tar.gz",
+              "sha256": "ad8a0e23ceafd4e661699dfb47ac42bc63d2c019f6bbb3e9214b84def01671c3"
             }
           }
         }
@@ -2598,26 +2598,22 @@
         }
       },
       "typescript": {
-        "version": "4.0.5",
+        "version": "4.1.2",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/typescript-4.0.5.big_sur.bottle.tar.gz",
-              "sha256": "c93abdaa34e0c3ced956b288e62ece8e799c67ff9d0d88727cd4f6b0307a4c05"
+              "url": "https://homebrew.bintray.com/bottles/typescript-4.1.2.big_sur.bottle.tar.gz",
+              "sha256": "20f1399128b4adae3e5669fcb6e2277bfc57ebfb7c3d473d3a959c7854c36340"
             },
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/typescript-4.0.5.catalina.bottle.tar.gz",
-              "sha256": "056891ea503aebf06fdf9c54c1f6de5c58153b734155818e3718ecf9019e1cdf"
+              "url": "https://homebrew.bintray.com/bottles/typescript-4.1.2.catalina.bottle.tar.gz",
+              "sha256": "1bc80fae04f79b881f702adcff4060385a8b0bd371f9b1d8268495af3e18d6bd"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/typescript-4.0.5.mojave.bottle.tar.gz",
-              "sha256": "753648f277368246cff33aff097f300fbe34c366f650aa3fa7f1359c19e5bb9d"
-            },
-            "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/typescript-4.0.5.high_sierra.bottle.tar.gz",
-              "sha256": "438d7476dcf8bbf3a754f4d29c06bf7acdeb2abe1e5f89d768a54b0e6b9f3aca"
+              "url": "https://homebrew.bintray.com/bottles/typescript-4.1.2.mojave.bottle.tar.gz",
+              "sha256": "7dd583bd444d85d622658af9e61b891fffe365b7ef72bf1fde3e12f30d22dbaa"
             }
           }
         }
@@ -2732,6 +2728,10 @@
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/protoc-gen-go-grpc-1.0.1.big_sur.bottle.tar.gz",
+              "sha256": "a49ad186b4d971288ad11c045dd3529db878ae5ae1bc61f5efd08aee3a2c557c"
+            },
             "catalina": {
               "url": "https://homebrew.bintray.com/bottles/protoc-gen-go-grpc-1.0.1.catalina.bottle.tar.gz",
               "sha256": "012050e0d3a47290a2f8b55a8ec0c94898323d387a131b4021256f546d8e287a"
@@ -2753,6 +2753,10 @@
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/clang-format-11.0.0.big_sur.bottle.tar.gz",
+              "sha256": "078658e8e606dc1ce2dd6d1c2912a081203f92cebef2c6e5f82947aa2e48dad6"
+            },
             "catalina": {
               "url": "https://homebrew.bintray.com/bottles/clang-format-11.0.0.catalina.bottle.tar.gz",
               "sha256": "4ea52df9cb0e800e8fe2f7a62b4c8b7424ae2d9eba162db16567c9488d6f0f38"
@@ -2781,9 +2785,9 @@
         "macOS": "10.15.7"
       },
       "big_sur": {
-        "HOMEBREW_VERSION": "2.5.11-60-g181baaa",
+        "HOMEBREW_VERSION": "2.5.11-90-g5760415",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "eaadf0989e0c47bd56a6ed720b0d7318d931555b",
+        "Homebrew/homebrew-core": "2daa5a7fc65c15eb013739259b748086091be966",
         "CLT": "",
         "Xcode": "12.2",
         "macOS": "11.0.1"
