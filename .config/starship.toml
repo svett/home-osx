@@ -1,3 +1,9 @@
+[time]
+disabled = false
+
+format = "\uf64f[ $time ]($style)"
+time_format = "%r"
+
 [jobs]
 symbol = "\uf53e"
 threshold = 4
@@ -31,6 +37,9 @@ disabled = false
 "k8s-256675650074-us-west-2-20191225.hippo-stage.tools" = "hippo-stage.tools"
 "k8s-379103739298-us-east-1-20191225.hippo.tools" = "hippo.tools"
 "k8s-768100956458-us-east-2-20200109.hippo.partners" = "hippo.partners"
+
+[git_commit]
+tag_disabled = false
 
 [git_status]
 conflicted = "🏳"
