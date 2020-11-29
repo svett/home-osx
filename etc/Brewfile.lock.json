@@ -5,13 +5,13 @@
         "revision": "34fc07814a968a4a887ea6ec1a77f4f3df2b7bc6"
       },
       "homebrew/cask-versions": {
-        "revision": "2df1371796882efa6c5a07588668d457597bbd7c"
+        "revision": "bc73808a050212dcbd3d5bde70b85a0c2b9f6434"
       },
       "homebrew/bundle": {
         "revision": "2e2df66e2d55c9ab6606e5a406e5b29f085a4d1b"
       },
       "homebrew/core": {
-        "revision": "4b21275109c495fd86532a556fd370e5f8c603c2"
+        "revision": "5f10b9c81d157d4a9215707a557b68384e241147"
       },
       "homebrew/services": {
         "revision": "6e2d98b9712c1b51e598842555980b0a5c171dcf"
@@ -46,7 +46,7 @@
     },
     "cask": {
       "unity": {
-        "version": "2020.1.14f1,d81f64f5201d",
+        "version": "2020.1.15f1,97d0ae02d19d",
         "options": {
           "full_name": "unity"
         }
@@ -2751,7 +2751,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "2.5.12-275-gef75518",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "4b21275109c495fd86532a556fd370e5f8c603c2",
+        "Homebrew/homebrew-core": "5f10b9c81d157d4a9215707a557b68384e241147",
         "CLT": "",
         "Xcode": "12.2",
         "macOS": "11.0.1"
