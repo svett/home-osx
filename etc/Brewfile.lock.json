@@ -5,13 +5,13 @@
         "revision": "78e4a9dbb464ae80e52587f11294446724ffbfd4"
       },
       "homebrew/cask-versions": {
-        "revision": "5a38fb5f7770252047f6e939684244f62297e297"
+        "revision": "3eefd604a5b5cd426840391fb440cf1a7ba6274a"
       },
       "homebrew/bundle": {
-        "revision": "a374cc7c02e71cbb78b50510587f7163eeaefdc1"
+        "revision": "d24dd5bf6873115f5797419614e45756e1a42d03"
       },
       "homebrew/core": {
-        "revision": "84c6c43b31ece5cc412db7092a2331d9a843d753"
+        "revision": "bda4b433e7b0002d548bda5f09a1b68fc2b2b2f3"
       },
       "homebrew/services": {
         "revision": "ed06fbeb84cdb7023b49f4f25290a5dd28439167"
@@ -1553,26 +1553,22 @@
         }
       },
       "youtube-dl": {
-        "version": "2020.12.14",
+        "version": "2020.12.22",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/youtube-dl-2020.12.14.big_sur.bottle.tar.gz",
-              "sha256": "5f2a2e7aa3c19963af8dc2339dab662a19c8d94f2a83450f18cc78e2ee0cb516"
-            },
-            "arm64_big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/youtube-dl-2020.12.14.arm64_big_sur.bottle.tar.gz",
-              "sha256": "a8a2e02547f44713ebbec734a7311cf4687ff84a5d93744d14f4fdd5360a7154"
+              "url": "https://homebrew.bintray.com/bottles/youtube-dl-2020.12.22.big_sur.bottle.tar.gz",
+              "sha256": "17a5a938dec6d6f719e76ba3e4e060a7182a34e83269ded02ea46780ffb6882a"
             },
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/youtube-dl-2020.12.14.catalina.bottle.tar.gz",
-              "sha256": "ab8a02e2db35d53df6361de57520aa463b55563fe990f0c59e477d1e4e539ec2"
+              "url": "https://homebrew.bintray.com/bottles/youtube-dl-2020.12.22.catalina.bottle.tar.gz",
+              "sha256": "5734e0e1f5e43cc7db9cf63f7d079a2212e024ed4652cc3ca89d8a2abeaa7fe5"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/youtube-dl-2020.12.14.mojave.bottle.tar.gz",
-              "sha256": "55dc22a1db012a2e89fe4e82e3edfebda0693fc31cd1dc3f7891283bd74e678a"
+              "url": "https://homebrew.bintray.com/bottles/youtube-dl-2020.12.22.mojave.bottle.tar.gz",
+              "sha256": "f6f15c2acba96cba668a737c4b2a7bc770ed767a516059f1376f64e26d0b4d08"
             }
           }
         }
@@ -2700,9 +2696,9 @@
         "macOS": "10.15.7"
       },
       "big_sur": {
-        "HOMEBREW_VERSION": "2.7.0-2-g6994633",
+        "HOMEBREW_VERSION": "2.7.0-17-gb0dd137",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "84c6c43b31ece5cc412db7092a2331d9a843d753",
+        "Homebrew/homebrew-core": "bda4b433e7b0002d548bda5f09a1b68fc2b2b2f3",
         "CLT": "",
         "Xcode": "12.3",
         "macOS": "11.1"
