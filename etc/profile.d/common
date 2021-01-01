@@ -12,6 +12,7 @@ alias ls='gls --color=auto'
 alias ll='ls -al'
 alias docker-env='eval "$(docker-machine env)"'
 alias sed="LC_ALL=C sed"
+alias vim="nvim"
 
 GIT_EDITOR="nvim"
 BASH_COMPLETION="/usr/local/etc/bash_completion"
