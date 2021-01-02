@@ -5,13 +5,13 @@
         "revision": "1f47378ea2ed3100a8807a377271b8ce81cd4fb4"
       },
       "homebrew/cask-versions": {
-        "revision": "1c47483ce0335b3f9427cd33c4a1025beb6cc75c"
+        "revision": "5938b4d2eb51ee397753c863322879eceb2965cd"
       },
       "homebrew/bundle": {
         "revision": "573e7d8965fc1557d0774497cf5c0180e6ff3f98"
       },
       "homebrew/core": {
-        "revision": "306994ce6a32a17cd32f32b7b3d52b925472e055"
+        "revision": "0e91ee3f4965b6848b3bd75b3342b365038b85c5"
       },
       "homebrew/services": {
         "revision": "3b3a81e5617eef07ed38bf9e12d5ea9fea915f37"
@@ -1803,30 +1803,26 @@
         }
       },
       "atomicparsley": {
-        "version": "20200701.154658.b0d6223",
+        "version": "20201231.092811.cbecfb1",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20200701.154658.b0d6223.big_sur.bottle.tar.gz",
-              "sha256": "e79d2e76d6fd57bb96cbc879e9760d556284c7c61ecd345edeed73442cbce203"
+              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20201231.092811.cbecfb1.big_sur.bottle.tar.gz",
+              "sha256": "10ed6bfad101b5e57fd8d44e9485033308b56d09b4cc08bcd02d9b0eb45c7595"
             },
             "arm64_big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20200701.154658.b0d6223.arm64_big_sur.bottle.tar.gz",
-              "sha256": "fef552dd4f9361c20281cc87de2c69aa7cd54a9a0fe07de15c17d9c987acc3ec"
+              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20201231.092811.cbecfb1.arm64_big_sur.bottle.tar.gz",
+              "sha256": "5b27fb350ad43a09587dd8fb606b70b5c839c6b9a4079e054def9ffa58c3f69c"
             },
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20200701.154658.b0d6223.catalina.bottle.tar.gz",
-              "sha256": "6bc22e04f5d2863e73010606d823eb0768d637165d190d3889db3780bbbb724c"
+              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20201231.092811.cbecfb1.catalina.bottle.tar.gz",
+              "sha256": "164a92e2a72ac3f1e3a47edaad51114d83582019722d8688299684381299f5eb"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20200701.154658.b0d6223.mojave.bottle.tar.gz",
-              "sha256": "204e206047f48cdffef4fa91f81dbce6db370f002dd883000798d91f2916c391"
-            },
-            "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20200701.154658.b0d6223.high_sierra.bottle.tar.gz",
-              "sha256": "ce2509fe2cc72c18b6b82c9df5e802e2503f61ebf841833618a974ac21fc92c3"
+              "url": "https://homebrew.bintray.com/bottles/atomicparsley-20201231.092811.cbecfb1.mojave.bottle.tar.gz",
+              "sha256": "04cdcb145d63be082b604db3b79284987c6fdc042b7b5451fd28b21789c015b4"
             }
           }
         }
@@ -2878,6 +2874,35 @@
             }
           }
         }
+      },
+      "ripgrep": {
+        "version": "12.1.1",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/ripgrep-12.1.1.big_sur.bottle.tar.gz",
+              "sha256": "0ca7397f9a0ccef6cbb8ff0fd8fb18c6fe86219abaef350e3d7ef248d07440fd"
+            },
+            "arm64_big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/ripgrep-12.1.1.arm64_big_sur.bottle.tar.gz",
+              "sha256": "e0147ba489a8d96e33fc8be7e2172c632075d5d31a4f6267c3606e463280e0e3"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/ripgrep-12.1.1.catalina.bottle.tar.gz",
+              "sha256": "60460d422253113af3ed60332104f309638942821c655332211a6bc2213c472c"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/ripgrep-12.1.1.mojave.bottle.tar.gz",
+              "sha256": "de4b18789f5d9bc4aaa4d906501200ae4ece7a1971dd1b86e2b2d0a2c8e0d764"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/ripgrep-12.1.1.high_sierra.bottle.tar.gz",
+              "sha256": "cfea5335bf4eccfb7cd1d93bec234d96bd49dce8d593ea966687f777909ba291"
+            }
+          }
+        }
       }
     }
   },
@@ -2894,7 +2919,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "2.7.1-111-ge5eb6a2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "306994ce6a32a17cd32f32b7b3d52b925472e055",
+        "Homebrew/homebrew-core": "0e91ee3f4965b6848b3bd75b3342b365038b85c5",
         "CLT": "",
         "Xcode": "12.3",
         "macOS": "11.1"
