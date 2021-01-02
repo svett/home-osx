@@ -3,6 +3,7 @@
 export GIT_EDITOR
 export BASH_COMPLETION
 export FZF_TMUX=1
+export LPASS_DISABLE_PINENTRY=1
 eval "$(gdircolors ~/.dircolors)"
 
 # Aliases
@@ -12,10 +13,11 @@ alias ls='gls --color=auto'
 alias ll='ls -al'
 alias docker-env='eval "$(docker-machine env)"'
 alias sed="LC_ALL=C sed"
-# alias vim="nvim"
+alias vim="nvim"
 
 GIT_EDITOR="nvim"
 BASH_COMPLETION="/usr/local/etc/bash_completion"
+
 
 if [ -f $BASH_COMPLETION ]; then
   # shellcheck disable=SC1091
