@@ -1,4 +1,4 @@
-# vim:ft=tmux 
+# vim:ft=tmux
 
 set-option -g visual-activity off
 set-option -g visual-bell off
