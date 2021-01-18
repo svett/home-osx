@@ -33,7 +33,8 @@ style = "blue"
 disabled = false
 
 [kubernetes.context_aliases]
-"k8s-655141976367-us-east-1-20191224.hippo-dev.tools" = "hippo-dev.tools"
+"arn:aws:eks:us-east-1:655141976367:cluster/20210106-1-18" = "hippo-dev.tools"
+"k8s-655141976367-us-east-1-20191224.hippo-dev.tools" = "hippo-dev.tools.old"
 "k8s-256675650074-us-west-2-20191225.hippo-stage.tools" = "hippo-stage.tools"
 "k8s-379103739298-us-east-1-20191225.hippo.tools" = "hippo.tools"
 "k8s-768100956458-us-east-2-20200109.hippo.partners" = "hippo.partners"
